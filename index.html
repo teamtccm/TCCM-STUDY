@@ -1585,8 +1585,8 @@
     </video>
     <video class="bg-video" id="defaultBgVideo" autoplay muted loop playsinline style="display:none;"><source src="images/mode_quockhanh/bg-video.mp4?v=5" type="video/mp4"></video>
     
-    <img class="bg-video" id="mainBgImg" src="images/bg-school-cbq.jpg" alt="THPT Cao Bá Quát Background" style="display:block;object-fit:cover;width:100%;height:100%;position:fixed;inset:0;z-index:0;">
-    <img class="bg-video" id="soloBgImg" src="images/bg-school-cbq.jpg" alt="THPT Cao Bá Quát Background" style="display:none;object-fit:cover;width:100%;height:100%;position:fixed;inset:0;z-index:0;">
+    <img class="bg-video" id="mainBgImg" src="images/dhhp_stage_bg.jpg" alt="Đại học Hải Phòng Background" style="display:block;object-fit:cover;width:100%;height:100%;position:fixed;inset:0;z-index:0;">
+    <img class="bg-video" id="soloBgImg" src="images/dhhp_stage_bg.jpg" alt="Đại học Hải Phòng Background" style="display:none;object-fit:cover;width:100%;height:100%;position:fixed;inset:0;z-index:0;">
     <div class="overlay" id="mainOverlay"></div>
     <div class="scanlines"></div>
     
@@ -1620,11 +1620,10 @@
 
     <!-- MÀN 1: MAIN MENU (HỖ TRỢ THPT CAO BÁ QUÁT & QUỐC KHÁNH 2/9) -->
     <div class="screen hidden" id="menuScreen" style="display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:100px;">
-        <!-- BLOCK 1: THPT CAO BÁ QUÁT · ĐẲNG CẤP THUYẾT TRÌNH (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
+        <!-- BLOCK 1: ĐH HẢI PHÒNG · ĐẲNG CẤP THUYẾT TRÌNH -->
         <div class="w-full max-w-sm sm:max-w-md px-4 mx-auto text-center" id="menuContentDhhp" style="display:flex;flex-direction:column;align-items:center;">
-            <!-- Subtitles removed -->
-
-            <!-- TIÊU ĐỀ NỔI BẬT: ĐẲNG CẤP THUYẾT TRÌNH -->
+            <!-- TIÊU ĐỀ NỔI BẬT: ĐH HẢI PHÒNG · ĐẲNG CẤP THUYẾT TRÌNH -->
+            <div class="text-xs font-black tracking-widest text-amber-300 uppercase mb-1 drop-shadow-md">TRƯỜNG ĐẠI HỌC HẢI PHÒNG</div>
             <h1 class="text-2xl sm:text-3xl font-black uppercase tracking-wider leading-tight mb-5" style="color: #fbbf24; text-shadow: 0 0 20px rgba(245,158,11,0.7), 0 2px 8px rgba(0,0,0,0.9); white-space:nowrap;">
                 ĐẲNG CẤP THUYẾT TRÌNH
             </h1>
@@ -1885,8 +1884,8 @@
             <!-- CHẾ ĐỘ 2: THPT CAO BÁ QUÁT (ĐẲNG CẤP THUYẾT TRÌNH & SỰ KIỆN TỰ ĐỘNG) -->
             <div class="mode-card" id="modeCardMitchum" onclick="selectGameMode('mitchum')" style="border:2px solid #00D7FF;background:rgba(0,25,50,0.85);box-shadow:0 0 25px rgba(0,215,255,0.35);">
                 <div class="mode-info">
-                    <div class="mode-name" style="color:#00D7FF;text-shadow:0 0 10px #00D7FF;">🏛️ ĐẲNG CẤP THUYẾT TRÌNH · CỔNG TRƯỜNG ĐHHP</div>
-                    <div class="mode-desc" style="color:#A0E8FF;">Chiếu slide Media đối đầu Boss · Tự động đổi sang Quốc Khánh 2/9 khi đến ngày hoặc các sự kiện trường</div>
+                    <div class="mode-name" style="color:#00D7FF;text-shadow:0 0 10px #00D7FF;">🏛️ ĐẲNG CẤP THUYẾT TRÌNH · CỔNG TRƯỜNG ĐH HẢI PHÒNG</div>
+                    <div class="mode-desc" style="color:#A0E8FF;">Chiếu slide Công điện & Thuyết trình đối đầu Boss · Background video Cổng trường ĐH Hải Phòng</div>
                     
                     <!-- LỰA CHỌN SỰ KIỆN GIAO DIỆN -->
                     <div class="mt-3 pt-2.5 border-t border-cyan-500/20 flex flex-wrap items-center gap-2" onclick="event.stopPropagation()">
@@ -1895,7 +1894,7 @@
                             TỰ ĐỘNG THEO NGÀY
                         </button>
                         <button onclick="setManualEventTheme('dhhp')" class="px-2.5 py-1 rounded-lg bg-blue-900/60 hover:bg-blue-800 text-blue-200 text-[10px] font-bold border border-blue-400/40">
-                            CỔNG THPT CAO BÁ QUÁT
+                            CỔNG TRƯỜNG ĐHHP
                         </button>
                         <button onclick="setManualEventTheme('quockhanh')" class="px-2.5 py-1 rounded-lg bg-amber-900/60 hover:bg-amber-800 text-amber-200 text-[10px] font-bold border border-amber-400/40">
                             QUỐC KHÁNH 2/9
@@ -2054,6 +2053,22 @@
                                     <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">3D Instant</span>
                                 </div>
                                 <div class="dash-desc text-white/85">231 bài • Chiêm nghiệm, Tình yêu, SFX & Meme 3D</div>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </button>
+                    <!-- Giải Bài & Viết Tay Vở Thật NEU -->
+                    <button onclick="switchView('viewNeuHandwritten')" class="col-span-2 dash-card bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-700 shadow-xl shadow-indigo-300/40 flex items-center justify-between !p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20"><i class="fa-solid fa-pen-nib text-xl text-yellow-300"></i></div>
+                            <div>
+                                <div class="dash-title text-base flex items-center gap-2">
+                                    Giải Bài & Viết Tay Vở Thật
+                                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-400 text-gray-950 uppercase tracking-wide">Chuẩn NEU</span>
+                                </div>
+                                <div class="dash-desc text-white/85">Bài 1 & 2 Quản trị nhân lực • Bám dòng kẻ • Chữ thật mờ nhẹ camera</div>
                             </div>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base">
@@ -2564,6 +2579,87 @@
                     <div id="sbGridContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 pt-2 pb-16">
                         <!-- Rendered by js/soundboard.js -->
                     </div>
+                </div>
+            </section>
+
+            <!-- VIEW: GIẢI BÀI & VIẾT TAY VỞ THẬT NEU -->
+            <section id="viewNeuHandwritten" class="view-section">
+                <!-- Header -->
+                <div class="section-header-bar">
+                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <div class="text-center flex-1 px-3">
+                        <h2 class="view-page-title flex items-center justify-center gap-2">
+                            <span>Giải Bài & Viết Tay Vở Thật</span>
+                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-indigo-600 text-white uppercase tracking-wider">NEU Academic</span>
+                        </h2>
+                        <p class="view-page-subtitle">Quản trị nhân lực • Bám dòng kẻ in • Hiệu ứng chụp camera thật</p>
+                    </div>
+                    <button onclick="openNeuLightbox(0)" class="w-10 h-10 rounded-2xl bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-600 flex items-center justify-center transition cursor-pointer" title="Xem toàn màn hình">
+                        <i class="fa-solid fa-expand text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- Banner Giới Thiệu & Thông Tin Thư Mục Tool -->
+                <div class="mb-5 p-5 rounded-3xl bg-gradient-to-r from-violet-700 via-indigo-700 to-blue-800 text-white shadow-xl shadow-indigo-300/40 relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl text-yellow-300 shadow-inner shrink-0">
+                                <i class="fa-solid fa-book-open-reader"></i>
+                            </div>
+                            <div>
+                                <div class="text-base font-black flex items-center gap-2">
+                                    Thư mục Tool & Bộ Skill NEU
+                                    <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-400 text-gray-950 font-black">SẴN SÀNG</span>
+                                </div>
+                                <div class="text-xs text-indigo-100 mt-1 max-w-xl">
+                                    Toàn bộ 4 ảnh bài giải (mờ camera + HD gốc), mẫu vở trắng, đề bài gốc & script tự động làm mờ đã được lưu trữ trong:
+                                    <code class="px-2 py-0.5 rounded bg-black/30 font-mono text-[11px] text-amber-300 block sm:inline mt-1 sm:mt-0">Web/Công Việc Hằng Ngày/Tool Giải Bài & Viết Tay Vở Thật/</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 self-end md:self-auto shrink-0">
+                            <a href="images/bai_giai_neu/01_Bai_1_Trang_1.jpg" download="01_Bai_1_Trang_1.jpg" class="px-3.5 py-2 rounded-xl bg-white text-indigo-950 font-black text-xs hover:bg-indigo-50 transition shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> Tải Bài 1
+                            </a>
+                            <a href="images/bai_giai_neu/03_Bai_2_Trang_1.jpg" download="03_Bai_2_Trang_1.jpg" class="px-3.5 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white font-black text-xs transition backdrop-blur-sm flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> Tải Bài 2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THANH ĐIỀU HƯỚNG TABS & BỘ CHỌN CHẾ ĐỘ NÉT / MỜ -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
+                    <!-- Tabs lọc theo bài -->
+                    <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+                        <button id="neuTabBtn_all" onclick="setNeuTab('all')" class="px-4 py-2 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-md shadow-indigo-300 whitespace-nowrap">
+                            <i class="fa-solid fa-layer-group mr-1"></i> Tất cả (4 trang)
+                        </button>
+                        <button id="neuTabBtn_bai1" onclick="setNeuTab('bai1')" class="px-4 py-2 rounded-xl font-bold text-xs transition bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">
+                            <i class="fa-solid fa-chart-pie mr-1"></i> Bài 1 (2 trang)
+                        </button>
+                        <button id="neuTabBtn_bai2" onclick="setNeuTab('bai2')" class="px-4 py-2 rounded-xl font-bold text-xs transition bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">
+                            <i class="fa-solid fa-sitemap mr-1"></i> Bài 2 (2 trang)
+                        </button>
+                    </div>
+
+                    <!-- Chuyển đổi Mờ camera / Nét gốc HD -->
+                    <div class="flex items-center gap-2 p-1 bg-gray-100 rounded-xl border border-gray-200/80 w-full sm:w-auto justify-center">
+                        <span class="text-[11px] font-bold text-gray-500 pl-2 hidden sm:inline">Chế độ ảnh:</span>
+                        <button id="neuModeBtn_blurred" onclick="setNeuMode('blurred')" class="px-3 py-1.5 rounded-lg text-xs font-black bg-white text-indigo-700 shadow-sm flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-camera"></i> Mờ camera thật
+                        </button>
+                        <button id="neuModeBtn_sharp" onclick="setNeuMode('sharp')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-500 hover:text-gray-900 flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-sparkles"></i> Bản gốc nét HD
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTAINER CHỨA CÁC CARD TRANG BÀI GIẢI -->
+                <div id="neuCardsContainer" class="space-y-6 pb-24">
+                    <!-- Rendered by js/neu_handwritten.js -->
                 </div>
             </section>
         
@@ -4691,6 +4787,16 @@
         };
 
         const slideRepository = {
+            congdien: {
+                id: 'congdien',
+                name: 'VĂN BẢN CÔNG ĐIỆN',
+                subject: 'QUẢN TRỊ VĂN THƯ',
+                desc: 'Quy cách soạn thảo & Lý giải 3 câu hỏi theo Nghị định 30/2020',
+                count: 11,
+                prefix: 'images/mode_thuyettrinh/congdien_slides/slide_',
+                suffix: '.png',
+                recommendedBoss: 'cophuong'
+            },
             hoahoc: {
                 id: 'hoahoc',
                 name: 'DỤNG CỤ THÍ NGHIỆM',
@@ -4752,8 +4858,8 @@
             }
         };
 
-        let selectedPresentationBoss = 'covan';
-        let currentSelectedDeckId = 'hoahoc';
+        let selectedPresentationBoss = 'cophuong';
+        let currentSelectedDeckId = 'congdien';
         let customUploadedSlides = [];
 
         function openBossSelectModal(){
@@ -4772,7 +4878,7 @@
             } else if(bossKey === 'media'){
                 currentSelectedDeckId = 'cocoon';
             } else if(bossKey === 'cophuong'){
-                currentSelectedDeckId = 'bitis';
+                currentSelectedDeckId = 'congdien';
             }
             updateBossModalUI();
         }
@@ -4834,7 +4940,7 @@
             });
 
             // Highlight Slide Deck card
-            ['cocoon', 'dmx', 'pushpull', 'bitis', 'custom'].forEach(d => {
+            ['congdien', 'hoahoc', 'cocoon', 'dmx', 'pushpull', 'bitis', 'custom'].forEach(d => {
                 const card = document.getElementById(`deckCard_${d}`);
                 if(card) card.classList.toggle('selected', d === currentSelectedDeckId);
             });
@@ -5008,8 +5114,10 @@
 
             if(mode === 'thuquy'){
                 if(mitchumBg) {
-                    mitchumBg.style.display = 'none'; var mbi=document.getElementById('mainBgImg'); if(mbi) mbi.style.display='block';
-                    
+                    mitchumBg.pause();
+                    mitchumBg.style.display = 'none';
+                    var mbi = document.getElementById('mainBgImg');
+                    if(mbi) { mbi.src = 'images/dhhp_stage_bg.jpg'; mbi.style.display = 'block'; }
                 }
                 if(defBg) { defBg.style.display = 'none'; defBg.pause(); }
                 if(soloBg) soloBg.style.display = 'none';
@@ -5050,23 +5158,24 @@
                 });
             } else if(mode === 'mitchum' || mode === 'default'){
                 activeGameMode = 'mitchum';
-                if(typeof getAutoEventTheme === 'function' && typeof applyEventTheme === 'function') {
-                    applyEventTheme(getAutoEventTheme());
-                } else {
-                    if(mitchumBg) {
-                        mitchumBg.style.display = 'none'; var mbi=document.getElementById('mainBgImg'); if(mbi) mbi.style.display='block';
-                        
-                    }
-                    if(defBg) { defBg.style.display = 'none'; defBg.pause(); }
-                    if(soloBg) soloBg.style.display = 'none';
-                    if(menuDhhp) menuDhhp.style.display = 'flex';
-                    if(menuQk) menuQk.style.display = 'none';
+                if(mitchumBg) {
+                    mitchumBg.style.display = 'block';
+                    mitchumBg.play().catch(()=>{});
                 }
+                var mbi = document.getElementById('mainBgImg');
+                if(mbi) {
+                    mbi.src = 'images/dhhp_stage_bg.jpg';
+                    mbi.style.display = 'none';
+                }
+                if(defBg) { defBg.style.display = 'none'; defBg.pause(); }
+                if(soloBg) soloBg.style.display = 'none';
+                if(menuDhhp) menuDhhp.style.display = 'flex';
+                if(menuQk) menuQk.style.display = 'none';
                 if(scanlines) scanlines.style.display = 'block';
                 pixelateTransition(()=>{
                     showScreen('menu');
                     selMenu(0);
-                    showNotify('🏛️ Đã chuyển sang Cổng trường THPT Cao Bá Quát · Đẳng Cấp Thuyết Trình!');
+                    showNotify('🏛️ Đã chuyển sang Cổng trường ĐH Hải Phòng · Đẳng Cấp Thuyết Trình!');
                 });
             } else if(mode === 'gamehub'){
                 activeGameMode = 'gamehub';
@@ -5715,7 +5824,7 @@
             },
             {
                 id: 'dhhp',
-                name: 'CỔNG TRƯỜNG THPT CAO BÁ QUÁT',
+                name: 'CỔNG TRƯỜNG ĐẠI HỌC HẢI PHÒNG',
                 desc: 'Đại chiến trên đoạn đường bê tông trước cổng trường ĐHHP',
                 img: 'images/dhhp_stage_bg.jpg',
                 bottomY: 105,
@@ -7068,6 +7177,8 @@
     <!-- Kho Soundboard & Nhạc Nền Myinstants 3D -->
     <script src="js/soundboard_data.js?v=1.0"></script>
     <script src="js/soundboard.js?v=1.0"></script>
+    <!-- Tool Giải Bài & Viết Tay Vở Thật NEU -->
+    <script src="js/neu_handwritten.js?v=1.0"></script>
 
 
     <!-- MODAL LỰA CHỌN CHẾ ĐỘ ĐẤU (BOT VÀ GHÉP TRẬN ONLINE) -->
@@ -7168,8 +7279,24 @@
             </div>
 
             <div style="display:flex;gap:12px;justify-content:center;align-items:stretch;margin-bottom:18px;flex-wrap:wrap;">
+                <!-- DECK 0: VĂN BẢN CÔNG ĐIỆN - NHÓM 4 -->
+                <div class="slide-deck-card selected" id="deckCard_congdien" onclick="chooseSlideDeck('congdien')">
+                    <div class="slide-deck-thumb">
+                        <img src="images/mode_thuyettrinh/congdien_slides/slide_1.png" alt="Công Điện Nhóm 4 Slides">
+                    </div>
+                    <div style="background:rgba(220,38,38,0.18);color:#EF4444;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;margin-bottom:4px;border:1px solid rgba(220,38,38,0.4);letter-spacing:0.5px;">
+                        11 SLIDE · NHÓM 4 · NĐ 30/2020
+                    </div>
+                    <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:900;color:#FFF;margin-bottom:2px;line-height:1.25;">
+                        VĂN BẢN CÔNG ĐIỆN
+                    </div>
+                    <div style="font-size:9px;color:#88AACC;line-height:1.3;">
+                        Quy cách soạn thảo & Lý giải thể thức 3 câu hỏi
+                    </div>
+                </div>
+
                 <!-- DECK: HOÁ HỌC - DỤNG CỤ THÍ NGHIỆM -->
-                <div class="slide-deck-card selected" id="deckCard_hoahoc" onclick="chooseSlideDeck('hoahoc')">
+                <div class="slide-deck-card" id="deckCard_hoahoc" onclick="chooseSlideDeck('hoahoc')">
                     <div class="slide-deck-thumb">
                         <img src="images/mode_thuyettrinh/hoahoc_slides/slide_1.png" alt="Hoá Học Slides">
                     </div>
@@ -7257,6 +7384,45 @@
                 <span>🚀 BẮT ĐẦU VÀO PHẢN BIỆN & CHIẾU SLIDE</span>
                 <span style="font-size:17px;">▶</span>
             </button>
+        </div>
+    </div>
+
+    <!-- NEU HANDWRITTEN LIGHTBOX MODAL -->
+    <div id="neuLightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between hidden transition-all duration-300">
+        <!-- Lightbox Header -->
+        <div class="flex items-center justify-between p-4 px-6 border-b border-white/10 text-white z-10">
+            <div>
+                <div id="neuLightboxTitle" class="text-sm sm:text-base font-black tracking-tight">Bài giải viết tay NEU</div>
+                <div id="neuLightboxSubtitle" class="text-xs text-gray-400 font-medium">Bám sát dòng kẻ vở thật</div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span id="neuLightboxCounter" class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white/10 text-indigo-300">Trang 1 / 4</span>
+                <button onclick="toggleNeuLightboxMode()" id="neuLightboxModeBadge" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-camera mr-1"></i> Mờ Camera
+                </button>
+                <a id="neuLightboxDownloadBtn" href="#" download class="w-9 h-9 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition" title="Tải ảnh">
+                    <i class="fa-solid fa-download text-sm"></i>
+                </a>
+                <button onclick="closeNeuLightbox()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-rose-600 text-white flex items-center justify-center transition cursor-pointer" title="Đóng">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Lightbox Body with Image -->
+        <div class="relative flex-1 flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
+            <button onclick="prevNeuLightbox()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition backdrop-blur-md cursor-pointer z-10 shadow-lg" title="Trang trước">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+            <img id="neuLightboxImg" src="" alt="Bài giải phóng to" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl transition-transform duration-200">
+            <button onclick="nextNeuLightbox()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition backdrop-blur-md cursor-pointer z-10 shadow-lg" title="Trang tiếp">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Lightbox Footer -->
+        <div class="p-3 text-center text-xs text-white/50 border-t border-white/10">
+            Sử dụng phím <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">←</kbd> <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">→</kbd> để chuyển trang, <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">ESC</kbd> để đóng
         </div>
     </div>
 
