@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Tra Cứu 16 Style Text 3D & Kho 21 Sound Effect CapCut</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #1e293b;
+      --border-color: #334155;
+      --accent: #0ea5e9;
+      --accent-hover: #38bdf8;
+      --accent-glow: rgba(14, 165, 233, 0.25);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 36px 24px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      background: #334155;
+      color: var(--text-main);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+      background: var(--bg-secondary);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 14px 10px 36px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: #0f172a;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pill:hover, .pill.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Style Grid */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .style-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .style-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+      border-color: var(--accent);
+    }
+    .card-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: #020617;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .style-card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
+    .badge-preset {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(8px);
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+    .card-header-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .codename {
+      font-size: 16px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: -0.3px;
+    }
+    .group-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      background: #334155;
+      color: #f1f5f9;
+    }
+    .style-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .sound-row {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .sound-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2dd4bf;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .play-btn {
+      background: #0284c7;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .play-btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.05);
+    }
+    .play-btn.playing {
+      background: #ef4444;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .example-box {
+      background: rgba(30, 41, 59, 0.6);
+      border-left: 3px solid #6366f1;
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 11px;
+      color: #cbd5e1;
+      font-style: italic;
+    }
+
+    /* SFX Table */
+    .sfx-table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    th {
+      background: #0f172a;
+      color: #94a3b8;
+      font-weight: 700;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #334155;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #1e293b80; }
+    .badge-gain {
+      background: #451a03;
+      color: #f59e0b;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #78350f;
+    }
+
+    /* SOP Cards */
+    .sop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .sop-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .sop-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sop-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sop-list li {
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .sop-list li span.bullet {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    /* Global Player Floating Bar */
+    .now-playing-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      border-radius: 40px;
+      display: none;
+      align-items: center;
+      gap: 16px;
+      z-index: 1000;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translate(-50%, 40px); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+    .now-playing-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .wave-anim {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      height: 16px;
+    }
+    .wave-bar {
+      width: 3px;
+      height: 100%;
+      background: #38bdf8;
+      border-radius: 2px;
+      animation: wave 1s infinite ease-in-out;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.6s; }
+    @keyframes wave {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>⚡ BẢNG TRA CỨU 16 STYLE TEXT 3D & KHO 21 SOUND EFFECT CAPCUT</h1>
+    <p>Bộ công cụ trực quan tích hợp nút nghe thử âm thanh trực tiếp | Tra cứu mã lệnh để chèn tự động vào video</p>
+  </header>
+
+  <div class="container">
+    <!-- Tab Navigation -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('tab-styles')">
+        🎬 16 Style Text 3D & Sound Effect
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-sfx')">
+        🎵 Trọn Bộ 21 Sound Effect Tuyển Chọn
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-sop')">
+        📖 Quy Trình Dựng Video & Chuẩn Âm Lượng (SOP)
+      </button>
+    </div>
+
+    <!-- TAB 1: 16 STYLES -->
+    <div id="tab-styles" class="tab-content active">
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="styleSearch" placeholder="Tìm theo mã lệnh, tên style, nội dung..." onkeyup="filterStyles()">
+        </div>
+        <div class="filter-pills">
+          <button class="pill active" onclick="filterByGroup('all', this)">Tất cả (16)</button>
+          <button class="pill" onclick="filterByGroup('drama', this)">🚨 Drama / Bóc phốt</button>
+          <button class="pill" onclick="filterByGroup('finance', this)">💰 Tài chính / Tiền tỷ</button>
+          <button class="pill" onclick="filterByGroup('travel', this)">🌴 Du lịch / Nghỉ dưỡng</button>
+          <button class="pill" onclick="filterByGroup('cta', this)">🛒 Bán hàng / CTA</button>
+          <button class="pill" onclick="filterByGroup('tech', this)">🚀 Công nghệ / Hạ tầng</button>
+        </div>
+      </div>
+
+      <!-- Styles Grid -->
+      <div class="style-grid" id="styleGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- TAB 2: 21 SFX LIBRARY -->
+    <div id="tab-sfx" class="tab-content">
+      <div class="filter-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="sfxSearch" placeholder="Tìm theo tên sound effect, đặc trưng, công dụng..." onkeyup="filterSFX()">
+        </div>
+        <div class="filter-pills">
+          <button class="pill active" onclick="filterSFXCategory('all', this)">Tất cả (21)</button>
+          <button class="pill" onclick="filterSFXCategory('whoosh', this)">💨 Whoosh Chuyển Cảnh (6)</button>
+          <button class="pill" onclick="filterSFXCategory('hit', this)">💥 Hit Điểm Nhấn (5)</button>
+          <button class="pill" onclick="filterSFXCategory('click', this)">🖱️ Click Hành Động (5)</button>
+          <button class="pill" onclick="filterSFXCategory('riser', this)">📈 Riser Kịch Tính (3)</button>
+          <button class="pill" onclick="filterSFXCategory('meme', this)">🔔 Glitch & Meme (2)</button>
+        </div>
+      </div>
+
+      <div class="sfx-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">STT</th>
+              <th style="width: 130px;">Nghe Thử</th>
+              <th>Tên Sound Effect</th>
+              <th>Nhóm Âm Thanh</th>
+              <th style="width: 100px;">Thời Lượng</th>
+              <th style="width: 140px;">Âm Lượng Chuẩn</th>
+              <th>Đặc Trưng Âm Thanh</th>
+              <th>Cách Phối & Chuyển Cảnh</th>
+            </tr>
+          </thead>
+          <tbody id="sfxTableBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: SOP -->
+    <div id="tab-sop" class="tab-content">
+      <div class="sop-grid">
+        <div class="sop-card">
+          <h3>🎚️ 1. Bảng Chuẩn Âm Lượng Gain dB Trong CapCut</h3>
+          <ul class="sop-list">
+            <li><span class="bullet">🎤</span><div><strong>Voice Lồng Tiếng:</strong> Đặt mức <code>-6dB đến -3dB</code>. Là âm thanh to và rõ nhất trong toàn bộ video.</div></li>
+            <li><span class="bullet">🎵</span><div><strong>Nhạc Nền (BGM):</strong> Đặt mức <code>-18dB đến -22dB</code> khi có thoại. Tăng lên <code>-12dB</code> ở đoạn chuyển cảnh.</div></li>
+            <li><span class="bullet">💥</span><div><strong>Sound Effect Cú Đấm / Whoosh:</strong> Đặt mức <code>-4dB đến -6dB</code> để tạo độ giật gân, đanh thép.</div></li>
+            <li><span class="bullet">🖱️</span><div><strong>Sound Effect Nhẹ (Click, Pop, Ding):</strong> Đặt mức <code>-10dB đến -14dB</code> để nghe tinh tế, không chát tai.</div></li>
+          </ul>
+        </div>
+
+        <div class="sop-card">
+          <h3>🎯 2. Nghệ Thuật Khớp Nhịp Sound Với Text 3D</h3>
+          <ul class="sop-list">
+            <li><span class="bullet">⚡</span><div><strong>Quy tắc Frame Vàng:</strong> Đỉnh sóng âm (Waveform Peak cao nhất) PHẢI trùng khớp 100% với Frame đầu tiên khi Text 3D xuất hiện.</div></li>
+            <li><span class="bullet">💨</span><div><strong>Whoosh Chuyển Cảnh:</strong> Đẩy file Whoosh lấn về phía trước 3 - 5 frame (tiếng vút gió đi trước, chữ đập vào sau) để tạo độ hút.</div></li>
+            <li><span class="bullet">📈</span><div><strong>Riser Kịch Tính:</strong> Bắt đầu trước cú twist 4 - 6 giây, đỉnh điểm Riser đứt phựt ngay khi bí mật được lật mở.</div></li>
+            <li><span class="bullet">✂️</span><div><strong>Kỹ thuật Fade-out:</strong> Luôn vát nhẹ 0.1s ở đuôi file Sound để tránh tiếng nổ 'bụp' khi âm thanh kết thúc đột ngột.</div></li>
+          </ul>
+        </div>
+
+        <div class="sop-card">
+          <h3>📌 3. Quy Trình 3 Bước Dựng Text 3D Không Lỗi</h3>
+          <ul class="sop-list">
+            <li><span class="bullet">1️⃣</span><div><strong>Tra cứu mã lệnh:</strong> Chọn đúng mã (VD: <code>[ĐỎ DRAMA]</code>) theo tâm lý kịch bản.</div></li>
+            <li><span class="bullet">2️⃣</span><div><strong>Bốc preset vào CapCut:</strong> Vào tab <code>Media</code> -> <code>Subprojects</code> -> kéo khối chữ 3D xuống Timeline.</div></li>
+            <li><span class="bullet">3️⃣</span><div><strong>Sửa chữ (Tuyệt đối không tách ra):</strong> Nhấp đúp chuột (Double-click) vào khối màu xanh để vào trong sửa chữ. Sửa xong bấm mũi tên <code>&lt;</code> quay lại.</div></li>
+            <li><span class="bullet">4️⃣</span><div><strong>Kéo Sound Effect:</strong> Đặt file âm thanh đi kèm ngay dưới chân khối Text 3D.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Audio Player Bar -->
+  <div class="now-playing-bar" id="nowPlayingBar">
+    <div class="wave-anim">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <div class="now-playing-text" id="nowPlayingText">Đang phát: Clean Whoosh.wav</div>
+    <button class="play-btn playing" onclick="stopCurrentAudio()">⏹️ Dừng</button>
+  </div>
+
+  <audio id="globalAudioPlayer" preload="auto"></audio>
+
+  <script>
+    const STYLES_DATA = [
+      {
+        stt: 1,
+        code: "[XANH NEON]",
+        name: "Xanh Mát Resort",
+        preset: "My presets1",
+        cat: "travel",
+        group: "Du Lịch & Nghỉ Dưỡng",
+        groupColor: "#10b981",
+        soundName: "Clean Whoosh.wav",
+        soundPath: "../sound-effects/style_01_02. [Sound Effect] Clean Whoosh.wav",
+        img: "../images/text3d/style_01.png",
+        desc: "Xanh lá neon phát quang, font uốn lượn mềm mại + chữ phụ trắng.",
+        scene: "Review resort, quán cafe sân vườn, ăn uống healthy, trải nghiệm chill.",
+        example: "Chèn [XANH NEON] chữ 'HOMESTAY ĐÀ LẠT / VIEW TRIỆU ĐÔ' vào 00:05"
+      },
+      {
+        stt: 2,
+        code: "[HOÀNG GIA]",
+        name: "Thương Hiệu Đẳng Cấp",
+        preset: "My presets2",
+        cat: "finance",
+        group: "Doanh Nhân & Thương Hiệu",
+        groupColor: "#f59e0b",
+        soundName: "Subtle Hit.wav",
+        soundPath: "../sound-effects/style_02_02. [Sound Effect] Subtle Hit.wav",
+        img: "../images/text3d/style_02.png",
+        desc: "Vàng kem cổ điển kết hợp Cam cháy 3D neon uốn lượn uy quyền.",
+        scene: "Xây dựng nhân hiệu chủ tịch, chuyên gia đầu ngành, đồ hiệu xa xỉ.",
+        example: "Chèn [HOÀNG GIA] chữ 'CHỦ TỊCH TẬP ĐOÀN / ĐẲNG CẤP 5 SAO' vào 00:08"
+      },
+      {
+        stt: 3,
+        code: "[XANH VIEW BIỂN]",
+        name: "Đón Gió View Biển",
+        preset: "My presets3",
+        cat: "travel",
+        group: "Du Lịch & Trải Nghiệm",
+        groupColor: "#0ea5e9",
+        soundName: "Pop Flash.wav",
+        soundPath: "../sound-effects/style_03_02. [Sound Effect] Pop Flash.wav",
+        img: "../images/text3d/style_03.png",
+        desc: "Xanh dương đại dương đổ bóng sâu 3D, viền sáng lấp lánh.",
+        scene: "Flycam biển đảo, du thuyền, biệt thự nghỉ dưỡng hè, bơi lội.",
+        example: "Chèn [XANH VIEW BIỂN] chữ 'VIEW BIỂN VÔ CỰC / ĐẸP QUÊN LỐI VỀ' vào 00:12"
+      },
+      {
+        stt: 4,
+        code: "[100 TỶ]",
+        name: "Tài Chính 100 Tỷ",
+        preset: "My presets4",
+        cat: "finance",
+        group: "Con Số & Tài Chính",
+        groupColor: "#eab308",
+        soundName: "Bass Clap.wav",
+        soundPath: "../sound-effects/style_04_02. [Sound Effect] Bass Clap.wav",
+        img: "../images/text3d/style_04.png",
+        desc: "Số to màu vàng chanh chói lóa phát sáng cực mạnh, đập vào mắt.",
+        scene: "Đập con số gây sốc: Tiền phạt, doanh thu khủng, thiệt hại kinh tế.",
+        example: "Chèn [100 TỶ] chữ 'PHẠT 500 TRIỆU' hoặc 'DOANH THU 10 TỶ' vào 00:15"
+      },
+      {
+        stt: 5,
+        code: "[CAM BOOKING]",
+        name: "Booking Quán Xá",
+        preset: "My presets5",
+        cat: "cta",
+        group: "Kêu Gọi & Hành Động (CTA)",
+        groupColor: "#f97316",
+        soundName: "Touch Screen Click.wav",
+        soundPath: "../sound-effects/style_05_02. [Sound Effect] Touch Screen Click.wav",
+        img: "../images/text3d/style_05.png",
+        desc: "Cam vàng khối 3D phồng nổi bo tròn thân thiện, hiện đại.",
+        scene: "Review quán ăn/nhà hàng, đặt chỗ, tải app, đăng ký, click bio.",
+        example: "Chèn [CAM BOOKING] chữ 'ĐẶT BÀN NGAY / NHẬN ƯU ĐÃI' vào 00:25"
+      },
+      {
+        stt: 6,
+        code: "[ĐỎ DRAMA]",
+        name: "Khách Hàng Tiềm Năng",
+        preset: "My presets6",
+        cat: "drama",
+        group: "Drama & Bóc Phốt",
+        groupColor: "#ef4444",
+        soundName: "vine-boom.wav",
+        soundPath: "../sound-effects/style_06_02. [Sound Effect] vine-boom.wav",
+        img: "../images/text3d/style_06.png",
+        desc: "Đỏ tươi 3D đanh thép viền trắng ánh kim, font Impact uy lực.",
+        scene: "Hook 3s đầu bóc phốt, Công an vào cuộc, Bắt quả tang, Biến căng.",
+        example: "Chèn [ĐỎ DRAMA] chữ 'CÔNG AN VÀO CUỘC / ADMIN BỊ BẮT' vào 00:01"
+      },
+      {
+        stt: 7,
+        code: "[ĐỎ CẢNH BÁO]",
+        name: "Lãi Suất Cao",
+        preset: "My presets7",
+        cat: "drama",
+        group: "Cảnh Báo & Nguy Hiểm",
+        groupColor: "#ef4444",
+        soundName: "Riser 1.wav",
+        soundPath: "../sound-effects/style_07_02. [Sound Effect] Riser 1.wav",
+        img: "../images/text3d/style_07.png",
+        desc: "Đỏ gắt nghiêng thể thao, gạch chân phát sáng đỏ rực, sắc lẹm.",
+        scene: "Cảnh báo lừa đảo, cạm bẫy đa cấp, tin sốc giật gân, điều cấm kỵ.",
+        example: "Chèn [ĐỎ CẢNH BÁO] chữ 'CẠM BẪY LỪA ĐẢO / MẤT TRẮNG TIỀN' vào 00:10"
+      },
+      {
+        stt: 8,
+        code: "[ĐỎ THỜI SỰ]",
+        name: "Căn Hộ Officetel",
+        preset: "My presets8",
+        cat: "drama",
+        group: "Thời Sự & Tin Tức",
+        groupColor: "#f43f5e",
+        soundName: "Subtle Hit.wav",
+        soundPath: "../sound-effects/style_08_02. [Sound Effect] Subtle Hit.wav",
+        img: "../images/text3d/style_08.png",
+        desc: "Chữ trên script trắng thanh mảnh + Chữ dưới đỏ son in hoa.",
+        scene: "Điểm tin nhanh TikTok, trích lời khai, thông tin điều tra, thông số.",
+        example: "Chèn [ĐỎ THỜI SỰ] chữ 'TRÍCH LỜI KHAI / TẠI CƠ QUAN ĐIỀU TRA' vào 00:18"
+      },
+      {
+        stt: 9,
+        code: "[VÀNG TỌA LẠC]",
+        name: "Vị Trí Vàng",
+        preset: "My presets9",
+        cat: "finance",
+        group: "Sang Trọng & Bất Động Sản",
+        groupColor: "#eab308",
+        soundName: "Sequence Click.wav",
+        soundPath: "../sound-effects/style_09_02. [Sound Effect] Sequence Click.wav",
+        img: "../images/text3d/style_09.png",
+        desc: "Trắng vàng kim viền ánh hào quang, chữ uốn lượn sang trọng.",
+        scene: "Tọa độ VIP, vị trí đắc địa, bất động sản trung tâm, phong thủy.",
+        example: "Chèn [VÀNG TỌA LẠC] chữ 'TỌA LẠC TRUNG TÂM / VỊ TRÍ ĐẮC ĐỊA' vào 00:14"
+      },
+      {
+        stt: 10,
+        code: "[CYAN ẤN TƯỢNG]",
+        name: "Ấn Tượng Ngay",
+        preset: "My presets10",
+        cat: "travel",
+        group: "Trẻ Trung & Lifestyle",
+        groupColor: "#06b6d4",
+        soundName: "ding.wav",
+        soundPath: "../sound-effects/style_10_02. [Sound Effect] ding.wav",
+        img: "../images/text3d/style_10.png",
+        desc: "Xanh ngọc Cyan neon phát quang rực rỡ, font uốn lượn cuốn hút.",
+        scene: "Khoảnh khắc Wow, phát hiện góc bí mật, sống ảo cực chill, mẹo GenZ.",
+        example: "Chèn [CYAN ẤN TƯỢNG] chữ 'GÓC SỐNG ẢO / ĐẸP HÚT HỒN' vào 00:07"
+      },
+      {
+        stt: 11,
+        code: "[BẠC MINIMALIST]",
+        name: "Tâm Điểm Tương Lai",
+        preset: "My presets11",
+        cat: "tech",
+        group: "Nghệ Thuật & Tối Giản",
+        groupColor: "#64748b",
+        soundName: "Bass Clap.wav",
+        soundPath: "../sound-effects/style_11_02. [Sound Effect] Bass Clap.wav",
+        img: "../images/text3d/style_11.png",
+        desc: "Trắng bạc viền mảnh tinh xảo, chữ lồng nghệ thuật cao cấp.",
+        scene: "Kiến trúc tối giản, triết lý sống, phân tích sâu, thời trang có gu.",
+        example: "Chèn [BẠC MINIMALIST] chữ 'TRIẾT LÝ TỐI GIẢN / TINH TẾ TỪNG NÉT' vào 00:20"
+      },
+      {
+        stt: 12,
+        code: "[HOÀNG KIM GOLD]",
+        name: "Sa Bàn Khai Trương",
+        preset: "My presets12",
+        cat: "finance",
+        group: "Sự Kiện & Khai Trương",
+        groupColor: "#f59e0b",
+        soundName: "Sun Ray.wav",
+        soundPath: "../sound-effects/style_12_02. [Sound Effect] Sun Ray.wav",
+        img: "../images/text3d/style_12.png",
+        desc: "Vàng bóng kim loại 3D mạ vàng hoàng gia, viền trắng sắc nét.",
+        scene: "Sự kiện khai trương, khánh thành, công bố đối tác, vinh danh.",
+        example: "Chèn [HOÀNG KIM GOLD] chữ 'ĐẠI TIỆC KHAI TRƯƠNG / BÙNG NỔ ƯU ĐÃI' vào 00:03"
+      },
+      {
+        stt: 13,
+        code: "[BĂNG TUYẾT]",
+        name: "Siêu Dự Án",
+        preset: "My presets13",
+        cat: "tech",
+        group: "Quy Mô & Tầm Vóc",
+        groupColor: "#38bdf8",
+        soundName: "Long Cinema Whoosh.wav",
+        soundPath: "../sound-effects/style_13_02. [Sound Effect] Long Cinema Whoosh.wav",
+        img: "../images/text3d/style_13.png",
+        desc: "Xanh băng tuyết viền bạc kim loại, font serif thanh lịch lạnh.",
+        scene: "Dự án quy mô quốc tế, phân tích tài chính vĩ mô, điện ảnh cinematic.",
+        example: "Chèn [BĂNG TUYẾT] chữ 'ĐẠI DỰ ÁN / QUY MÔ TỶ ĐÔ' vào 00:16"
+      },
+      {
+        stt: 14,
+        code: "[CAM SALE SHOCK]",
+        name: "Siêu Ưu Đãi",
+        preset: "My presets14",
+        cat: "cta",
+        group: "Khuyến Mãi & Bán Hàng",
+        groupColor: "#f97316",
+        soundName: "Camera Flash.wav",
+        soundPath: "../sound-effects/style_14_02. [Sound Effect] Camera Flash.wav",
+        img: "../images/text3d/style_14.png",
+        desc: "Cam đào pastel viền trắng, khối 3D phồng tròn đầy mắt, tươi vui.",
+        scene: "Tung deal giảm giá sốc, flash sale giờ vàng, tặng quà, xả hàng.",
+        example: "Chèn [CAM SALE SHOCK] chữ 'SIÊU GIẢM GIÁ / MUA 1 TẶNG 1' vào 00:22"
+      },
+      {
+        stt: 15,
+        code: "[CYAN TƯƠNG LAI]",
+        name: "Tiến Độ Hạ Tầng",
+        preset: "My presets15",
+        cat: "tech",
+        group: "Hạ Tầng & Công Nghệ",
+        groupColor: "#0284c7",
+        soundName: "Quick Whoosh.wav",
+        soundPath: "../sound-effects/style_15_02. [Sound Effect] Quick Whoosh.wav",
+        img: "../images/text3d/style_15.png",
+        desc: "Cyan kim loại khối hộp cứng cáp, phong cách Sci-Fi/Industrial.",
+        scene: "Tiến độ hạ tầng giao thông, công nghệ AI mới, robot, đầu tư công.",
+        example: "Chèn [CYAN TƯƠNG LAI] chữ 'CÔNG NGHỆ ĐỘT PHÁ / TƯƠNG LAI LÀ ĐÂY' vào 00:11"
+      },
+      {
+        stt: 16,
+        code: "[VÀNG CHAMPAGNE]",
+        name: "Thanh Toán Nhẹ Nhàng",
+        preset: "My presets16",
+        cat: "finance",
+        group: "An Tâm & Kết Thúc (Outro)",
+        groupColor: "#eab308",
+        soundName: "Take it Easy.wav",
+        soundPath: "../sound-effects/style_16_02. [Sound Effect] Take it Easy.wav",
+        img: "../images/text3d/style_16.png",
+        desc: "Vàng mờ champagne thanh lịch, font chữ ký bay bổng dịu êm.",
+        scene: "Chính sách trả góp, giải pháp hỗ trợ an tâm, Outro kết video.",
+        example: "Chèn [VÀNG CHAMPAGNE] chữ 'GIẢI PHÁP TIẾT KIỆM / AN TÂM SỬ DỤNG' vào 00:27"
+      }
+    ];
+
+    const SFX_DATA = [
+      { id: 1, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Clean Whoosh.wav", sub: "01_whoosh_chuyen_canh", dur: "1.85s", gain: "-6dB", desc: "Gió lướt nhẹ, sạch sẽ, không rè tạp âm", use: "Chuyển cảnh text, lật ảnh, zoom vlog" },
+      { id: 2, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Deep Low Whoosh.wav", sub: "01_whoosh_chuyen_canh", dur: "2.34s", gain: "-5dB", desc: "Gió trầm sâu, dội âm bass nặng uy lực", use: "Chuyển cảnh vĩ mô, dự án lớn, cú twist" },
+      { id: 3, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Hard Whoosh2.wav", sub: "01_whoosh_chuyen_canh", dur: "2.12s", gain: "-6dB", desc: "Vút mạnh dứt khoát, tiếng xé gió đanh thép", use: "Cắt cảnh gắt, lia máy nhanh, cảnh báo nguy hiểm" },
+      { id: 4, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Long Cinema Whoosh.wav", sub: "01_whoosh_chuyen_canh", dur: "5.00s", gain: "-8dB", desc: "Tiếng gió điện ảnh kéo dài mượt mà huyền bí", use: "Cinematic, giới thiệu nhân vật VIP, flycam" },
+      { id: 5, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Quick Whoosh.wav", sub: "01_whoosh_chuyen_canh", dur: "2.12s", gain: "-6dB", desc: "Lướt nhanh tốc độ cao, nhịp điệu dồn dập", use: "Chèn text nhanh, lật slide, nhịp dựng TikTok" },
+      { id: 6, cat: "whoosh", group: "Whoosh Chuyển Cảnh", name: "Whoosh Impact.wav", sub: "01_whoosh_chuyen_canh", dur: "5.31s", gain: "-4dB", desc: "Vút gió rồi va đập dội âm cực mạnh (Combo 2in1)", use: "Hook 3s đầu bóc phốt, chữ 3D rơi đập màn hình" },
+
+      { id: 7, cat: "hit", group: "Hit Điểm Nhấn", name: "Bass Clap.wav", sub: "02_hit_diem_nhan", dur: "4.72s", gain: "-5dB", desc: "Tiếng vỗ tay kèm âm bass trầm cộng hưởng", use: "Nhấn mạnh số tiền tỷ, kỷ lục, khẳng định đanh thép" },
+      { id: 8, cat: "hit", group: "Hit Điểm Nhấn", name: "Slow Hit.wav", sub: "02_hit_diem_nhan", dur: "4.87s", gain: "-6dB", desc: "Cú đánh nặng chậm rãi, âm ngân dài trang trọng", use: "Khai trương, ra mắt thương hiệu, công bố quyết định" },
+      { id: 9, cat: "hit", group: "Hit Điểm Nhấn", name: "Subtle Hit.wav", sub: "02_hit_diem_nhan", dur: "2.43s", gain: "-8dB", desc: "Va chạm tinh tế, âm thanh nhẹ nhàng thanh lịch", use: "Hiện quote triết lý, thời trang luxury, logo tối giản" },
+      { id: 10, cat: "hit", group: "Hit Điểm Nhấn", name: "Sun Ray.wav", sub: "02_hit_diem_nhan", dur: "1.27s", gain: "-6dB", desc: "Âm thanh tươi sáng, lấp lánh như tia nắng ấm", use: "Du lịch bình minh, view biển, đồ ăn ngon, hạnh phúc" },
+      { id: 11, cat: "hit", group: "Hit Điểm Nhấn", name: "Take it Easy.wav", sub: "02_hit_diem_nhan", dur: "5.25s", gain: "-7dB", desc: "Âm điệu thư giãn, an tâm, buông bỏ căng thẳng", use: "Outro kết thúc video, chính sách hỗ trợ, lời chúc" },
+
+      { id: 12, cat: "click", group: "Click Hành Động", name: "Camera Flash.wav", sub: "03_click_hanh_dong", dur: "1.76s", gain: "-8dB", desc: "Tiếng màn trập máy ảnh cơ chớp sáng", use: "Flash sale, chụp bằng chứng bóc phốt, sống ảo" },
+      { id: 13, cat: "click", group: "Click Hành Động", name: "Pop Flash.wav", sub: "03_click_hanh_dong", dur: "1.13s", gain: "-9dB", desc: "Tiếng pop bong bóng nổ vui tai, tươi mới", use: "Hiện sticker, icon giỏ hàng, thông báo deal" },
+      { id: 14, cat: "click", group: "Click Hành Động", name: "Sequence Click.wav", sub: "03_click_hanh_dong", dur: "3.00s", gain: "-10dB", desc: "Tiếng click chuỗi liên hồi như máy đếm số", use: "Top 3, đếm số liệu tăng vọt, lướt tin nhắn" },
+      { id: 15, cat: "click", group: "Click Hành Động", name: "Switch.wav", sub: "03_click_hanh_dong", dur: "0.33s", gain: "-10dB", desc: "Tiếng bật công tắc cơ dứt khoát siêu ngắn", use: "Bật/tắt chế độ, biến hình Before/After" },
+      { id: 16, cat: "click", group: "Click Hành Động", name: "Touch Screen Click.wav", sub: "03_click_hanh_dong", dur: "2.50s", gain: "-10dB", desc: "Tiếng chạm ngón tay gõ màn hình cảm ứng", use: "Kêu gọi đặt bàn, click link bio, tải app" },
+
+      { id: 17, cat: "riser", group: "Riser Kịch Tính", name: "Riser 1.wav", sub: "04_riser_kich_tinh", dur: "9.43s", gain: "Tăng -18dB -> -5dB", desc: "Dải tần kéo dài dồn dập, đẩy nhịp tim lên cao", use: "Đếm ngược đến sự thật, trùm cuối drama" },
+      { id: 18, cat: "riser", group: "Riser Kịch Tính", name: "Riser 2.wav", sub: "04_riser_kich_tinh", dur: "6.13s", gain: "Tăng -18dB -> -5dB", desc: "Riser trung bình, âm thanh ma mị bí ẩn", use: "Khoảnh khắc gay cấn, cảnh báo rủi ro sắp ập tới" },
+      { id: 19, cat: "riser", group: "Riser Kịch Tính", name: "Riser 3.wav", sub: "04_riser_kich_tinh", dur: "8.00s", gain: "Tăng -18dB -> -5dB", desc: "Riser phim trinh thám Hollywood", use: "Vạch trần thủ đoạn lừa đảo, điều tra chân tướng" },
+
+      { id: 20, cat: "meme", group: "Glitch & Meme", name: "ding.wav", sub: "05_glitch_bien_cang", dur: "1.40s", gain: "-9dB", desc: "Tiếng chuông ngân thanh thoát báo tin vui/ý tưởng", use: "Ý tưởng thông minh, khoảnh khắc Aha, phát hiện tip" },
+      { id: 21, cat: "meme", group: "Glitch & Meme", name: "vine-boom.wav", sub: "05_glitch_bien_cang", dur: "1.25s", gain: "-4dB", desc: "Tiếng BOOM huyền thoại siêu viral tạo cảm giác sượng", use: "Cú quay xe bất ngờ, bóc mẽ tại trận, biến căng" }
+    ];
+
+    let currentPlayingBtn = null;
+    const player = document.getElementById("globalAudioPlayer");
+    const nowPlayingBar = document.getElementById("nowPlayingBar");
+    const nowPlayingText = document.getElementById("nowPlayingText");
+
+    function renderStyles(dataToRender) {
+      const grid = document.getElementById("styleGrid");
+      grid.innerHTML = dataToRender.map(s => `
+        <div class="style-card" data-cat="${s.cat}">
+          <div class="card-img-wrap">
+            <img src="${s.img}" alt="${s.name}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'180\' fill=\'%231e293b\'><rect width=\'100%\' height=\'100%\'/><text x=\'50%\' y=\'50%\' fill=\'%2364748b\' text-anchor=\'middle\'>${s.name}</text></svg>'">
+            <span class="badge-preset">${s.preset}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header-info">
+              <span class="codename">${s.code}</span>
+              <span class="group-tag" style="background:${s.groupColor}20; color:${s.groupColor}; border:1px solid ${s.groupColor}40">${s.group}</span>
+            </div>
+            <div class="style-desc">${s.desc}</div>
+            
+            <div class="sound-row">
+              <div class="sound-info" title="${s.soundName}">
+                <span>🔊</span>
+                <span>${s.soundName}</span>
+              </div>
+              <button class="play-btn" onclick="playAudio('${s.soundPath}', '${s.soundName}', this)">
+                ▶️ Nghe thử
+              </button>
+            </div>
+
+            <div class="style-desc" style="color:#cbd5e1">
+              <strong>Cảnh phù hợp:</strong> ${s.scene}
+            </div>
+
+            <div class="example-box">
+              "${s.example}"
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderSFX(dataToRender) {
+      const tbody = document.getElementById("sfxTableBody");
+      tbody.innerHTML = dataToRender.map((s, idx) => `
+        <tr data-cat="${s.cat}">
+          <td style="color:#64748b; font-weight:bold;">${s.id}</td>
+          <td>
+            <button class="play-btn" onclick="playAudio('../sound-effects/00 - BỘ SFX TINH GỌN (HOT NHẤT VIDEO NGẮN - 21 FILE CHUẨN)/${s.sub}/${s.name}', '${s.name}', this)">
+              ▶️ Nghe
+            </button>
+          </td>
+          <td style="font-weight:700; color:#38bdf8;">${s.name}</td>
+          <td><span class="group-tag">${s.group}</span></td>
+          <td style="color:#94a3b8;">${s.dur}</td>
+          <td><span class="badge-gain">${s.gain}</span></td>
+          <td style="color:#cbd5e1;">${s.desc}</td>
+          <td style="color:#94a3b8;">${s.use}</td>
+        </tr>
+      `).join("");
+    }
+
+    function playAudio(src, name, btn) {
+      if (currentPlayingBtn === btn && !player.paused) {
+        stopCurrentAudio();
+        return;
+      }
+
+      if (currentPlayingBtn) {
+        currentPlayingBtn.innerHTML = "▶️ Nghe thử";
+        currentPlayingBtn.classList.remove("playing");
+      }
+
+      player.src = encodeURI(src);
+      player.play().then(() => {
+        btn.innerHTML = "⏸️ Dừng";
+        btn.classList.add("playing");
+        currentPlayingBtn = btn;
+        nowPlayingText.innerText = "Đang phát: " + name;
+        nowPlayingBar.style.display = "flex";
+      }).catch(err => {
+        alert("Không thể phát âm thanh: " + err.message);
+      });
+
+      player.onended = () => {
+        stopCurrentAudio();
+      };
+    }
+
+    function stopCurrentAudio() {
+      player.pause();
+      player.currentTime = 0;
+      if (currentPlayingBtn) {
+        currentPlayingBtn.innerHTML = currentPlayingBtn.innerHTML.includes("thử") ? "▶️ Nghe thử" : "▶️ Nghe";
+        currentPlayingBtn.classList.remove("playing");
+        currentPlayingBtn = null;
+      }
+      nowPlayingBar.style.display = "none";
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+      document.getElementById(tabId).classList.add("active");
+    }
+
+    function filterByGroup(group, pill) {
+      document.querySelectorAll("#tab-styles .pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      if (group === "all") {
+        renderStyles(STYLES_DATA);
+      } else {
+        renderStyles(STYLES_DATA.filter(s => s.cat === group));
+      }
+    }
+
+    function filterStyles() {
+      const q = document.getElementById("styleSearch").value.toLowerCase();
+      renderStyles(STYLES_DATA.filter(s => 
+        s.code.toLowerCase().includes(q) || 
+        s.name.toLowerCase().includes(q) || 
+        s.desc.toLowerCase().includes(q) || 
+        s.scene.toLowerCase().includes(q) ||
+        s.soundName.toLowerCase().includes(q)
+      ));
+    }
+
+    function filterSFXCategory(cat, pill) {
+      document.querySelectorAll("#tab-sfx .pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      if (cat === "all") {
+        renderSFX(SFX_DATA);
+      } else {
+        renderSFX(SFX_DATA.filter(s => s.cat === cat));
+      }
+    }
+
+    function filterSFX() {
+      const q = document.getElementById("sfxSearch").value.toLowerCase();
+      renderSFX(SFX_DATA.filter(s => 
+        s.name.toLowerCase().includes(q) || 
+        s.desc.toLowerCase().includes(q) || 
+        s.use.toLowerCase().includes(q) ||
+        s.group.toLowerCase().includes(q)
+      ));
+    }
+
+    // Init
+    renderStyles(STYLES_DATA);
+    renderSFX(SFX_DATA);
+  </script>
+</body>
+</html>

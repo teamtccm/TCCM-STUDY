@@ -160,8 +160,9 @@ def period_start(day_date, period, cfg):
     return base + timedelta(minutes=(period - 1) * cfg["phut_moi_tiet"])
 
 
-def next_first_class(cfg, now=None):
+def next_first_class(cfg, now=None, exclude_keys=None):
     now = now or datetime.now()
+    exclude_keys = exclude_keys or []
     sched = load_schedule()
     for offset in range(0, 8):
         d = now + timedelta(days=offset)
@@ -169,11 +170,14 @@ def next_first_class(cfg, now=None):
         todays = sorted([c for c in sched if c["day"] == day_no], key=lambda c: c["p1"])
         if not todays:
             continue
-        first = todays[0]
-        start = period_start(d, first["p1"], cfg)
-        end = period_start(d, first["p2"] + 1, cfg)
-        if end > now:
-            return first, start, end
+        for cls in todays:
+            start = period_start(d, cls["p1"], cfg)
+            end = period_start(d, cls["p2"] + 1, cfg)
+            key = f"{start.strftime('%Y-%m-%d')}|{cls['link']}"
+            if key in exclude_keys:
+                continue
+            if end > now:
+                return cls, start, end
     return None, None, None
 
 
@@ -194,41 +198,53 @@ def main():
         print("Đã có một bản tool đang chạy, thoát.")
         return
 
-    cls, start, end = next_first_class(cfg)
-    if not cls:
-        print("Không tìm thấy tiết học nào trong lịch.")
-        return
+    ca_ngay = "--ca-ngay" in sys.argv
+    while True:
+        state_path = os.path.join(BASE_DIR, "da_vao.json")
+        try:
+            done = json.load(open(state_path, encoding="utf-8"))
+        except Exception:
+            done = []
 
-    print("=" * 60)
-    print(f"📚 Tiết đầu kế tiếp: {cls['subject']} ({cls['teacher']})")
-    print(f"🕒 Tiết {cls['p1']}-{cls['p2']} | Bắt đầu: {start.strftime('%A %d/%m %H:%M')} | Kết thúc ~ {end.strftime('%H:%M')}")
-    print(f"🔗 {cls['link']}")
-    print("=" * 60)
+        cls, start, end = next_first_class(cfg, exclude_keys=done if ca_ngay else None)
+        if not cls:
+            print("Không tìm thấy tiết học nào tiếp theo trong lịch.")
+            return
 
-    if "--xem" in sys.argv:
-        return
+        print("=" * 60)
+        print(f"📚 Tiết học kế tiếp: {cls['subject']} ({cls['teacher']})")
+        print(f"🕒 Tiết {cls['p1']}-{cls['p2']} | Bắt đầu: {start.strftime('%A %d/%m %H:%M')} | Kết thúc ~ {end.strftime('%H:%M')}")
+        print(f"🔗 {cls['link']}")
+        print("=" * 60)
 
-    state_path = os.path.join(BASE_DIR, "da_vao.json")
-    key = f"{start.strftime('%Y-%m-%d')}|{cls['link']}"
-    try:
-        done = json.load(open(state_path, encoding="utf-8"))
-    except Exception:
-        done = []
-    if key in done and "--ngay" not in sys.argv:
-        print("Tiết này đã được vào rồi, không mở lại.")
-        return
+        if "--xem" in sys.argv:
+            return
 
-    if "--ngay" not in sys.argv:
-        join_at = start - timedelta(minutes=cfg.get("vao_truoc_phut", 0))
-        print(f"⏳ Chờ đến {join_at.strftime('%H:%M %d/%m')} để tự vào phòng (giữ cửa sổ này mở, máy không ngủ)...")
-        while datetime.now() < join_at:
-            time.sleep(15)
-        notify("Google Meet", f"Đến giờ: {cls['subject']}")
+        key = f"{start.strftime('%Y-%m-%d')}|{cls['link']}"
+        if key in done and "--ngay" not in sys.argv:
+            print(f"Tiết {cls['subject']} đã được vào rồi, chờ tiết sau...")
+            if not ca_ngay:
+                return
+            time.sleep(30)
+            continue
 
-    ok = open_meet(cls["link"], cfg)
-    if ok:
-        done.append(key)
-        json.dump(done[-30:], open(state_path, "w", encoding="utf-8"))
+        if "--ngay" not in sys.argv:
+            join_at = start - timedelta(minutes=cfg.get("vao_truoc_phut", 0))
+            print(f"⏳ Chờ đến {join_at.strftime('%H:%M %d/%m')} để tự vào phòng (giữ cửa sổ này mở, máy không ngủ)...")
+            while datetime.now() < join_at:
+                time.sleep(15)
+            notify("Google Meet", f"Đến giờ: {cls['subject']}")
+
+        ok = open_meet(cls["link"], cfg)
+        if ok:
+            done.append(key)
+            json.dump(done[-30:], open(state_path, "w", encoding="utf-8"))
+
+        if not ca_ngay:
+            break
+        print(f"✅ Đã tham gia tiết {cls['subject']}. Đang trực để tự vào các tiết tiếp theo...")
+        while datetime.now() < end:
+            time.sleep(30)
 
 
 if __name__ == "__main__":

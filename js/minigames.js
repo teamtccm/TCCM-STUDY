@@ -304,6 +304,17 @@ const YGO_CARDS_DATABASE = [
         img: "images/characters/char_cophuong.jpg",
         desc: "Kỹ năng: Hộ trì học tập. Miễn nhiễm mọi sát thương trong 1 hiệp."
     },
+    {
+        id: "c_comen",
+        name: "CÔ MẾN FEBA",
+        title: "Chủ Tịch Hội Đồng Phản Biện",
+        type: "monster",
+        stars: 7,
+        atk: 2900,
+        def: 2500,
+        img: "images/characters/char_comen.jpg",
+        desc: "Kỹ năng: Thẩm định đồ án cấp cao. Tăng 400 ATK cho bản thân mỗi lượt đối đầu."
+    },
     // Lá bài phép (Spell Cards)
     {
         id: "s_banhdacua",
@@ -340,6 +351,14 @@ const YGO_CARDS_DATABASE = [
     }
 ];
 
+const YGO_BOT_OPPONENTS = [
+    { name: "🤖 THẦY LONG (CONTENT MKT)", img: "images/characters/char_thaylong.jpg", intro: "Thầy Long: 'Logic phản biện đâu? Xem lá bài này đây!'" },
+    { name: "🤖 THẦY TRƯỜNG (MEDIA & TT)", img: "images/characters/char_thaytruong.jpg", intro: "Thầy Trường: 'Tiền đạo Media ra sân, cẩn thận cháy LP!'" },
+    { name: "🤖 CÔ PHƯƠNG (CỐ VẤN HỌC TẬP)", img: "images/characters/char_cophuong.jpg", intro: "Cô Phương: 'Hôm nay nhóm nào chưa nộp slide thì đối đầu với cô!'" },
+    { name: "🤖 CÔ MẾN (GIẢNG VIÊN FEBA)", img: "images/characters/char_comen.jpg", intro: "Cô Mến: 'Hội đồng FEBA khai mở phiên phản biện thẻ bài!'" }
+];
+let currentYgoBot = YGO_BOT_OPPONENTS[0];
+
 let ygoState = {
     playerLP: 4000,
     botLP: 4000,
@@ -368,6 +387,12 @@ function addCombatLog(msg) {
 }
 
 function startYuGiOhGame() {
+    currentYgoBot = YGO_BOT_OPPONENTS[Math.floor(Math.random() * YGO_BOT_OPPONENTS.length)];
+    const bImg = document.getElementById('ygoBotImg');
+    const bName = document.getElementById('ygoBotName');
+    if (bImg) bImg.src = currentYgoBot.img;
+    if (bName) bName.textContent = currentYgoBot.name;
+
     ygoState = {
         playerLP: 4000,
         botLP: 4000,
@@ -379,7 +404,7 @@ function startYuGiOhGame() {
         selectedFieldIndex: null,
         isPlayerTurn: true,
         turnCount: 1,
-        combatLog: ["★ TRẬN CHIẾN BẮT ĐẦU! HÃY TRIỆU HỒI QUÁI THÚ ★"]
+        combatLog: [`★ ĐỐI ĐẦU ${currentYgoBot.name}! ★`, currentYgoBot.intro]
     };
 
     // Chia bài khởi đầu: 4 lá cho mỗi bên

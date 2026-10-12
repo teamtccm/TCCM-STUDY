@@ -242,6 +242,12 @@
             }
         }
 
+        const playBtn = document.getElementById('sbModalPlayBtn');
+        if (playBtn) {
+            playBtn.setAttribute('onclick', `togglePlaySound('${sound.id}')`);
+            playBtn.innerHTML = '<i class="fa-solid fa-play"></i> <span>Nghe thử ngay</span>';
+        }
+
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     };
@@ -317,11 +323,28 @@
     // Filter by Category
     window.filterSbCategory = function(catCode) {
         SoundboardState.activeCategory = catCode;
+        // Cập nhật tab thanh trượt ở dưới
         document.querySelectorAll('.sb-cat-tab').forEach(tab => {
             if (tab.dataset.cat === catCode) {
                 tab.classList.add('active');
             } else {
                 tab.classList.remove('active');
+            }
+        });
+
+        // Cập nhật chips thể loại ở trên
+        document.querySelectorAll('.bgm-cat-chip').forEach(chip => {
+            if (chip.dataset.cat === catCode) {
+                chip.classList.add('active', 'bg-cyan-500', 'text-white', 'border-cyan-400', 'shadow-sm');
+                chip.classList.remove('bg-slate-800', 'text-slate-300', 'text-rose-400', 'border-slate-700');
+            } else {
+                chip.classList.remove('active', 'bg-cyan-500', 'text-white', 'border-cyan-400', 'shadow-sm');
+                chip.classList.add('bg-slate-800', 'border-slate-700');
+                if (chip.dataset.cat === 'FAVORITES') {
+                    chip.classList.add('text-rose-400');
+                } else {
+                    chip.classList.add('text-slate-300');
+                }
             }
         });
 
@@ -412,6 +435,8 @@
         if (favBadge) favBadge.textContent = favCount;
         const bFavBadge = document.getElementById('sbBottomFavCountBadge');
         if (bFavBadge) bFavBadge.textContent = favCount;
+        const topFavBadge = document.getElementById('sbTopFavBadge');
+        if (topFavBadge) topFavBadge.textContent = favCount;
 
         const totalEl = document.getElementById('sbTotalCountBadge');
         if (totalEl && Array.isArray(SOUNDBOARD_DATA)) totalEl.textContent = SOUNDBOARD_DATA.length;
