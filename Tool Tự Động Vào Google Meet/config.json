@@ -1,7 +1,12 @@
 {
   "email_google": "tanbanhda@gmail.com",
-  "chrome_profile": "Profile 7",
-  "gio_tiet_1": "07:00",
+  "chrome_profile": "Profile 34",
+  "gio_tiet_1": "07:30",
+  "gio_bao_thuc": "07:00",
+  "vao_meet_luc_bao_thuc": true,
+  "bat_chuong_bao_thuc": true,
+  "am_luong_bao_thuc": 100,
+  "thoi_luong_chuong_giay": 90,
   "phut_moi_tiet": 50,
-  "vao_truoc_phut": 5
+  "vao_truoc_phut": 0
 }
