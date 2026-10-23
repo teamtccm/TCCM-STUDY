@@ -1887,6 +1887,15 @@
                 <div class="mode-badge badge-active" id="badgeThuQuy" style="background:#6366F1;color:#FFF;font-weight:900;">MẶC ĐỊNH</div>
             </div>
 
+            <!-- CHẾ ĐỘ ĐIỆP VIÊN: TRẠM ĐIỀU KHIỂN 9 HỆ THỐNG TOOL & TOOL EDIT -->
+            <div class="mode-card" id="modeCardDiepVien" onclick="selectGameMode('diepvien')" style="border:2px solid #F59E0B;background:rgba(35,15,55,0.92);box-shadow:0 0 25px rgba(245,158,11,0.4);">
+                <div class="mode-info">
+                    <div class="mode-name" style="color:#FBBF24;text-shadow:0 0 12px #D97706;">🕵️ CHẾ ĐỘ ĐIỆP VIÊN · TRẠM ĐIỀU KHIỂN 9 TOOL</div>
+                    <div class="mode-desc" style="color:#FDE68A;">Hệ thống: Bật Máy, Điệp Viên Social, Tài Liệu, Tarot, Quà Tặng, Ăn Vặt, Review, MetaMax & Tool Edit (Kèm 21 SFX + 119 Nhạc Nền)</div>
+                </div>
+                <div class="mode-badge badge-hot" id="badgeDiepVien" style="background:linear-gradient(135deg,#D97706,#7C3AED);color:#FFF;font-weight:900;box-shadow:0 0 15px rgba(217,119,6,0.6);">🔥 MỞ KHÓA</div>
+            </div>
+
             <!-- CHẾ ĐỘ 2: THPT CAO BÁ QUÁT (ĐẲNG CẤP THUYẾT TRÌNH & SỰ KIỆN TỰ ĐỘNG) -->
             <div class="mode-card" id="modeCardMitchum" onclick="selectGameMode('mitchum')" style="border:2px solid #00D7FF;background:rgba(0,25,50,0.85);box-shadow:0 0 25px rgba(0,215,255,0.35);">
                 <div class="mode-info">
@@ -1955,6 +1964,10 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
+                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="px-3.5 h-11 rounded-2xl bg-amber-400/20 hover:bg-amber-400/30 backdrop-blur-sm flex items-center gap-2 text-amber-200 font-black text-xs transition-all cursor-pointer border border-amber-300/35 shadow-inner" title="Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)">
+                        <i class="fa-solid fa-user-secret text-sm text-amber-300"></i>
+                        <span>Điệp Viên</span>
+                    </button>
                     <button onclick="promptAdminThenSettings()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt Admin">
                         <i class="fa-solid fa-gear text-lg"></i>
                     </button>
@@ -2049,32 +2062,16 @@
                             <div class="dash-desc text-white/80 font-bold">Hình ảnh GIF chuyển động</div>
                         </div>
                     </button>
-                    <!-- Tài Nguyên Editor: Text 3D Đổi Tên, SFX & Nhạc Nền -->
-                    <button onclick="switchView('viewSoundboard')" class="col-span-2 dash-card bg-gradient-to-r from-cyan-600 via-indigo-600 to-rose-600 shadow-xl shadow-indigo-300/40 flex items-center justify-between !p-5">
+                    <!-- Chế Độ Điệp Viên: Điều Khiển 9 Hệ Thống Tool & Tool Edit (Kèm SFX & Nhạc Nền) -->
+                    <button onclick="openDiepVienMode('DASHBOARD')" class="col-span-2 dash-card bg-gradient-to-r from-amber-600 via-purple-700 to-indigo-800 shadow-xl shadow-purple-300/40 flex items-center justify-between !p-5">
                         <div class="flex items-center gap-4">
-                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20"><i class="fa-solid fa-wand-magic-sparkles text-xl text-yellow-300"></i></div>
+                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20"><i class="fa-solid fa-user-secret text-xl text-yellow-300"></i></div>
                             <div>
                                 <div class="dash-title text-base flex items-center gap-2">
-                                    Tài Nguyên Editor
-                                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">CapCut Pro & SFX</span>
+                                    Chế Độ Điệp Viên
+                                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">9 Tool & Audio</span>
                                 </div>
-                                <div class="dash-desc text-white/85">16 Style Text 3D đổi tên xem trước • 21 Sound Effect • 119 Nhạc nền BGM</div>
-                            </div>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                    </button>
-                    <!-- Giải Bài & Viết Tay Vở Thật NEU -->
-                    <button onclick="switchView('viewNeuHandwritten')" class="col-span-2 dash-card bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-700 shadow-xl shadow-indigo-300/40 flex items-center justify-between !p-5">
-                        <div class="flex items-center gap-4">
-                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20"><i class="fa-solid fa-pen-nib text-xl text-yellow-300"></i></div>
-                            <div>
-                                <div class="dash-title text-base flex items-center gap-2">
-                                    Giải Bài & Viết Tay Vở Thật
-                                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-400 text-gray-950 uppercase tracking-wide">Chuẩn NEU</span>
-                                </div>
-                                <div class="dash-desc text-white/85">Bài 1 & 2 Quản trị nhân lực • Bám dòng kẻ • Chữ thật mờ nhẹ camera</div>
+                                <div class="dash-desc text-white/85">Bật Máy • ĐV Social • Tài Liệu • Tarot • Quà Tặng • Ăn Vặt • Review • MetaMax • Tool Edit</div>
                             </div>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base">
@@ -2507,104 +2504,16 @@
                 </div>
             </section>
 
-            <!-- VIEW: TÀI NGUYÊN EDITOR (TEXT 3D ĐỔI TÊN, SOUND EFFECT & BGM) -->
-            <section id="viewSoundboard" class="view-section">
-                <!-- Header -->
-                <div class="section-header-bar">
-                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
-                        <i class="fa-solid fa-chevron-left text-sm"></i>
-                    </button>
-                    <div class="text-center flex-1 px-3">
-                        <h2 class="view-page-title flex items-center justify-center gap-2">
-                            <span>Tài Nguyên Editor</span>
-                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-rose-500 text-white uppercase tracking-wider">CapCut 3D & Audio</span>
-                        </h2>
-                        <p class="view-page-subtitle">1. Text Edit (16 Mẫu) • 2. Sound Effect 3D (21 Âm) • 3. Nhạc Nền TikTok (119 Bài)</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <a href="tai_nguyen_editor/CAM_NANG_SU_DUNG_TEXT_3D_VA_SOUND_EFFECT.xlsx" download="CAM_NANG_TAI_NGUYEN_EDITOR.xlsx" class="w-10 h-10 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 flex items-center justify-center transition cursor-pointer border border-emerald-500/30" title="Tải Cẩm Nang Excel (Text 3D, SFX & 119 Nhạc Nền)">
-                            <i class="fa-solid fa-file-excel text-sm"></i>
-                        </a>
-                        <button onclick="toggleEditorAppWidth()" id="btnExpandEditor" class="w-10 h-10 rounded-2xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-400 flex items-center justify-center transition cursor-pointer border border-cyan-500/30" title="Phóng to mở rộng toàn màn hình">
-                            <i id="iconExpandEditor" class="fa-solid fa-up-right-and-down-left-from-center text-sm"></i>
-                        </button>
-                        <button onclick="if(window.stopSoundboardAudio) stopSoundboardAudio(); if(window.stopEditorSound) stopEditorSound();" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer" title="Dừng toàn bộ âm thanh">
-                            <i class="fa-solid fa-stop text-sm"></i>
-                        </button>
-                    </div>
-                </div>
+            
+            <!-- VIEW: CHẾ ĐỘ ĐIỆP VIÊN (9 HỆ THỐNG TOOL + TOOL EDIT KÈM 21 SFX & 119 NHẠC NỀN) -->
+            <section id="viewDiepVien" class="view-section">
+                <!-- CONTAINER RENDER ĐỘNG CỦA CHẾ ĐỘ ĐIỆP VIÊN (DASHBOARD 9 TOOL & CÁC TRANG CON) -->
+                <div id="dvAppMount"></div>
 
-                <!-- THANH ĐIỀU HƯỚNG 3 SUB-TABS TÀI NGUYÊN EDITOR -->
-                <div class="flex items-center justify-center gap-2 mb-5 bg-slate-900/90 border border-slate-800 p-1.5 rounded-2xl shadow-xl max-w-xl mx-auto">
-                    <button id="tabBtn_text3d" onclick="switchEditorTab('text3d')" class="editor-main-tab active flex-1 py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm transition bg-cyan-500 text-white shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-font"></i>
-                        <span>1. Text Edit</span>
-                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 font-mono font-bold">16</span>
-                    </button>
-                    <button id="tabBtn_sfx" onclick="switchEditorTab('sfx')" class="editor-main-tab flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-bolt"></i>
-                        <span>2. Sound Effect</span>
-                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 font-mono font-bold">21</span>
-                    </button>
-                    <button id="tabBtn_bgm" onclick="switchEditorTab('bgm')" class="editor-main-tab flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm transition bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-music"></i>
-                        <span>3. Nhạc Nền</span>
-                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 font-mono font-bold">119</span>
-                    </button>
-                </div>
+                <!-- KHỐI TÀI NGUYÊN AUDIO NẰM TRONG TOOL EDIT (CHỈ HIỆN KHI ĐANG Ở TOOL EDIT) -->
+                <div id="dvToolEditAudioWrapper" class="hidden mt-4">
 
-                <!-- SUB-VIEW 1: TEXT EDIT (16 STYLE CHỮ 3D - ẢNH TO RÕ NÉT) -->
-                <div id="editorSubView_text3d" class="space-y-4 mb-24">
-                    <!-- Thanh Lọc & Chuyển Đổi Kích Cỡ Ảnh & Category Chips -->
-                    <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 space-y-2.5 shadow-lg">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div class="flex items-center gap-2">
-                                <button onclick="toggleText3dCols()" class="px-3 py-1.5 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 font-black text-xs transition border border-cyan-500/30 flex items-center gap-1.5 cursor-pointer shadow-sm">
-                                    <i class="fa-solid fa-table-columns"></i>
-                                    <span id="txtColsLabel">1 Cột (Ảnh To Rõ)</span>
-                                </button>
-                                <span id="text3dCountBadge" class="text-xs font-mono font-bold px-2.5 py-1.5 rounded-xl bg-slate-800 text-slate-300 border border-slate-700">16 / 16 style</span>
-                            </div>
-
-                            <div class="relative flex-1 sm:w-64">
-                                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                                <input type="text" oninput="handleTextSearch(this.value)" placeholder="Tìm style, vị trí edit (resort, hook, drama, xe...)..." class="w-full bg-slate-950 border border-slate-700 text-white text-xs rounded-xl pl-8 pr-3 py-1.5 outline-none focus:border-cyan-400">
-                            </div>
-                        </div>
-
-                        <!-- Hàng Category Chips: Lọc nhanh theo vị trí / mục đích edit -->
-                        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-xs">
-                            <button onclick="filterText3DCategory('all')" class="text3d-cat-chip active px-3 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm" data-cat="all">
-                                🌟 Tất cả (16)
-                            </button>
-                            <button onclick="filterText3DCategory('hook')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="hook">
-                                🔥 Hook 3s Đầu (2)
-                            </button>
-                            <button onclick="filterText3DCategory('chuyencanh')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="chuyencanh">
-                                💨 Chuyển Cảnh (5)
-                            </button>
-                            <button onclick="filterText3DCategory('taichinh')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="taichinh">
-                                💰 Con Số Sốc (2)
-                            </button>
-                            <button onclick="filterText3DCategory('cta')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="cta">
-                                🎯 CTA & Outro (3)
-                            </button>
-                            <button onclick="filterText3DCategory('doanhnhan')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="doanhnhan">
-                                👑 Chủ Tịch (2)
-                            </button>
-                            <button onclick="filterText3DCategory('review')" class="text3d-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="review">
-                                🚀 Xe & GenZ (2)
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Grid Hiển Thị 16 Style Text 3D (Mặc định 1 cột để ảnh siêu to rõ) -->
-                    <div id="text3dGridContainer" class="grid grid-cols-1 gap-4">
-                        <!-- Rendered by js/editor_resources.js -->
-                    </div>
-                </div>
-
-                <!-- SUB-VIEW 2: KHO SOUND EFFECT (THIẾT KẾ CHUẨN NHƯ NHẠC NỀN) -->
+                    <!-- SUB-VIEW 2: KHO SOUND EFFECT (NẰM TRONG TOOL EDIT CỦA CHẾ ĐỘ ĐIỆP VIÊN) -->
                 <div id="editorSubView_sfx" class="mb-24 hidden">
                     <div class="sb-container-dark rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-800">
                         <!-- THANH ĐIỀU KHIỂN TINH GỌN (Y HỆT NHẠC NỀN) -->
@@ -2790,92 +2699,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- VIEW: GIẢI BÀI & VIẾT TAY VỞ THẬT NEU -->
-            <section id="viewNeuHandwritten" class="view-section">
-                <!-- Header -->
-                <div class="section-header-bar">
-                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
-                        <i class="fa-solid fa-chevron-left text-sm"></i>
-                    </button>
-                    <div class="text-center flex-1 px-3">
-                        <h2 class="view-page-title flex items-center justify-center gap-2">
-                            <span>Giải Bài & Viết Tay Vở Thật</span>
-                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-indigo-600 text-white uppercase tracking-wider">NEU Academic</span>
-                        </h2>
-                        <p class="view-page-subtitle">Quản trị nhân lực • Bám dòng kẻ in • Hiệu ứng chụp camera thật</p>
-                    </div>
-                    <button onclick="openNeuLightbox(0)" class="w-10 h-10 rounded-2xl bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-600 flex items-center justify-center transition cursor-pointer" title="Xem toàn màn hình">
-                        <i class="fa-solid fa-expand text-sm"></i>
-                    </button>
-                </div>
-
-                <!-- Banner Giới Thiệu & Thông Tin Thư Mục Tool -->
-                <div class="mb-5 p-5 rounded-3xl bg-gradient-to-r from-violet-700 via-indigo-700 to-blue-800 text-white shadow-xl shadow-indigo-300/40 relative overflow-hidden">
-                    <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl text-yellow-300 shadow-inner shrink-0">
-                                <i class="fa-solid fa-book-open-reader"></i>
                             </div>
-                            <div>
-                                <div class="text-base font-black flex items-center gap-2">
-                                    Thư mục Tool & Bộ Skill NEU
-                                    <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-400 text-gray-950 font-black">SẴN SÀNG</span>
-                                </div>
-                                <div class="text-xs text-indigo-100 mt-1 max-w-xl">
-                                    Toàn bộ 4 ảnh bài giải (mờ camera + HD gốc), mẫu vở trắng, đề bài gốc & script tự động làm mờ đã được lưu trữ trong:
-                                    <code class="px-2 py-0.5 rounded bg-black/30 font-mono text-[11px] text-amber-300 block sm:inline mt-1 sm:mt-0">Web/Công Việc Hằng Ngày/Tool Giải Bài & Viết Tay Vở Thật/</code>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2 self-end md:self-auto shrink-0">
-                            <a href="images/bai_giai_neu/01_Bai_1_Trang_1.jpg" download="01_Bai_1_Trang_1.jpg" class="px-3.5 py-2 rounded-xl bg-white text-indigo-950 font-black text-xs hover:bg-indigo-50 transition shadow-md flex items-center gap-1.5">
-                                <i class="fa-solid fa-download"></i> Tải Bài 1
-                            </a>
-                            <a href="images/bai_giai_neu/03_Bai_2_Trang_1.jpg" download="03_Bai_2_Trang_1.jpg" class="px-3.5 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white font-black text-xs transition backdrop-blur-sm flex items-center gap-1.5">
-                                <i class="fa-solid fa-download"></i> Tải Bài 2
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- THANH ĐIỀU HƯỚNG TABS & BỘ CHỌN CHẾ ĐỘ NÉT / MỜ -->
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
-                    <!-- Tabs lọc theo bài -->
-                    <div class="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-                        <button id="neuTabBtn_all" onclick="setNeuTab('all')" class="px-4 py-2 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-md shadow-indigo-300 whitespace-nowrap">
-                            <i class="fa-solid fa-layer-group mr-1"></i> Tất cả (6 trang)
-                        </button>
-                        <button id="neuTabBtn_bai1" onclick="setNeuTab('bai1')" class="px-4 py-2 rounded-xl font-bold text-xs transition bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">
-                            <i class="fa-solid fa-chart-pie mr-1"></i> Bài 1 (2 trang)
-                        </button>
-                        <button id="neuTabBtn_bai2" onclick="setNeuTab('bai2')" class="px-4 py-2 rounded-xl font-bold text-xs transition bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">
-                            <i class="fa-solid fa-sitemap mr-1"></i> Bài 2 (2 trang)
-                        </button>
-                        <button id="neuTabBtn_bai3" onclick="setNeuTab('bai3')" class="px-4 py-2 rounded-xl font-bold text-xs transition bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">
-                            <i class="fa-solid fa-chart-line mr-1"></i> Bài 3 (2 trang)
-                        </button>
-                    </div>
-
-                    <!-- Chuyển đổi Mờ camera / Nét gốc HD -->
-                    <div class="flex items-center gap-2 p-1 bg-gray-100 rounded-xl border border-gray-200/80 w-full sm:w-auto justify-center">
-                        <span class="text-[11px] font-bold text-gray-500 pl-2 hidden sm:inline">Chế độ ảnh:</span>
-                        <button id="neuModeBtn_blurred" onclick="setNeuMode('blurred')" class="px-3 py-1.5 rounded-lg text-xs font-black bg-white text-indigo-700 shadow-sm flex items-center gap-1.5 transition">
-                            <i class="fa-solid fa-camera"></i> Mờ camera thật
-                        </button>
-                        <button id="neuModeBtn_sharp" onclick="setNeuMode('sharp')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-500 hover:text-gray-900 flex items-center gap-1.5 transition">
-                            <i class="fa-solid fa-sparkles"></i> Bản gốc nét HD
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CONTAINER CHỨA CÁC CARD TRANG BÀI GIẢI -->
-                <div id="neuCardsContainer" class="space-y-6 pb-24">
-                    <!-- Rendered by js/neu_handwritten.js -->
-                </div>
             </section>
-        
             </main>
         </div>
     </div>
@@ -7420,10 +7245,888 @@
     <!-- Kho Soundboard & Nhạc Nền Myinstants 3D -->
     <script src="js/soundboard_data.js?v=1.0"></script>
     <script src="js/soundboard.js?v=1.0"></script>
-    <!-- Tool Giải Bài & Viết Tay Vở Thật NEU -->
-    <script src="js/neu_handwritten.js?v=1.0"></script>
     <!-- Tài Nguyên Editor: Text 3D Đổi Tên, SFX & Nhạc Nền -->
     <script src="js/editor_resources.js?v=1.0"></script>
+
+    <!-- HỆ THỐNG ĐIỀU KHIỂN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (TÍCH HỢP TRỰC TIẾP TRÊN TEAMTCCM/WORK) -->
+    <style>
+        textarea.clean-scroll {
+            resize: none;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
+        textarea.clean-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        textarea.clean-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 99px;
+        }
+    </style>
+    <script>
+    (function(){
+        window.DV_STATE = {"power": [{"row": 6, "code": "wake_pc", "btn": "▶ Khởi Động", "name": "1. Khởi động máy thoát chế độ ngủ", "status": "Đang chờ"}, {"row": 7, "code": "sleep_pc", "btn": "▶ Ngủ Ngầm", "name": "2. Chế độ ngủ chạy ngầm", "status": "Đang chờ"}, {"row": 8, "code": "check_all_tools", "btn": "▶ Kiểm Tra", "name": "3. Kiểm tra các Tool", "status": "Đang chờ"}, {"row": 9, "code": "shutdown_pc", "btn": "▶ Tắt Nguồn", "name": "4. Tắt nguồn máy", "status": "Đang chờ"}], "tool_health": [{"name": "1. Điệp Viên Social", "status": "Hoạt động ổn"}, {"name": "2. Điệp Viên Tài Liệu", "status": "Hoạt động ổn"}, {"name": "3. Điệp Viên Tarot", "status": "Hoạt động ổn"}, {"name": "4. Điệp Viên Quà Tặng", "status": "Hoạt động ổn"}, {"name": "5. Điệp Viên Ăn Vặt", "status": "Hoạt động ổn"}, {"name": "6. Điệp Viên Review", "status": "Hoạt động ổn"}, {"name": "7. MetaMax", "status": "Hoạt động ổn"}, {"name": "8. Tool Edit", "status": "Hoạt động ổn"}, {"name": "9. Tài khoản TikTok", "status": "Hoạt động ổn"}, {"name": "10. Tài khoản Facebook", "status": "Hoạt động ổn"}], "tools": {"Điệp Viên Social": {"merged_c": "🔗 Link gốc: https://www.facebook.com/theanh28\n🎬 Kịch bản: [Hook] Cư dân mạng đang bàn tán xôn xao trên Theanh28 và Beatvn về sự việc mới nhất hôm nay... [4 Nhịp Điệp Viên Social]\n📝 Caption: Góc giải mã nhanh câu chuyện đang gây bão MXH hôm nay 🔥\n#️⃣ Hashtag: #diepviensocial #theanh28 #beatvn #hifeed #tinmoi", "rows": [{"row": 6, "module": "1. Quét Tin Tức Làm Kịch Bản", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Làm Tin Thụ Động", "col_b": "https://www.tiktok.com/@theanh28entertainment/video/735000000", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Tài Liệu": {"merged_c": "📄 Link Docs Đề Cương (Drive): https://docs.google.com/document/d/1DeCuong_DiepVienTaiLieu/edit\n📘 Link Docs Bài Tập Lớn (Drive): https://docs.google.com/document/d/1BTL_HoanChinh_DiepVienTaiLieu/edit\n🎬 Link Drive Video Kênh: https://drive.google.com/drive/folders/1VideoKenh_DiepVienTaiLieu\n📌 Sau khi hoàn thành, hệ thống tự động đẩy lên Google Drive và gửi Link vào ô lớn này để bạn bấm kiểm tra!", "rows": [{"row": 6, "module": "1. Làm Đề Cương", "col_b": "", "col_e": "Danh sách Đề Cương Lưu Trữ", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Bài Tập Lớn", "col_b": "", "col_e": "Danh sách Bài Tập Lớn Lưu Trữ", "status": "Đang chờ"}, {"row": 8, "module": "3. Làm Video Kênh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tarot": {"merged_c": "🖼️ Link Drive Ảnh Cuộn Tarot: https://drive.google.com/drive/folders/1AnhCuon_DiepVienTarot\n🎬 Link Drive Video Tarot 3 Tụ: https://drive.google.com/drive/folders/1Video_DiepVienTarot\n📝 Caption: Thông điệp vũ trụ gửi đến người đang thức khuya đêm nay 🔮 Chọn tụ bài thu hút ánh nhìn đầu tiên của bạn nhé!\n#️⃣ Hashtag: #hanhtrinhgiacmo #diepvientarot #tarotchualanh #thongdiepvutru", "rows": [{"row": 6, "module": "1. Ảnh Cuộn", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Luôn", "col_b": "", "col_e": "22:30", "status": "Đang chờ"}]}, "Điệp Viên Quà Tặng": {"merged_c": "☁️ Link Drive Thành Phẩm Quà Tặng: https://drive.google.com/drive/folders/1ThanhPham_DiepVienQuaTang\n🎬 Kịch bản & Bản dựng: Đã xuất MP4 + đẩy dự án sang CapCut Desktop.\n📝 Caption: Bí mật món quà tinh tế khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁\n#️⃣ Hashtag: #diepvienquatang #quatangnguoiyeu #tamsutinhyeu", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Ăn Vặt": {"merged_c": "☁️ Link Drive Thành Phẩm Ăn Vặt: https://drive.google.com/drive/folders/1ThanhPham_DiepVienAnVat\n🎬 Kịch bản & Bản dựng: Đã lọc 6 cảnh đồ ăn 3.5s ngon mắt nhất + chèn SFX giòn tan & đẩy CapCut.\n📝 Caption: Đặt lên bàn cân tiểu ly kiểm chứng món ăn vặt cứu đói đêm khuya siêu cuốn 🍜\n#️⃣ Hashtag: #diepvienanvat #reviewdoan #anvatdemkhuya #foodreview", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "19:30", "status": "Đang chờ"}]}, "Điệp Viên Review": {"merged_c": "📁 Link Drive Folder YouTube (Full Tập + Thumbnail 16:9): https://drive.google.com/drive/folders/1YouTube_DiepVienReview\n📱 Link Drive Folder TikTok (Full Tập + Thumbnail 9:16 1 Cảnh Rõ Mặt): https://drive.google.com/drive/folders/1TikTok_DiepVienReview\n📊 Sheet Đề Xuất & Chỉ Số Kênh: Đã cập nhật bộ phim đề xuất mới nhất + đẩy dự án 6 Track sang CapCut Desktop.\n📌 Bấm vào Link Drive phía trên để kiểm tra toàn bộ các tập phim và Thumbnail trước khi bấm Đăng Video Lên!", "rows": [{"row": 6, "module": "1. Quét Kênh / Tìm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Tự Động Tìm Phim", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}, {"row": 9, "module": "4. Edit Video", "col_b": "https://www.youtube.com/watch?v=NR8-IsZ-3hw", "col_e": "", "status": "Đang chờ"}]}, "Tool Edit": {"merged_c": "☁️ Link Drive Thành Phẩm Tool Edit: https://drive.google.com/drive/folders/1ThanhPham_ToolEditPro\n🎞️ Dự Án CapCut Desktop: Đã tự động đẩy đủ các Track (Chữ, Nhân vật, B-Roll, SFX) vào CapCut.\n📌 Sau khi hoàn thành bất kỳ Module nào, thành phẩm MP4 được tải lên Google Drive và gắn Link tại ô lớn này để bạn kiểm tra!", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Facebook Confession", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Dựng Video Thô", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}}, "metamax_rows": [{"row": 6, "channel": "1. Điệp Viên Social", "uid_rows": ["625641016419655", "942466779989085", "", ""], "uids": "625641016419655\n942466779989085", "comment": "Góc giải mã sự thật và cập nhật tin nóng nhanh nhất trong ngày tại Điệp Viên Social 🔥 Các bác nghĩ sao về vụ này?", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=6\", \"▶ CHẠY SOCIAL\")", "schedule": "20:00", "status": "Đang chờ"}, {"row": 10, "channel": "2. Điệp Viên Tài Liệu", "uid_rows": ["625641016419655", "942466779989085", "1090801699184805", "1236988990381267"], "uids": "625641016419655\n942466779989085\n1090801699184805\n1236988990381267", "comment": "Mình vừa tổng hợp xong bộ đề cương BTL & mẹo bấm máy Casio đề HSA/TSA siêu nhanh, bạn nào cần chấm (.) mình gửi tặng nhé! 📚", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=10\", \"▶ CHẠY TÀI LIỆU\")", "schedule": "20:30", "status": "Đang chờ"}, {"row": 14, "channel": "3. Điệp Viên Tarot", "uid_rows": ["2155724418713742", "680891559282341", "1378797169413934", "369219035949156"], "uids": "2155724418713742\n680891559282341\n1378797169413934\n369219035949156", "comment": "Hữu duyên gửi thông điệp chữa lành đêm nay từ Điệp Viên Tarot 🔮 Bạn nào đang trằn trọc cần giải mã tình cảm/công việc thì chấm (.) nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=14\", \"▶ CHẠY TAROT\")", "schedule": "22:30", "status": "Đang chờ"}, {"row": 18, "channel": "4. Điệp Viên Quà Tặng", "uid_rows": ["", "", "", ""], "uids": "", "comment": "Gợi ý set quà tinh tế kèm thiệp viết tay khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁 Nhắn Điệp Viên Quà Tặng để được tư vấn nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=18\", \"▶ CHẠY QUÀ TẶNG\")", "schedule": "21:00", "status": "Đang chờ"}, {"row": 22, "channel": "5. Điệp Viên Ăn Vặt", "uid_rows": ["", "", "", ""], "uids": "", "comment": "Bàn test ẩm thực Điệp Viên Ăn Vặt vừa lên sóng món ăn vặt giòn tan cứu đói đêm khuya 🍜 Chấm (.) để xem kết quả cân tiểu ly thật 100% nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=22\", \"▶ CHẠY ĂN VẶT\")", "schedule": "19:30", "status": "Đang chờ"}]};
+        window.DV_CONFIGS = {"Bật Máy": {"icon": "fa-power-off", "short": "Bật Máy", "full_title": "Bật Máy", "subtitle": "Điều khiển nguồn máy & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600"}, "Điệp Viên Social": {"icon": "fa-bullhorn", "short": "ĐV Social", "full_title": "Điệp Viên Social", "subtitle": "Quét tin tức, làm kịch bản & đăng video", "gradient": "from-amber-500 via-orange-500 to-orange-700", "shadow": "shadow-orange-200/50", "btn_bg": "bg-orange-600 hover:bg-orange-700", "icon_bg": "bg-orange-50 text-orange-600", "merged_box_editable": true, "modules": [{"row": 6, "icon": "fa-satellite-dish", "name": "1. Quét Tin Tức Làm Kịch Bản", "btn_text": "▶ Quét Tin", "allow_input_b": false, "extra_action": null, "desc": "Tự quét Theanh28, Beatvn, Hi Feed... xuất kịch bản xuống ô kết quả ở cuối."}, {"row": 7, "icon": "fa-film", "name": "2. Làm Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Lấy kịch bản đã kiểm tra ở ô cuối để ghép giọng AI và dựng video."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video vừa làm kèm Caption & #Hashtag lên TikTok và Facebook."}, {"row": 9, "icon": "fa-link", "name": "4. Làm Tin Thụ Động", "btn_text": "▶ Trích Xuất Link", "allow_input_b": true, "input_b_placeholder": "Dán link video TikTok / Facebook cần trích xuất kịch bản...", "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"], "extra_btn_text": "⏰ Hẹn Giờ Đăng", "desc": "Dán link video để ra kịch bản ở ô cuối -> Sửa ưng ý xong bấm Hẹn Giờ Đăng."}]}, "Điệp Viên Tài Liệu": {"icon": "fa-book-open", "short": "ĐV Tài Liệu", "full_title": "Điệp Viên Tài Liệu", "subtitle": "Làm Đề Cương, Bài Tập Lớn & Video Kênh", "gradient": "from-indigo-500 via-indigo-600 to-blue-700", "shadow": "shadow-indigo-200/50", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "merged_box_editable": false, "has_archive_in_result": true, "modules": [{"row": 6, "icon": "fa-list-check", "name": "1. Làm Đề Cương", "btn_text": "▶ Làm Đề Cương", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link tài liệu + câu lệnh yêu cầu làm Đề Cương...", "extra_action": null, "desc": "Thiết kế Đề Cương chuẩn đại học và trả link Docs xuống ô Kết Quả ở cuối."}, {"row": 7, "icon": "fa-file-word", "name": "2. Làm Bài Tập Lớn", "btn_text": "▶ Làm Bài Tập Lớn", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link đề cương + câu lệnh làm Bài Tập Lớn...", "extra_action": null, "desc": "Xuất Word (.docx) Times New Roman 13pt và trả link Drive xuống ô Kết Quả ở cuối."}, {"row": 8, "icon": "fa-video", "name": "3. Làm Video Kênh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động sản xuất video kênh theo thiết lập sẵn trong Tool."}, {"row": 9, "icon": "fa-cloud-arrow-up", "name": "4. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video kênh vừa sản xuất lên TikTok & Fanpage Điệp Viên Tài Liệu."}]}, "Điệp Viên Tarot": {"icon": "fa-moon", "short": "ĐV Tarot", "full_title": "Điệp Viên Tarot", "subtitle": "Ảnh Cuộn, Video trải bài & Đăng Luôn", "gradient": "from-violet-500 via-violet-600 to-purple-800", "shadow": "shadow-purple-200/50", "btn_bg": "bg-violet-600 hover:bg-violet-700", "icon_bg": "bg-violet-50 text-violet-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-images", "name": "1. Ảnh Cuộn", "btn_text": "▶ Làm Ảnh Cuộn", "allow_input_b": false, "extra_action": null, "desc": "Tự động tạo bộ Ảnh Cuộn Tarot chữa lành và trả link Drive ở cuối trang."}, {"row": 7, "icon": "fa-wand-sparkles", "name": "2. Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video chọn 3 tụ bài Tarot kèm nhạc piano và trả link Drive ở cuối."}, {"row": 8, "icon": "fa-paper-plane", "name": "3. Đăng Luôn", "btn_text": "▶ Đăng Luôn", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["22:30", "21:30", "22:00", "23:00", "23:30", "00:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng ngay thành phẩm lên TikTok & Fanpage Hành Trình Giấc Mơ."}]}, "Điệp Viên Quà Tặng": {"icon": "fa-gift", "short": "ĐV Quà Tặng", "full_title": "Điệp Viên Quà Tặng", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-fuchsia-500 via-pink-600 to-rose-700", "shadow": "shadow-pink-200/50", "btn_bg": "bg-pink-600 hover:bg-pink-700", "icon_bg": "bg-pink-50 text-pink-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video So Sánh 2 cột Đỏ/Xanh chủ đề quà tặng."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Threads 3 tầng tư vấn tình cảm & tặng quà."}, {"row": 8, "icon": "fa-shapes", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Minh Họa 7 Pose Chibi & hộp quà."}, {"row": 9, "icon": "fa-scissors", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lấy dữ liệu & suộc có sẵn trên máy...", "extra_action": null, "desc": "Lấy dữ liệu và suộc quay có sẵn trên máy dựng thành video hoàn chỉnh."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video đã kiểm tra lên TikTok & Fanpage Tiệm Quà Nhà Bunny."}]}, "Điệp Viên Ăn Vặt": {"icon": "fa-bowl-food", "short": "ĐV Ăn Vặt", "full_title": "Điệp Viên Ăn Vặt", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-amber-500 via-orange-500 to-rose-600", "shadow": "shadow-orange-300/40", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Đặt lên bàn cân so sánh 2 món ăn vặt / 2 quán ăn."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video Threads 3 tầng review ẩm thực & quán ăn."}, {"row": 8, "icon": "fa-utensils", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video minh họa thẻ món ăn, cân tiểu ly & bảng giá."}, {"row": 9, "icon": "fa-camera-retro", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lọc 6 cảnh đồ ăn từ suộc trên máy...", "extra_action": null, "desc": "Lọc 6 cảnh đồ ăn ngon mắt nhất (3.5s/cảnh) từ suộc trên máy + chèn SFX."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["19:30", "11:30", "17:30", "20:30", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video ăn vặt đã kiểm tra lên TikTok & Fanpage."}]}, "Điệp Viên Review": {"icon": "fa-video", "short": "ĐV Review", "full_title": "Điệp Viên Review", "subtitle": "Quét kênh, Tự động tìm phim & Edit video", "gradient": "from-rose-500 via-rose-600 to-pink-800", "shadow": "shadow-rose-200/50", "btn_bg": "bg-rose-600 hover:bg-rose-700", "icon_bg": "bg-rose-50 text-rose-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-magnifying-glass-chart", "name": "1. Quét Kênh / Tìm Video", "btn_text": "▶ Quét Kênh", "allow_input_b": false, "extra_action": null, "desc": "Tự động quét các kênh đối thủ và chấm điểm các bộ phim đề xuất mạnh."}, {"row": 7, "icon": "fa-clapperboard", "name": "2. Tự Động Tìm Phim", "btn_text": "▶ Tự Tìm Phim", "allow_input_b": false, "extra_action": null, "desc": "Tự lấy video đề xuất trong Sheet rồi edit và chia tập cho cả YouTube & TikTok."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng các tập phim đã kiểm tra lên YouTube Studio & TikTok Studio."}, {"row": 9, "icon": "fa-link", "name": "4. Edit Video", "btn_text": "▶ Edit Từ Link", "allow_input_b": true, "input_b_placeholder": "Dán link video cần lấy về Edit theo Tool...", "extra_action": null, "desc": "Tải video từ link, tách tập YouTube 16:9 + TikTok 9:16 và trả link Drive ở cuối."}]}, "MetaMax": {"icon": "fa-comments", "short": "MetaMax", "full_title": "MetaMax", "subtitle": "5 kênh Điệp Viên đi Comment dạo theo UID dọc", "gradient": "from-sky-500 via-blue-500 to-indigo-700", "shadow": "shadow-blue-200/50", "btn_bg": "bg-blue-600 hover:bg-blue-700", "icon_bg": "bg-blue-50 text-blue-600"}, "Tool Edit": {"icon": "fa-wand-magic-sparkles", "short": "Tool Edit", "full_title": "Tool Edit", "subtitle": "Video So Sánh • Thread • FB Confession • Minh Họa • Video Thô", "gradient": "from-cyan-600 via-indigo-600 to-rose-600", "shadow": "shadow-indigo-300/40", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "full_width": true, "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Dựng Video So Sánh", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản So Sánh 2 cột Đỏ / Xanh...", "extra_action": null, "desc": "Dựng video so sánh 2 cột Đỏ và Xanh kèm nhân vật Chibi chỉ tay."}, {"row": 7, "icon": "fa-at", "name": "2. Video Thread", "btn_text": "▶ Dựng Video Thread", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng Threads...", "extra_action": null, "desc": "Làm ảnh & dựng video Threads 3 tầng đẩy sang CapCut."}, {"row": 8, "icon": "fa-thumbs-up", "name": "3. Video Facebook Confession", "btn_text": "▶ Dựng FB Confession", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng & bình luận Facebook...", "extra_action": null, "desc": "Làm ảnh & video bài đăng kèm bình luận Facebook đẩy sang CapCut."}, {"row": 9, "icon": "fa-layer-group", "name": "4. Video Minh Họa", "btn_text": "▶ Dựng Video Minh Họa", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản đồ họa Minh Họa...", "extra_action": null, "desc": "Dựng video đồ họa thẻ vật phẩm vector kèm thanh quét Trước/Sau."}, {"row": 10, "icon": "fa-user-Gear", "name": "5. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản & đường dẫn suộc video trên máy...", "extra_action": null, "desc": "Lấy suộc trên máy, cắt khoảng nghỉ thừa & tách nền người nói đè chữ sau lưng."}]}};
+        const DV_TOOL_ORDER = [
+            "Bật Máy",
+            "Điệp Viên Social",
+            "Điệp Viên Tài Liệu",
+            "Điệp Viên Tarot",
+            "Điệp Viên Quà Tặng",
+            "Điệp Viên Ăn Vặt",
+            "Điệp Viên Review",
+            "MetaMax",
+            "Tool Edit"
+        ];
+
+        let dvCurrentView = sessionStorage.getItem("tccm_dv_view") || "DASHBOARD";
+        if (dvCurrentView !== "DASHBOARD" && !window.DV_CONFIGS[dvCurrentView]) {
+            dvCurrentView = "DASHBOARD";
+        }
+        let dvMetaMaxIdx = parseInt(sessionStorage.getItem("tccm_dv_mm_idx") || "0", 10);
+        let dvEditSubTab = sessionStorage.getItem("tccm_dv_edit_tab") || "modules"; // 'modules' | 'sfx' | 'bgm'
+
+        function getDvApiBase() {
+            const saved = localStorage.getItem("DV_API_BASE");
+            if (saved) return saved.replace(/\/$/, "");
+            const host = window.location.hostname;
+            if (host === "127.0.0.1" || host === "localhost" || host.endsWith(".trycloudflare.com") || host.startsWith("192.168.")) {
+                return window.location.origin;
+            }
+            return "https://flash-passed-casual-fisheries.trycloudflare.com";
+        }
+
+        function dvNotify(msg) {
+            if (typeof showNotify === "function") {
+                showNotify(msg);
+            }
+        }
+
+        function dvStatusBadgeHtml(st, idAttr = "") {
+            const s = (st || "Đang chờ").toLowerCase();
+            let cls = "bg-amber-50 text-amber-600 border-amber-200";
+            if (s.includes("thực hiện") || s.includes("chạy") || s.includes("tiến hành")) {
+                cls = "bg-indigo-50 text-indigo-600 border-indigo-200";
+            } else if (s.includes("hoàn thành") || s.includes("ổn") || s.includes("đã")) {
+                cls = "bg-emerald-50 text-emerald-600 border-emerald-200";
+            } else if (s.includes("lỗi") || s.includes("mất") || s.includes("chưa")) {
+                cls = "bg-rose-50 text-rose-600 border-rose-200";
+            }
+            const idStr = idAttr ? `id="${idAttr}"` : "";
+            return `<span ${idStr} class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border shrink-0 ${cls}">${st || 'Đang chờ'}</span>`;
+        }
+
+        function dvExtractUrls(text) {
+            if (!text) return [];
+            const matches = text.match(/https?:\/\/[^\s"'<>]+/g);
+            return matches ? [...new Set(matches)] : [];
+        }
+
+        function syncHeaderForMode(isDiepVien) {
+            const titleEl = document.getElementById("appNameDisplay");
+            const subEl = titleEl ? titleEl.nextElementSibling : null;
+            const modeSwitchBtn = document.getElementById("headerModeSwitchBtn");
+            if (isDiepVien) {
+                if (titleEl) titleEl.textContent = "Chế Độ Điệp Viên";
+                if (subEl) subEl.textContent = "Quản lý & điều khiển 9 hệ thống Tool thông minh";
+                if (modeSwitchBtn) {
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-briefcase text-xs text-cyan-300"></i><span>Công Việc</span>`;
+                    modeSwitchBtn.setAttribute("onclick", "selectGameMode('thuquy')");
+                    modeSwitchBtn.setAttribute("title", "Quay về Chế độ Công Việc Hằng Ngày");
+                }
+            } else {
+                if (titleEl) titleEl.textContent = "Công Việc Hằng Ngày";
+                if (subEl) subEl.textContent = "Quản lý công việc & rèn luyện thể thao thông minh";
+                if (modeSwitchBtn) {
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-sm text-amber-300"></i><span>Điệp Viên</span>`;
+                    modeSwitchBtn.setAttribute("onclick", "openDiepVienMode('DASHBOARD')");
+                    modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)");
+                }
+            }
+        }
+
+        window.openDiepVienMode = function(initialTool) {
+            if (typeof showScreen === "function") {
+                showScreen("thuquy");
+            }
+            if (typeof switchView === "function") {
+                switchView("viewDiepVien");
+            }
+            syncHeaderForMode(true);
+            if (initialTool) {
+                dvCurrentView = (initialTool === "hub") ? "DASHBOARD" : initialTool;
+                sessionStorage.setItem("tccm_dv_view", dvCurrentView);
+            }
+            renderDvApp();
+            dvPollState();
+        };
+
+        window.dvOpenDashboard = function() {
+            dvCurrentView = "DASHBOARD";
+            sessionStorage.setItem("tccm_dv_view", "DASHBOARD");
+            renderDvApp();
+            const mc = document.getElementById("mainContainer");
+            if (mc) mc.scrollTop = 0;
+        };
+
+        window.dvOpenTool = function(name) {
+            dvCurrentView = name;
+            sessionStorage.setItem("tccm_dv_view", name);
+            if (name === "Tool Edit") {
+                dvEditSubTab = "modules";
+                sessionStorage.setItem("tccm_dv_edit_tab", "modules");
+            }
+            renderDvApp();
+            const mc = document.getElementById("mainContainer");
+            if (mc) mc.scrollTop = 0;
+        };
+
+        window.dvSelectMetaMaxChannel = function(idx) {
+            dvMetaMaxIdx = idx;
+            sessionStorage.setItem("tccm_dv_mm_idx", String(idx));
+            renderDvApp();
+        };
+
+        window.dvCopyMergedBox = function() {
+            const box = document.getElementById("dv_merged_c_box");
+            if (!box) return;
+            navigator.clipboard.writeText(box.value || "");
+            dvNotify("📋 Đã copy kịch bản & caption!");
+        };
+
+        // Điều khiển 3 sub-tab bên trong Tool Edit: 'modules' (5 Module Video) | 'sfx' (21 Sound Effect) | 'bgm' (119 Nhạc Nền)
+        window.switchToolEditSubTab = function(tab) {
+            dvEditSubTab = tab;
+            sessionStorage.setItem("tccm_dv_edit_tab", tab);
+
+            const modBox = document.getElementById("dvToolEditModulesBox");
+            const audioWrap = document.getElementById("dvToolEditAudioWrapper");
+            const secSFX = document.getElementById("editorSubView_sfx");
+            const secBGM = document.getElementById("editorSubView_bgm");
+            const bottomBar = document.getElementById("sbBottomStyleBar");
+            const bgmSliderTrack = document.getElementById("sbBottomSliderTrack");
+            const sfxSliderTrack = document.getElementById("sfxBottomSliderTrack");
+
+            if (window.stopSoundboardAudio) window.stopSoundboardAudio();
+            if (window.stopEditorSound) window.stopEditorSound();
+
+            ["modules", "sfx", "bgm"].forEach(k => {
+                const btn = document.getElementById("dvEditTabBtn_" + k);
+                if (!btn) return;
+                if (k === tab) {
+                    btn.className = "flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0";
+                } else {
+                    btn.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0";
+                }
+            });
+
+            if (tab === "modules") {
+                if (modBox) modBox.classList.remove("hidden");
+                if (audioWrap) audioWrap.classList.add("hidden");
+                if (secSFX) secSFX.classList.add("hidden");
+                if (secBGM) secBGM.classList.add("hidden");
+                if (bottomBar) { bottomBar.classList.add("hidden"); bottomBar.style.display = "none"; }
+            } else if (tab === "sfx") {
+                if (modBox) modBox.classList.add("hidden");
+                if (audioWrap) audioWrap.classList.remove("hidden");
+                if (secSFX) secSFX.classList.remove("hidden");
+                if (secBGM) secBGM.classList.add("hidden");
+                if (typeof window.switchEditorTab === "function") window.switchEditorTab("sfx");
+                if (bottomBar) {
+                    bottomBar.classList.remove("hidden");
+                    bottomBar.style.display = "";
+                    if (sfxSliderTrack) sfxSliderTrack.classList.remove("hidden");
+                    if (bgmSliderTrack) bgmSliderTrack.classList.add("hidden");
+                }
+            } else if (tab === "bgm") {
+                if (modBox) modBox.classList.add("hidden");
+                if (audioWrap) audioWrap.classList.remove("hidden");
+                if (secSFX) secSFX.classList.add("hidden");
+                if (secBGM) secBGM.classList.remove("hidden");
+                if (typeof window.switchEditorTab === "function") window.switchEditorTab("bgm");
+                if (typeof window.renderSoundboardGrid === "function") window.renderSoundboardGrid();
+                if (bottomBar) {
+                    bottomBar.classList.remove("hidden");
+                    bottomBar.style.display = "";
+                    if (sfxSliderTrack) sfxSliderTrack.classList.add("hidden");
+                    if (bgmSliderTrack) bgmSliderTrack.classList.remove("hidden");
+                }
+            }
+        };
+
+        window.renderDvApp = function() {
+            const box = document.getElementById("dvAppMount");
+            const audioWrap = document.getElementById("dvToolEditAudioWrapper");
+            const bottomBar = document.getElementById("sbBottomStyleBar");
+            if (!box) return;
+
+            if (dvCurrentView !== "Tool Edit") {
+                if (audioWrap) audioWrap.classList.add("hidden");
+                if (bottomBar) { bottomBar.classList.add("hidden"); bottomBar.style.display = "none"; }
+                if (window.stopSoundboardAudio) window.stopSoundboardAudio();
+                if (window.stopEditorSound) window.stopEditorSound();
+            }
+
+            // 1. MÀN HÌNH TỔNG QUAN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN
+            if (dvCurrentView === "DASHBOARD") {
+                let cardsHtml = "";
+                DV_TOOL_ORDER.forEach(name => {
+                    const cfg = window.DV_CONFIGS[name];
+                    if (cfg.full_width) {
+                        cardsHtml += `
+                            <button onclick="dvOpenTool('${name}')" class="col-span-2 dash-card bg-gradient-to-r ${cfg.gradient} shadow-xl ${cfg.shadow} flex !flex-row items-center justify-between !p-5 !min-h-0">
+                                <div class="flex items-center gap-4">
+                                    <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20">
+                                        <i class="fa-solid ${cfg.icon} text-xl text-yellow-300"></i>
+                                    </div>
+                                    <div>
+                                        <div class="dash-title text-base flex items-center gap-2 flex-wrap">
+                                            <span>${cfg.short}</span>
+                                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">CapCut Pro & SFX</span>
+                                        </div>
+                                        <div class="dash-desc text-white/85">5 Module Dựng Video • 21 Sound Effect 3D • 119 Nhạc Nền BGM</div>
+                                    </div>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base shrink-0">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </button>
+                        `;
+                    } else {
+                        cardsHtml += `
+                            <button onclick="dvOpenTool('${name}')" class="dash-card bg-gradient-to-br ${cfg.gradient} shadow-xl ${cfg.shadow}">
+                                <div>
+                                    <div class="dash-icon"><i class="fa-solid ${cfg.icon}"></i></div>
+                                    <div class="dash-title">${cfg.short}</div>
+                                    <div class="dash-desc text-white/80 font-bold">${cfg.subtitle}</div>
+                                </div>
+                            </button>
+                        `;
+                    }
+                });
+
+                box.innerHTML = `
+                    <div class="mb-6 flex items-center justify-between gap-2">
+                        <div>
+                            <h2 class="text-3xl font-black text-gray-900 tracking-tight leading-tight">Chế Độ Điệp Viên</h2>
+                            <p class="text-sm text-gray-400 font-semibold mt-1">Chọn công cụ bạn cần điều khiển</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <a href="https://docs.google.com/spreadsheets/d/1sCDWO5cIrRx5h4WDIIDWrN3mLpmlaQzW/edit" target="_blank"
+                               class="w-10 h-10 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 flex items-center justify-center border border-emerald-500/30 no-underline" title="Mở Google Sheet Điều Khiển">
+                                <i class="fa-solid fa-table text-sm"></i>
+                            </a>
+                            <button onclick="selectGameMode('thuquy')" class="px-3.5 py-2 rounded-2xl bg-gray-200/80 hover:bg-gray-300 text-gray-700 text-xs font-extrabold cursor-pointer border-0" title="Quay về Công Việc Hằng Ngày">
+                                <i class="fa-solid fa-arrow-left mr-1"></i> Công Việc
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        ${cardsHtml}
+                    </div>
+                `;
+                return;
+            }
+
+            const cfg = window.DV_CONFIGS[dvCurrentView];
+
+            // 2. MÀN HÌNH BẬT MÁY
+            if (dvCurrentView === "Bật Máy") {
+                let powerHtml = "";
+                (window.DV_STATE.power || []).forEach(p => {
+                    powerHtml += `
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="text-sm font-black text-gray-800">${p.name}</div>
+                                <div class="mt-1">${dvStatusBadgeHtml(p.status, 'bm_st_' + p.row)}</div>
+                            </div>
+                            <button onclick="dvTriggerPower('${p.code}', ${p.row})"
+                                    class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
+                                ${p.btn || '▶ Thực hiện'}
+                            </button>
+                        </div>
+                    `;
+                });
+
+                let healthHtml = "";
+                (window.DV_STATE.tool_health || []).forEach(th => {
+                    healthHtml += `
+                        <div class="flex items-center justify-between py-2.5 border-b border-gray-100 last:border-b-0 gap-2">
+                            <span class="text-xs font-bold text-gray-700">${th.name}</span>
+                            ${dvStatusBadgeHtml(th.status)}
+                        </div>
+                    `;
+                });
+
+                box.innerHTML = `
+                    <div class="section-header-bar">
+                        <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <div class="text-center flex-1 pl-12 pr-2">
+                            <h2 class="view-page-title">Bật Máy</h2>
+                            <p class="view-page-subtitle">${cfg.subtitle}</p>
+                        </div>
+                        <button onclick="dvTriggerPower('check_all_tools', 8)" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-md hover:bg-emerald-700 cursor-pointer border-0 shrink-0" title="Kiểm tra các Tool">
+                            <i class="fa-solid fa-rotate text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-2.5 mb-5">
+                        ${powerHtml}
+                    </div>
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
+                        <h3 class="text-xs font-black text-gray-500 uppercase tracking-wider mb-2">Trạng Thái Hoạt Động Các Tool</h3>
+                        ${healthHtml}
+                    </div>
+                `;
+                return;
+            }
+
+            // 3. MÀN HÌNH METAMAX (5 KÊNH — DÁN UID HÀNG DỌC MỖI DÒNG 1 UID)
+            if (dvCurrentView === "MetaMax") {
+                const mmRows = window.DV_STATE.metamax_rows || [];
+                const shortTabs = ["Social", "Tài Liệu", "Tarot", "Quà Tặng", "Ăn Vặt"];
+                const defaultBtns = ["▶ CHẠY SOCIAL", "▶ CHẠY TÀI LIỆU", "▶ CHẠY TAROT", "▶ CHẠY QUÀ TẶNG", "▶ CHẠY ĂN VẶT"];
+
+                if (dvMetaMaxIdx >= mmRows.length) dvMetaMaxIdx = 0;
+
+                let segTabsHtml = "";
+                mmRows.forEach((rObj, idx) => {
+                    const isActive = (idx === dvMetaMaxIdx);
+                    const cls = isActive
+                        ? "bg-white text-indigo-600 shadow-sm font-black"
+                        : "text-gray-500 hover:text-gray-800 font-bold";
+                    segTabsHtml += `
+                        <button onclick="dvSelectMetaMaxChannel(${idx})"
+                                class="flex-1 py-2.5 px-2 text-xs rounded-xl cursor-pointer border-0 ${cls}">
+                            ${shortTabs[idx] || ('Kênh ' + (idx + 1))}
+                        </button>
+                    `;
+                });
+
+                const rObj = mmRows[dvMetaMaxIdx] || { row: 6, channel: "1. Điệp Viên Social", uid_rows: ["","","",""], comment: "", btn_text: "▶ CHẠY SOCIAL", schedule: "Không hẹn giờ", status: "Đang chờ" };
+                const r = rObj.row;
+                const btnLbl = rObj.btn_text || defaultBtns[dvMetaMaxIdx] || "▶ CHẠY SOCIAL";
+                const uidRows = (rObj.uid_rows && rObj.uid_rows.length) ? rObj.uid_rows : (rObj.uids || "").split(/\r?\n/);
+
+                let uidInputsHtml = "";
+                for (let i = 0; i < 4; i++) {
+                    const val = (uidRows[i] || "").trim();
+                    uidInputsHtml += `
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-14 text-[11px] font-extrabold text-gray-400">Dòng ${i+1}</span>
+                            <input type="text" id="mm_uid_${r}_${i}" value="${val}"
+                                   onpaste="dvHandleVerticalUidPaste(event, ${r}, ${i})"
+                                   placeholder="Dán 1 mã UID Group..."
+                                   class="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white">
+                        </div>
+                    `;
+                }
+
+                const schedOpts = ["Không hẹn giờ", "12:00", "18:00", "19:30", "20:00", "21:00", "22:00"]
+                    .map(o => `<option value="${o}" ${o === rObj.schedule ? 'selected' : ''}>${o}</option>`).join("");
+
+                box.innerHTML = `
+                    <div class="section-header-bar">
+                        <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <div class="text-center flex-1 pl-12 pr-2">
+                            <h2 class="view-page-title">MetaMax</h2>
+                            <p class="view-page-subtitle">Đi Comment dạo & Seeding 5 kênh Điệp Viên</p>
+                        </div>
+                        <div class="w-11"></div>
+                    </div>
+
+                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/75 rounded-2xl">
+                        ${segTabsHtml}
+                    </div>
+
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 space-y-4">
+                        <div class="flex items-center justify-between gap-2">
+                            <div>
+                                <h3 class="text-base font-black text-gray-900">${rObj.channel}</h3>
+                                <p class="text-xs text-gray-400 font-semibold mt-0.5">Mỗi dòng 1 mã UID Group theo hàng dọc</p>
+                            </div>
+                            ${dvStatusBadgeHtml(rObj.status, 'st_MetaMax_' + r)}
+                        </div>
+
+                        <div class="space-y-2">
+                            ${uidInputsHtml}
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">Nội dung Comment sẵn</label>
+                            <textarea id="mm_cmt_${r}" rows="3"
+                                      class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white"
+                                      placeholder="Nhập nội dung comment...">${rObj.comment || ''}</textarea>
+                        </div>
+
+                        <button onclick="dvRunMetaMaxRow(${r}, 'exec_row')"
+                                class="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-black shadow-md cursor-pointer border-0">
+                            ${btnLbl}
+                        </button>
+
+                        <div class="flex items-center gap-2 pt-1">
+                            <button onclick="dvRunMetaMaxRow(${r}, 'save_only')"
+                                    class="py-2.5 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-extrabold cursor-pointer border-0">
+                                💾 Lưu
+                            </button>
+                            <select id="mm_sched_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
+                                ${schedOpts}
+                            </select>
+                            <button onclick="dvRunMetaMaxRow(${r}, 'schedule_row')"
+                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0">
+                                ⏰ Hẹn Giờ
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // 4. MÀN HÌNH CÁC TOOL SẢN XUẤT & TOOL EDIT (CÓ TÍCH HỢP 21 SOUND EFFECT & 119 NHẠC NỀN)
+            const toolState = (window.DV_STATE.tools && window.DV_STATE.tools[dvCurrentView]) || { merged_c: "", rows: [] };
+            const mergedVal = toolState.merged_c || "";
+            const urls = dvExtractUrls(mergedVal);
+
+            let modulesHtml = "";
+            (cfg.modules || []).forEach(m => {
+                const r = m.row;
+                const rowState = (toolState.rows || []).find(x => x.row === r) || { col_b: "", col_e: "", status: "Đang chờ" };
+
+                if (!m.allow_input_b && !m.extra_action) {
+                    modulesHtml += `
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0 flex-1">
+                                <div class="w-10 h-10 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
+                                    <i class="fa-solid ${m.icon || 'fa-play'} text-sm"></i>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2 flex-wrap">
+                                        <span class="text-sm font-black text-gray-900">${m.name}</span>
+                                        ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
+                                    </div>
+                                    <p class="text-[11.5px] text-gray-400 font-medium mt-0.5 truncate">${m.desc}</p>
+                                </div>
+                            </div>
+                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
+                                    class="px-4 py-2.5 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
+                                ${m.btn_text}
+                            </button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let inputHtml = "";
+                if (m.allow_input_b) {
+                    inputHtml = `
+                        <textarea id="inp_b_${r}" rows="2"
+                                  placeholder="${m.input_b_placeholder || ''}"
+                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white">${rowState.col_b || ''}</textarea>
+                    `;
+                }
+
+                let extraHtml = "";
+                if (m.extra_action === "schedule" || m.extra_action === "archive") {
+                    const opts = (m.extra_options || []).map(o =>
+                        `<option value="${o}" ${o === rowState.col_e ? 'selected' : ''}>${o}</option>`
+                    ).join("");
+                    const actCode = m.extra_action === "schedule" ? "schedule_row" : "archive_doc_row";
+                    extraHtml = `
+                        <div class="flex items-center gap-2">
+                            <select id="inp_e_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
+                                ${opts}
+                            </select>
+                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, '${actCode}')"
+                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                ${m.extra_btn_text}
+                            </button>
+                        </div>
+                    `;
+                }
+
+                modulesHtml += `
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-2.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
+                                    <i class="fa-solid ${m.icon || 'fa-play'} text-xs"></i>
+                                </div>
+                                <span class="text-sm font-black text-gray-900">${m.name}</span>
+                            </div>
+                            ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
+                        </div>
+                        <p class="text-[11.5px] text-gray-400 font-medium leading-relaxed">${m.desc}</p>
+                        ${inputHtml}
+                        <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
+                                class="w-full py-3 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0">
+                            ${m.btn_text}
+                        </button>
+                        ${extraHtml}
+                    </div>
+                `;
+            });
+
+            // KHUNG KẾT QUẢ Ở CUỐI CÙNG
+            let bottomResultHtml = "";
+            if (cfg.merged_box_editable) {
+                const srcUrlBtn = urls.length > 0
+                    ? `<a href="${urls[0]}" target="_blank" class="px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 border border-orange-200 text-[11px] font-extrabold no-underline">🔗 Mở Video Gốc</a>`
+                    : "";
+                bottomResultHtml = `
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-orange-200/80 mt-5">
+                        <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </span>
+                                <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Kịch Bản & Caption Kiểm Tra</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                ${srcUrlBtn}
+                                <button onclick="dvCopyMergedBox()"
+                                        class="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-extrabold cursor-pointer border-0">
+                                    📋 Copy
+                                </button>
+                                <button onclick="dvSaveMergedBox('${dvCurrentView}')"
+                                        class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-extrabold cursor-pointer border-0">
+                                    💾 Lưu Kịch Bản
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="dv_merged_c_box" rows="6"
+                                  placeholder="Kịch bản làm ra (kèm Link video gốc, Caption & #Hashtag) sẽ hiển thị tại đây để bạn kiểm tra và chỉnh sửa..."
+                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3.5 text-xs font-medium text-gray-800 leading-relaxed focus:outline-none focus:border-orange-500 focus:bg-white">${mergedVal}</textarea>
+                    </div>
+                `;
+            } else {
+                let linkButtonsHtml = "";
+                if (urls.length > 0) {
+                    urls.forEach((u, idx) => {
+                        let lbl = `🔗 Mở Link Thành Phẩm #${idx + 1}`;
+                        if (u.includes("docs.google.com/document")) {
+                            lbl = idx === 0 ? "📄 Mở Docs Đề Cương" : "📄 Mở Docs Bài Tập Lớn";
+                        } else if (u.includes("drive.google.com")) {
+                            lbl = "📂 Mở Google Drive Kiểm Tra";
+                        }
+                        linkButtonsHtml += `
+                            <a href="${u}" target="_blank"
+                               class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold no-underline shadow-sm">
+                                ${lbl}
+                            </a>
+                        `;
+                    });
+                } else {
+                    linkButtonsHtml = `<span class="text-xs font-semibold text-gray-400">Chưa có link mới — Hãy bấm chạy chức năng bên trên</span>`;
+                }
+
+                let archiveSectionHtml = "";
+                if (cfg.has_archive_in_result) {
+                    archiveSectionHtml = `
+                        <div class="pt-3 mt-3 border-t border-gray-100 flex items-center gap-2 flex-wrap">
+                            <select id="inp_e_6" class="flex-1 min-w-[180px] bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-700">
+                                <option value="Danh sách Đề Cương Lưu Trữ">Danh sách Đề Cương Lưu Trữ</option>
+                                <option value="Danh sách Bài Tập Lớn Lưu Trữ">Danh sách Bài Tập Lớn Lưu Trữ</option>
+                            </select>
+                            <button onclick="dvRunToolRow('${dvCurrentView}', 6, 'archive_doc_row')"
+                                    class="py-2 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                📁 Đặt Vào Thư Mục & Điền DS
+                            </button>
+                        </div>
+                    `;
+                }
+
+                bottomResultHtml = `
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-indigo-100 mt-5 overflow-hidden">
+                        <div class="flex items-center gap-2 mb-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-brands fa-google-drive"></i>
+                            </span>
+                            <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Link Thành Phẩm Google Drive</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            ${linkButtonsHtml}
+                        </div>
+                        ${archiveSectionHtml}
+                    </div>
+                `;
+            }
+
+            // Nếu đang ở Tool Edit -> Hiển thị thanh chuyển đổi 3 tab: 1. Dựng Video (5) | 2. Sound Effect (21) | 3. Nhạc Nền (119) (BỎ GIỚI THIỆU TEXT)
+            let toolEditTabsHtml = "";
+            let headerRightActions = `<div class="w-11 shrink-0"></div>`;
+            if (dvCurrentView === "Tool Edit") {
+                headerRightActions = `
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button onclick="toggleEditorAppWidth()" id="btnExpandEditor" class="w-10 h-10 rounded-2xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-600 flex items-center justify-center transition cursor-pointer border border-cyan-500/30" title="Phóng to mở rộng màn hình">
+                            <i id="iconExpandEditor" class="fa-solid fa-up-right-and-down-left-from-center text-xs"></i>
+                        </button>
+                        <button onclick="if(window.stopSoundboardAudio) stopSoundboardAudio(); if(window.stopEditorSound) stopEditorSound();" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer border border-rose-500/30" title="Dừng âm thanh">
+                            <i class="fa-solid fa-stop text-xs"></i>
+                        </button>
+                    </div>
+                `;
+                toolEditTabsHtml = `
+                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
+                        <button id="dvEditTabBtn_modules" onclick="switchToolEditSubTab('modules')" class="flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            <span>Dựng Video</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 font-mono">5</span>
+                        </button>
+                        <button id="dvEditTabBtn_sfx" onclick="switchToolEditSubTab('sfx')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Sound Effect</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-300/70 font-mono">21</span>
+                        </button>
+                        <button id="dvEditTabBtn_bgm" onclick="switchToolEditSubTab('bgm')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                            <i class="fa-solid fa-music"></i>
+                            <span>Nhạc Nền</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-300/70 font-mono">119</span>
+                        </button>
+                    </div>
+                `;
+            }
+
+            box.innerHTML = `
+                <div class="section-header-bar">
+                    <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <div class="text-center flex-1 pl-12 pr-2 min-w-0">
+                        <h2 class="view-page-title truncate">${cfg.full_title || cfg.short}</h2>
+                        <p class="view-page-subtitle truncate">${cfg.subtitle}</p>
+                    </div>
+                    ${headerRightActions}
+                </div>
+
+                ${toolEditTabsHtml}
+
+                <div id="dvToolEditModulesBox">
+                    <div class="space-y-3">
+                        ${modulesHtml}
+                    </div>
+                    ${bottomResultHtml}
+                </div>
+            `;
+
+            if (dvCurrentView === "Tool Edit") {
+                switchToolEditSubTab(dvEditSubTab || "modules");
+            }
+        };
+
+        window.dvHandleVerticalUidPaste = function(ev, rowIdx, startSlot) {
+            const text = (ev.clipboardData || window.clipboardData).getData("text");
+            if (!text) return;
+            const parts = text.replace(/[,;]/g, "\n").split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+            if (parts.length > 1) {
+                ev.preventDefault();
+                for (let i = 0; i < parts.length && (startSlot + i) < 4; i++) {
+                    const el = document.getElementById(`mm_uid_${rowIdx}_${startSlot + i}`);
+                    if (el) el.value = parts[i];
+                }
+            }
+        };
+
+        window.dvTriggerPower = async function(actionCode, rowIdx = 6) {
+            dvNotify("⏳ Đang gửi lệnh nguồn máy...");
+            const badge = document.getElementById(`bm_st_${rowIdx}`);
+            if (badge) badge.textContent = "Đang tiến hành thực hiện";
+            try {
+                await fetch(`${getDvApiBase()}/run?action=${actionCode}&row=${rowIdx}`);
+                dvNotify("✅ Đã gửi lệnh thành công!");
+                setTimeout(dvPollState, 1200);
+            } catch (e) {
+                dvNotify("❌ Lỗi kết nối máy chủ: " + e);
+            }
+        };
+
+        window.dvSaveMergedBox = async function(sheetName) {
+            const box = document.getElementById("dv_merged_c_box");
+            if (!box) return;
+            dvNotify("💾 Đang lưu kịch bản...");
+            try {
+                await fetch(`${getDvApiBase()}/api/mobile_exec`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        sheet: sheetName,
+                        row: 6,
+                        action_type: "save_merged_box",
+                        merged_c: box.value,
+                        save_only: true
+                    })
+                });
+                if (window.DV_STATE.tools && window.DV_STATE.tools[sheetName]) {
+                    window.DV_STATE.tools[sheetName].merged_c = box.value;
+                }
+                dvNotify("✅ Đã lưu kịch bản!");
+            } catch (e) {
+                dvNotify("❌ Lỗi lưu: " + e);
+            }
+        };
+
+        window.dvRunToolRow = async function(sheetName, rowIdx, actionType) {
+            const inpB = document.getElementById(`inp_b_${rowIdx}`);
+            const inpE = document.getElementById(`inp_e_${rowIdx}`);
+            const mergedBox = document.getElementById("dv_merged_c_box");
+            const colBVal = inpB ? inpB.value : null;
+            const colEVal = inpE ? inpE.value : null;
+            const mergedVal = mergedBox ? mergedBox.value : null;
+
+            const stEl = document.getElementById(`st_row_${rowIdx}`);
+            if (stEl) stEl.textContent = "Đang tiến hành thực hiện";
+            dvNotify("🚀 Đã gửi lệnh thực hiện!");
+
+            try {
+                await fetch(`${getDvApiBase()}/api/mobile_exec`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        sheet: sheetName,
+                        row: rowIdx,
+                        action_type: actionType,
+                        content: colBVal,
+                        merged_c: mergedVal,
+                        opt2: colEVal,
+                        save_only: false
+                    })
+                });
+                setTimeout(dvPollState, 1400);
+            } catch (e) {
+                dvNotify("❌ Lỗi kết nối: " + e);
+            }
+        };
+
+        window.dvRunMetaMaxRow = async function(rowIdx, actionType) {
+            const uidLines = [];
+            for (let i = 0; i < 4; i++) {
+                const el = document.getElementById(`mm_uid_${rowIdx}_${i}`);
+                if (el && el.value.trim()) uidLines.push(el.value.trim());
+            }
+            const uidCombined = uidLines.join("\n");
+            const cmtEl = document.getElementById(`mm_cmt_${rowIdx}`);
+            const schedEl = document.getElementById(`mm_sched_${rowIdx}`);
+            const saveOnly = (actionType === "save_only");
+
+            const stEl = document.getElementById(`st_MetaMax_${rowIdx}`);
+            if (stEl && !saveOnly) stEl.textContent = "Đang tiến hành thực hiện";
+            dvNotify(saveOnly ? "💾 Đã lưu UID & Comment!" : "🚀 Đang chạy MetaMax...");
+
+            try {
+                await fetch(`${getDvApiBase()}/api/mobile_exec`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        sheet: "MetaMax",
+                        row: rowIdx,
+                        action_type: actionType,
+                        uid: uidCombined,
+                        content: cmtEl ? cmtEl.value : "",
+                        opt2: schedEl ? schedEl.value : "",
+                        save_only: saveOnly
+                    })
+                });
+                setTimeout(dvPollState, 1200);
+            } catch (e) {
+                dvNotify("❌ Lỗi kết nối: " + e);
+            }
+        };
+
+        window.dvPollState = async function() {
+            try {
+                const res = await fetch(`${getDvApiBase()}/api/state`, { cache: "no-store" });
+                if (!res.ok) return;
+                const newState = await res.json();
+                window.DV_STATE = newState;
+
+                const sec = document.getElementById("viewDiepVien");
+                if (!sec || sec.classList.contains("hidden")) return;
+
+                const activeTag = document.activeElement ? document.activeElement.tagName : "";
+                const isTyping = (activeTag === "INPUT" || activeTag === "TEXTAREA" || activeTag === "SELECT");
+
+                if (dvCurrentView === "Bật Máy" && !isTyping) {
+                    renderDvApp();
+                    return;
+                }
+                if (dvCurrentView === "MetaMax") {
+                    (window.DV_STATE.metamax_rows || []).forEach(rObj => {
+                        const stEl = document.getElementById(`st_MetaMax_${rObj.row}`);
+                        if (stEl) stEl.textContent = rObj.status;
+                    });
+                    return;
+                }
+                const toolState = window.DV_STATE.tools && window.DV_STATE.tools[dvCurrentView];
+                if (toolState) {
+                    const mBox = document.getElementById("dv_merged_c_box");
+                    if (mBox && document.activeElement !== mBox && toolState.merged_c) {
+                        mBox.value = toolState.merged_c;
+                    }
+                    (toolState.rows || []).forEach(rObj => {
+                        const stEl = document.getElementById(`st_row_${rObj.row}`);
+                        if (stEl) stEl.textContent = rObj.status;
+                    });
+                }
+            } catch (e) {}
+        };
+
+        // Hook vào switchView của teamtccm/Work
+        const origSwitchView = window.switchView;
+        if (typeof origSwitchView === "function") {
+            window.switchView = function(viewId) {
+                if (viewId === "viewSoundboard") {
+                    origSwitchView("viewDiepVien");
+                    syncHeaderForMode(true);
+                    dvCurrentView = "Tool Edit";
+                    dvEditSubTab = "sfx";
+                    renderDvApp();
+                    return;
+                }
+                origSwitchView(viewId);
+                if (viewId === "viewDiepVien") {
+                    syncHeaderForMode(true);
+                    renderDvApp();
+                    dvPollState();
+                } else {
+                    syncHeaderForMode(false);
+                    const bottomBar = document.getElementById("sbBottomStyleBar");
+                    if (bottomBar) { bottomBar.classList.add("hidden"); bottomBar.style.display = "none"; }
+                }
+            };
+        }
+
+        // Hook vào selectGameMode của teamtccm/Work để hỗ trợ 'diepvien'
+        const origSelectGameMode = window.selectGameMode;
+        if (typeof origSelectGameMode === "function") {
+            window.selectGameMode = function(mode, showNotification = true) {
+                const bDv = document.getElementById("badgeDiepVien");
+                if (mode === "diepvien") {
+                    origSelectGameMode("thuquy", false);
+                    if (bDv) { bDv.className = "mode-badge badge-active"; bDv.textContent = "ĐANG KÍCH HOẠT"; }
+                    const bTq = document.getElementById("badgeThuQuy");
+                    if (bTq) { bTq.className = "mode-badge"; bTq.textContent = "MỞ KHÓA"; }
+                    setTimeout(() => {
+                        openDiepVienMode("DASHBOARD");
+                        if (showNotification && typeof showNotify === "function") {
+                            showNotify("🕵️ Đã kích hoạt Chế Độ Điệp Viên!");
+                        }
+                    }, 280);
+                    return;
+                }
+                if (bDv) { bDv.className = "mode-badge badge-hot"; bDv.textContent = "🔥 MỞ KHÓA"; }
+                origSelectGameMode(mode, showNotification);
+                if (mode === "thuquy") {
+                    setTimeout(() => syncHeaderForMode(false), 300);
+                }
+            };
+        }
+
+        setInterval(dvPollState, 3500);
+    })();
+    </script>
+
 
 
     <!-- MODAL LỰA CHỌN CHẾ ĐỘ ĐẤU (BOT VÀ GHÉP TRẬN ONLINE) -->
@@ -7714,44 +8417,5 @@
         </div>
     </div>
 
-    <!-- NEU HANDWRITTEN LIGHTBOX MODAL -->
-    <div id="neuLightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between hidden transition-all duration-300">
-        <!-- Lightbox Header -->
-        <div class="flex items-center justify-between p-4 px-6 border-b border-white/10 text-white z-10">
-            <div>
-                <div id="neuLightboxTitle" class="text-sm sm:text-base font-black tracking-tight">Bài giải viết tay NEU</div>
-                <div id="neuLightboxSubtitle" class="text-xs text-gray-400 font-medium">Bám sát dòng kẻ vở thật</div>
-            </div>
-            <div class="flex items-center gap-3">
-                <span id="neuLightboxCounter" class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white/10 text-indigo-300">Trang 1 / 4</span>
-                <button onclick="toggleNeuLightboxMode()" id="neuLightboxModeBadge" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-camera mr-1"></i> Mờ Camera
-                </button>
-                <a id="neuLightboxDownloadBtn" href="#" download class="w-9 h-9 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center transition" title="Tải ảnh">
-                    <i class="fa-solid fa-download text-sm"></i>
-                </a>
-                <button onclick="closeNeuLightbox()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-rose-600 text-white flex items-center justify-center transition cursor-pointer" title="Đóng">
-                    <i class="fa-solid fa-xmark text-base"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Lightbox Body with Image -->
-        <div class="relative flex-1 flex items-center justify-center p-2 sm:p-4 overflow-hidden select-none">
-            <button onclick="prevNeuLightbox()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition backdrop-blur-md cursor-pointer z-10 shadow-lg" title="Trang trước">
-                <i class="fa-solid fa-chevron-left text-lg"></i>
-            </button>
-            <img id="neuLightboxImg" src="" alt="Bài giải phóng to" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl transition-transform duration-200">
-            <button onclick="nextNeuLightbox()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition backdrop-blur-md cursor-pointer z-10 shadow-lg" title="Trang tiếp">
-                <i class="fa-solid fa-chevron-right text-lg"></i>
-            </button>
-        </div>
-
-        <!-- Lightbox Footer -->
-        <div class="p-3 text-center text-xs text-white/50 border-t border-white/10">
-            Sử dụng phím <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">←</kbd> <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">→</kbd> để chuyển trang, <kbd class="px-2 py-0.5 rounded bg-white/15 text-white font-mono">ESC</kbd> để đóng
-        </div>
-    </div>
-
-</body>
+    </body>
 </html>
