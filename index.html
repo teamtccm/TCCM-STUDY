@@ -1919,11 +1919,11 @@
                 <div class="mode-badge" id="badgeMitchum" style="background:rgba(0,215,255,0.2);color:#00D7FF;border:1px solid #00D7FF;">MỞ KHÓA</div>
             </div>
 
-            <!-- CHẾ ĐỘ 3: SẢNH TRÒ CHƠI GIẢI TRÍ -->
-            <div class="mode-card solo" id="modeCardSolo" onclick="selectGameMode('gamehub')" style="border:2px solid #FF5500;background:rgba(40,10,0,0.85);box-shadow:0 0 25px rgba(255,85,0,0.3);">
+            <!-- CHẾ ĐỘ 3: VÒNG QUAY MAY MẮN -->
+            <div class="mode-card solo" id="modeCardSolo" onclick="selectGameMode('wheel')" style="border:2px solid #FF5500;background:rgba(40,10,0,0.85);box-shadow:0 0 25px rgba(255,85,0,0.3);">
                 <div class="mode-info">
-                    <div class="mode-name" style="color:#FF8800;text-shadow:0 0 10px #FF5500;">🎮 SẢNH TRÒ CHƠI GIẢI TRÍ THPT CAO BÁ QUÁT</div>
-                    <div class="mode-desc" style="color:#FFCC99;">Kho game sinh viên: Giải Quyết Ân Oán 1vs1, Đấu Thẻ Bài ĐHHP (phong cách Yu-Gi-Oh!), Vòng Quay Né Deadline 🔥</div>
+                    <div class="mode-name" style="color:#FF8800;text-shadow:0 0 10px #FF5500;">🎡 GIẢI TRÍ · VÒNG QUAY MAY MẮN ĐH HẢI PHÒNG</div>
+                    <div class="mode-desc" style="color:#FFCC99;">Quay thưởng thử vận may sinh viên ĐH Hải Phòng 🔥</div>
                 </div>
                 <div class="mode-badge badge-hot" style="background:#FF5500;color:#FFF;font-weight:900;box-shadow:0 0 15px rgba(255,85,0,0.7);">🔥 MỞ KHÓA</div>
             </div>
@@ -1964,9 +1964,11 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="px-3.5 h-11 rounded-2xl bg-amber-400/20 hover:bg-amber-400/30 backdrop-blur-sm flex items-center gap-2 text-amber-200 font-black text-xs transition-all cursor-pointer border border-amber-300/35 shadow-inner" title="Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)">
-                        <i class="fa-solid fa-user-secret text-sm text-amber-300"></i>
-                        <span>Điệp Viên</span>
+                    <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Tập Thể Thao (4 Nhóm Cơ GIF)">
+                        <i class="fa-solid fa-dumbbell text-base text-emerald-300"></i>
+                    </button>
+                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)">
+                        <i class="fa-solid fa-user-secret text-lg text-amber-300"></i>
                     </button>
                     <button onclick="promptAdminThenSettings()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt Admin">
                         <i class="fa-solid fa-gear text-lg"></i>
@@ -2037,57 +2039,30 @@
                             <div class="dash-title">Thuyết Trình</div>
                         </div>
                     </button>
-                    <!-- Giải Trí -->
-                    <button onclick="selectGameMode('gamehub')" class="dash-card bg-gradient-to-br from-rose-500 via-rose-600 to-pink-800 shadow-xl shadow-rose-200/50">
+                    <!-- Giải Trí (Mở thẳng Vòng Quay May Mắn) -->
+                    <button onclick="selectGameMode('wheel')" class="dash-card bg-gradient-to-br from-rose-500 via-rose-600 to-pink-800 shadow-xl shadow-rose-200/50">
                         <div>
                             <div class="dash-icon"><i class="fa-solid fa-gamepad"></i></div>
                             <div class="dash-title">Giải Trí</div>
                         </div>
                     </button>
-                    <!-- Đồ Ăn Quanh Trường -->
+                    <!-- Đồ Ăn Quanh Đại Học Hải Phòng -->
                     <button onclick="switchView('viewFoodNearby')" class="dash-card bg-gradient-to-br from-amber-500 via-orange-500 to-rose-600 shadow-xl shadow-orange-300/40">
-                        <span class="dash-badge bg-rose-500 text-white font-black"><i class="fa-solid fa-fire text-[9px]"></i> Quán Ngon</span>
+                        <span class="dash-badge bg-rose-500 text-white font-black"><i class="fa-solid fa-fire text-[9px]"></i> ĐHHP</span>
                         <div>
                             <div class="dash-icon"><i class="fa-solid fa-bowl-food"></i></div>
                             <div class="dash-title">Đồ Ăn Quanh Trường</div>
-                            <div class="dash-desc text-white/80 font-bold">Soi map & gọi món 11A11</div>
+                            <div class="dash-desc text-white/85 font-bold">Quanh ĐH Hải Phòng</div>
                         </div>
                     </button>
-                    <!-- Tập Thể Thao -->
-                    <button onclick="switchView('viewGymWorkout')" class="dash-card bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600 shadow-xl shadow-purple-300/40">
-                        <span class="dash-badge bg-emerald-500 text-white font-black"><i class="fa-solid fa-dumbbell text-[9px]"></i> 4 Nhóm Cơ</span>
+                    <!-- Cài Đặt (Thẻ vuông gọn 1 cột, không để dài) -->
+                    <button onclick="promptAdminThenSettings()" class="dash-card bg-gradient-to-br from-slate-700 via-gray-800 to-gray-900 shadow-xl shadow-gray-400/20">
+                        <span class="dash-badge"><i class="fa-solid fa-lock text-[9px]"></i> Admin</span>
                         <div>
-                            <div class="dash-icon"><i class="fa-solid fa-person-running"></i></div>
-                            <div class="dash-title">Tập Thể Thao</div>
-                            <div class="dash-desc text-white/80 font-bold">Hình ảnh GIF chuyển động</div>
+                            <div class="dash-icon"><i class="fa-solid fa-sliders"></i></div>
+                            <div class="dash-title">Cài Đặt</div>
+                            <div class="dash-desc text-white/75 font-bold">Cấu hình hệ thống</div>
                         </div>
-                    </button>
-                    <!-- Chế Độ Điệp Viên: Điều Khiển 9 Hệ Thống Tool & Tool Edit (Kèm SFX & Nhạc Nền) -->
-                    <button onclick="openDiepVienMode('DASHBOARD')" class="col-span-2 dash-card bg-gradient-to-r from-amber-600 via-purple-700 to-indigo-800 shadow-xl shadow-purple-300/40 flex items-center justify-between !p-5">
-                        <div class="flex items-center gap-4">
-                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20"><i class="fa-solid fa-user-secret text-xl text-yellow-300"></i></div>
-                            <div>
-                                <div class="dash-title text-base flex items-center gap-2">
-                                    Chế Độ Điệp Viên
-                                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">9 Tool & Audio</span>
-                                </div>
-                                <div class="dash-desc text-white/85">Bật Máy • ĐV Social • Tài Liệu • Tarot • Quà Tặng • Ăn Vặt • Review • MetaMax • Tool Edit</div>
-                            </div>
-                        </div>
-                        <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                    </button>
-                    <!-- Cài Đặt -->
-                    <button onclick="promptAdminThenSettings()" class="col-span-2 dash-card bg-gradient-to-r from-slate-700 via-gray-800 to-gray-900 shadow-xl shadow-gray-400/20 flex items-center justify-between !p-5">
-                        <div class="flex items-center gap-4">
-                            <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl"><i class="fa-solid fa-sliders"></i></div>
-                            <div>
-                                <div class="dash-title text-base">Cài Đặt Hệ Thống</div>
-                                <div class="dash-desc text-white/70">Quản trị viên & cấu hình lớp</div>
-                            </div>
-                        </div>
-                        <span class="dash-badge static"><i class="fa-solid fa-lock text-[9px]"></i> Admin</span>
                     </button>
                 </div>
             </section>
@@ -2368,99 +2343,105 @@
                 </div>
             </section>
 
-            <!-- VIEW: ĐỒ ĂN QUANH TRƯỜNG -->
+                        <!-- VIEW: ĐỒ ĂN QUANH ĐẠI HỌC HẢI PHÒNG (UPGRADED UI) -->
             <section id="viewFoodNearby" class="view-section">
-                <!-- Header (Food Delivery App Style) -->
+                <!-- Header chuẩn đồng bộ -->
                 <div class="section-header-bar">
                     <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="text-center flex-1 px-2">
-                        <div class="text-[10px] uppercase font-black text-amber-600 tracking-wider flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-location-dot"></i> Giao tới THPT Cao Bá Quát
-                        </div>
-                        <h2 class="view-page-title text-xl font-black text-gray-900 leading-tight">Đồ Ăn Quanh Trường</h2>
+                    <div class="text-center flex-1 px-12">
+                        <h2 class="view-page-title text-lg sm:text-xl">Đồ Ăn ĐH Hải Phòng</h2>
+                        <p class="view-page-subtitle">171 Phan Đăng Lưu · Kiến An</p>
                     </div>
-                    <button onclick="openFoodCartModal()" class="relative w-11 h-11 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-orange-300 hover:from-amber-400 hover:to-orange-500 active:scale-95 transition-all cursor-pointer text-base" title="Xem giỏ hàng">
+                    <button onclick="openFoodCartModal()" class="relative w-11 h-11 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-orange-300 hover:from-amber-400 hover:to-orange-500 active:scale-95 transition-all cursor-pointer text-base shrink-0 border-0" title="Xem giỏ hàng">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="foodCartBadge" class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center border-2 border-white">0</span>
                     </button>
                 </div>
 
-                <!-- BẢN ĐỒ GOOGLE MAPS TƯƠNG TÁC (LEAFLET + TILES GOOGLE MAPS & PIN ẢNH QUÁN) -->
-                <div class="mb-4">
-                    <div class="flex items-center justify-between mb-2 px-1">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs font-black text-gray-800 flex items-center gap-1.5">
-                                <i class="fa-solid fa-map-location-dot text-amber-500"></i> Bản Đồ Google Maps
-                            </span>
-                            <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Bán kính 200m</span>
+                <!-- HERO BANNER ĐẠI HỌC HẢI PHÒNG -->
+                <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-3xl p-4 text-white shadow-lg shadow-orange-200/60 mb-4 relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="min-w-0 flex-1">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-[10px] font-black uppercase tracking-wider mb-1">
+                                🏫 Đại Học Hải Phòng (HPUni)
+                            </div>
+                            <h3 class="text-base font-black leading-snug">Bản Đồ Ẩm Thực Sinh Viên Kiến An</h3>
+                            <p class="text-[11px] text-white/90 font-medium mt-0.5">Bánh đa cua, bánh mì cay, dừa dầm, cơm gà, trà sữa sát cổng trường</p>
                         </div>
-                        <div class="flex items-center gap-1.5">
-                            <button onclick="openGoogleMapsArea()" class="text-[11px] font-bold text-indigo-600 hover:underline flex items-center gap-1 cursor-pointer">
-                                <span>Mở App Google Maps</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Map container -->
-                    <div id="foodLeafletMap" class="w-full h-64 sm:h-72 rounded-3xl shadow-xl border-2 border-amber-200/80 overflow-hidden relative z-10 bg-slate-100">
-                        <!-- Leaflet renders real Google Maps tiles & shop photo pins here -->
-                    </div>
-                    <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold px-2 mt-1.5">
-                        <span>📍 THPT Cao Bá Quát · Trục Đường Cổ Bi, Gia Lâm</span>
-                        <span class="text-amber-600">Chạm vào ảnh quán để xem menu 👆</span>
+                        <button onclick="openGoogleMapsArea()" class="shrink-0 whitespace-nowrap px-3.5 py-2.5 rounded-2xl bg-white text-orange-600 font-black text-xs shadow-md hover:bg-orange-50 active:scale-95 transition cursor-pointer flex items-center gap-1.5 border-0">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>Mở Maps</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- TÌM KIẾM & BỘ LỌC APP STYLE -->
-                <div class="space-y-3 mb-5">
-                    <!-- Ô tìm kiếm -->
-                    <div class="relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
-                        <input type="text" id="foodSearchInput" oninput="handleFoodSearch(this.value)" 
-                               placeholder="Tìm trà sữa, bánh mì chảo, bún bò, cơm sườn..." 
-                               class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200/90 rounded-2xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs">
+                <!-- BẢN ĐỒ GOOGLE MAPS TƯƠNG TÁC QUANH ĐH HẢI PHÒNG -->
+                <div class="mb-4 bg-white p-3 rounded-3xl border border-gray-200/80 shadow-sm">
+                    <div class="flex items-center justify-between gap-2 mb-2 px-1">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="text-xs font-black text-gray-800 flex items-center gap-1.5 truncate">
+                                <i class="fa-solid fa-compass text-amber-500"></i> Bản Đồ Quanh Cổng Trường
+                            </span>
+                            <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">Bán kính 150m</span>
+                        </div>
+                        <button onclick="toggleFoodMapHeight()" id="btnToggleFoodMap" class="text-[11px] font-bold text-indigo-600 hover:bg-indigo-50 px-2.5 py-1 rounded-xl border border-indigo-100 flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0 transition">
+                            <i class="fa-solid fa-expand text-[10px]"></i>
+                            <span>Phóng to</span>
+                        </button>
                     </div>
 
-                    <!-- Filter Tabs phân loại (ShopeeFood Style) -->
+                    <div id="foodLeafletMap" class="w-full h-48 rounded-2xl border border-amber-200/80 overflow-hidden relative z-10 bg-slate-100 transition-all duration-300"></div>
+                    <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold px-1 mt-2">
+                        <span>📍 171 Phan Đăng Lưu, Kiến An, Hải Phòng</span>
+                        <span class="text-amber-600">Chạm vào ghim để xem menu 👆</span>
+                    </div>
+                </div>
+
+                <!-- TÌM KIẾM & BỘ LỌC NHANH -->
+                <div class="space-y-3 mb-4">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500 text-xs"></i>
+                        <input type="text" id="foodSearchInput" oninput="handleFoodSearch(this.value)"
+                               placeholder="Tìm bánh đa cua, bánh mì cay, dừa dầm, cơm gà, trà sữa..."
+                               class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-2xl text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs">
+                    </div>
+
                     <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs">
                         <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-orange-300/40">
-                            🌟 Tất cả quán
+                            🌟 Tất cả (8)
                         </button>
-                        <button onclick="setFoodCategory('top')" data-cat="top" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            ⭐ Top Đánh Giá Cao
-                        </button>
-                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🧋 Trà Sữa & Đồ Uống
+                        <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🦀 Đặc Sản Hải Phòng
                         </button>
                         <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
                             🍚 Cơm & Bún Phở
                         </button>
+                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🧋 Trà Sữa & Dừa Dầm
+                        </button>
                         <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🥖 Bánh Mì & Ăn Nhanh
+                            🥖 Bánh Mì & Ăn Vặt
                         </button>
                     </div>
 
-                    <!-- Sorting & Count Bar -->
                     <div class="flex justify-between items-center px-1 text-[11px] font-bold text-gray-500">
-                        <span>Danh sách quán quanh trường</span>
+                        <span id="foodShopCountLabel">8 quán ngon quanh ĐH Hải Phòng</span>
                         <div class="flex items-center gap-1.5">
                             <span>Sắp xếp:</span>
-                            <select onchange="handleFoodSort(this.value)" class="bg-white border border-gray-200 rounded-xl px-2 py-1 text-[11px] font-bold text-gray-800 focus:outline-none">
+                            <select onchange="handleFoodSort(this.value)" class="bg-white border border-gray-200 rounded-xl px-2.5 py-1 text-[11px] font-bold text-gray-800 focus:outline-none">
+                                <option value="distance">📍 Gần cổng trường nhất</option>
                                 <option value="rating">⭐ Đánh giá cao nhất</option>
-                                <option value="distance">📍 Gần trường nhất</option>
-                                <option value="price">💰 Giá bình dân</option>
+                                <option value="price">💰 Giá sinh viên</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- DANH SÁCH QUÁN ĂN (CARDS APP STYLE) -->
-                <div class="space-y-4 pb-20" id="foodShopListContainer">
-                    <!-- Rendered by js/food.js -->
-                </div>
+                <!-- DANH SÁCH QUÁN ĂN -->
+                <div class="space-y-3.5 pb-20" id="foodShopListContainer"></div>
             </section>
 
             <!-- VIEW: TẬP THỂ THAO -->
@@ -2956,7 +2937,7 @@
                 <div class="flex justify-between items-center mb-2">
                     <h4 class="text-xs font-black text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
                         <i class="fa-solid fa-comments text-amber-500"></i>
-                        <span>Học Sinh 11A11 Nhận Xét</span>
+                        <span>Sinh Viên ĐH Hải Phòng Nhận Xét</span>
                     </h4>
                     <button onclick="openReviewModalForActiveShop()" class="text-[11px] font-bold text-amber-600 hover:underline cursor-pointer">
                         + Thêm nhận xét
@@ -3003,14 +2984,14 @@
             <div class="space-y-3 bg-gray-50 rounded-2xl p-4 border border-gray-200/80 mb-4 text-xs">
                 <div class="font-black text-gray-800 text-xs flex items-center gap-1.5">
                     <i class="fa-solid fa-id-card text-indigo-600"></i>
-                    <span>Thông tin người nhận (Học sinh 11A11)</span>
+                    <span>Thông tin người nhận (Sinh viên ĐH Hải Phòng)</span>
                 </div>
 
                 <!-- Chọn học sinh -->
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Người nhận:</label>
                     <select id="foodOrderStudentSelect" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <option value="">-- Chọn tên học sinh 11A11 --</option>
+                        <option value="">-- Chọn tên sinh viên ĐH Hải Phòng --</option>
                     </select>
                 </div>
 
@@ -3022,10 +3003,10 @@
                     <div>
                         <label class="block font-bold text-gray-700 mb-1">Địa điểm giao:</label>
                         <select id="foodOrderLocationSelect" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
-                            <option value="Lớp 11A11 (Tầng 2 Nhà A - THPT Cao Bá Quát)">Lớp 11A11 (Tầng 2)</option>
-                            <option value="Cổng chính trường THPT Cao Bá Quát">Cổng chính trường</option>
-                            <option value="Cổng phụ trường THPT Cao Bá Quát">Cổng phụ trường</option>
-                            <option value="Sân bóng / Nhà thể chất">Sân bóng / Nhà thể chất</option>
+                            <option value="Cổng chính ĐH Hải Phòng (171 Phan Đăng Lưu)">Cổng chính ĐHHP (171 Phan Đăng Lưu)</option>
+                            <option value="Giảng đường A / B / C - ĐH Hải Phòng">Giảng đường A / B / C - ĐHHP</option>
+                            <option value="Khu Ký Túc Xá (KTX) ĐH Hải Phòng">Khu Ký Túc Xá (KTX) ĐHHP</option>
+                            <option value="Nhà Đa Năng / Sân vận động ĐH Hải Phòng">Nhà Đa Năng / Sân vận động ĐHHP</option>
                         </select>
                     </div>
                 </div>
@@ -3083,7 +3064,7 @@
                 <div>
                     <label class="block font-bold text-gray-700 mb-1">Học sinh đánh giá:</label>
                     <select id="foodReviewStudentSelect" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <option value="">-- Chọn tên học sinh 11A11 --</option>
+                        <option value="">-- Chọn tên sinh viên ĐH Hải Phòng --</option>
                     </select>
                 </div>
                 <div>
@@ -4109,11 +4090,11 @@
 
             <div class="flex flex-col gap-3.5 w-full max-w-xs sm:max-w-sm">
                 <!-- 1. GIẢI QUYẾT ÂN OÁN 1VS1 -->
-                <button class="py-3 px-5 rounded-2xl bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-400 hover:to-rose-500 text-white font-black text-xs shadow-xl shadow-orange-900/60 flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="enterSoloFromHub()">
+                <button class="py-3 px-5 rounded-2xl bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-400 hover:to-rose-500 text-white font-black text-xs shadow-xl shadow-orange-900/60 flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="enterSoloFromHub()" style="display:none !important;">
                     <span>GIẢI QUYẾT ÂN OÁN (1VS1 ĐỐI KHÁNG)</span>
                 </button>
                 <!-- 2. ĐẤU THẺ BÀI YU-GI-OH -->
-                <button class="py-3 px-5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black text-xs shadow-xl shadow-cyan-900/60 flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="startYuGiOhGame()">
+                <button class="py-3 px-5 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black text-xs shadow-xl shadow-cyan-900/60 flex items-center justify-center cursor-pointer transition-all active:scale-95" onclick="startYuGiOhGame()" style="display:none !important;">
                     <span>ĐẤU THẺ BÀI ĐHHP (PHONG CÁCH YU-GI-OH)</span>
                 </button>
                 <!-- 3. VÒNG QUAY MAY MẮN -->
@@ -4210,7 +4191,7 @@
         <div class="w-full max-w-md flex flex-col items-center gap-4 text-center">
             <!-- HEADER -->
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-300/40 text-amber-300 text-[10px] font-black uppercase tracking-wider">
-                TRƯỜNG THPT CAO BÁ QUÁT
+                TRƯỜNG ĐẠI HỌC HẢI PHÒNG
             </div>
             <h2 class="text-2xl sm:text-3xl font-black uppercase leading-tight" style="color: #fbbf24; text-shadow: 0 0 16px rgba(251,191,36,0.6), 0 2px 8px rgba(0,0,0,0.9);">
                 VÒNG QUAY MAY MẮN
@@ -4233,8 +4214,8 @@
                 <button onclick="spinLuckyWheel()" class="py-2.5 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-black text-xs shadow-xl shadow-amber-900/60 flex items-center justify-center cursor-pointer transition-all active:scale-95">
                     <span>QUAY VẬN MAY</span>
                 </button>
-                <button onclick="showScreen('gameHub')" class="py-2.5 px-5 rounded-2xl bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-xs border border-white/20 flex items-center justify-center cursor-pointer transition-all active:scale-95">
-                    <span>QUAY LẠI SẢNH GAME</span>
+                <button onclick="selectGameMode('thuquy', false)" class="py-2.5 px-5 rounded-2xl bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-xs border border-white/20 flex items-center justify-center cursor-pointer transition-all active:scale-95">
+                    <span>QUAY LẠI TRANG CHỦ</span>
                 </button>
             </div>
         </div>
@@ -7240,7 +7221,1039 @@
     <script src="js/data.js?v=4.3"></script>
     <script src="js/quylop.js?v=4.3"></script>
     <script src="js/minigames.js?v=1.0"></script>
-    <script src="js/food.js?v=1.0"></script>
+    
+    <!-- HỆ THỐNG ĐỒ ĂN QUANH ĐẠI HỌC HẢI PHÒNG (171 PHAN ĐĂNG LƯU, KIẾN AN, HẢI PHÒNG) -->
+    <script>
+    const DHHP_COORDS = [20.8068, 106.6238]; // Trường Đại học Hải Phòng - 171 Phan Đăng Lưu, Kiến An, Hải Phòng
+    const DEFAULT_FOOD_SHOPS = [
+        {
+            id: "dhhp_banh_da_cua_co_hanh",
+            name: "Bánh Đa Cua & Bún Cá Cay Cô Hạnh",
+            category: "hp_specialty",
+            categoryLabel: "Đặc Sản Hải Phòng",
+            distanceMeters: 35,
+            distanceText: "35m · Đối diện cổng chính",
+            walkTime: "1 phút đi bộ",
+            lat: 20.80715,
+            lng: 106.62415,
+            address: "168 Phan Đăng Lưu (Đối diện cổng chính ĐH Hải Phòng), Kiến An",
+            phone: "0936558899",
+            fanpageUrl: "https://www.facebook.com/search/top?q=banh+da+cua+kien+an+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=banh+da+cua+kien+an+hai+phong",
+            rating: 4.9,
+            reviewCount: 462,
+            badge: "Quán Ruột SV ĐHHP ⭐",
+            badgeBg: "bg-rose-600",
+            coverImage: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&auto=format&fit=crop&q=80",
+            avatar: "🦀",
+            priceRange: "25.000đ - 35.000đ",
+            openHours: "06:00 - 20:30 (Đang mở cửa)",
+            highlightReview: "Bánh đa đỏ chuẩn Hải Phòng, gạch cua đồng béo ngậy, chả lá lốt thơm lừng, sinh viên ĐHHP ăn sáng trưa đông nghịt!",
+            menu: [
+                {
+                    id: "bdc_thap_cam",
+                    name: "Bánh Đa Cua Đồng Thập Cẩm Đặc Biệt",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=200&auto=format&fit=crop&q=80",
+                    desc: "Bánh đa đỏ, gạch cua đồng, chả lá lốt, chả cá, tôm bóc nõn, tóp mỡ giòn",
+                    isHot: true
+                },
+                {
+                    id: "bcc_hai_phong",
+                    name: "Bún Cá Cay Hải Phòng Đầy Đủ",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200&auto=format&fit=crop&q=80",
+                    desc: "Cá rô đồng chiên giòn, chả cá thu, lòng cá giòn sần sật, dọc mùng",
+                    isHot: true
+                },
+                {
+                    id: "bdc_tron",
+                    name: "Bánh Đa Cua Trộn Hành Phi Tóp Mỡ",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1555126634-323283e090fa?w=200&auto=format&fit=crop&q=80",
+                    desc: "Sốt trộn đậm đà, tóp mỡ rim mắm tỏi ớt, kèm bát nước dùng riêu cua",
+                    isHot: true
+                }
+            ],
+            reviews: [
+                { author: "Nguyễn Minh Tuấn", class: "K63 CNTT - ĐHHP", rating: 5, date: "Hôm nay", comment: "Bát bánh đa cua 30k ngập topping chả lá lốt với tóp mỡ, ăn xong vào học ca sáng ấm bụng thực sự!" },
+                { author: "Trần Thu Trang", class: "K64 Kinh Tế - ĐHHP", rating: 5, date: "Hôm qua", comment: "Cô Hạnh nhiệt tình cực kỳ, xin thêm tóp mỡ với rau sống thoải mái luôn." }
+            ]
+        },
+        {
+            id: "dhhp_banh_mi_cay_cot_den",
+            name: "Bánh Mì Cay & Pate Cột Đèn Ông Già",
+            category: "hp_specialty",
+            categoryLabel: "Đặc Sản Hải Phòng",
+            distanceMeters: 45,
+            distanceText: "45m · Cạnh cổng chính ĐHHP",
+            walkTime: "1 phút đi bộ",
+            lat: 20.80650,
+            lng: 106.62335,
+            address: "175 Phan Đăng Lưu (Sát cổng trường ĐH Hải Phòng), Kiến An",
+            phone: "0904223344",
+            fanpageUrl: "https://www.facebook.com/search/top?q=banh+mi+cay+pate+cot+den+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=banh+mi+cay+pate+cot+den+hai+phong",
+            rating: 4.9,
+            reviewCount: 518,
+            badge: "Đặc Sản Đất Cảng 🥖",
+            badgeBg: "bg-amber-600",
+            coverImage: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&auto=format&fit=crop&q=80",
+            avatar: "🥖",
+            priceRange: "3.000đ - 30.000đ",
+            openHours: "06:00 - 22:00 (Đang mở cửa)",
+            highlightReview: "Bánh mì que nướng giòn tan, pate cột đèn béo ngậy chấm chí chương cay tê lưỡi chuẩn Hải Phòng!",
+            menu: [
+                {
+                    id: "bmc_chuc_10",
+                    name: "Combo 10 Chiếc Bánh Mì Que Cay Pate",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=200&auto=format&fit=crop&q=80",
+                    desc: "10 chiếc bánh mì que nướng giòn rụm ngập pate + 2 gói tương ớt chí chương",
+                    isHot: true
+                },
+                {
+                    id: "bmc_chao_pate",
+                    name: "Bánh Mì Chảo Pate Cột Đèn Trứng Lòng Đào",
+                    price: 28000,
+                    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=200&auto=format&fit=crop&q=80",
+                    desc: "Pate cột đèn béo ngậy, trứng ốp lòng đào, xúc xích, bò sốt tiêu đen",
+                    isHot: true
+                },
+                {
+                    id: "bmc_sua_dau",
+                    name: "Sữa Đậu Nành Nóng / Đá (Cốc Lớn)",
+                    price: 10000,
+                    image: "https://images.unsplash.com/photo-1556881286-fc6915169721?w=200&auto=format&fit=crop&q=80",
+                    desc: "Sữa đậu nành nhà nấu thơm mát uống kèm bánh mì cay cực hợp",
+                    isHot: false
+                }
+            ],
+            reviews: [
+                { author: "Lê Hoàng Nam", class: "K63 Điện Tử - ĐHHP", rating: 5, date: "Hôm nay", comment: "Tan học buổi chiều làm chục cái bánh mì cay với cốc sữa đậu là chuẩn bài sinh viên ĐH Hải Phòng!" }
+            ]
+        },
+        {
+            id: "dhhp_dua_dam_hpuni_tea",
+            name: "Tiệm Dừa Dầm & Trà Sữa HPUni Tea",
+            category: "snack_tea",
+            categoryLabel: "Trà Sữa & Dừa Dầm",
+            distanceMeters: 60,
+            distanceText: "60m · Ngõ 171 Phan Đăng Lưu",
+            walkTime: "1-2 phút đi bộ",
+            lat: 20.80735,
+            lng: 106.62350,
+            address: "Đầu Ngõ 171 Phan Đăng Lưu, Kiến An, Hải Phòng",
+            phone: "0988776655",
+            fanpageUrl: "https://www.facebook.com/search/top?q=dua+dam+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=dua+dam+hai+phong",
+            rating: 5.0,
+            reviewCount: 610,
+            badge: "Top 1 Giải Nhiệt 🥥",
+            badgeBg: "bg-emerald-600",
+            coverImage: "https://images.unsplash.com/photo-1558857563-b371f30ca6a5?w=600&auto=format&fit=crop&q=80",
+            avatar: "🥥",
+            priceRange: "18.000đ - 30.000đ",
+            openHours: "07:30 - 22:30 (Đang mở cửa)",
+            highlightReview: "Dừa dầm Hải Phòng cùi dừa non mềm sần sật, thạch rau câu dừa và trân châu trắng ngập cốt dừa béo thơm!",
+            menu: [
+                {
+                    id: "hp_dua_dam",
+                    name: "Cốc Dừa Dầm Hải Phòng Đặc Biệt",
+                    price: 25000,
+                    image: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&auto=format&fit=crop&q=80",
+                    desc: "Cùi dừa non bào sợi, thạch dừa, trân châu nhân dừa, sữa cốt dừa béo ngậy",
+                    isHot: true
+                },
+                {
+                    id: "hp_ts_nuong",
+                    name: "Trà Sữa Nướng Trân Châu Hoàng Kim",
+                    price: 25000,
+                    image: "https://images.unsplash.com/photo-1558857563-b371f30ca6a5?w=200&auto=format&fit=crop&q=80",
+                    desc: "Trà sữa nướng thơm dịu, kem trứng khè cháy cạnh, trân châu dẻo",
+                    isHot: true
+                },
+                {
+                    id: "hp_tra_mang_cau",
+                    name: "Trà Mãng Cầu Tươi Giã Tay",
+                    price: 22000,
+                    image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200&auto=format&fit=crop&q=80",
+                    desc: "Mãng cầu xiêm tươi chua ngọt thanh mát giải nhiệt ngày nắng",
+                    isHot: true
+                }
+            ],
+            reviews: [
+                { author: "Phạm Ngọc Ánh", class: "K64 Sư Phạm - ĐHHP", rating: 5, date: "Hôm nay", comment: "Quán điều hòa mát lạnh, có ổ cắm sạc chạy deadline BTL. Dừa dầm ở đây ngon đỉnh!" }
+            ]
+        },
+        {
+            id: "dhhp_com_ga_chu_tung",
+            name: "Cơm Sinh Viên & Cơm Gà Xối Mỡ Chú Tùng",
+            category: "rice_noodle",
+            categoryLabel: "Cơm & Bún Phở",
+            distanceMeters: 85,
+            distanceText: "85m · Cổng phụ KTX ĐHHP",
+            walkTime: "2 phút đi bộ",
+            lat: 20.80615,
+            lng: 106.62455,
+            address: "Ngõ Cổng Phụ KTX ĐH Hải Phòng, Phan Đăng Lưu, Kiến An",
+            phone: "0915667788",
+            fanpageUrl: "https://www.facebook.com/search/top?q=com+sinh+vien+dai+hoc+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=com+sinh+vien+dai+hoc+hai+phong",
+            rating: 4.8,
+            reviewCount: 390,
+            badge: "Suất Lớn No Căng 🍗",
+            badgeBg: "bg-indigo-600",
+            coverImage: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&auto=format&fit=crop&q=80",
+            avatar: "🍗",
+            priceRange: "25.000đ - 35.000đ",
+            openHours: "09:30 - 14:00 & 16:30 - 20:30",
+            highlightReview: "Cơm thêm miễn phí cho sinh viên ĐH Hải Phòng, đùi gà góc tư xối mỡ da giòn rụm!",
+            menu: [
+                {
+                    id: "ct_com_ga_xoi_mo",
+                    name: "Cơm Đùi Gà Xối Mỡ Da Giòn Đặc Biệt",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=200&auto=format&fit=crop&q=80",
+                    desc: "Đùi gà góc tư chiên giòn rụm, cơm rang trứng hạt tơi, dưa góp, canh",
+                    isHot: true
+                },
+                {
+                    id: "ct_com_suon_nuong",
+                    name: "Cơm Sườn Nướng Mật Ong Trứng Ốp",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=200&auto=format&fit=crop&q=80",
+                    desc: "Sườn cốt lết nướng than hoa mềm ngọt, chả trứng, bì thính",
+                    isHot: true
+                },
+                {
+                    id: "ct_com_rang_dua_bo",
+                    name: "Cơm Rang Dưa Bò Nóng Hổi",
+                    price: 28000,
+                    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=200&auto=format&fit=crop&q=80",
+                    desc: "Cơm đảo săn hạt với dưa cải chua giòn và thịt bò xào tỏi",
+                    isHot: false
+                }
+            ],
+            reviews: [
+                { author: "Vũ Đức Anh", class: "K62 Xây Dựng - ĐHHP", rating: 5, date: "Hôm qua", comment: "Cơm chú Tùng bao no, xin thêm bát cơm thêm nước sốt miễn phí luôn." }
+            ]
+        },
+        {
+            id: "dhhp_oc_nong_co_thuy",
+            name: "Ốc Nóng & Ăn Vặt Kiến An — Cô Thủy",
+            category: "bread_fastfood",
+            categoryLabel: "Bánh Mì & Ăn Vặt",
+            distanceMeters: 110,
+            distanceText: "110m · Trục Trần Thành Ngọ",
+            walkTime: "2 phút đi bộ",
+            lat: 20.80755,
+            lng: 106.62300,
+            address: "Đầu đường Trần Thành Ngọ (Gần ngã 5 Kiến An), Hải Phòng",
+            phone: "0979112233",
+            fanpageUrl: "https://www.facebook.com/search/top?q=oc+nong+kien+an+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=oc+nong+kien+an+hai+phong",
+            rating: 4.9,
+            reviewCount: 345,
+            badge: "Tụ Điểm Chiều Tối 🔥",
+            badgeBg: "bg-orange-600",
+            coverImage: "https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80",
+            avatar: "🐚",
+            priceRange: "15.000đ - 45.000đ",
+            openHours: "14:00 - 22:30 (Đang mở cửa)",
+            highlightReview: "Nước chấm ốc gừng sả ớt tắc thần thánh, nem chua rán và cút lộn xào me ngon nhức nách!",
+            menu: [
+                {
+                    id: "oc_cut_lon_me",
+                    name: "Trứng Cút Lộn Xào Me Chua Ngọt (10 quả)",
+                    price: 25000,
+                    image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=200&auto=format&fit=crop&q=80",
+                    desc: "Sốt me sánh đặc rắc lạc rang giòn bùi và rau răm, ăn kèm bánh mì",
+                    isHot: true
+                },
+                {
+                    id: "oc_ngao_hap",
+                    name: "Thố Ngao Hoa Hấp Sả Ớt Dứa Nóng Hổi",
+                    price: 35000,
+                    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&auto=format&fit=crop&q=80",
+                    desc: "Ngao tươi ngọt nước, thơm lừng mùi sả dứa và ớt cay nồng",
+                    isHot: true
+                },
+                {
+                    id: "oc_nem_chua_ran",
+                    name: "Đĩa Nem Chua Rán & Khoai Tây Lắc Phô Mai",
+                    price: 30000,
+                    image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=200&auto=format&fit=crop&q=80",
+                    desc: "Nem chua rán giòn xù + khoai tây chiên lắc phô mai béo mặn",
+                    isHot: true
+                }
+            ],
+            reviews: [
+                { author: "Hoàng Thảo My", class: "K64 Ngoại Ngữ - ĐHHP", rating: 5, date: "Hôm nay", comment: "Cút lộn xào me với nem chua rán quán cô Thủy là chân ái sau giờ học thể chất!" }
+            ]
+        },
+        {
+            id: "dhhp_bun_bo_o_lan",
+            name: "Bún Bò Huế & Phở Bò Gia Truyền O Lan",
+            category: "rice_noodle",
+            categoryLabel: "Cơm & Bún Phở",
+            distanceMeters: 125,
+            distanceText: "125m · Số 145 Phan Đăng Lưu",
+            walkTime: "2-3 phút đi bộ",
+            lat: 20.80595,
+            lng: 106.62310,
+            address: "145 Phan Đăng Lưu, Kiến An, Hải Phòng",
+            phone: "0945334455",
+            fanpageUrl: "https://www.facebook.com/search/top?q=bun+bo+hue+kien+an+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=bun+bo+hue+kien+an+hai+phong",
+            rating: 4.8,
+            reviewCount: 275,
+            badge: "Nước Dùng Đậm Đà 🍜",
+            badgeBg: "bg-purple-600",
+            coverImage: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=600&auto=format&fit=crop&q=80",
+            avatar: "🍜",
+            priceRange: "30.000đ - 40.000đ",
+            openHours: "06:00 - 13:30 & 17:00 - 21:30",
+            highlightReview: "Nước dùng ninh xương bò ngọt thanh, bắp bò thái dày và chả cua Huế thơm nức!",
+            menu: [
+                {
+                    id: "ol_bun_bo_hue",
+                    name: "Bún Bò Huế Đầy Đủ Bắp Bò Chả Cua",
+                    price: 35000,
+                    image: "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=200&auto=format&fit=crop&q=80",
+                    desc: "Bún sợi to, thịt bắp bò hoa, giò heo rút xương, chả cua Huế, tiết mềm",
+                    isHot: true
+                },
+                {
+                    id: "ol_pho_bo_tai_nam",
+                    name: "Phở Bò Tái Nạm Gầu Giòn",
+                    price: 35000,
+                    image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=200&auto=format&fit=crop&q=80",
+                    desc: "Bò tái mềm ngọt, nạm gầu giòn thơm, kèm quẩy giòn nóng",
+                    isHot: true
+                }
+            ],
+            reviews: [
+                { author: "Đặng Quốc Khánh", class: "K63 Du Lịch - ĐHHP", rating: 5, date: "Hôm qua", comment: "Phở bò tái nạm với bún bò Huế ở đây đầy đặn, ăn no tới chiều." }
+            ]
+        },
+        {
+            id: "dhhp_seoul_chicken",
+            name: "Gà Rán Hàn Quốc & Mì Cay Seoul HPUni",
+            category: "bread_fastfood",
+            categoryLabel: "Bánh Mì & Ăn Vặt",
+            distanceMeters: 95,
+            distanceText: "95m · Cạnh Nhà Đa Năng ĐHHP",
+            walkTime: "2 phút đi bộ",
+            lat: 20.80750,
+            lng: 106.62475,
+            address: "189 Phan Đăng Lưu (Cạnh Nhà Đa Năng ĐH Hải Phòng), Kiến An",
+            phone: "0966889911",
+            fanpageUrl: "https://www.facebook.com/search/top?q=mi+cay+ga+ran+kien+an+hai+phong",
+            messengerUrl: "https://www.facebook.com/search/top?q=mi+cay+ga+ran+kien+an+hai+phong",
+            rating: 4.9,
+            reviewCount: 410,
+            badge: "Combo Nhóm Rẻ 🍗",
+            badgeBg: "bg-pink-600",
+            coverImage: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600&auto=format&fit=crop&q=80",
+            avatar: "🌶️",
+            priceRange: "25.000đ - 45.000đ",
+            openHours: "09:00 - 22:00 (Đang mở cửa)",
+            highlightReview: "Gà không xương sốt phô mai tuyết và mì cay Hàn Quốc 7 cấp độ cực hợp đi ăn nhóm sau giờ thuyết trình!",
+            menu: [
+                {
+                    id: "sc_ga_pho_mai",
+                    name: "Gà Rán Không Xương Lắc Phô Mai Tuyết",
+                    price: 32000,
+                    image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=200&auto=format&fit=crop&q=80",
+                    desc: "Gà rán giòn rụm phủ đẫm bột phô mai tuyết Hàn Quốc thơm béo",
+                    isHot: true
+                },
+                {
+                    id: "sc_mi_cay_bo",
+                    name: "Mì Cay Bò Mỹ Hải Sản Kim Chi",
+                    price: 38000,
+                    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=200&auto=format&fit=crop&q=80",
+                    desc: "Mì Koreno dai ngon, bò Mỹ, tôm, mực, cá viên, kim chi cải thảo",
+                    isHot: true
+                },
+                {
+                    id: "sc_tokbokki_pho_mai",
+                    name: "Tokbokki Lắc Sốt Cay Phủ Phô Mai Kéo Sợi",
+                    price: 28000,
+                    image: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=200&auto=format&fit=crop&q=80",
+                    desc: "Bánh gạo Hàn Quốc dẻo mềm sốt gochujang phủ phô mai mozzarella",
+                    isHot: false
+                }
+            ],
+            reviews: [
+                { author: "Bùi Phương Linh", class: "K64 Kế Toán - ĐHHP", rating: 5, date: "Hôm nay", comment: "Gà sốt phô mai với tokbokki kéo sợi nóng hổi, quán rộng rãi ngồi nhóm 10 người thoải mái." }
+            ]
+        },
+        {
+            id: "dhhp_sua_chua_co_huong",
+            name: "Sữa Chua Trân Châu & Chè Bưởi Cô Hương",
+            category: "snack_tea",
+            categoryLabel: "Trà Sữa & Dừa Dầm",
+            distanceMeters: 140,
+            distanceText: "140m · Ngã 3 Phan Đăng Lưu",
+            walkTime: "3 phút đi bộ",
+            lat: 20.80625,
+            lng: 106.62255,
+            address: "152 Phan Đăng Lưu, Kiến An, Hải Phòng",
+            phone: "0932445566",
+            fanpageUrl: "https://www.facebook.com/search/top?q=sua+chua+tran+chau+kien+an",
+            messengerUrl: "https://www.facebook.com/search/top?q=sua+chua+tran+chau+kien+an",
+            rating: 4.8,
+            reviewCount: 295,
+            badge: "Quán Chè Sinh Viên 🍨",
+            badgeBg: "bg-teal-600",
+            coverImage: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&auto=format&fit=crop&q=80",
+            avatar: "🍨",
+            priceRange: "15.000đ - 25.000đ",
+            openHours: "08:00 - 22:00 (Đang mở cửa)",
+            highlightReview: "Sữa chua dẻo mát lạnh chấm trân châu cốt dừa ấm nóng, caramen trứng béo mịn!",
+            menu: [
+                {
+                    id: "ch_sua_chua_tc",
+                    name: "Sữa Chua Trân Châu Cốt Dừa Nóng",
+                    price: 20000,
+                    image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&auto=format&fit=crop&q=80",
+                    desc: "Viên sữa chua dẻo mịn ăn kèm cốc trân châu cốt dừa ấm nóng",
+                    isHot: true
+                },
+                {
+                    id: "ch_caramen_thap_cam",
+                    name: "Caramen Trân Châu Sương Sáo Cốt Dừa",
+                    price: 18000,
+                    image: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&auto=format&fit=crop&q=80",
+                    desc: "Caramen nhà làm mềm mịn không rỗ, thơm lừng cafe cốt dừa",
+                    isHot: true
+                }
+            ],
+            reviews: [
+                { author: "Ngô Bảo Ngọc", class: "K63 Văn Học - ĐHHP", rating: 5, date: "Hôm qua", comment: "Giá siêu hạt dẻ cho sinh viên, chỉ 18k-20k một cốc đầy ú ụ." }
+            ]
+        }
+    ];
+
+    const foodState = {
+        shops: [],
+        cart: { shopId: null, items: {} },
+        activeCategory: "all",
+        searchKeyword: "",
+        sortBy: "distance",
+        activeShopId: null,
+        ordersHistory: []
+    };
+
+    let foodLeafletMap = null;
+    let foodMapMarkers = [];
+    let foodMapExpanded = false;
+
+    function initFoodModule() {
+        try {
+            const savedShops = localStorage.getItem("QL_FOOD_SHOPS_DHHP_V2");
+            if (savedShops) {
+                foodState.shops = JSON.parse(savedShops);
+            } else {
+                foodState.shops = JSON.parse(JSON.stringify(DEFAULT_FOOD_SHOPS));
+                localStorage.setItem("QL_FOOD_SHOPS_DHHP_V2", JSON.stringify(foodState.shops));
+            }
+            const savedOrders = localStorage.getItem("QL_FOOD_ORDERS_DHHP");
+            if (savedOrders) foodState.ordersHistory = JSON.parse(savedOrders);
+            const savedCart = localStorage.getItem("QL_FOOD_CART_DHHP");
+            if (savedCart) foodState.cart = JSON.parse(savedCart);
+        } catch(e) {
+            foodState.shops = JSON.parse(JSON.stringify(DEFAULT_FOOD_SHOPS));
+        }
+    }
+
+    function saveFoodShops() { localStorage.setItem("QL_FOOD_SHOPS_DHHP_V2", JSON.stringify(foodState.shops)); }
+    function saveFoodOrders() { localStorage.setItem("QL_FOOD_ORDERS_DHHP", JSON.stringify(foodState.ordersHistory)); }
+    function saveFoodCart() { localStorage.setItem("QL_FOOD_CART_DHHP", JSON.stringify(foodState.cart)); }
+
+    function toggleFoodMapHeight() {
+        const mapEl = document.getElementById("foodLeafletMap");
+        const btn = document.getElementById("btnToggleFoodMap");
+        if (!mapEl) return;
+        foodMapExpanded = !foodMapExpanded;
+        if (foodMapExpanded) {
+            mapEl.classList.remove("h-48");
+            mapEl.classList.add("h-80");
+            if (btn) btn.innerHTML = '<i class="fa-solid fa-compress text-[10px]"></i><span>Thu gọn</span>';
+        } else {
+            mapEl.classList.remove("h-80");
+            mapEl.classList.add("h-48");
+            if (btn) btn.innerHTML = '<i class="fa-solid fa-expand text-[10px]"></i><span>Phóng to</span>';
+        }
+        setTimeout(() => { if (foodLeafletMap) foodLeafletMap.invalidateSize(); }, 320);
+    }
+
+    function renderFoodNearby() {
+        initFoodModule();
+        setTimeout(() => { renderFoodGoogleMap(); }, 150);
+        renderFoodShopList();
+        updateFoodCartFloatingBar();
+    }
+
+    function renderFoodGoogleMap() {
+        const mapEl = document.getElementById("foodLeafletMap");
+        if (!mapEl || typeof L === "undefined") return;
+
+        if (!foodLeafletMap) {
+            foodLeafletMap = L.map('foodLeafletMap', {
+                center: DHHP_COORDS,
+                zoom: 17,
+                zoomControl: false,
+                attributionControl: false
+            });
+
+            L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { maxZoom: 20 }).addTo(foodLeafletMap);
+
+            const schoolIcon = L.divIcon({
+                className: 'leaflet-div-icon',
+                html: `
+                    <div class="food-map-pin school-pin">
+                        <div class="pin-body">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="pin-label">
+                            <span>🏫 ĐH Hải Phòng</span>
+                        </div>
+                    </div>
+                `,
+                iconSize: [46, 75],
+                iconAnchor: [23, 75]
+            });
+            L.marker(DHHP_COORDS, { icon: schoolIcon }).addTo(foodLeafletMap);
+        }
+
+        foodLeafletMap.invalidateSize();
+        foodMapMarkers.forEach(m => foodLeafletMap.removeLayer(m));
+        foodMapMarkers = [];
+
+        const filteredShops = getFilteredFoodShops();
+        filteredShops.forEach(shop => {
+            if (!shop.lat || !shop.lng) return;
+            const isSelected = foodState.activeShopId === shop.id;
+            const shortName = shop.name.split("—")[0].split("&")[0].trim();
+            const pinIcon = L.divIcon({
+                className: 'leaflet-div-icon',
+                html: `
+                    <div class="food-map-pin ${isSelected ? 'pin-selected' : ''}" onclick="selectFoodShopPin('${shop.id}')">
+                        <div class="pin-body" style="background-image: url('${shop.coverImage}');">
+                            <span class="pin-badge">★${shop.rating}</span>
+                        </div>
+                        <div class="pin-label" style="padding:1px 5px;font-size:9px;">
+                            <span class="truncate max-w-[68px]">${shortName}</span>
+                        </div>
+                    </div>
+                `,
+                iconSize: [42, 62],
+                iconAnchor: [21, 62]
+            });
+            const marker = L.marker([shop.lat, shop.lng], { icon: pinIcon }).addTo(foodLeafletMap);
+            marker.on('click', () => { selectFoodShopPin(shop.id); });
+            foodMapMarkers.push(marker);
+        });
+    }
+
+    function selectFoodShopPin(shopId) {
+        foodState.activeShopId = shopId;
+        const shop = foodState.shops.find(s => s.id === shopId);
+        if (shop && foodLeafletMap) {
+            foodLeafletMap.panTo([shop.lat, shop.lng], { animate: true, duration: 0.6 });
+        }
+        openShopMenuModal(shopId);
+    }
+
+    function openGoogleMapsArea() {
+        window.open("https://www.google.com/maps/search/qu%C3%A1n+%C4%83n+quanh+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+H%E1%BA%A3i+Ph%C3%B2ng+171+Phan+%C4%90%C4%83ng+L%C6%B0u+Ki%E1%BA%BFn+An/@20.8068,106.6238,17z", "_blank");
+    }
+
+    function getFilteredFoodShops() {
+        let result = [...foodState.shops];
+        if (foodState.activeCategory !== "all") {
+            result = result.filter(s => s.category === foodState.activeCategory);
+        }
+        if (foodState.searchKeyword.trim()) {
+            const kw = foodState.searchKeyword.trim().toLowerCase();
+            result = result.filter(s => {
+                const matchName = s.name.toLowerCase().includes(kw);
+                const matchAddress = s.address.toLowerCase().includes(kw);
+                const matchMenu = s.menu.some(m => m.name.toLowerCase().includes(kw) || (m.desc && m.desc.toLowerCase().includes(kw)));
+                return matchName || matchAddress || matchMenu;
+            });
+        }
+        if (foodState.sortBy === "rating") {
+            result.sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
+        } else if (foodState.sortBy === "distance") {
+            result.sort((a, b) => a.distanceMeters - b.distanceMeters);
+        } else if (foodState.sortBy === "price") {
+            result.sort((a, b) => (a.menu[0]?.price || 0) - (b.menu[0]?.price || 0));
+        }
+        return result;
+    }
+
+    function setFoodCategory(cat) {
+        foodState.activeCategory = cat;
+        document.querySelectorAll(".food-cat-btn").forEach(btn => {
+            const c = btn.getAttribute("data-cat");
+            if (c === cat) {
+                btn.className = "food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-orange-300/40";
+            } else {
+                btn.className = "food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
+            }
+        });
+        renderFoodGoogleMap();
+        renderFoodShopList();
+    }
+
+    function handleFoodSearch(keyword) {
+        foodState.searchKeyword = keyword;
+        renderFoodGoogleMap();
+        renderFoodShopList();
+    }
+
+    function handleFoodSort(criteria) {
+        foodState.sortBy = criteria;
+        renderFoodShopList();
+    }
+
+    function renderFoodShopList() {
+        const container = document.getElementById("foodShopListContainer");
+        const countLbl = document.getElementById("foodShopCountLabel");
+        if (!container) return;
+
+        const shops = getFilteredFoodShops();
+        if (countLbl) countLbl.textContent = `${shops.length} quán ngon quanh ĐH Hải Phòng`;
+
+        if (shops.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-10 bg-white rounded-3xl border border-gray-100 shadow-sm p-6">
+                    <div class="text-4xl mb-2">🍜</div>
+                    <h4 class="text-sm font-black text-gray-800">Không tìm thấy quán phù hợp!</h4>
+                    <p class="text-xs text-gray-500 mt-1">Thử tìm bánh đa cua, bánh mì cay, dừa dầm hoặc chọn Tất cả nhé.</p>
+                    <button onclick="setFoodCategory('all')" class="mt-3 px-4 py-2 bg-amber-500 text-white font-bold text-xs rounded-xl shadow-md cursor-pointer">
+                        Xem tất cả 8 quán quanh trường
+                    </button>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = shops.map(shop => {
+            const topDishesHtml = shop.menu.slice(0, 2).map(m => {
+                const qty = (foodState.cart.shopId === shop.id && foodState.cart.items[m.id]) ? foodState.cart.items[m.id].qty : 0;
+                return `
+                    <div class="flex items-center justify-between gap-2 bg-gray-50/90 hover:bg-amber-50/50 border border-gray-200/70 rounded-2xl p-2 transition">
+                        <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer" onclick="openShopMenuModal('${shop.id}')">
+                            <img src="${m.image}" class="w-10 h-10 rounded-xl object-cover shrink-0 border border-gray-200">
+                            <div class="min-w-0 flex-1">
+                                <div class="text-[11px] font-bold text-gray-900 truncate">${m.name}</div>
+                                <div class="text-[11px] font-black text-amber-600">${m.price.toLocaleString('vi-VN')}đ</div>
+                            </div>
+                        </div>
+                        <button onclick="addFoodToCart('${shop.id}', '${m.id}')" class="shrink-0 px-2.5 py-1.5 rounded-xl ${qty > 0 ? 'bg-emerald-600 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'} font-black text-[11px] shadow-xs transition active:scale-95 cursor-pointer">
+                            ${qty > 0 ? `✓ Đã thêm (${qty})` : '+ Thêm'}
+                        </button>
+                    </div>
+                `;
+            }).join("");
+
+            return `
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition-all p-3.5 sm:p-4">
+                    <!-- Top Info Row -->
+                    <div class="flex gap-3.5 cursor-pointer" onclick="openShopMenuModal('${shop.id}')">
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 bg-slate-900 border border-gray-100 shadow-xs">
+                            <img src="${shop.coverImage}" alt="${shop.name}" class="w-full h-full object-cover">
+                            <span class="absolute top-1.5 left-1.5 text-[9px] font-black text-white px-2 py-0.5 rounded-full whitespace-nowrap ${shop.badgeBg} shadow">
+                                ${shop.avatar} ĐHHP
+                            </span>
+                            <span class="absolute bottom-1.5 right-1.5 text-[10px] font-black text-amber-300 bg-black/75 backdrop-blur-xs px-1.5 py-0.5 rounded-lg">
+                                ★ ${shop.rating}
+                            </span>
+                        </div>
+
+                        <div class="min-w-0 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between gap-1">
+                                    <span class="text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-lg truncate">
+                                        ${shop.distanceText}
+                                    </span>
+                                    <span class="text-[10px] font-bold text-emerald-600 shrink-0">● Mở cửa</span>
+                                </div>
+                                <h3 class="text-sm sm:text-base font-black text-gray-900 leading-snug mt-1 truncate">${shop.name}</h3>
+                                <p class="text-[11px] text-gray-500 truncate mt-0.5"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i>${shop.address}</p>
+                            </div>
+
+                            <div class="flex items-center justify-between text-[11px] pt-1.5 border-t border-gray-100 mt-1.5">
+                                <span class="font-extrabold text-gray-700">💰 ${shop.priceRange}</span>
+                                <span class="text-gray-400 font-semibold">${shop.reviewCount} đánh giá</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Review -->
+                    <div class="mt-2.5 px-3 py-1.5 rounded-xl bg-amber-50/70 border border-amber-200/50 text-[11px] text-amber-900 font-medium truncate">
+                        💬 "${shop.highlightReview}"
+                    </div>
+
+                    <!-- Quick Dishes Preview -->
+                    <div class="mt-2.5 space-y-1.5">
+                        ${topDishesHtml}
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-2 mt-3 pt-2.5 border-t border-gray-100">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(shop.address)}" target="_blank" style="text-decoration:none;"
+                           class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-extrabold text-xs rounded-xl flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer no-underline">
+                            <i class="fa-solid fa-diamond-turn-right text-amber-600"></i>
+                            <span>Chỉ Đường (${shop.distanceMeters}m)</span>
+                        </a>
+                        <button onclick="openShopMenuModal('${shop.id}')"
+                                class="py-2.5 px-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-black text-xs rounded-xl shadow-sm shadow-orange-200 flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer border-0">
+                            <i class="fa-solid fa-utensils text-xs"></i>
+                            <span>Xem Thực Đơn (${shop.menu.length})</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+
+    function openShopMenuModal(shopId) {
+        const shop = foodState.shops.find(s => s.id === shopId);
+        if (!shop) return;
+        foodState.activeShopId = shopId;
+
+        const modalTitle = document.getElementById("shopMenuModalTitle");
+        const modalCover = document.getElementById("shopMenuModalCover");
+        const modalDistance = document.getElementById("shopMenuModalDistance");
+        const modalAddress = document.getElementById("shopMenuModalAddress");
+        const modalHours = document.getElementById("shopMenuModalHours");
+        const modalBadge = document.getElementById("shopMenuModalBadge");
+        const modalFanpageBtn = document.getElementById("shopMenuModalFanpageBtn");
+        const modalCallBtn = document.getElementById("shopMenuModalCallBtn");
+        const modalMapBtn = document.getElementById("shopMenuModalMapBtn");
+        const modalList = document.getElementById("shopMenuItemsList");
+        const modalReviews = document.getElementById("shopMenuReviewsList");
+
+        if (modalTitle) modalTitle.innerText = shop.name;
+        if (modalCover) modalCover.src = shop.coverImage;
+        if (modalDistance) modalDistance.innerText = `${shop.distanceText} · ${shop.walkTime}`;
+        if (modalAddress) modalAddress.innerText = shop.address;
+        if (modalHours) modalHours.innerText = shop.openHours;
+        if (modalBadge) modalBadge.innerText = shop.badge;
+
+        if (modalFanpageBtn) modalFanpageBtn.href = shop.fanpageUrl;
+        if (modalCallBtn) modalCallBtn.href = `tel:${shop.phone}`;
+        if (modalMapBtn) modalMapBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(shop.address)}`;
+
+        if (modalList) {
+            modalList.innerHTML = shop.menu.map(item => {
+                const currentQty = (foodState.cart.shopId === shop.id && foodState.cart.items[item.id])
+                    ? foodState.cart.items[item.id].qty : 0;
+                return `
+                    <div class="bg-gray-50/80 hover:bg-amber-50/30 border border-gray-200/80 rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-3 transition-all">
+                        <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                            <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover shadow-xs shrink-0 border border-gray-200">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <h4 class="text-xs font-bold text-gray-900 truncate">${item.name}</h4>
+                                    ${item.isHot ? '<span class="text-[9px] bg-rose-500 text-white font-black px-1.5 py-0.2 rounded-md shrink-0">HOT</span>' : ''}
+                                </div>
+                                <p class="text-[11px] text-gray-500 leading-tight mt-0.5 line-clamp-1">${item.desc}</p>
+                                <div class="text-xs font-black text-amber-600 mt-1">${item.price.toLocaleString('vi-VN')}đ</div>
+                            </div>
+                        </div>
+                        <div class="shrink-0">
+                            ${currentQty > 0 ? `
+                                <div class="flex items-center gap-1.5 bg-white rounded-xl border border-amber-300 p-0.5 shadow-xs">
+                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', -1)" class="w-6 h-6 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex items-center justify-center text-xs active:scale-95 transition cursor-pointer">-</button>
+                                    <span class="text-xs font-black text-gray-900 px-1 min-w-[14px] text-center">${currentQty}</span>
+                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-bold flex items-center justify-center text-xs active:scale-95 transition cursor-pointer">+</button>
+                                </div>
+                            ` : `
+                                <button onclick="addFoodToCart('${shop.id}', '${item.id}')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-black text-xs rounded-xl shadow-xs flex items-center gap-1 transition cursor-pointer">
+                                    <i class="fa-solid fa-plus text-[10px]"></i><span>Thêm</span>
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        if (modalReviews) {
+            modalReviews.innerHTML = shop.reviews.map(r => `
+                <div class="bg-gray-50 rounded-2xl p-2.5 border border-gray-100 text-xs">
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center gap-1.5 font-bold text-gray-800">
+                            <span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-[10px] font-black">${r.author.charAt(0)}</span>
+                            <span>${r.author}</span>
+                            <span class="text-[9px] bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded font-extrabold">${r.class}</span>
+                        </div>
+                        <div class="text-amber-500 text-[10px] font-black">${'★'.repeat(r.rating)}</div>
+                    </div>
+                    <p class="text-gray-600 text-[11px] leading-relaxed">"${r.comment}"</p>
+                </div>
+            `).join("");
+        }
+
+        openModal("shopMenuModal");
+    }
+
+    function addFoodToCart(shopId, itemId) {
+        const shop = foodState.shops.find(s => s.id === shopId);
+        if (!shop) return;
+        const item = shop.menu.find(m => m.id === itemId);
+        if (!item) return;
+
+        if (foodState.cart.shopId && foodState.cart.shopId !== shopId) {
+            const currentShop = foodState.shops.find(s => s.id === foodState.cart.shopId);
+            const confirmChange = confirm(`Giỏ hàng đang có món của "${currentShop?.name || 'quán khác'}". Đổi sang quán "${shop.name}"?`);
+            if (!confirmChange) return;
+            foodState.cart = { shopId: shopId, items: {} };
+        }
+
+        foodState.cart.shopId = shopId;
+        if (!foodState.cart.items[itemId]) {
+            foodState.cart.items[itemId] = { item: item, qty: 1, note: "" };
+        } else {
+            foodState.cart.items[itemId].qty++;
+        }
+
+        saveFoodCart();
+        updateFoodCartFloatingBar();
+        renderFoodShopList();
+        const modalEl = document.getElementById("shopMenuModal");
+        if (modalEl && !modalEl.classList.contains("hidden")) {
+            openShopMenuModal(shopId);
+        }
+        if (typeof showToast === "function") showToast(`Đã thêm "${item.name}" vào giỏ! 🛒`);
+    }
+
+    function changeCartItemQty(shopId, itemId, delta) {
+        if (!foodState.cart.items[itemId]) return;
+        foodState.cart.items[itemId].qty += delta;
+        if (foodState.cart.items[itemId].qty <= 0) delete foodState.cart.items[itemId];
+        if (Object.keys(foodState.cart.items).length === 0) foodState.cart.shopId = null;
+
+        saveFoodCart();
+        updateFoodCartFloatingBar();
+        renderFoodShopList();
+        if (foodState.activeShopId === shopId) openShopMenuModal(shopId);
+        renderCartModalItems();
+    }
+
+    function updateFoodCartFloatingBar() {
+        const bar = document.getElementById("foodCartFloatingBar");
+        const badge = document.getElementById("foodCartBadge");
+        if (!bar) return;
+
+        const itemCount = Object.values(foodState.cart.items).reduce((sum, i) => sum + i.qty, 0);
+        const totalPrice = Object.values(foodState.cart.items).reduce((sum, i) => sum + (i.item.price * i.qty), 0);
+
+        if (badge) {
+            if (itemCount > 0) {
+                badge.innerText = itemCount;
+                badge.classList.remove("hidden");
+            } else {
+                badge.classList.add("hidden");
+            }
+        }
+
+        if (itemCount > 0) {
+            const shop = foodState.shops.find(s => s.id === foodState.cart.shopId);
+            bar.classList.remove("hidden");
+            bar.innerHTML = `
+                <div class="w-full max-w-xl mx-auto px-4">
+                    <div onclick="openFoodCartModal()" class="bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white rounded-3xl p-3.5 shadow-2xl shadow-orange-500/50 flex items-center justify-between cursor-pointer border border-white/30 backdrop-blur-md">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-black">🛒</div>
+                            <div>
+                                <div class="text-[11px] text-amber-100 font-bold">Giỏ hàng · ${shop?.name || 'Đang chọn'}</div>
+                                <div class="text-sm font-black tracking-tight">${itemCount} món · ${totalPrice.toLocaleString('vi-VN')}đ</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-white text-gray-900 font-black text-xs px-3.5 py-2 rounded-2xl shadow-md">
+                            <span>Xem giỏ & đặt</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            bar.classList.add("hidden");
+        }
+    }
+
+    function openFoodCartModal() {
+        const shop = foodState.shops.find(s => s.id === foodState.cart.shopId);
+        if (!shop || Object.keys(foodState.cart.items).length === 0) {
+            alert("Giỏ hàng đang trống! Bạn hãy chọn món trước nhé.");
+            return;
+        }
+        const shopNameEl = document.getElementById("foodCartShopName");
+        if (shopNameEl) shopNameEl.innerText = shop.name;
+
+        const studentSelect = document.getElementById("foodOrderStudentSelect");
+        if (studentSelect && studentSelect.options.length <= 1 && typeof STUDENTS !== "undefined") {
+            studentSelect.innerHTML = `<option value="">-- Chọn tên sinh viên ĐH Hải Phòng --</option>` +
+                STUDENTS.map(st => `<option value="${st.name}">${st.name} (SV ĐHHP)</option>`).join("");
+        }
+        renderCartModalItems();
+        openModal("foodCartModal");
+    }
+
+    function renderCartModalItems() {
+        const container = document.getElementById("foodCartItemsList");
+        const totalEl = document.getElementById("foodCartTotalPrice");
+        if (!container) return;
+
+        const items = Object.values(foodState.cart.items);
+        if (items.length === 0) {
+            closeModal("foodCartModal");
+            updateFoodCartFloatingBar();
+            return;
+        }
+
+        let total = 0;
+        container.innerHTML = items.map(entry => {
+            const itemTotal = entry.item.price * entry.qty;
+            total += itemTotal;
+            return `
+                <div class="flex items-center justify-between p-2.5 bg-gray-50 rounded-2xl border border-gray-200/80">
+                    <div class="flex items-center gap-2.5">
+                        <img src="${entry.item.image}" class="w-10 h-10 rounded-xl object-cover border border-gray-200">
+                        <div>
+                            <div class="text-xs font-bold text-gray-900">${entry.item.name}</div>
+                            <div class="text-[11px] text-amber-600 font-extrabold">${entry.item.price.toLocaleString('vi-VN')}đ</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-gray-200 text-gray-700 font-bold flex items-center justify-center text-xs active:scale-95">-</button>
+                        <span class="text-xs font-black text-gray-900 min-w-[14px] text-center">${entry.qty}</span>
+                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs active:scale-95">+</button>
+                        <span class="text-xs font-black text-gray-900 ml-1.5 min-w-[55px] text-right">${itemTotal.toLocaleString('vi-VN')}đ</span>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        if (totalEl) totalEl.innerText = `${total.toLocaleString('vi-VN')}đ`;
+    }
+
+    function getOrderDetailsString() {
+        const shop = foodState.shops.find(s => s.id === foodState.cart.shopId);
+        const studentName = document.getElementById("foodOrderStudentSelect")?.value || "Sinh viên ĐH Hải Phòng";
+        const phone = document.getElementById("foodOrderPhoneInput")?.value || "09xxxx";
+        const location = document.getElementById("foodOrderLocationSelect")?.value || "Cổng chính ĐH Hải Phòng (171 Phan Đăng Lưu)";
+        const note = document.getElementById("foodOrderNoteInput")?.value || "";
+
+        const items = Object.values(foodState.cart.items);
+        const itemsListStr = items.map(i => `• ${i.item.name} x${i.qty} (${(i.item.price * i.qty).toLocaleString('vi-VN')}đ)`).join("\n");
+        const total = items.reduce((sum, i) => sum + (i.item.price * i.qty), 0);
+
+        const message = `[ĐƠN ĐẶT MÓN SINH VIÊN ĐH HẢI PHÒNG]\nQuán: ${shop?.name}\nNgười đặt: ${studentName} - SĐT: ${phone}\nĐịa điểm nhận: ${location}\n${note ? 'Ghi chú: ' + note + '\n' : ''}Danh sách món:\n${itemsListStr}\n-------------------------\nTổng cộng: ${total.toLocaleString('vi-VN')}đ\nNhờ quán xác nhận và giao giúp mình nhé!`;
+
+        return { shop, studentName, phone, location, note, items, total, message };
+    }
+
+    function submitOrderFanpage() {
+        const order = getOrderDetailsString();
+        if (!order.shop) return;
+        if (navigator.clipboard) navigator.clipboard.writeText(order.message);
+        const fanpageLink = order.shop.messengerUrl || order.shop.fanpageUrl;
+        alert(`✅ ĐÃ SAO CHÉP ĐƠN HÀNG!\n\nĐang mở trang của quán: "${order.shop.name}"\nBạn chỉ cần bấm DÁN (Paste) tin nhắn để chốt đơn ngay nhé!`);
+        window.open(fanpageLink, "_blank");
+        recordOrderSuccess(order, "Fanpage Messenger 💬");
+    }
+
+    function submitOrderCall() {
+        const order = getOrderDetailsString();
+        if (!order.shop) return;
+        if (confirm(`Gọi hotline ${order.shop.phone} của "${order.shop.name}" để đặt đơn?`)) {
+            window.location.href = `tel:${order.shop.phone}`;
+            recordOrderSuccess(order, "Gọi điện thoại 📞");
+        }
+    }
+
+    function submitOrderZalo() {
+        const order = getOrderDetailsString();
+        if (!order.shop) return;
+        if (navigator.clipboard) navigator.clipboard.writeText(order.message);
+        alert(`Đã sao chép nội dung đơn hàng!\nĐang mở Zalo số: ${order.shop.phone}\nBạn bấm DÁN để gửi cho quán nhé!`);
+        window.open(`https://zalo.me/${order.shop.phone}`, "_blank");
+        recordOrderSuccess(order, "Zalo 💬");
+    }
+
+    function recordOrderSuccess(order, method) {
+        const newRecord = {
+            id: "ORDER_" + Date.now(),
+            date: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + " " + new Date().toLocaleDateString('vi-VN'),
+            shopName: order.shop.name,
+            studentName: order.studentName,
+            total: order.total,
+            itemsCount: order.items.reduce((s, i) => s + i.qty, 0),
+            method: method,
+            status: "Đã gửi tới quán 🍳"
+        };
+        foodState.ordersHistory.unshift(newRecord);
+        saveFoodOrders();
+        foodState.cart = { shopId: null, items: {} };
+        saveFoodCart();
+        updateFoodCartFloatingBar();
+        renderFoodShopList();
+        closeModal("foodCartModal");
+        if (typeof confetti === "function") confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+    }
+
+    function openReviewModalForActiveShop() {
+        const shop = foodState.shops.find(s => s.id === foodState.activeShopId);
+        if (!shop) return;
+        const titleEl = document.getElementById("foodReviewShopName");
+        if (titleEl) titleEl.innerText = shop.name;
+        const sel = document.getElementById("foodReviewStudentSelect");
+        if (sel && sel.options.length <= 1 && typeof STUDENTS !== "undefined") {
+            sel.innerHTML = `<option value="">-- Chọn tên sinh viên ĐH Hải Phòng --</option>` +
+                STUDENTS.map(st => `<option value="${st.name}">${st.name}</option>`).join("");
+        }
+        openModal("foodReviewModal");
+    }
+
+    function submitFoodReview() {
+        const shop = foodState.shops.find(s => s.id === foodState.activeShopId);
+        if (!shop) return;
+        const author = document.getElementById("foodReviewStudentSelect")?.value || "Sinh viên ĐHHP";
+        const rating = parseInt(document.getElementById("foodReviewRatingSelect")?.value || "5");
+        const comment = document.getElementById("foodReviewCommentInput")?.value || "";
+        if (!comment.trim()) {
+            alert("Vui lòng nhập nhận xét của bạn về quán nhé!");
+            return;
+        }
+        shop.reviews.unshift({
+            author: author,
+            class: "SV ĐHHP",
+            rating: rating,
+            date: "Vừa xong",
+            comment: comment.trim()
+        });
+        shop.reviewCount++;
+        const sumRating = shop.reviews.reduce((acc, r) => acc + r.rating, 0);
+        shop.rating = parseFloat((sumRating / shop.reviews.length).toFixed(1));
+        saveFoodShops();
+        closeModal("foodReviewModal");
+        openShopMenuModal(shop.id);
+        renderFoodShopList();
+        alert(`Cảm ơn bạn ${author} đã đánh giá quán "${shop.name}"! ⭐`);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { initFoodModule(); });
+    </script>
+
     <script src="js/gym.js?v=1.0"></script>
     <!-- Kho Soundboard & Nhạc Nền Myinstants 3D -->
     <script src="js/soundboard_data.js?v=1.0"></script>
@@ -7330,20 +8343,31 @@
                 if (titleEl) titleEl.textContent = "Chế Độ Điệp Viên";
                 if (subEl) subEl.textContent = "Quản lý & điều khiển 9 hệ thống Tool thông minh";
                 if (modeSwitchBtn) {
-                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-briefcase text-xs text-cyan-300"></i><span>Công Việc</span>`;
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-briefcase text-base text-cyan-300"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "selectGameMode('thuquy')");
-                    modeSwitchBtn.setAttribute("title", "Quay về Chế độ Công Việc Hằng Ngày");
+                    modeSwitchBtn.setAttribute("title", "Quay về Công Việc Hằng Ngày");
                 }
             } else {
                 if (titleEl) titleEl.textContent = "Công Việc Hằng Ngày";
                 if (subEl) subEl.textContent = "Quản lý công việc & rèn luyện thể thao thông minh";
                 if (modeSwitchBtn) {
-                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-sm text-amber-300"></i><span>Điệp Viên</span>`;
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-lg text-amber-300"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "openDiepVienMode('DASHBOARD')");
                     modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)");
                 }
             }
         }
+
+        // Nút Tập Luyện góc trên Header
+        window.openWorkoutDirect = function() {
+            if (typeof showScreen === "function") {
+                showScreen("thuquy");
+            }
+            syncHeaderForMode(false);
+            if (typeof switchView === "function") {
+                switchView("viewGymWorkout");
+            }
+        };
 
         window.openDiepVienMode = function(initialTool) {
             if (typeof showScreen === "function") {
@@ -7475,16 +8499,14 @@
                     if (cfg.full_width) {
                         cardsHtml += `
                             <button onclick="dvOpenTool('${name}')" class="col-span-2 dash-card bg-gradient-to-r ${cfg.gradient} shadow-xl ${cfg.shadow} flex !flex-row items-center justify-between !p-5 !min-h-0">
-                                <div class="flex items-center gap-4">
-                                    <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl bg-white/20">
-                                        <i class="fa-solid ${cfg.icon} text-xl text-yellow-300"></i>
-                                    </div>
+                                <div class="flex items-center gap-4 text-left">
+                                    <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl"><i class="fa-solid ${cfg.icon}"></i></div>
                                     <div>
-                                        <div class="dash-title text-base flex items-center gap-2 flex-wrap">
-                                            <span>${cfg.short}</span>
-                                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">CapCut Pro & SFX</span>
+                                        <div class="dash-title text-base flex items-center gap-2">
+                                            ${cfg.short_title}
+                                            <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">5 Module + SFX & BGM</span>
                                         </div>
-                                        <div class="dash-desc text-white/85">5 Module Dựng Video • 21 Sound Effect 3D • 119 Nhạc Nền BGM</div>
+                                        <div class="dash-desc text-white/85">So Sánh • Thread • FB Confession • Minh Họa • 21 SFX • 119 Nhạc Nền</div>
                                     </div>
                                 </div>
                                 <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-white text-base shrink-0">
@@ -7497,8 +8519,8 @@
                             <button onclick="dvOpenTool('${name}')" class="dash-card bg-gradient-to-br ${cfg.gradient} shadow-xl ${cfg.shadow}">
                                 <div>
                                     <div class="dash-icon"><i class="fa-solid ${cfg.icon}"></i></div>
-                                    <div class="dash-title">${cfg.short}</div>
-                                    <div class="dash-desc text-white/80 font-bold">${cfg.subtitle}</div>
+                                    <div class="dash-title">${cfg.short_title}</div>
+                                    <div class="dash-desc">${cfg.desc}</div>
                                 </div>
                             </button>
                         `;
@@ -7506,18 +8528,19 @@
                 });
 
                 box.innerHTML = `
-                    <div class="mb-6 flex items-center justify-between gap-2">
+                    <div class="mb-5 flex items-center justify-between gap-2">
                         <div>
-                            <h2 class="text-3xl font-black text-gray-900 tracking-tight leading-tight">Chế Độ Điệp Viên</h2>
-                            <p class="text-sm text-gray-400 font-semibold mt-1">Chọn công cụ bạn cần điều khiển</p>
+                            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight leading-tight">Chế Độ Điệp Viên</h2>
+                            <p class="text-xs sm:text-sm text-gray-400 font-semibold mt-0.5">Chọn công cụ bạn cần điều khiển</p>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <a href="https://docs.google.com/spreadsheets/d/1sCDWO5cIrRx5h4WDIIDWrN3mLpmlaQzW/edit" target="_blank"
-                               class="w-10 h-10 rounded-2xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 flex items-center justify-center border border-emerald-500/30 no-underline" title="Mở Google Sheet Điều Khiển">
+                        <div class="flex items-center gap-2 shrink-0">
+                            <a href="https://docs.google.com/spreadsheets/d/1y98ba519904321000000/edit" target="_blank"
+                               class="w-10 h-10 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 transition cursor-pointer" title="Mở Google Sheet">
                                 <i class="fa-solid fa-table text-sm"></i>
                             </a>
-                            <button onclick="selectGameMode('thuquy')" class="px-3.5 py-2 rounded-2xl bg-gray-200/80 hover:bg-gray-300 text-gray-700 text-xs font-extrabold cursor-pointer border-0" title="Quay về Công Việc Hằng Ngày">
-                                <i class="fa-solid fa-arrow-left mr-1"></i> Công Việc
+                            <button onclick="selectGameMode('thuquy')" class="px-3.5 py-2 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold text-xs flex items-center gap-1.5 transition cursor-pointer border-0">
+                                <i class="fa-solid fa-arrow-left text-[11px]"></i>
+                                <span>Công Việc</span>
                             </button>
                         </div>
                     </div>
@@ -7528,362 +8551,288 @@
                 return;
             }
 
-            const cfg = window.DV_CONFIGS[dvCurrentView];
-
             // 2. MÀN HÌNH BẬT MÁY
             if (dvCurrentView === "Bật Máy") {
-                let powerHtml = "";
-                (window.DV_STATE.power || []).forEach(p => {
-                    powerHtml += `
-                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
-                            <div class="min-w-0 flex-1">
-                                <div class="text-sm font-black text-gray-800">${p.name}</div>
-                                <div class="mt-1">${dvStatusBadgeHtml(p.status, 'bm_st_' + p.row)}</div>
-                            </div>
-                            <button onclick="dvTriggerPower('${p.code}', ${p.row})"
-                                    class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
-                                ${p.btn || '▶ Thực hiện'}
+                const cfg = window.DV_CONFIGS["Bật Máy"];
+                const rows = window.DV_STATE.bat_may || [];
+                const rowsHtml = rows.map(r => {
+                    let actionBtn = "";
+                    if (r.row === 3 || r.row === 4) {
+                        const isStop = (r.row === 3);
+                        const btnCls = isStop
+                            ? "bg-rose-600 hover:bg-rose-700 shadow-rose-200"
+                            : "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-200";
+                        actionBtn = `
+                            <button onclick="dvRunBatMay(${r.row}, '${r.action_type}')"
+                                    class="w-full mt-3 py-3 rounded-2xl ${btnCls} text-white font-extrabold text-xs shadow-md active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer border-0">
+                                <i class="fa-solid ${isStop ? 'fa-power-off' : 'fa-rotate'}"></i>
+                                <span>${r.btn}</span>
                             </button>
+                        `;
+                    }
+                    return `
+                        <div class="bg-white p-4 rounded-3xl shadow-sm border border-gray-100">
+                            <div class="flex items-start justify-between gap-2">
+                                <div class="font-extrabold text-gray-900 text-sm">${r.name}</div>
+                                ${dvStatusBadgeHtml(r.status, "st_BatMay_" + r.row)}
+                            </div>
+                            <p class="text-xs text-gray-500 font-medium mt-1.5 leading-relaxed">${r.note || ''}</p>
+                            ${actionBtn}
                         </div>
                     `;
-                });
-
-                let healthHtml = "";
-                (window.DV_STATE.tool_health || []).forEach(th => {
-                    healthHtml += `
-                        <div class="flex items-center justify-between py-2.5 border-b border-gray-100 last:border-b-0 gap-2">
-                            <span class="text-xs font-bold text-gray-700">${th.name}</span>
-                            ${dvStatusBadgeHtml(th.status)}
-                        </div>
-                    `;
-                });
+                }).join("");
 
                 box.innerHTML = `
                     <div class="section-header-bar">
                         <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
-                        <div class="text-center flex-1 pl-12 pr-2">
-                            <h2 class="view-page-title">Bật Máy</h2>
+                        <div class="text-center flex-1 px-3">
+                            <h2 class="view-page-title">${cfg.title}</h2>
                             <p class="view-page-subtitle">${cfg.subtitle}</p>
                         </div>
-                        <button onclick="dvTriggerPower('check_all_tools', 8)" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-md hover:bg-emerald-700 cursor-pointer border-0 shrink-0" title="Kiểm tra các Tool">
+                        <button onclick="dvRunBatMay(4, 'check_health')" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200 hover:bg-emerald-700 active:scale-95 transition cursor-pointer border-0" title="Làm mới">
                             <i class="fa-solid fa-rotate text-sm"></i>
                         </button>
                     </div>
-                    <div class="space-y-2.5 mb-5">
-                        ${powerHtml}
-                    </div>
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
-                        <h3 class="text-xs font-black text-gray-500 uppercase tracking-wider mb-2">Trạng Thái Hoạt Động Các Tool</h3>
-                        ${healthHtml}
+                    <div class="space-y-3">
+                        ${rowsHtml}
                     </div>
                 `;
                 return;
             }
 
-            // 3. MÀN HÌNH METAMAX (5 KÊNH — DÁN UID HÀNG DỌC MỖI DÒNG 1 UID)
+            // 3. MÀN HÌNH METAMAX
             if (dvCurrentView === "MetaMax") {
-                const mmRows = window.DV_STATE.metamax_rows || [];
-                const shortTabs = ["Social", "Tài Liệu", "Tarot", "Quà Tặng", "Ăn Vặt"];
-                const defaultBtns = ["▶ CHẠY SOCIAL", "▶ CHẠY TÀI LIỆU", "▶ CHẠY TAROT", "▶ CHẠY QUÀ TẶNG", "▶ CHẠY ĂN VẶT"];
+                const cfg = window.DV_CONFIGS["MetaMax"];
+                const rows = window.DV_STATE.metamax_rows || [];
+                if (dvMetaMaxIdx >= rows.length) dvMetaMaxIdx = 0;
+                const activeRow = rows[dvMetaMaxIdx] || { row: 4, channel: "Tân Học Sản Xuất", uid: "", comment: "", schedule: "", status: "Đang chờ" };
 
-                if (dvMetaMaxIdx >= mmRows.length) dvMetaMaxIdx = 0;
-
-                let segTabsHtml = "";
-                mmRows.forEach((rObj, idx) => {
-                    const isActive = (idx === dvMetaMaxIdx);
-                    const cls = isActive
-                        ? "bg-white text-indigo-600 shadow-sm font-black"
-                        : "text-gray-500 hover:text-gray-800 font-bold";
-                    segTabsHtml += `
+                const pillsHtml = rows.map((r, idx) => {
+                    const isAct = (idx === dvMetaMaxIdx);
+                    const cls = isAct
+                        ? "bg-indigo-600 text-white shadow-md shadow-indigo-200 font-extrabold"
+                        : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 font-bold";
+                    return `
                         <button onclick="dvSelectMetaMaxChannel(${idx})"
-                                class="flex-1 py-2.5 px-2 text-xs rounded-xl cursor-pointer border-0 ${cls}">
-                            ${shortTabs[idx] || ('Kênh ' + (idx + 1))}
+                                class="px-3.5 py-2 rounded-2xl text-xs transition cursor-pointer shrink-0 ${cls}">
+                            ${idx + 1}. ${r.channel}
                         </button>
                     `;
-                });
+                }).join("");
 
-                const rObj = mmRows[dvMetaMaxIdx] || { row: 6, channel: "1. Điệp Viên Social", uid_rows: ["","","",""], comment: "", btn_text: "▶ CHẠY SOCIAL", schedule: "Không hẹn giờ", status: "Đang chờ" };
-                const r = rObj.row;
-                const btnLbl = rObj.btn_text || defaultBtns[dvMetaMaxIdx] || "▶ CHẠY SOCIAL";
-                const uidRows = (rObj.uid_rows && rObj.uid_rows.length) ? rObj.uid_rows : (rObj.uids || "").split(/\r?\n/);
-
-                let uidInputsHtml = "";
-                for (let i = 0; i < 4; i++) {
-                    const val = (uidRows[i] || "").trim();
-                    uidInputsHtml += `
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-14 text-[11px] font-extrabold text-gray-400">Dòng ${i+1}</span>
-                            <input type="text" id="mm_uid_${r}_${i}" value="${val}"
-                                   onpaste="dvHandleVerticalUidPaste(event, ${r}, ${i})"
-                                   placeholder="Dán 1 mã UID Group..."
-                                   class="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white">
-                        </div>
-                    `;
-                }
-
-                const schedOpts = ["Không hẹn giờ", "12:00", "18:00", "19:30", "20:00", "21:00", "22:00"]
-                    .map(o => `<option value="${o}" ${o === rObj.schedule ? 'selected' : ''}>${o}</option>`).join("");
+                const uidLines = (activeRow.uid || "").split(/\r?\n/);
+                while (uidLines.length < 4) uidLines.push("");
+                const uidInputsHtml = [0, 1, 2, 3].map(i => `
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-14 text-[11px] font-extrabold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-xl py-2 text-center shrink-0">UID ${i + 1}</span>
+                        <input id="mm_uid_${activeRow.row}_${i}" type="text"
+                               value="${(uidLines[i] || '').replace(/"/g, '&quot;')}"
+                               placeholder="Dán UID Facebook dòng ${i + 1}..."
+                               class="w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs font-mono font-semibold text-gray-800 focus:outline-none transition">
+                    </div>
+                `).join("");
 
                 box.innerHTML = `
                     <div class="section-header-bar">
                         <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
-                        <div class="text-center flex-1 pl-12 pr-2">
-                            <h2 class="view-page-title">MetaMax</h2>
-                            <p class="view-page-subtitle">Đi Comment dạo & Seeding 5 kênh Điệp Viên</p>
+                        <div class="text-center flex-1 px-3">
+                            <h2 class="view-page-title">${cfg.title}</h2>
+                            <p class="view-page-subtitle">${cfg.subtitle}</p>
                         </div>
                         <div class="w-11"></div>
                     </div>
 
-                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/75 rounded-2xl">
-                        ${segTabsHtml}
+                    <div class="mb-4">
+                        <div class="text-[11px] font-extrabold text-gray-400 uppercase tracking-wider mb-2">Chọn kênh chiến dịch (${rows.length} kênh)</div>
+                        <div class="flex gap-2 overflow-x-auto pb-1.5" style="scrollbar-width:none;">
+                            ${pillsHtml}
+                        </div>
                     </div>
 
                     <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 space-y-4">
-                        <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center justify-between gap-2 pb-3 border-b border-gray-100">
                             <div>
-                                <h3 class="text-base font-black text-gray-900">${rObj.channel}</h3>
-                                <p class="text-xs text-gray-400 font-semibold mt-0.5">Mỗi dòng 1 mã UID Group theo hàng dọc</p>
+                                <div class="text-[11px] font-extrabold text-indigo-600 uppercase tracking-wider">Kênh đang chọn</div>
+                                <h3 class="text-lg font-black text-gray-900 mt-0.5">${activeRow.channel}</h3>
                             </div>
-                            ${dvStatusBadgeHtml(rObj.status, 'st_MetaMax_' + r)}
-                        </div>
-
-                        <div class="space-y-2">
-                            ${uidInputsHtml}
+                            ${dvStatusBadgeHtml(activeRow.status, "st_MetaMax_" + activeRow.row)}
                         </div>
 
                         <div>
-                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">Nội dung Comment sẵn</label>
-                            <textarea id="mm_cmt_${r}" rows="3"
-                                      class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white"
-                                      placeholder="Nhập nội dung comment...">${rObj.comment || ''}</textarea>
+                            <label class="block text-xs font-extrabold text-gray-700 mb-2">
+                                <i class="fa-solid fa-id-badge text-indigo-500 mr-1"></i> Danh sách UID (Xếp dọc từng dòng 1 UID)
+                            </label>
+                            <div class="space-y-2">
+                                ${uidInputsHtml}
+                            </div>
                         </div>
 
-                        <button onclick="dvRunMetaMaxRow(${r}, 'exec_row')"
-                                class="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-black shadow-md cursor-pointer border-0">
-                            ${btnLbl}
-                        </button>
+                        <div>
+                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">
+                                <i class="fa-solid fa-comment-dots text-indigo-500 mr-1"></i> Nội dung Comment Seeding & Link ảnh/video
+                            </label>
+                            <textarea id="mm_cmt_${activeRow.row}" rows="3"
+                                      placeholder="Nhập nội dung bình luận seeding..."
+                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3.5 text-xs font-semibold text-gray-800 focus:outline-none transition">${activeRow.comment || ''}</textarea>
+                        </div>
 
-                        <div class="flex items-center gap-2 pt-1">
-                            <button onclick="dvRunMetaMaxRow(${r}, 'save_only')"
-                                    class="py-2.5 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-extrabold cursor-pointer border-0">
-                                💾 Lưu
+                        <div>
+                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">
+                                <i class="fa-solid fa-clock text-indigo-500 mr-1"></i> Khung giờ & Lịch chạy
+                            </label>
+                            <input id="mm_sched_${activeRow.row}" type="text"
+                                   value="${(activeRow.schedule || '').replace(/"/g, '&quot;')}"
+                                   placeholder="VD: 11:30 | 19:30 | Đăng Kèm Seeding"
+                                   class="w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl px-3.5 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none transition">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2.5 pt-1">
+                            <button onclick="dvRunMetaMaxRow(${activeRow.row}, 'save_only')"
+                                    class="py-3 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold text-xs transition active:scale-[0.99] flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                <span>Lưu Dữ Liệu</span>
                             </button>
-                            <select id="mm_sched_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
-                                ${schedOpts}
-                            </select>
-                            <button onclick="dvRunMetaMaxRow(${r}, 'schedule_row')"
-                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0">
-                                ⏰ Hẹn Giờ
+                            <button onclick="dvRunMetaMaxRow(${activeRow.row}, 'metamax_channel')"
+                                    class="py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow-md shadow-indigo-200 transition active:scale-[0.99] flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                                <i class="fa-solid fa-play text-[10px]"></i>
+                                <span>Chạy Kênh Này</span>
                             </button>
                         </div>
                     </div>
+
+                    <button onclick="dvRunMetaMaxRow(11, 'metamax_all')"
+                            class="w-full mt-4 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-black text-xs shadow-lg shadow-indigo-200 transition active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer border-0">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>CHẠY TẤT CẢ 7 KÊNH METAMAX</span>
+                    </button>
                 `;
                 return;
             }
 
-            // 4. MÀN HÌNH CÁC TOOL SẢN XUẤT & TOOL EDIT (CÓ TÍCH HỢP 21 SOUND EFFECT & 119 NHẠC NỀN)
+            // 4. MÀN HÌNH 6 KÊNH ĐIỆP VIÊN + TOOL EDIT (KÈM SUB-TAB 21 SFX & 119 NHẠC NỀN)
+            const cfg = window.DV_CONFIGS[dvCurrentView];
             const toolState = (window.DV_STATE.tools && window.DV_STATE.tools[dvCurrentView]) || { merged_c: "", rows: [] };
-            const mergedVal = toolState.merged_c || "";
-            const urls = dvExtractUrls(mergedVal);
+            const stateRows = toolState.rows || [];
+            const mergedC = toolState.merged_c || "";
 
-            let modulesHtml = "";
-            (cfg.modules || []).forEach(m => {
-                const r = m.row;
-                const rowState = (toolState.rows || []).find(x => x.row === r) || { col_b: "", col_e: "", status: "Đang chờ" };
+            const modulesHtml = (cfg.modules || []).map((m, idx) => {
+                const stRow = stateRows.find(r => r.row === m.row) || { col_b: "", col_e: "", status: "Đang chờ", note: "" };
+                let inputsHtml = "";
 
-                if (!m.allow_input_b && !m.extra_action) {
-                    modulesHtml += `
-                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
-                            <div class="flex items-center gap-3 min-w-0 flex-1">
-                                <div class="w-10 h-10 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
-                                    <i class="fa-solid ${m.icon || 'fa-play'} text-sm"></i>
-                                </div>
-                                <div class="min-w-0 flex-1">
-                                    <div class="flex items-center gap-2 flex-wrap">
-                                        <span class="text-sm font-black text-gray-900">${m.name}</span>
-                                        ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
-                                    </div>
-                                    <p class="text-[11.5px] text-gray-400 font-medium mt-0.5 truncate">${m.desc}</p>
-                                </div>
-                            </div>
-                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
-                                    class="px-4 py-2.5 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
-                                ${m.btn_text}
-                            </button>
-                        </div>
-                    `;
-                    return;
-                }
-
-                let inputHtml = "";
-                if (m.allow_input_b) {
-                    inputHtml = `
-                        <textarea id="inp_b_${r}" rows="2"
-                                  placeholder="${m.input_b_placeholder || ''}"
-                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white">${rowState.col_b || ''}</textarea>
-                    `;
-                }
-
-                let extraHtml = "";
-                if (m.extra_action === "schedule" || m.extra_action === "archive") {
-                    const opts = (m.extra_options || []).map(o =>
-                        `<option value="${o}" ${o === rowState.col_e ? 'selected' : ''}>${o}</option>`
-                    ).join("");
-                    const actCode = m.extra_action === "schedule" ? "schedule_row" : "archive_doc_row";
-                    extraHtml = `
-                        <div class="flex items-center gap-2">
-                            <select id="inp_e_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
-                                ${opts}
-                            </select>
-                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, '${actCode}')"
-                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
-                                ${m.extra_btn_text}
-                            </button>
+                if (m.has_b) {
+                    const rowsCnt = (dvCurrentView === "Điệp Viên Social" && m.row === 3) ? 4 : 2;
+                    inputsHtml += `
+                        <div class="mt-3">
+                            <textarea id="inp_b_${m.row}" rows="${rowsCnt}"
+                                      placeholder="${m.b_placeholder}"
+                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3 text-xs font-semibold text-gray-800 focus:outline-none transition">${stRow.col_b || ''}</textarea>
                         </div>
                     `;
                 }
 
-                modulesHtml += `
-                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-2.5">
+                if (m.has_e) {
+                    const isUidBox = (dvCurrentView === "Điệp Viên Social" && m.row === 6);
+                    const eRows = isUidBox ? 4 : 2;
+                    const monoCls = isUidBox ? "font-mono" : "";
+                    inputsHtml += `
+                        <div class="mt-2.5">
+                            ${isUidBox ? '<div class="text-[11px] font-extrabold text-indigo-600 mb-1"><i class="fa-solid fa-list-ol mr-1"></i>Dán danh sách UID (Mỗi dòng 1 UID theo hàng dọc):</div>' : ''}
+                            <textarea id="inp_e_${m.row}" rows="${eRows}"
+                                      placeholder="${m.e_placeholder}"
+                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3 text-xs font-semibold text-gray-800 ${monoCls} focus:outline-none transition">${stRow.col_e || ''}</textarea>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="bg-white p-4 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2.5 min-w-0">
-                                <div class="w-9 h-9 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
-                                    <i class="fa-solid ${m.icon || 'fa-play'} text-xs"></i>
-                                </div>
-                                <span class="text-sm font-black text-gray-900">${m.name}</span>
-                            </div>
-                            ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
-                        </div>
-                        <p class="text-[11.5px] text-gray-400 font-medium leading-relaxed">${m.desc}</p>
-                        ${inputHtml}
-                        <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
-                                class="w-full py-3 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0">
-                            ${m.btn_text}
-                        </button>
-                        ${extraHtml}
-                    </div>
-                `;
-            });
-
-            // KHUNG KẾT QUẢ Ở CUỐI CÙNG
-            let bottomResultHtml = "";
-            if (cfg.merged_box_editable) {
-                const srcUrlBtn = urls.length > 0
-                    ? `<a href="${urls[0]}" target="_blank" class="px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 border border-orange-200 text-[11px] font-extrabold no-underline">🔗 Mở Video Gốc</a>`
-                    : "";
-                bottomResultHtml = `
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-orange-200/80 mt-5">
-                        <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="w-7 h-7 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center text-xs">
-                                    <i class="fa-solid fa-file-pen"></i>
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs font-black shrink-0">
+                                    <i class="fa-solid ${m.icon || 'fa-Sliders'}"></i>
                                 </span>
-                                <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Kịch Bản & Caption Kiểm Tra</span>
+                                <h3 class="font-extrabold text-gray-900 text-sm">${idx + 1}. ${m.name}</h3>
                             </div>
-                            <div class="flex items-center gap-1.5">
-                                ${srcUrlBtn}
-                                <button onclick="dvCopyMergedBox()"
-                                        class="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-extrabold cursor-pointer border-0">
-                                    📋 Copy
-                                </button>
-                                <button onclick="dvSaveMergedBox('${dvCurrentView}')"
-                                        class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-extrabold cursor-pointer border-0">
-                                    💾 Lưu Kịch Bản
-                                </button>
-                            </div>
+                            ${dvStatusBadgeHtml(stRow.status, "st_row_" + m.row)}
                         </div>
-                        <textarea id="dv_merged_c_box" rows="6"
-                                  placeholder="Kịch bản làm ra (kèm Link video gốc, Caption & #Hashtag) sẽ hiển thị tại đây để bạn kiểm tra và chỉnh sửa..."
-                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3.5 text-xs font-medium text-gray-800 leading-relaxed focus:outline-none focus:border-orange-500 focus:bg-white">${mergedVal}</textarea>
+                        <p class="text-xs text-gray-500 font-medium mt-1.5 leading-relaxed">${m.desc}</p>
+                        ${inputsHtml}
+                        <button onclick="dvRunToolRow('${dvCurrentView}', ${m.row}, '${m.action_type}')"
+                                class="w-full mt-3 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow-md shadow-indigo-200/70 active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer border-0">
+                            <i class="fa-solid fa-play text-[10px]"></i>
+                            <span>${m.btn}</span>
+                        </button>
                     </div>
                 `;
-            } else {
-                let linkButtonsHtml = "";
-                if (urls.length > 0) {
-                    urls.forEach((u, idx) => {
-                        let lbl = `🔗 Mở Link Thành Phẩm #${idx + 1}`;
-                        if (u.includes("docs.google.com/document")) {
-                            lbl = idx === 0 ? "📄 Mở Docs Đề Cương" : "📄 Mở Docs Bài Tập Lớn";
-                        } else if (u.includes("drive.google.com")) {
-                            lbl = "📂 Mở Google Drive Kiểm Tra";
-                        }
-                        linkButtonsHtml += `
-                            <a href="${u}" target="_blank"
-                               class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold no-underline shadow-sm">
-                                ${lbl}
-                            </a>
-                        `;
-                    });
-                } else {
-                    linkButtonsHtml = `<span class="text-xs font-semibold text-gray-400">Chưa có link mới — Hãy bấm chạy chức năng bên trên</span>`;
-                }
+            }).join("");
 
-                let archiveSectionHtml = "";
-                if (cfg.has_archive_in_result) {
-                    archiveSectionHtml = `
-                        <div class="pt-3 mt-3 border-t border-gray-100 flex items-center gap-2 flex-wrap">
-                            <select id="inp_e_6" class="flex-1 min-w-[180px] bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-700">
-                                <option value="Danh sách Đề Cương Lưu Trữ">Danh sách Đề Cương Lưu Trữ</option>
-                                <option value="Danh sách Bài Tập Lớn Lưu Trữ">Danh sách Bài Tập Lớn Lưu Trữ</option>
-                            </select>
-                            <button onclick="dvRunToolRow('${dvCurrentView}', 6, 'archive_doc_row')"
-                                    class="py-2 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
-                                📁 Đặt Vào Thư Mục & Điền DS
-                            </button>
-                        </div>
-                    `;
-                }
-
-                bottomResultHtml = `
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-indigo-100 mt-5 overflow-hidden">
-                        <div class="flex items-center gap-2 mb-2.5">
-                            <span class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs shrink-0">
-                                <i class="fa-brands fa-google-drive"></i>
-                            </span>
-                            <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Link Thành Phẩm Google Drive</span>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-2">
-                            ${linkButtonsHtml}
-                        </div>
-                        ${archiveSectionHtml}
-                    </div>
-                `;
+            const urls = dvExtractUrls(mergedC);
+            let linksQuickHtml = "";
+            if (urls.length > 0) {
+                const btns = urls.map((u, i) => `
+                    <a href="${u}" target="_blank"
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-extrabold transition">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        <span>Mở Link Sản Phẩm #${i + 1}</span>
+                    </a>
+                `).join("");
+                linksQuickHtml = `<div class="flex flex-wrap gap-2 mt-2.5">${btns}</div>`;
             }
 
-            // Nếu đang ở Tool Edit -> Hiển thị thanh chuyển đổi 3 tab: 1. Dựng Video (5) | 2. Sound Effect (21) | 3. Nhạc Nền (119) (BỎ GIỚI THIỆU TEXT)
-            let toolEditTabsHtml = "";
-            let headerRightActions = `<div class="w-11 shrink-0"></div>`;
+            const resultBoxHtml = `
+                <div class="bg-white p-4 rounded-3xl shadow-sm border border-indigo-100 mt-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </span>
+                            <span class="text-xs font-black text-gray-800 uppercase tracking-wide">${cfg.c_label || 'KẾT QUẢ KỊCH BẢN & LINK SẢN PHẨM'}</span>
+                        </div>
+                        <button onclick="dvCopyMergedBox()" class="px-2.5 py-1 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-bold transition cursor-pointer border-0">
+                            <i class="fa-regular fa-copy mr-1"></i>Copy
+                        </button>
+                    </div>
+                    <textarea id="dv_merged_c_box" rows="5"
+                              placeholder="Kịch bản hoàn chỉnh, Caption, Hashtag hoặc Link Google Drive thành phẩm sẽ hiển thị tại đây..."
+                              class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3.5 text-xs font-semibold text-gray-800 leading-relaxed focus:outline-none transition">${mergedC}</textarea>
+                    ${linksQuickHtml}
+                </div>
+            `;
+
+            // Nếu là TOOL EDIT: Hiển thị thanh chuyển 3 Sub-Tab: [Dựng Video (5)] | [Sound Effect (21)] | [Nhạc Nền (119)]
+            let toolEditSubTabsBar = "";
+            let headerRightCtrl = `<div class="w-11"></div>`;
             if (dvCurrentView === "Tool Edit") {
-                headerRightActions = `
-                    <div class="flex items-center gap-1.5 shrink-0">
-                        <button onclick="toggleEditorAppWidth()" id="btnExpandEditor" class="w-10 h-10 rounded-2xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-600 flex items-center justify-center transition cursor-pointer border border-cyan-500/30" title="Phóng to mở rộng màn hình">
+                headerRightCtrl = `
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="toggleEditorAppWidth()" id="btnExpandEditor" class="w-10 h-10 rounded-2xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-600 flex items-center justify-center transition cursor-pointer border border-cyan-500/30" title="Mở rộng khung nhìn">
                             <i id="iconExpandEditor" class="fa-solid fa-up-right-and-down-left-from-center text-xs"></i>
                         </button>
-                        <button onclick="if(window.stopSoundboardAudio) stopSoundboardAudio(); if(window.stopEditorSound) stopEditorSound();" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer border border-rose-500/30" title="Dừng âm thanh">
+                        <button onclick="if(window.stopSoundboardAudio) stopSoundboardAudio(); if(window.stopEditorSound) stopEditorSound();" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer border border-rose-500/25" title="Dừng âm thanh">
                             <i class="fa-solid fa-stop text-xs"></i>
                         </button>
                     </div>
                 `;
-                toolEditTabsHtml = `
-                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
+                toolEditSubTabsBar = `
+                    <div class="flex items-center gap-1.5 mb-4 bg-gray-200/80 p-1.5 rounded-2xl border border-gray-200">
                         <button id="dvEditTabBtn_modules" onclick="switchToolEditSubTab('modules')" class="flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0">
                             <i class="fa-solid fa-clapperboard"></i>
                             <span>Dựng Video</span>
-                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 font-mono">5</span>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-white/20">5</span>
                         </button>
                         <button id="dvEditTabBtn_sfx" onclick="switchToolEditSubTab('sfx')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0">
                             <i class="fa-solid fa-bolt"></i>
                             <span>Sound Effect</span>
-                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-300/70 font-mono">21</span>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-gray-300/70 text-gray-700">21</span>
                         </button>
                         <button id="dvEditTabBtn_bgm" onclick="switchToolEditSubTab('bgm')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0">
                             <i class="fa-solid fa-music"></i>
                             <span>Nhạc Nền</span>
-                            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-gray-300/70 font-mono">119</span>
+                            <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-gray-300/70 text-gray-700">119</span>
                         </button>
                     </div>
                 `;
@@ -7894,76 +8843,43 @@
                     <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="text-center flex-1 pl-12 pr-2 min-w-0">
-                        <h2 class="view-page-title truncate">${cfg.full_title || cfg.short}</h2>
-                        <p class="view-page-subtitle truncate">${cfg.subtitle}</p>
+                    <div class="text-center flex-1 px-2">
+                        <h2 class="view-page-title">${cfg.title}</h2>
+                        <p class="view-page-subtitle truncate max-w-[240px] mx-auto">${cfg.subtitle}</p>
                     </div>
-                    ${headerRightActions}
+                    ${headerRightCtrl}
                 </div>
 
-                ${toolEditTabsHtml}
+                ${toolEditSubTabsBar}
 
                 <div id="dvToolEditModulesBox">
-                    <div class="space-y-3">
+                    <div class="space-y-3.5">
                         ${modulesHtml}
                     </div>
-                    ${bottomResultHtml}
+                    ${resultBoxHtml}
                 </div>
             `;
 
             if (dvCurrentView === "Tool Edit") {
-                switchToolEditSubTab(dvEditSubTab || "modules");
+                switchToolEditSubTab(dvEditSubTab);
             }
         };
 
-        window.dvHandleVerticalUidPaste = function(ev, rowIdx, startSlot) {
-            const text = (ev.clipboardData || window.clipboardData).getData("text");
-            if (!text) return;
-            const parts = text.replace(/[,;]/g, "\n").split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-            if (parts.length > 1) {
-                ev.preventDefault();
-                for (let i = 0; i < parts.length && (startSlot + i) < 4; i++) {
-                    const el = document.getElementById(`mm_uid_${rowIdx}_${startSlot + i}`);
-                    if (el) el.value = parts[i];
-                }
-            }
-        };
-
-        window.dvTriggerPower = async function(actionCode, rowIdx = 6) {
-            dvNotify("⏳ Đang gửi lệnh nguồn máy...");
-            const badge = document.getElementById(`bm_st_${rowIdx}`);
-            if (badge) badge.textContent = "Đang tiến hành thực hiện";
-            try {
-                await fetch(`${getDvApiBase()}/run?action=${actionCode}&row=${rowIdx}`);
-                dvNotify("✅ Đã gửi lệnh thành công!");
-                setTimeout(dvPollState, 1200);
-            } catch (e) {
-                dvNotify("❌ Lỗi kết nối máy chủ: " + e);
-            }
-        };
-
-        window.dvSaveMergedBox = async function(sheetName) {
-            const box = document.getElementById("dv_merged_c_box");
-            if (!box) return;
-            dvNotify("💾 Đang lưu kịch bản...");
+        // KẾT NỐI API THỰC THI LỆNH TỪ TRẠM ĐIỀU KHIỂN TỔNG
+        window.dvRunBatMay = async function(rowIdx, actionType) {
+            if (rowIdx === 3 && !confirm("Bạn chắc chắn muốn TẮT MÁY TÍNH từ xa?")) return;
+            const stEl = document.getElementById(`st_BatMay_${rowIdx}`);
+            if (stEl) stEl.textContent = "Đang tiến hành thực hiện";
+            dvNotify("🚀 Đang gửi lệnh điều khiển nguồn máy...");
             try {
                 await fetch(`${getDvApiBase()}/api/mobile_exec`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        sheet: sheetName,
-                        row: 6,
-                        action_type: "save_merged_box",
-                        merged_c: box.value,
-                        save_only: true
-                    })
+                    body: JSON.stringify({ sheet: "Bật Máy", row: rowIdx, action_type: actionType })
                 });
-                if (window.DV_STATE.tools && window.DV_STATE.tools[sheetName]) {
-                    window.DV_STATE.tools[sheetName].merged_c = box.value;
-                }
-                dvNotify("✅ Đã lưu kịch bản!");
+                setTimeout(dvPollState, 1200);
             } catch (e) {
-                dvNotify("❌ Lỗi lưu: " + e);
+                dvNotify("❌ Lỗi kết nối Daemon: " + e);
             }
         };
 
@@ -8097,7 +9013,23 @@
             };
         }
 
-        // Hook vào selectGameMode của teamtccm/Work để hỗ trợ 'diepvien'
+        // Hook vào showScreen: nếu gọi showScreen('gameHub') thì quay thẳng về thuquy (vì Giải Trí vào thẳng Vòng Quay May Mắn)
+        const origShowScreen = window.showScreen;
+        if (typeof origShowScreen === "function") {
+            window.showScreen = function(t) {
+                if (t === "gameHub") {
+                    if (typeof window.selectGameMode === "function") {
+                        window.selectGameMode("thuquy", false);
+                        return;
+                    }
+                }
+                origShowScreen(t);
+            };
+        }
+
+        // Hook vào selectGameMode của teamtccm/Work:
+        // - 'diepvien' -> mở Chế Độ Điệp Viên
+        // - 'gamehub' -> mở thẳng Vòng Quay May Mắn ('wheel')
         const origSelectGameMode = window.selectGameMode;
         if (typeof origSelectGameMode === "function") {
             window.selectGameMode = function(mode, showNotification = true) {
@@ -8114,6 +9046,9 @@
                         }
                     }, 280);
                     return;
+                }
+                if (mode === "gamehub") {
+                    mode = "wheel";
                 }
                 if (bDv) { bDv.className = "mode-badge badge-hot"; bDv.textContent = "🔥 MỞ KHÓA"; }
                 origSelectGameMode(mode, showNotification);
