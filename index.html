@@ -30,7 +30,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Lớp — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên</title>
+    <title>TCCM WORK — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -1618,7 +1618,7 @@
     <div id="persistentGameBackBtn" class="fixed top-4 left-4 z-[9999] hidden">
         <button onclick="selectGameMode('thuquy', false)" class="px-4 py-2.5 rounded-2xl bg-white/95 hover:bg-white text-gray-900 font-black text-xs shadow-2xl backdrop-blur-md border border-white/80 flex items-center gap-2 transition-all active:scale-95 cursor-pointer hover:shadow-indigo-300/50">
             <i class="fa-solid fa-arrow-left text-sm text-indigo-600"></i>
-            <span>Về Quản Lý Lớp</span>
+            <span>Về TCCM WORK</span>
         </button>
     </div>
 
@@ -1878,11 +1878,11 @@
         <div class="setting-sub">LỰA CHỌN KHÔNG GIAN TRẢI NGHIỆM ĐỘC QUYỀN TRÊN TCCM.ONLINE</div>
 
         <div class="mode-list">
-            <!-- CHẾ ĐỘ 1: QUẢN LÝ LỚP & THU QUỸ (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
+            <!-- CHẾ ĐỘ 1: TCCM WORK (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
             <div class="mode-card" id="modeCardThuQuy" onclick="selectGameMode('thuquy')" style="border:2px solid #6366F1;background:rgba(20,20,50,0.9);box-shadow:0 0 25px rgba(99,102,241,0.4);">
                 <div class="mode-info">
-                    <div class="mode-name" style="color:#818CF8;text-shadow:0 0 12px #6366F1;">🏫 CHẾ ĐỘ QUẢN LÝ LỚP & THU QUỸ (CHÍNH)</div>
-                    <div class="mode-desc" style="color:#C7D2FE;">Hệ thống: Quản lý lớp, Thu quỹ, Thể thao thể hình 4 nhóm cơ, Đồ ăn ĐH Hải Phòng & Điểm danh</div>
+                    <div class="mode-name" style="color:#818CF8;text-shadow:0 0 12px #6366F1;">⚡ CHẾ ĐỘ TCCM WORK (CHÍNH)</div>
+                    <div class="mode-desc" style="color:#C7D2FE;">Hệ thống: TCCM WORK, Thu quỹ, Thể thao thể hình 4 nhóm cơ, Đồ ăn ĐH Hải Phòng & Điểm danh</div>
                 </div>
                 <div class="mode-badge badge-active" id="badgeThuQuy" style="background:#6366F1;color:#FFF;font-weight:900;">MẶC ĐỊNH</div>
             </div>
@@ -1954,16 +1954,16 @@
         <div id="appCardWrapper" class="w-full max-w-xl bg-gray-50/95 backdrop-blur-xl h-full max-h-[92vh] flex flex-col relative shadow-2xl overflow-hidden rounded-3xl border border-white/40 transition-all duration-300">
             <!-- HEADER -->
             <header class="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-700 sticky top-0 z-40 px-5 py-4 flex justify-between items-center shadow-lg shadow-indigo-300/30">
-                <div class="flex items-center gap-3.5 cursor-pointer" id="headerLeftBrandBox" onclick="handleHeaderBrandClick()">
-                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white shadow-inner">
-                        <i id="headerLeftLogoIcon" class="fa-solid fa-calendar-check text-2xl"></i>
+                <div class="flex items-center gap-3 min-w-0 flex-1 pr-2 cursor-pointer" id="headerLeftBrandBox" onclick="handleHeaderBrandClick()">
+                    <div id="headerLeftLogoBox" class="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white shadow-inner overflow-hidden shrink-0">
+                        <i id="headerLeftLogoIcon" class="fa-solid fa-calendar-check text-2xl text-white"></i>
                     </div>
-                    <div>
-                        <h1 class="text-xl font-black text-white tracking-tight leading-tight" id="appNameDisplay">Quản Lý Lớp</h1>
-                        <p class="text-[11px] text-white/75 font-semibold" id="appSubDisplay">Hệ thống quản lý lớp & tiện ích sinh viên thông minh</p>
+                    <div class="min-w-0 flex-1">
+                        <h1 class="text-lg sm:text-xl font-black text-white tracking-tight leading-tight truncate" id="appNameDisplay">TCCM WORK</h1>
+                        <p class="text-[11px] text-white/75 font-semibold truncate" id="appSubDisplay">Hệ thống quản lý công việc & tiện ích sinh viên ĐHHP</p>
                     </div>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5 shrink-0">
                     <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Tập Thể Thao (4 Nhóm Cơ GIF)">
                         <i class="fa-solid fa-dumbbell text-base text-white"></i>
                     </button>
@@ -2344,7 +2344,7 @@
                 </div>
             </section>
 
-                        <!-- VIEW: ĐỒ ĂN QUANH ĐẠI HỌC HẢI PHÒNG (UPGRADED UI) -->
+                        <!-- VIEW: ĐỒ ĂN QUANH ĐẠI HỌC HẢI PHÒNG (KÉT HỘI THỢ LÙN + CLEAN UI) -->
             <section id="viewFoodNearby" class="view-section">
                 <!-- Header chuẩn đồng bộ -->
                 <div class="section-header-bar">
@@ -2355,96 +2355,129 @@
                         <h2 class="view-page-title text-lg sm:text-xl">Đồ Ăn ĐH Hải Phòng</h2>
                         <p class="view-page-subtitle">171 Phan Đăng Lưu · Kiến An</p>
                     </div>
-                    <button onclick="openFoodCartModal()" class="relative w-11 h-11 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-orange-300 hover:from-amber-400 hover:to-orange-500 active:scale-95 transition-all cursor-pointer text-base shrink-0 border-0" title="Xem giỏ hàng">
+                    <button onclick="openFoodCartModal()" class="relative w-11 h-11 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl flex items-center justify-center shadow-md hover:from-amber-400 hover:to-orange-500 active:scale-95 transition-all cursor-pointer text-base shrink-0 border-0" title="Xem giỏ hàng">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span id="foodCartBadge" class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center border-2 border-white">0</span>
                     </button>
                 </div>
 
-                <!-- HERO BANNER ĐẠI HỌC HẢI PHÒNG -->
-                <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 rounded-3xl p-4 text-white shadow-lg shadow-orange-200/60 mb-4 relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
-                    <div class="flex items-center justify-between gap-3">
-                        <div class="min-w-0 flex-1">
-                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-[10px] font-black uppercase tracking-wider mb-1">
-                                🏫 Đại Học Hải Phòng (HPUni)
-                            </div>
-                            <h3 class="text-base font-black leading-snug">Bản Đồ Ẩm Thực Sinh Viên Kiến An</h3>
-                            <p class="text-[11px] text-white/90 font-medium mt-0.5">Bánh đa cua, bánh mì cay, dừa dầm, cơm gà, trà sữa sát cổng trường</p>
-                        </div>
-                        <button onclick="openGoogleMapsArea()" class="shrink-0 whitespace-nowrap px-3.5 py-2.5 rounded-2xl bg-white text-orange-600 font-black text-xs shadow-md hover:bg-orange-50 active:scale-95 transition cursor-pointer flex items-center gap-1.5 border-0">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <span>Mở Maps</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- BẢN ĐỒ GOOGLE MAPS TƯƠNG TÁC QUANH ĐH HẢI PHÒNG -->
-                <div class="mb-4 bg-white p-3 rounded-3xl border border-gray-200/80 shadow-sm">
-                    <div class="flex items-center justify-between gap-2 mb-2 px-1">
+                <!-- TÍNH NĂNG: KÉT HỘI THỢ LÙN · TRƯA NAY ĂN GÌ? (LẤY CẢM HỨNG TỪ TRUANAYANGI.COM/?THEME=KET-HOI-THO-LUN) -->
+                <div class="bg-gradient-to-br from-slate-900 via-stone-900 to-amber-950 rounded-3xl p-4 text-white shadow-xl border-2 border-amber-500/40 mb-4 relative overflow-hidden">
+                    <div class="flex items-center justify-between gap-2 mb-2.5">
                         <div class="flex items-center gap-2 min-w-0">
-                            <span class="text-xs font-black text-gray-800 flex items-center gap-1.5 truncate">
-                                <i class="fa-solid fa-compass text-amber-500"></i> Bản Đồ Quanh Cổng Trường
-                            </span>
-                            <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">Bán kính 150m</span>
+                            <span class="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-slate-950 flex items-center justify-center text-base font-black shadow-md shrink-0">⚒️</span>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <h3 class="text-sm font-black text-amber-300 tracking-wide uppercase">Két Hội Thợ Lùn · Trưa Nay Ăn Gì?</h3>
+                                    <span class="text-[9px] font-black px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">ĐH Hải Phòng</span>
+                                </div>
+                                <p class="text-[11px] text-amber-100/75 font-medium truncate">Khui két kho báu lò rèn chọn ngẫu nhiên món ngon quanh cổng trường</p>
+                            </div>
                         </div>
-                        <button onclick="toggleFoodMapHeight()" id="btnToggleFoodMap" class="text-[11px] font-bold text-indigo-600 hover:bg-indigo-50 px-2.5 py-1 rounded-xl border border-indigo-100 flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0 transition">
-                            <i class="fa-solid fa-expand text-[10px]"></i>
-                            <span>Phóng to</span>
+                    </div>
+
+                    <!-- Bộ chọn Nhánh Khẩu Vị trước khi Mở Két -->
+                    <div class="flex flex-wrap items-center gap-1.5 mb-3">
+                        <button onclick="setDwarfChestFilter('all')" data-dcat="all" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition">
+                            🎲 Tất cả món (22)
+                        </button>
+                        <button onclick="setDwarfChestFilter('hp_specialty')" data-dcat="hp_specialty" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                            🦀 Đặc sản HP
+                        </button>
+                        <button onclick="setDwarfChestFilter('rice_noodle')" data-dcat="rice_noodle" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                            🍚 Cơm & Bún Phở
+                        </button>
+                        <button onclick="setDwarfChestFilter('snack_tea')" data-dcat="snack_tea" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                            🧋 Trà Sữa & Dừa Dầm
+                        </button>
+                        <button onclick="setDwarfChestFilter('bread_fastfood')" data-dcat="bread_fastfood" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                            🥖 Bánh Mì & Ăn Vặt
                         </button>
                     </div>
 
-                    <div id="foodLeafletMap" class="w-full h-48 rounded-2xl border border-amber-200/80 overflow-hidden relative z-10 bg-slate-100 transition-all duration-300"></div>
-                    <div class="flex justify-between items-center text-[10px] text-gray-400 font-bold px-1 mt-2">
-                        <span>📍 171 Phan Đăng Lưu, Kiến An, Hải Phòng</span>
-                        <span class="text-amber-600">Chạm vào ghim để xem menu 👆</span>
+                    <!-- Rãnh Quay Mở Hòm Két Thợ Lùn (CS2 / Lootbox Reel) -->
+                    <div class="relative bg-black/70 rounded-2xl border-2 border-amber-500/50 h-24 overflow-hidden mb-3 shadow-inner">
+                        <!-- Kim chỉ tâm vàng kim ở chính giữa -->
+                        <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-amber-400 z-20 shadow-[0_0_10px_#fbbf24]"></div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 z-20 text-amber-400 text-xs leading-none">▼</div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 text-amber-400 text-xs leading-none">▲</div>
+                        <!-- Dải vật phẩm món ăn trượt ngang -->
+                        <div id="dwarfChestReelTrack" class="flex items-center gap-2 h-full px-3 will-change-transform"></div>
                     </div>
+
+                    <!-- Nút Khai Mở Két Hội Thợ Lùn -->
+                    <div class="flex items-center gap-2">
+                        <button id="btnSpinDwarfChest" onclick="spinDwarfFoodChest()" class="flex-1 py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-600 hover:from-amber-300 hover:to-orange-500 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/30 active:scale-95 transition cursor-pointer border-0 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-hammer"></i>
+                            <span>KHAI MỞ KÉT THỢ LÙN (CHỌN MÓN NGAY)</span>
+                        </button>
+                        <button onclick="toggleFoodMapBox()" class="py-3 px-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-amber-200 font-bold text-xs cursor-pointer border border-white/15 shrink-0 flex items-center gap-1.5" title="Ẩn/Hiện Bản Đồ">
+                            <i class="fa-solid fa-map-location-dot text-amber-400"></i>
+                            <span>Bản đồ</span>
+                        </button>
+                    </div>
+
+                    <!-- Kết quả món ăn vừa mở trúng từ Két Thợ Lùn -->
+                    <div id="dwarfChestResultBox" class="hidden mt-3 bg-slate-950/95 text-white rounded-2xl p-3 border-2 border-amber-400 shadow-lg"></div>
                 </div>
 
-                <!-- TÌM KIẾM & BỘ LỌC NHANH -->
-                <div class="space-y-3 mb-4">
-                    <div class="relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-amber-500 text-xs"></i>
-                        <input type="text" id="foodSearchInput" oninput="handleFoodSearch(this.value)"
-                               placeholder="Tìm bánh đa cua, bánh mì cay, dừa dầm, cơm gà, trà sữa..."
-                               class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-2xl text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs">
-                    </div>
-
-                    <div class="bg-white p-2 rounded-2xl border border-gray-200 shadow-xs">
-                        <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs">
-                            <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0">
-                                🌟 Tất cả (8)
-                            </button>
-                            <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                                🦀 Đặc Sản Hải Phòng
-                            </button>
-                            <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                                🍚 Cơm & Bún Phở
-                            </button>
-                            <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                                🧋 Trà Sữa & Dừa Dầm
-                            </button>
-                            <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                                🥖 Bánh Mì & Ăn Vặt
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between items-center px-1 text-[11px] font-bold text-gray-500">
-                        <span id="foodShopCountLabel">8 quán ngon quanh ĐH Hải Phòng</span>
+                <!-- BẢN ĐỒ GOOGLE MAPS QUANH CỔNG TRƯỜNG (CÓ THỂ ẨN/HIỆN GỌN GÀNG) -->
+                <div id="foodMapWrapperBox" class="hidden mb-4 bg-white p-3 rounded-3xl border border-gray-200/80 shadow-sm">
+                    <div class="flex items-center justify-between gap-2 mb-2 px-1">
+                        <span class="text-xs font-black text-gray-800 flex items-center gap-1.5 truncate">
+                            <i class="fa-solid fa-compass text-amber-500"></i> Bản Đồ Ẩm Thực Cổng Trường ĐHHP (150m)
+                        </span>
                         <div class="flex items-center gap-1.5">
-                            <span>Sắp xếp:</span>
-                            <select onchange="handleFoodSort(this.value)" class="bg-white border border-gray-200 rounded-xl px-2.5 py-1 text-[11px] font-bold text-gray-800 focus:outline-none">
-                                <option value="distance">📍 Gần cổng trường nhất</option>
-                                <option value="rating">⭐ Đánh giá cao nhất</option>
-                                <option value="price">💰 Giá sinh viên</option>
-                            </select>
+                            <button onclick="openGoogleMapsArea()" class="text-[11px] font-bold text-amber-700 bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded-xl border border-amber-200 cursor-pointer">
+                                Mở Google Maps
+                            </button>
+                            <button onclick="toggleFoodMapHeight()" id="btnToggleFoodMap" class="text-[11px] font-bold text-indigo-600 hover:bg-indigo-50 px-2.5 py-1 rounded-xl border border-indigo-100 flex items-center gap-1 cursor-pointer">
+                                <i class="fa-solid fa-expand text-[10px]"></i>
+                                <span>Phóng to</span>
+                            </button>
                         </div>
+                    </div>
+                    <div id="foodLeafletMap" class="w-full h-44 rounded-2xl border border-amber-200/80 overflow-hidden relative z-10 bg-slate-100 transition-all duration-300"></div>
+                </div>
+
+                <!-- THANH TÌM KIẾM & LỌC DANH MỤC GỌN GÀNG -->
+                <div class="space-y-2.5 mb-3.5">
+                    <div class="flex items-center gap-2">
+                        <div class="relative flex-1">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-500 text-xs"></i>
+                            <input type="text" id="foodSearchInput" oninput="handleFoodSearch(this.value)"
+                                   placeholder="Tìm món ăn hoặc tên quán quanh ĐH Hải Phòng..."
+                                   class="w-full pl-9 pr-3 py-2.5 bg-white border border-gray-200 rounded-2xl text-xs font-semibold text-gray-800 focus:outline-none focus:border-amber-500">
+                        </div>
+                        <select onchange="handleFoodSort(this.value)" class="bg-white border border-gray-200 rounded-2xl px-3 py-2.5 text-xs font-bold text-gray-700 focus:outline-none shrink-0">
+                            <option value="distance">📍 Gần nhất</option>
+                            <option value="rating">⭐ Điểm cao</option>
+                            <option value="price">💰 Giá rẻ</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                        <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0">
+                            🌟 Tất cả (8)
+                        </button>
+                        <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🦀 Đặc Sản HP
+                        </button>
+                        <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🍚 Cơm & Bún
+                        </button>
+                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🧋 Trà Sữa & Chè
+                        </button>
+                        <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                            🥖 Bánh Mì & Ăn Vặt
+                        </button>
                     </div>
                 </div>
 
-                <!-- DANH SÁCH QUÁN ĂN -->
-                <div class="space-y-3.5 pb-20" id="foodShopListContainer"></div>
+                <!-- DANH SÁCH QUÁN ĂN (THIẾT KẾ GỌN GÀNG, DỄ NHÌN, CHỌN MÓN 1 CHẠM) -->
+                <div class="space-y-3 pb-4" id="foodShopListContainer"></div>
+                <div id="foodCartFloatingBar" class="sticky bottom-2 z-30 hidden pt-2"></div>
             </section>
 
             <!-- VIEW: TẬP THỂ THAO -->
@@ -2874,7 +2907,7 @@
     <!-- MODALS CỦA CÔNG VIỆC HẰNG NGÀY -->
 
     <!-- FLOATING CART BOTTOM BAR -->
-    <div id="foodCartFloatingBar" class="fixed bottom-5 left-0 right-0 z-40 hidden pointer-events-auto"></div>
+    
 
     <!-- MODAL: XEM MENU CHI TIẾT CỦA QUÁN (SHOPEEFOOD STYLE) -->
     <div id="shopMenuModal" class="fixed inset-0 bg-black/60 z-50 hidden flex-col justify-end backdrop-blur-sm transition-opacity">
@@ -2953,97 +2986,96 @@
         </div>
     </div>
 
-    <!-- MODAL: GIỎ HÀNG & GỌI MÓN (ĐẶT TRỰC TIẾP QUA FANPAGE QUÁN, KHÔNG QR CODE) -->
-    <div id="foodCartModal" class="fixed inset-0 bg-black/60 z-50 hidden flex-col justify-end backdrop-blur-sm transition-opacity">
-        <div class="bg-white rounded-t-3xl w-full max-w-xl mx-auto p-5 max-h-[90vh] overflow-y-auto animate-[slideUp_0.3s_ease-out]">
-            <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
+    <!-- MODAL: GIỎ HÀNG & GỌI MÓN (SOẠN SẴN TIN NHẮN & TÊN MÓN CHỈ ĐỢI ẤN ENTER) -->
+    <div id="foodCartModal" class="fixed inset-0 bg-black/65 z-50 hidden flex-col justify-end backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-t-3xl w-full max-w-xl mx-auto p-4 sm:p-5 max-h-[92vh] overflow-y-auto animate-[slideUp_0.25s_ease-out]">
+            <div class="flex justify-between items-center mb-3 pb-2.5 border-b border-gray-100">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white flex items-center justify-center text-lg shadow-md shadow-orange-300">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white flex items-center justify-center text-base shadow-sm">
                         🛒
                     </div>
                     <div>
-                        <h3 class="text-lg font-black text-gray-900 leading-tight">Giỏ Hàng Đặt Món</h3>
-                        <div id="foodCartShopName" class="text-xs text-amber-600 font-extrabold">Trà Sữa Cô Ba</div>
+                        <h3 class="text-base font-black text-gray-900 leading-tight">Giỏ Hàng & Đặt Món Nhanh</h3>
+                        <div id="foodCartShopName" class="text-xs text-amber-600 font-extrabold">Quán ĐH Hải Phòng</div>
                     </div>
                 </div>
-                <button onclick="closeModal('foodCartModal')" class="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 transition-all cursor-pointer">
-                    <i class="fa-solid fa-xmark text-base"></i>
+                <button onclick="closeModal('foodCartModal')" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-pointer border-0">
+                    <i class="fa-solid fa-xmark text-sm"></i>
                 </button>
             </div>
 
             <!-- Danh sách món đã chọn -->
-            <div class="mb-4">
-                <div class="text-[11px] font-black text-gray-400 uppercase tracking-wider mb-2">Món đã chọn</div>
-                <div id="foodCartItemsList" class="space-y-2 max-h-48 overflow-y-auto pr-1">
-                    <!-- Rendered by JS -->
-                </div>
-                <div class="flex justify-between items-center pt-3 border-t border-gray-100 mt-2">
-                    <span class="text-sm font-bold text-gray-700">Tổng tiền món:</span>
-                    <span id="foodCartTotalPrice" class="text-xl font-black text-amber-600">0đ</span>
+            <div class="mb-3">
+                <div id="foodCartItemsList" class="space-y-1.5 max-h-36 overflow-y-auto pr-1"></div>
+                <div class="flex justify-between items-center pt-2 border-t border-gray-100 mt-2">
+                    <span class="text-xs font-extrabold text-gray-600">Tổng thanh toán:</span>
+                    <span id="foodCartTotalPrice" class="text-lg font-black text-rose-600">0đ</span>
                 </div>
             </div>
 
-            <!-- Form Thông Tin Giao Nhận -->
-            <div class="space-y-3 bg-gray-50 rounded-2xl p-4 border border-gray-200/80 mb-4 text-xs">
-                <div class="font-black text-gray-800 text-xs flex items-center gap-1.5">
-                    <i class="fa-solid fa-id-card text-indigo-600"></i>
-                    <span>Thông tin người nhận (Sinh viên ĐH Hải Phòng)</span>
-                </div>
-
-                <!-- Chọn học sinh -->
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Người nhận:</label>
-                    <select id="foodOrderStudentSelect" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
-                        <option value="">-- Chọn tên sinh viên ĐH Hải Phòng --</option>
-                    </select>
-                </div>
-
+            <!-- Thông tin người nhận gọn gàng 2 cột -->
+            <div class="bg-gray-50 rounded-2xl p-3 border border-gray-200/80 mb-3 text-xs space-y-2">
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block font-bold text-gray-700 mb-1">Số điện thoại:</label>
-                        <input type="tel" id="foodOrderPhoneInput" placeholder="VD: 0987654321" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <label class="block font-bold text-gray-700 mb-1">Người nhận (SV ĐHHP):</label>
+                        <select id="foodOrderStudentSelect" onchange="updatePrecomposedOrderMessage()" class="w-full bg-white border border-gray-200 rounded-xl px-2.5 py-2 text-xs font-semibold focus:outline-none focus:border-amber-500">
+                            <option value="Sinh viên ĐH Hải Phòng">-- Chọn tên SV ĐHHP --</option>
+                        </select>
                     </div>
                     <div>
-                        <label class="block font-bold text-gray-700 mb-1">Địa điểm giao:</label>
-                        <select id="foodOrderLocationSelect" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <label class="block font-bold text-gray-700 mb-1">Số điện thoại:</label>
+                        <input type="tel" id="foodOrderPhoneInput" oninput="updatePrecomposedOrderMessage()" placeholder="VD: 0987..." class="w-full bg-white border border-gray-200 rounded-xl px-2.5 py-2 text-xs focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Điểm nhận tại ĐHHP:</label>
+                        <select id="foodOrderLocationSelect" onchange="updatePrecomposedOrderMessage()" class="w-full bg-white border border-gray-200 rounded-xl px-2.5 py-2 text-xs font-semibold focus:outline-none focus:border-amber-500">
                             <option value="Cổng chính ĐH Hải Phòng (171 Phan Đăng Lưu)">Cổng chính ĐHHP (171 Phan Đăng Lưu)</option>
                             <option value="Giảng đường A / B / C - ĐH Hải Phòng">Giảng đường A / B / C - ĐHHP</option>
                             <option value="Khu Ký Túc Xá (KTX) ĐH Hải Phòng">Khu Ký Túc Xá (KTX) ĐHHP</option>
                             <option value="Nhà Đa Năng / Sân vận động ĐH Hải Phòng">Nhà Đa Năng / Sân vận động ĐHHP</option>
                         </select>
                     </div>
-                </div>
-
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Ghi chú cho quán (Đường/Đá/Cay...):</label>
-                    <input type="text" id="foodOrderNoteInput" placeholder="VD: Ít đường 50%, nhiều đá, tương ớt riêng..." class="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-1">Ghi chú món:</label>
+                        <input type="text" id="foodOrderNoteInput" oninput="updatePrecomposedOrderMessage()" placeholder="Ít đá, thêm cay..." class="w-full bg-white border border-gray-200 rounded-xl px-2.5 py-2 text-xs focus:outline-none focus:border-amber-500">
+                    </div>
                 </div>
             </div>
 
-            <!-- Các phương thức đặt món (ĐẶT QUA FANPAGE - KHÔNG DÙNG QR) -->
-            <div class="space-y-2.5">
-                <div class="text-[11px] font-black text-gray-500 uppercase tracking-wider mb-1 flex items-center justify-between">
-                    <span>Gửi đơn trực tiếp tới quán</span>
-                    <span class="text-emerald-600 font-extrabold text-[10px]">✓ Không qua trung gian</span>
-                </div>
-                
-                <!-- NÚT 1: NHẮN TIN FANPAGE (CHÍNH) -->
-                <button onclick="submitOrderFanpage()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 active:scale-95 text-white font-black text-xs shadow-xl shadow-indigo-300/50 flex items-center justify-center gap-2.5 transition cursor-pointer">
-                    <i class="fa-brands fa-facebook-messenger text-base"></i>
-                    <span>1. Nhắn Tin Fanpage Quán (Chốt Đơn Nhanh)</span>
-                </button>
-
-                <div class="grid grid-cols-2 gap-2">
-                    <!-- Gọi điện thoại -->
-                    <button onclick="submitOrderCall()" class="py-3 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-black text-xs shadow-md shadow-emerald-200 flex items-center justify-center gap-1.5 transition cursor-pointer">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>2. Gọi Hotline Quán</span>
+            <!-- KHUNG TIN NHẮN SOẠN SẴN KÈM TÊN MÓN (CHỈ ĐỢI ẤN ENTER TRÊN PAGE) -->
+            <div class="bg-indigo-50/70 border-2 border-indigo-200 rounded-2xl p-3 mb-3">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <span class="text-[11px] font-black text-indigo-900 flex items-center gap-1.5">
+                        <i class="fa-solid fa-comment-medical text-indigo-600"></i>
+                        <span>Tin nhắn gọi món soạn sẵn (Tự động Copy):</span>
+                    </span>
+                    <button type="button" onclick="copyPrecomposedOrderMessage()" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-[10px] font-black cursor-pointer border-0">
+                        📋 Copy sẵn
                     </button>
+                </div>
+                <textarea id="foodPrecomposedMsgBox" rows="4"
+                          class="clean-scroll w-full bg-white border border-indigo-200 rounded-xl p-2.5 text-xs font-bold text-gray-800 leading-relaxed focus:outline-none focus:border-indigo-500"></textarea>
+                <p class="text-[10.5px] text-indigo-700 font-semibold mt-1">
+                    💡 Khi bấm nút Đặt Món bên dưới, hệ thống tự động copy sẵn tin nhắn kèm tên món ăn — sang Page quán bạn chỉ cần Dán (Ctrl+V) và ấn <b>Enter</b>!
+                </p>
+            </div>
 
-                    <!-- Nhắn Zalo -->
-                    <button onclick="submitOrderZalo()" class="py-3 px-3 rounded-2xl bg-sky-500 hover:bg-sky-600 active:scale-95 text-white font-black text-xs shadow-md shadow-sky-200 flex items-center justify-center gap-1.5 transition cursor-pointer">
+            <!-- Nút Đặt Món Sang Page -->
+            <div class="space-y-2">
+                <button onclick="submitOrderFanpage()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-black text-xs sm:text-sm shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 cursor-pointer border-0">
+                    <i class="fa-brands fa-facebook-messenger text-base"></i>
+                    <span>Đặt Qua Page Quán (Đã Soạn Sẵn Món - Chỉ Đợi Ấn Enter)</span>
+                </button>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="submitOrderZalo()" class="py-2.5 px-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-black text-xs flex items-center justify-center gap-1.5 cursor-pointer border-0">
                         <i class="fa-solid fa-comment-dots"></i>
-                        <span>3. Nhắn Tin Zalo</span>
+                        <span>Nhắn Zalo (Đã Soạn Sẵn)</span>
+                    </button>
+                    <button onclick="submitOrderCall()" class="py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs flex items-center justify-center gap-1.5 cursor-pointer border-0">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Gọi Hotline Quán</span>
                     </button>
                 </div>
             </div>
@@ -4218,7 +4250,7 @@
                     <span>QUAY VẬN MAY</span>
                 </button>
                 <button onclick="selectGameMode('thuquy', false)" class="py-2.5 px-5 rounded-2xl bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-xs border border-white/20 flex items-center justify-center cursor-pointer transition-all active:scale-95">
-                    <span>QUAY LẠI QUẢN LÝ LỚP</span>
+                    <span>QUAY LẠI TCCM WORK</span>
                 </button>
             </div>
         </div>
@@ -5203,7 +5235,7 @@
                     } else if(typeof switchView === 'function') {
                         switchView(v || 'viewDashboard');
                     }
-                    if(showNotification) showNotify('🏫 Đã kích hoạt Chế độ Quản Lý Lớp!');
+                    if(showNotification) showNotify('⚡ Đã kích hoạt Chế độ TCCM WORK!');
                 });
             } else if(mode === 'mitchum' || mode === 'default'){
                 activeGameMode = 'mitchum';
@@ -7647,12 +7679,22 @@
         searchKeyword: "",
         sortBy: "distance",
         activeShopId: null,
-        ordersHistory: []
+        ordersHistory: [],
+        dwarfFilter: "all",
+        dwarfSpinning: false,
+        dwarfWinner: null
     };
 
     let foodLeafletMap = null;
     let foodMapMarkers = [];
     let foodMapExpanded = false;
+
+    const DWARF_RARITIES = [
+        { name: "HUYỀN THOẠI ⚒️", border: "border-amber-400", bg: "from-amber-500/30 to-yellow-600/20", badge: "bg-amber-400 text-slate-950" },
+        { name: "CỔ VẬT 🔥", border: "border-rose-400", bg: "from-rose-500/30 to-orange-600/20", badge: "bg-rose-500 text-white" },
+        { name: "SỬ THI 💎", border: "border-purple-400", bg: "from-purple-500/30 to-indigo-600/20", badge: "bg-purple-500 text-white" },
+        { name: "HIẾM ⚡", border: "border-cyan-400", bg: "from-cyan-500/30 to-blue-600/20", badge: "bg-cyan-400 text-slate-950" }
+    ];
 
     function initFoodModule() {
         try {
@@ -7676,18 +7718,203 @@
     function saveFoodOrders() { localStorage.setItem("QL_FOOD_ORDERS_DHHP", JSON.stringify(foodState.ordersHistory)); }
     function saveFoodCart() { localStorage.setItem("QL_FOOD_CART_DHHP", JSON.stringify(foodState.cart)); }
 
+    function getDwarfDishPool() {
+        const pool = [];
+        foodState.shops.forEach((shop, sIdx) => {
+            if (foodState.dwarfFilter !== "all" && shop.category !== foodState.dwarfFilter) return;
+            shop.menu.forEach((item, mIdx) => {
+                const rarity = DWARF_RARITIES[(sIdx + mIdx) % DWARF_RARITIES.length];
+                pool.push({
+                    shopId: shop.id,
+                    shopName: shop.name,
+                    shopDist: shop.distanceText,
+                    itemId: item.id,
+                    itemName: item.name,
+                    price: item.price,
+                    image: item.image,
+                    rarity: rarity
+                });
+            });
+        });
+        return pool;
+    }
+
+    function initDwarfChestReel() {
+        const track = document.getElementById("dwarfChestReelTrack");
+        if (!track) return;
+        const pool = getDwarfDishPool();
+        if (pool.length === 0) return;
+
+        const displayItems = [];
+        for (let i = 0; i < 18; i++) {
+            displayItems.push(pool[i % pool.length]);
+        }
+        track.style.transition = "none";
+        track.style.transform = "translateX(0px)";
+        track.innerHTML = displayItems.map(d => `
+            <div class="w-28 h-[78px] shrink-0 rounded-xl bg-gradient-to-b ${d.rarity.bg} border ${d.rarity.border} p-1.5 flex flex-col justify-between relative overflow-hidden">
+                <div class="flex items-center gap-1.5">
+                    <img src="${d.image}" class="w-9 h-9 rounded-lg object-cover shrink-0 border border-white/20">
+                    <span class="text-[8px] font-black px-1.5 py-0.5 rounded ${d.rarity.badge} truncate">${d.rarity.name.split(' ')[0]}</span>
+                </div>
+                <div class="text-[10px] font-extrabold text-white truncate leading-tight">${d.itemName}</div>
+                <div class="text-[9px] font-black text-amber-300">${d.price.toLocaleString('vi-VN')}đ</div>
+            </div>
+        `).join("");
+    }
+
+    function setDwarfChestFilter(cat) {
+        if (foodState.dwarfSpinning) return;
+        foodState.dwarfFilter = cat;
+        document.querySelectorAll(".dwarf-cat-btn").forEach(btn => {
+            const c = btn.getAttribute("data-dcat");
+            if (c === cat) {
+                btn.className = "dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition";
+            } else {
+                btn.className = "dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition";
+            }
+        });
+        const resBox = document.getElementById("dwarfChestResultBox");
+        if (resBox) resBox.classList.add("hidden");
+        initDwarfChestReel();
+    }
+
+    function spinDwarfFoodChest() {
+        if (foodState.dwarfSpinning) return;
+        const track = document.getElementById("dwarfChestReelTrack");
+        const btn = document.getElementById("btnSpinDwarfChest");
+        const resBox = document.getElementById("dwarfChestResultBox");
+        if (!track) return;
+
+        const pool = getDwarfDishPool();
+        if (pool.length === 0) return;
+
+        foodState.dwarfSpinning = true;
+        if (resBox) resBox.classList.add("hidden");
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-gear fa-spin"></i><span>ĐANG KHUI KÉT THỢ LÙN...</span>`;
+        }
+
+        const totalCards = 36;
+        const winIndex = 28;
+        const winner = pool[Math.floor(Math.random() * pool.length)];
+        foodState.dwarfWinner = winner;
+
+        const reelCards = [];
+        for (let i = 0; i < totalCards; i++) {
+            if (i === winIndex) {
+                reelCards.push(winner);
+            } else {
+                reelCards.push(pool[Math.floor(Math.random() * pool.length)]);
+            }
+        }
+
+        track.style.transition = "none";
+        track.style.transform = "translateX(0px)";
+        track.innerHTML = reelCards.map((d, idx) => `
+            <div id="dwarf_card_${idx}" class="w-28 h-[78px] shrink-0 rounded-xl bg-gradient-to-b ${d.rarity.bg} border-2 ${d.rarity.border} p-1.5 flex flex-col justify-between relative overflow-hidden">
+                <div class="flex items-center gap-1.5">
+                    <img src="${d.image}" class="w-9 h-9 rounded-lg object-cover shrink-0 border border-white/20">
+                    <span class="text-[8px] font-black px-1.5 py-0.5 rounded ${d.rarity.badge} truncate">${d.rarity.name.split(' ')[0]}</span>
+                </div>
+                <div class="text-[10px] font-extrabold text-white truncate leading-tight">${d.itemName}</div>
+                <div class="text-[9px] font-black text-amber-300">${d.price.toLocaleString('vi-VN')}đ</div>
+            </div>
+        `).join("");
+
+        // Mỗi card rộng 112px (w-28) + gap 8px (gap-2) = 120px
+        const containerWidth = track.parentElement ? track.parentElement.clientWidth : 340;
+        const cardStep = 120;
+        const jitter = Math.floor(Math.random() * 24) - 12;
+        const targetOffset = (winIndex * cardStep) - (containerWidth / 2) + (112 / 2) + 12 + jitter;
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 3.2s cubic-bezier(0.12, 0.85, 0.18, 1)";
+                track.style.transform = `translateX(-${Math.max(0, targetOffset)}px)`;
+            });
+        });
+
+        setTimeout(() => {
+            foodState.dwarfSpinning = false;
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-hammer"></i><span>QUAY LẠI MÓN KHÁC</span>`;
+            }
+            const winCardEl = document.getElementById(`dwarf_card_${winIndex}`);
+            if (winCardEl) {
+                winCardEl.classList.add("ring-2", "ring-amber-300", "scale-105");
+            }
+            if (resBox) {
+                resBox.classList.remove("hidden");
+                resBox.innerHTML = `
+                    <div class="flex flex-col gap-2.5">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <img src="${winner.image}" class="w-12 h-12 rounded-xl object-cover border-2 border-amber-400 shrink-0">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[9px] font-black px-2 py-0.5 rounded-full ${winner.rarity.badge}">${winner.rarity.name}</span>
+                                    <span class="text-xs font-black text-amber-300">${winner.price.toLocaleString('vi-VN')}đ</span>
+                                </div>
+                                <div class="text-xs sm:text-sm font-black text-white truncate mt-0.5">${winner.itemName}</div>
+                                <div class="text-[11px] text-amber-100/85 truncate">📍 ${winner.shopName} (${winner.shopDist})</div>
+                            </div>
+                        </div>
+                        <button onclick="quickOrderFoodItem('${winner.shopId}', '${winner.itemId}')" class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-black text-xs shadow-md cursor-pointer border-0 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>CHỐT MÓN NÀY & SOẠN SẴN ĐƠN ĐẶT NGAY</span>
+                        </button>
+                    </div>
+                `;
+            }
+            if (typeof confetti === "function") confetti({ particleCount: 35, spread: 55, origin: { y: 0.6 } });
+        }, 3300);
+    }
+
+    function quickOrderFoodItem(shopId, itemId) {
+        const shop = foodState.shops.find(s => s.id === shopId);
+        if (!shop) return;
+        const item = shop.menu.find(m => m.id === itemId);
+        if (!item) return;
+
+        if (foodState.cart.shopId && foodState.cart.shopId !== shopId) {
+            foodState.cart = { shopId: shopId, items: {} };
+        }
+        foodState.cart.shopId = shopId;
+        if (!foodState.cart.items[itemId]) {
+            foodState.cart.items[itemId] = { item: item, qty: 1, note: "" };
+        }
+        saveFoodCart();
+        updateFoodCartFloatingBar();
+        renderFoodShopList();
+        openFoodCartModal();
+    }
+
+    function toggleFoodMapBox() {
+        const box = document.getElementById("foodMapWrapperBox");
+        if (!box) return;
+        box.classList.toggle("hidden");
+        if (!box.classList.contains("hidden")) {
+            setTimeout(() => {
+                renderFoodGoogleMap();
+                if (foodLeafletMap) foodLeafletMap.invalidateSize();
+            }, 150);
+        }
+    }
+
     function toggleFoodMapHeight() {
         const mapEl = document.getElementById("foodLeafletMap");
         const btn = document.getElementById("btnToggleFoodMap");
         if (!mapEl) return;
         foodMapExpanded = !foodMapExpanded;
         if (foodMapExpanded) {
-            mapEl.classList.remove("h-48");
-            mapEl.classList.add("h-80");
+            mapEl.classList.remove("h-40");
+            mapEl.classList.add("h-72");
             if (btn) btn.innerHTML = '<i class="fa-solid fa-compress text-[10px]"></i><span>Thu gọn</span>';
         } else {
-            mapEl.classList.remove("h-80");
-            mapEl.classList.add("h-48");
+            mapEl.classList.remove("h-72");
+            mapEl.classList.add("h-40");
             if (btn) btn.innerHTML = '<i class="fa-solid fa-expand text-[10px]"></i><span>Phóng to</span>';
         }
         setTimeout(() => { if (foodLeafletMap) foodLeafletMap.invalidateSize(); }, 320);
@@ -7695,6 +7922,7 @@
 
     function renderFoodNearby() {
         initFoodModule();
+        initDwarfChestReel();
         setTimeout(() => { renderFoodGoogleMap(); }, 150);
         renderFoodShopList();
         updateFoodCartFloatingBar();
@@ -7806,7 +8034,7 @@
             if (c === cat) {
                 btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0";
             } else {
-                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
+                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
             }
         });
         renderFoodGoogleMap();
@@ -7824,22 +8052,20 @@
         renderFoodShopList();
     }
 
+    // DANH SÁCH QUÁN ĂN GỌN GÀNG, SẠCH SẼ, KHÔNG RỐI MẮT
     function renderFoodShopList() {
         const container = document.getElementById("foodShopListContainer");
-        const countLbl = document.getElementById("foodShopCountLabel");
         if (!container) return;
 
         const shops = getFilteredFoodShops();
-        if (countLbl) countLbl.textContent = `${shops.length} quán ngon quanh ĐH Hải Phòng`;
 
         if (shops.length === 0) {
             container.innerHTML = `
-                <div class="text-center py-10 bg-white rounded-3xl border border-gray-100 shadow-sm p-6">
-                    <div class="text-4xl mb-2">🍜</div>
+                <div class="text-center py-8 bg-white rounded-3xl border border-gray-100 shadow-sm p-5">
+                    <div class="text-3xl mb-1.5">🍜</div>
                     <h4 class="text-sm font-black text-gray-800">Không tìm thấy quán phù hợp!</h4>
-                    <p class="text-xs text-gray-500 mt-1">Thử tìm bánh đa cua, bánh mì cay, dừa dầm hoặc chọn Tất cả nhé.</p>
-                    <button onclick="setFoodCategory('all')" class="mt-3 px-4 py-2 bg-amber-500 text-white font-bold text-xs rounded-xl shadow-md cursor-pointer">
-                        Xem tất cả 8 quán quanh trường
+                    <button onclick="setFoodCategory('all')" class="mt-2.5 px-4 py-2 bg-amber-500 text-white font-bold text-xs rounded-xl cursor-pointer border-0">
+                        Xem tất cả 8 quán quanh ĐHHP
                     </button>
                 </div>
             `;
@@ -7847,78 +8073,65 @@
         }
 
         container.innerHTML = shops.map(shop => {
-            const topDishesHtml = shop.menu.slice(0, 2).map(m => {
+            const dishPillsHtml = shop.menu.map(m => {
                 const qty = (foodState.cart.shopId === shop.id && foodState.cart.items[m.id]) ? foodState.cart.items[m.id].qty : 0;
                 return `
-                    <div class="flex items-center justify-between gap-2 bg-gray-50/90 hover:bg-amber-50/50 border border-gray-200/70 rounded-2xl p-2 transition">
+                    <div class="flex items-center justify-between gap-2 bg-gray-50 hover:bg-amber-50/60 border border-gray-200/80 rounded-xl px-2.5 py-2 transition">
                         <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer" onclick="openShopMenuModal('${shop.id}')">
-                            <img src="${m.image}" class="w-10 h-10 rounded-xl object-cover shrink-0 border border-gray-200">
+                            <img src="${m.image}" class="w-9 h-9 rounded-lg object-cover shrink-0 border border-gray-200">
                             <div class="min-w-0 flex-1">
-                                <div class="text-[11px] font-bold text-gray-900 truncate">${m.name}</div>
+                                <div class="text-xs font-bold text-gray-900 truncate">${m.name}</div>
                                 <div class="text-[11px] font-black text-amber-600">${m.price.toLocaleString('vi-VN')}đ</div>
                             </div>
                         </div>
-                        <button onclick="addFoodToCart('${shop.id}', '${m.id}')" class="shrink-0 px-2.5 py-1.5 rounded-xl ${qty > 0 ? 'bg-emerald-600 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'} font-black text-[11px] shadow-xs transition active:scale-95 cursor-pointer">
-                            ${qty > 0 ? `✓ Đã thêm (${qty})` : '+ Thêm'}
-                        </button>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button onclick="addFoodToCart('${shop.id}', '${m.id}')" class="px-2.5 py-1.5 rounded-lg ${qty > 0 ? 'bg-emerald-600 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white'} font-black text-[11px] transition cursor-pointer border-0">
+                                ${qty > 0 ? `✓ (${qty})` : '+ Giỏ'}
+                            </button>
+                            <button onclick="quickOrderFoodItem('${shop.id}', '${m.id}')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-black text-[11px] transition cursor-pointer border-0" title="Đặt ngay món này & soạn sẵn tin nhắn">
+                                Đặt ngay
+                            </button>
+                        </div>
                     </div>
                 `;
             }).join("");
 
             return `
-                <div class="bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-sm hover:shadow-md transition-all p-3.5 sm:p-4">
-                    <!-- Top Info Row -->
-                    <div class="flex gap-3.5 cursor-pointer" onclick="openShopMenuModal('${shop.id}')">
-                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 bg-slate-900 border border-gray-100 shadow-xs">
+                <div class="bg-white rounded-2xl border border-gray-200/80 shadow-xs hover:shadow-md transition-all p-3.5">
+                    <div class="flex items-center gap-3 cursor-pointer" onclick="openShopMenuModal('${shop.id}')">
+                        <div class="relative w-16 h-16 rounded-2xl overflow-hidden shrink-0 bg-slate-900 border border-gray-100">
                             <img src="${shop.coverImage}" alt="${shop.name}" class="w-full h-full object-cover">
-                            <span class="absolute top-1.5 left-1.5 text-[9px] font-black text-white px-2 py-0.5 rounded-full whitespace-nowrap ${shop.badgeBg} shadow">
-                                ${shop.avatar} ĐHHP
-                            </span>
-                            <span class="absolute bottom-1.5 right-1.5 text-[10px] font-black text-amber-300 bg-black/75 backdrop-blur-xs px-1.5 py-0.5 rounded-lg">
-                                ★ ${shop.rating}
+                            <span class="absolute bottom-1 right-1 text-[9px] font-black text-amber-300 bg-black/80 px-1.5 py-0.2 rounded-md">
+                                ★${shop.rating}
                             </span>
                         </div>
-
-                        <div class="min-w-0 flex-1 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between gap-1">
-                                    <span class="text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-lg truncate">
-                                        ${shop.distanceText}
-                                    </span>
-                                    <span class="text-[10px] font-bold text-emerald-600 shrink-0">● Mở cửa</span>
-                                </div>
-                                <h3 class="text-sm sm:text-base font-black text-gray-900 leading-snug mt-1 truncate">${shop.name}</h3>
-                                <p class="text-[11px] text-gray-500 truncate mt-0.5"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i>${shop.address}</p>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.2 rounded-md">
+                                    📍 ${shop.distanceMeters}m
+                                </span>
+                                <span class="text-[10px] font-bold text-gray-500 truncate">${shop.categoryLabel}</span>
+                                <span class="text-[10px] font-extrabold text-emerald-600 ml-auto">💰 ${shop.priceRange}</span>
                             </div>
-
-                            <div class="flex items-center justify-between text-[11px] pt-1.5 border-t border-gray-100 mt-1.5">
-                                <span class="font-extrabold text-gray-700">💰 ${shop.priceRange}</span>
-                                <span class="text-gray-400 font-semibold">${shop.reviewCount} đánh giá</span>
-                            </div>
+                            <h3 class="text-sm font-black text-gray-900 truncate mt-1">${shop.name}</h3>
+                            <p class="text-[11px] text-gray-500 truncate">${shop.address}</p>
                         </div>
                     </div>
 
-                    <!-- Highlight Review -->
-                    <div class="mt-2.5 px-3 py-1.5 rounded-xl bg-amber-50/70 border border-amber-200/50 text-[11px] text-amber-900 font-medium truncate">
-                        💬 "${shop.highlightReview}"
-                    </div>
-
-                    <!-- Quick Dishes Preview -->
                     <div class="mt-2.5 space-y-1.5">
-                        ${topDishesHtml}
+                        ${dishPillsHtml}
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div class="grid grid-cols-2 gap-2 mt-3 pt-2.5 border-t border-gray-100">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(shop.address)}" target="_blank" style="text-decoration:none;"
-                           class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-extrabold text-xs rounded-xl flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer no-underline">
+                    <div class="flex items-center justify-between gap-2 mt-2.5 pt-2 border-t border-gray-100">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(shop.address)}" target="_blank"
+                           class="py-1.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-[11px] rounded-xl flex items-center gap-1.5 no-underline">
                             <i class="fa-solid fa-diamond-turn-right text-amber-600"></i>
-                            <span>Chỉ Đường (${shop.distanceMeters}m)</span>
+                            <span>Chỉ đường</span>
                         </a>
                         <button onclick="openShopMenuModal('${shop.id}')"
-                                class="py-2.5 px-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-black text-xs rounded-xl shadow-sm shadow-orange-200 flex items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer border-0">
-                            <i class="fa-solid fa-utensils text-xs"></i>
-                            <span>Xem Thực Đơn (${shop.menu.length})</span>
+                                class="py-1.5 px-3 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-extrabold text-[11px] rounded-xl flex items-center gap-1.5 cursor-pointer">
+                            <i class="fa-solid fa-utensils"></i>
+                            <span>Chi tiết quán & Menu (${shop.menu.length})</span>
                         </button>
                     </div>
                 </div>
@@ -7959,30 +8172,30 @@
                 const currentQty = (foodState.cart.shopId === shop.id && foodState.cart.items[item.id])
                     ? foodState.cart.items[item.id].qty : 0;
                 return `
-                    <div class="bg-gray-50/80 hover:bg-amber-50/30 border border-gray-200/80 rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-3 transition-all">
+                    <div class="bg-gray-50/80 hover:bg-amber-50/30 border border-gray-200/80 rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-2.5 transition-all">
                         <div class="flex items-center gap-2.5 min-w-0 flex-1">
-                            <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover shadow-xs shrink-0 border border-gray-200">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover shadow-xs shrink-0 border border-gray-200">
                             <div class="min-w-0 flex-1">
-                                <div class="flex items-center gap-1.5 flex-wrap">
-                                    <h4 class="text-xs font-bold text-gray-900 truncate">${item.name}</h4>
-                                    ${item.isHot ? '<span class="text-[9px] bg-rose-500 text-white font-black px-1.5 py-0.2 rounded-md shrink-0">HOT</span>' : ''}
-                                </div>
+                                <h4 class="text-xs font-bold text-gray-900 truncate">${item.name}</h4>
                                 <p class="text-[11px] text-gray-500 leading-tight mt-0.5 line-clamp-1">${item.desc}</p>
-                                <div class="text-xs font-black text-amber-600 mt-1">${item.price.toLocaleString('vi-VN')}đ</div>
+                                <div class="text-xs font-black text-amber-600 mt-0.5">${item.price.toLocaleString('vi-VN')}đ</div>
                             </div>
                         </div>
-                        <div class="shrink-0">
+                        <div class="shrink-0 flex items-center gap-1.5">
                             ${currentQty > 0 ? `
-                                <div class="flex items-center gap-1.5 bg-white rounded-xl border border-amber-300 p-0.5 shadow-xs">
-                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', -1)" class="w-6 h-6 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex items-center justify-center text-xs active:scale-95 transition cursor-pointer">-</button>
-                                    <span class="text-xs font-black text-gray-900 px-1 min-w-[14px] text-center">${currentQty}</span>
-                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-bold flex items-center justify-center text-xs active:scale-95 transition cursor-pointer">+</button>
+                                <div class="flex items-center gap-1 bg-white rounded-xl border border-amber-300 p-0.5">
+                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', -1)" class="w-6 h-6 rounded-lg bg-gray-100 text-gray-800 font-bold flex items-center justify-center text-xs cursor-pointer border-0">-</button>
+                                    <span class="text-xs font-black text-gray-900 px-1">${currentQty}</span>
+                                    <button onclick="changeCartItemQty('${shop.id}', '${item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs cursor-pointer border-0">+</button>
                                 </div>
                             ` : `
-                                <button onclick="addFoodToCart('${shop.id}', '${item.id}')" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-black text-xs rounded-xl shadow-xs flex items-center gap-1 transition cursor-pointer">
-                                    <i class="fa-solid fa-plus text-[10px]"></i><span>Thêm</span>
+                                <button onclick="addFoodToCart('${shop.id}', '${item.id}')" class="px-2.5 py-1.5 bg-amber-500 hover:bg-amber-600 text-white font-black text-xs rounded-xl cursor-pointer border-0">
+                                    + Giỏ
                                 </button>
                             `}
+                            <button onclick="closeModal('shopMenuModal'); quickOrderFoodItem('${shop.id}', '${item.id}')" class="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl cursor-pointer border-0">
+                                Đặt ngay
+                            </button>
                         </div>
                     </div>
                 `;
@@ -8068,23 +8281,26 @@
             }
         }
 
-        if (itemCount > 0) {
+        const foodSec = document.getElementById("viewFoodNearby");
+        const isFoodActive = !foodSec || foodSec.classList.contains("active");
+
+        if (itemCount > 0 && isFoodActive) {
             const shop = foodState.shops.find(s => s.id === foodState.cart.shopId);
+            const dishNamesShort = Object.values(foodState.cart.items).map(i => `${i.item.name} x${i.qty}`).join(", ");
             bar.classList.remove("hidden");
             bar.innerHTML = `
-                <div class="w-full max-w-xl mx-auto px-4">
-                    <div onclick="openFoodCartModal()" class="bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white rounded-3xl p-3.5 shadow-2xl shadow-orange-500/50 flex items-center justify-between cursor-pointer border border-white/30 backdrop-blur-md">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-black">🛒</div>
-                            <div>
-                                <div class="text-[11px] text-amber-100 font-bold">Giỏ hàng · ${shop?.name || 'Đang chọn'}</div>
-                                <div class="text-sm font-black tracking-tight">${itemCount} món · ${totalPrice.toLocaleString('vi-VN')}đ</div>
-                            </div>
+                <div onclick="openFoodCartModal()" class="bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white rounded-2xl p-3 shadow-xl flex items-center justify-between gap-2 cursor-pointer border border-white/30">
+                    <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                        <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-base font-black shrink-0">🛒</div>
+                        <div class="min-w-0 flex-1">
+                            <div class="text-[10px] text-amber-100 font-bold truncate">${shop?.name || 'Đang chọn'}</div>
+                            <div class="text-xs font-black truncate">${dishNamesShort}</div>
+                            <div class="text-[11px] font-extrabold text-yellow-200">${itemCount} món · ${totalPrice.toLocaleString('vi-VN')}đ</div>
                         </div>
-                        <div class="flex items-center gap-1.5 bg-white text-gray-900 font-black text-xs px-3.5 py-2 rounded-2xl shadow-md">
-                            <span>Xem giỏ & đặt</span>
-                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white text-gray-900 font-black text-xs px-3 py-2 rounded-xl shadow-sm shrink-0">
+                        <span>Soạn Đơn & Đặt</span>
+                        <i class="fa-solid fa-paper-plane text-[10px] text-indigo-600"></i>
                     </div>
                 </div>
             `;
@@ -8108,6 +8324,7 @@
                 STUDENTS.map(st => `<option value="${st.name}">${st.name} (SV ĐHHP)</option>`).join("");
         }
         renderCartModalItems();
+        updatePrecomposedOrderMessage();
         openModal("foodCartModal");
     }
 
@@ -8128,67 +8345,102 @@
             const itemTotal = entry.item.price * entry.qty;
             total += itemTotal;
             return `
-                <div class="flex items-center justify-between p-2.5 bg-gray-50 rounded-2xl border border-gray-200/80">
-                    <div class="flex items-center gap-2.5">
-                        <img src="${entry.item.image}" class="w-10 h-10 rounded-xl object-cover border border-gray-200">
-                        <div>
-                            <div class="text-xs font-bold text-gray-900">${entry.item.name}</div>
+                <div class="flex items-center justify-between p-2 bg-gray-50 rounded-xl border border-gray-200/80 gap-2">
+                    <div class="flex items-center gap-2 min-w-0 flex-1">
+                        <img src="${entry.item.image}" class="w-9 h-9 rounded-lg object-cover border border-gray-200 shrink-0">
+                        <div class="min-w-0 flex-1">
+                            <div class="text-xs font-bold text-gray-900 truncate">${entry.item.name}</div>
                             <div class="text-[11px] text-amber-600 font-extrabold">${entry.item.price.toLocaleString('vi-VN')}đ</div>
                         </div>
                     </div>
-                    <div class="flex items-center gap-1.5">
-                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-gray-200 text-gray-700 font-bold flex items-center justify-center text-xs active:scale-95">-</button>
-                        <span class="text-xs font-black text-gray-900 min-w-[14px] text-center">${entry.qty}</span>
-                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs active:scale-95">+</button>
-                        <span class="text-xs font-black text-gray-900 ml-1.5 min-w-[55px] text-right">${itemTotal.toLocaleString('vi-VN')}đ</span>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-gray-200 text-gray-700 font-bold flex items-center justify-center text-xs cursor-pointer">-</button>
+                        <span class="text-xs font-black text-gray-900 min-w-[16px] text-center">${entry.qty}</span>
+                        <button onclick="changeCartItemQty('${foodState.cart.shopId}', '${entry.item.id}', 1)" class="w-6 h-6 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs cursor-pointer border-0">+</button>
+                        <span class="text-xs font-black text-gray-900 ml-1 min-w-[52px] text-right">${itemTotal.toLocaleString('vi-VN')}đ</span>
                     </div>
                 </div>
             `;
         }).join("");
 
         if (totalEl) totalEl.innerText = `${total.toLocaleString('vi-VN')}đ`;
+        updatePrecomposedOrderMessage();
     }
 
     function getOrderDetailsString() {
         const shop = foodState.shops.find(s => s.id === foodState.cart.shopId);
         const studentName = document.getElementById("foodOrderStudentSelect")?.value || "Sinh viên ĐH Hải Phòng";
-        const phone = document.getElementById("foodOrderPhoneInput")?.value || "09xxxx";
+        const phone = document.getElementById("foodOrderPhoneInput")?.value || "";
         const location = document.getElementById("foodOrderLocationSelect")?.value || "Cổng chính ĐH Hải Phòng (171 Phan Đăng Lưu)";
         const note = document.getElementById("foodOrderNoteInput")?.value || "";
 
         const items = Object.values(foodState.cart.items);
-        const itemsListStr = items.map(i => `• ${i.item.name} x${i.qty} (${(i.item.price * i.qty).toLocaleString('vi-VN')}đ)`).join("\n");
+        const itemsInline = items.map(i => `${i.qty}x ${i.item.name}`).join(", ");
+        const itemsListStr = items.map(i => `- ${i.qty} suất ${i.item.name} (${(i.item.price * i.qty).toLocaleString('vi-VN')}đ)`).join("\n");
         const total = items.reduce((sum, i) => sum + (i.item.price * i.qty), 0);
 
-        const message = `[ĐƠN ĐẶT MÓN SINH VIÊN ĐH HẢI PHÒNG]\nQuán: ${shop?.name}\nNgười đặt: ${studentName} - SĐT: ${phone}\nĐịa điểm nhận: ${location}\n${note ? 'Ghi chú: ' + note + '\n' : ''}Danh sách món:\n${itemsListStr}\n-------------------------\nTổng cộng: ${total.toLocaleString('vi-VN')}đ\nNhờ quán xác nhận và giao giúp mình nhé!`;
+        const message = `Chào quán ${shop?.name || ''} ạ! Cho mình đặt đơn:\n${itemsListStr}\n👉 Tổng cộng: ${total.toLocaleString('vi-VN')}đ\n📍 Giao tới: ${location}\n👤 Người nhận: ${studentName}${phone ? ' - SĐT: ' + phone : ''}${note ? '\n📝 Ghi chú: ' + note : ''}\nQuán xác nhận và giao giúp mình nhé, cảm ơn quán!`;
 
-        return { shop, studentName, phone, location, note, items, total, message };
+        return { shop, studentName, phone, location, note, items, itemsInline, total, message };
+    }
+
+    function updatePrecomposedOrderMessage() {
+        const msgBox = document.getElementById("foodPrecomposedMsgBox");
+        if (!msgBox || !foodState.cart.shopId) return;
+        const order = getOrderDetailsString();
+        msgBox.value = order.message;
+        if (navigator.clipboard && document.hasFocus()) {
+            navigator.clipboard.writeText(order.message).catch(() => {});
+        }
+    }
+
+    function copyPrecomposedOrderMessage() {
+        const msgBox = document.getElementById("foodPrecomposedMsgBox");
+        const order = getOrderDetailsString();
+        const textToCopy = (msgBox && msgBox.value) ? msgBox.value : order.message;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(textToCopy);
+        }
+        if (typeof showNotify === "function") {
+            showNotify("📋 Đã copy sẵn tin nhắn gọi món! Sang Page chỉ cần Dán & Ấn Enter!");
+        }
     }
 
     function submitOrderFanpage() {
         const order = getOrderDetailsString();
         if (!order.shop) return;
-        if (navigator.clipboard) navigator.clipboard.writeText(order.message);
-        const fanpageLink = order.shop.messengerUrl || order.shop.fanpageUrl;
-        alert(`✅ ĐÃ SAO CHÉP ĐƠN HÀNG!\n\nĐang mở trang của quán: "${order.shop.name}"\nBạn chỉ cần bấm DÁN (Paste) tin nhắn để chốt đơn ngay nhé!`);
-        window.open(fanpageLink, "_blank");
+        const msgBox = document.getElementById("foodPrecomposedMsgBox");
+        const finalMsg = (msgBox && msgBox.value) ? msgBox.value : order.message;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(finalMsg);
+        }
+        let fanpageLink = order.shop.messengerUrl || order.shop.fanpageUrl;
+        const sep = fanpageLink.includes("?") ? "&" : "?";
+        const targetUrl = `${fanpageLink}${sep}text=${encodeURIComponent(finalMsg)}`;
+        if (typeof showNotify === "function") {
+            showNotify("🚀 Đã soạn sẵn & copy tên món! Sang Page chỉ cần Dán (Ctrl+V) và ấn Enter!");
+        }
+        window.open(targetUrl, "_blank");
         recordOrderSuccess(order, "Fanpage Messenger 💬");
     }
 
     function submitOrderCall() {
         const order = getOrderDetailsString();
         if (!order.shop) return;
-        if (confirm(`Gọi hotline ${order.shop.phone} của "${order.shop.name}" để đặt đơn?`)) {
-            window.location.href = `tel:${order.shop.phone}`;
-            recordOrderSuccess(order, "Gọi điện thoại 📞");
-        }
+        if (navigator.clipboard) navigator.clipboard.writeText(order.message);
+        window.location.href = `tel:${order.shop.phone}`;
+        recordOrderSuccess(order, "Gọi điện thoại 📞");
     }
 
     function submitOrderZalo() {
         const order = getOrderDetailsString();
         if (!order.shop) return;
-        if (navigator.clipboard) navigator.clipboard.writeText(order.message);
-        alert(`Đã sao chép nội dung đơn hàng!\nĐang mở Zalo số: ${order.shop.phone}\nBạn bấm DÁN để gửi cho quán nhé!`);
+        const msgBox = document.getElementById("foodPrecomposedMsgBox");
+        const finalMsg = (msgBox && msgBox.value) ? msgBox.value : order.message;
+        if (navigator.clipboard) navigator.clipboard.writeText(finalMsg);
+        if (typeof showNotify === "function") {
+            showNotify("📋 Đã soạn sẵn tin nhắn gọi món! Sang Zalo chỉ cần Dán và ấn Enter!");
+        }
         window.open(`https://zalo.me/${order.shop.phone}`, "_blank");
         recordOrderSuccess(order, "Zalo 💬");
     }
@@ -8254,7 +8506,7 @@
         alert(`Cảm ơn bạn ${author} đã đánh giá quán "${shop.name}"! ⭐`);
     }
 
-    document.addEventListener('DOMContentLoaded', () => { initFoodModule(); });
+    document.addEventListener('DOMContentLoaded', () => { initFoodModule(); initDwarfChestReel(); });
     </script>
 
     <script src="js/gym.js?v=1.0"></script>
@@ -8359,9 +8611,9 @@
     <script>
     (function(){
         window.DV_STATE = {"power": [{"row": 6, "code": "wake_pc", "btn": "▶ Khởi Động", "name": "1. Khởi động máy thoát chế độ ngủ", "status": "Đang chờ"}, {"row": 7, "code": "sleep_pc", "btn": "▶ Ngủ Ngầm", "name": "2. Chế độ ngủ chạy ngầm", "status": "Đang chờ"}, {"row": 8, "code": "check_all_tools", "btn": "▶ Kiểm Tra", "name": "3. Kiểm tra các Tool", "status": "Đang chờ"}, {"row": 9, "code": "shutdown_pc", "btn": "▶ Tắt Nguồn", "name": "4. Tắt nguồn máy", "status": "Đang chờ"}], "tool_health": [{"name": "1. Điệp Viên Social", "status": "Hoạt động ổn"}, {"name": "2. Điệp Viên Tài Liệu", "status": "Hoạt động ổn"}, {"name": "3. Điệp Viên Tarot", "status": "Hoạt động ổn"}, {"name": "4. Điệp Viên Quà Tặng", "status": "Hoạt động ổn"}, {"name": "5. Điệp Viên Ăn Vặt", "status": "Hoạt động ổn"}, {"name": "6. Điệp Viên Review", "status": "Hoạt động ổn"}, {"name": "7. MetaMax", "status": "Hoạt động ổn"}, {"name": "8. Tool Edit", "status": "Hoạt động ổn"}, {"name": "9. Tài khoản TikTok", "status": "Hoạt động ổn"}, {"name": "10. Tài khoản Facebook", "status": "Hoạt động ổn"}], "tools": {"Điệp Viên Social": {"merged_c": "📂 Folder Kiểm Tra Video & Kịch Bản (Drive): https://drive.google.com/drive/folders/1PiilYfUZRYIQJqKqtRpOiQz6eg-XPmEs\n📁 Folder Lưu Trữ Video Kênh (Drive): https://drive.google.com/drive/folders/1TbTW8317Xq9jjNljg86FhouxHpwHMbyU\n🎬 Kịch bản: [Hook] Cư dân mạng đang bàn tán xôn xao trên Theanh28 và Beatvn về sự việc mới nhất hôm nay... [4 Nhịp Điệp Viên Social]\n📝 Caption: Góc giải mã nhanh câu chuyện đang gây bão MXH hôm nay 🔥 #diepviensocial #theanh28 #beatvn", "rows": [{"row": 6, "module": "1. Quét Tin Tức Làm Kịch Bản", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Làm Tin Thụ Động", "col_b": "https://www.tiktok.com/@theanh28entertainment/video/735000000", "col_e": "20:00", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tài Liệu": {"merged_c": "📂 Folder Kiểm Tra Đề Cương & BTL (Drive): https://drive.google.com/drive/folders/1vC3Nkjm76sGahUCMWRoZSR0I0vQRcqO5\n📁 Danh sách Đề Cương Lưu Trữ (Drive): https://drive.google.com/drive/folders/1mqtgnl3a3KZ_s424fY806_Jl8LAe12SZ\n📘 Danh sách Bài Tập Lớn Lưu Trữ (Drive): https://drive.google.com/drive/folders/19uR8Li56_nzMG8TcQrjr3Pu-hdlVBiPF\n🎬 Folder Lưu Trữ Video Kênh (Drive): https://drive.google.com/drive/folders/128XUz0WhSgN2Q3Z5u0N9byHpUIX1gs5t", "rows": [{"row": 6, "module": "1. Làm Đề Cương", "col_b": "", "col_e": "Danh sách Đề Cương Lưu Trữ", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Bài Tập Lớn", "col_b": "", "col_e": "Danh sách Bài Tập Lớn Lưu Trữ", "status": "Đang chờ"}, {"row": 8, "module": "3. Làm Video Kênh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tarot": {"merged_c": "🖼️ Folder Kiểm Tra Ảnh Cuộn Tarot (Drive): https://drive.google.com/drive/folders/1b2VXyk-EY8Prug6PR70vcdrOHndvPBy6\n🎬 Folder Kiểm Tra Video Tarot 3 Tụ (Drive): https://drive.google.com/drive/folders/1xw_dDWvRhDUDOqCbxr1PXlOLWZ5w8Ajj\n📝 Caption: Thông điệp vũ trụ gửi đến người đang thức khuya đêm nay 🔮 Chọn tụ bài thu hút ánh nhìn đầu tiên của bạn nhé!\n#️⃣ Hashtag: #hanhtrinhgiacmo #diepvientarot #tarotchualanh #thongdiepvutru", "rows": [{"row": 6, "module": "1. Ảnh Cuộn", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Luôn", "col_b": "", "col_e": "22:30", "status": "Đang chờ"}]}, "Điệp Viên Quà Tặng": {"merged_c": "🎁 Folder Kiểm Tra Thành Phẩm Quà Tặng (Drive): https://drive.google.com/drive/folders/1WoNqiyRJ_ZKEEsdCVeJVy-U6nOlVcscA\n📂 Folder Gốc Điệp Viên Quà Tặng (Drive): https://drive.google.com/drive/folders/1s45YaAbPc_P7gN0FT05Ainc6opzvzS6j\n📝 Caption: Bí mật món quà tinh tế khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁\n#️⃣ Hashtag: #diepvienquatang #quatangnguoiyeu #tamsutinhyeu", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Ăn Vặt": {"merged_c": "🍜 Folder Kiểm Tra Thành Phẩm Ăn Vặt (Drive): https://drive.google.com/drive/folders/1SwiiRwffzRqxqDM0QUaBmUyz1XqHjVca\n📂 Folder Gốc Điệp Viên Ăn Vặt (Drive): https://drive.google.com/drive/folders/13G_tGcNCRKUiVvvYuNeaIiN6z24aixKr\n📝 Caption: Đặt lên bàn cân tiểu ly kiểm chứng món ăn vặt cứu đói đêm khuya siêu cuốn 🍜\n#️⃣ Hashtag: #diepvienanvat #reviewdoan #anvatdemkhuya #foodreview", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "19:30", "status": "Đang chờ"}]}, "Điệp Viên Review": {"merged_c": "📁 Folder Kiểm Tra YouTube (Full Tập 16:9 + Thumbnail): https://drive.google.com/drive/folders/1zBJOonPhLfyAhLU7WYu1vUrUNaq-xL_Y\n📱 Folder Kiểm Tra TikTok (Full Tập 9:16 + Thumbnail): https://drive.google.com/drive/folders/1sB752CQslDcYIrr1HzTr3V-nT9bCUhbp\n📊 Sheet List Kênh Lấy Nguồn & Đề Xuất (Drive): https://docs.google.com/spreadsheets/d/1Vp5m118jtwLqZhNd0JGNTzy4CizlgfXg1L267wi7A4w/edit\n📌 Bấm vào Folder Kiểm Tra phía trên để xem toàn bộ các tập phim và Thumbnail trước khi bấm Đăng Video Lên!", "rows": [{"row": 6, "module": "1. Quét Kênh / Tìm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Tự Động Tìm Phim", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}, {"row": 9, "module": "4. Edit Video", "col_b": "https://www.youtube.com/watch?v=NR8-IsZ-3hw", "col_e": "", "status": "Đang chờ"}]}, "Tool Edit": {"merged_c": "✂️ Folder Kiểm Tra Thành Phẩm Tool Edit (Drive): https://drive.google.com/drive/folders/1TRtPzaTbnzjWz2vMQCtK5wbTF5YwV4Wc\n📂 Folder Gốc Tool Edit (Drive): https://drive.google.com/drive/folders/17smQ0bwCarKWBJ1eRLHN8Or9IdbYuXtQ\n🎞️ Dự Án CapCut Desktop: Đã tự động đẩy đủ các Track (Chữ, Nhân vật, B-Roll, SFX) vào CapCut.\n📌 Sau khi hoàn thành bất kỳ Module nào, thành phẩm MP4 được đặt thẳng vào Folder Kiểm Tra trên Google Drive!", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Facebook Confession", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Dựng Video Thô", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}}, "metamax_rows": [{"row": 6, "channel": "1. Điệp Viên Social", "uid_rows": ["625641016419655", "942466779989085"], "uids": "625641016419655\n942466779989085", "comment": "Góc giải mã sự thật và cập nhật tin nóng nhanh nhất trong ngày tại Điệp Viên Social 🔥 Các bác nghĩ sao về vụ này?", "btn_text": "▶ CHẠY SOCIAL", "schedule": "20:00", "status": "Đang chờ"}, {"row": 16, "channel": "2. Điệp Viên Tài Liệu", "uid_rows": ["625641016419655", "942466779989085", "1090801699184805", "1236988990381267"], "uids": "625641016419655\n942466779989085\n1090801699184805\n1236988990381267", "comment": "Mình vừa tổng hợp xong bộ đề cương BTL & mẹo bấm máy Casio đề HSA/TSA siêu nhanh, bạn nào cần chấm (.) mình gửi tặng nhé! 📚", "btn_text": "▶ CHẠY TÀI LIỆU", "schedule": "20:30", "status": "Đang chờ"}, {"row": 26, "channel": "3. Điệp Viên Tarot", "uid_rows": ["2155724418713742", "680891559282341", "1378797169413934", "369219035949156"], "uids": "2155724418713742\n680891559282341\n1378797169413934\n369219035949156", "comment": "Hữu duyên gửi thông điệp chữa lành đêm nay từ Điệp Viên Tarot 🔮 Bạn nào đang trằn trọc cần giải mã tình cảm/công việc thì chấm (.) nhé!", "btn_text": "▶ CHẠY TAROT", "schedule": "22:30", "status": "Đang chờ"}, {"row": 36, "channel": "4. Điệp Viên Quà Tặng", "uid_rows": [], "uids": "", "comment": "Gợi ý set quà tinh tế kèm thiệp viết tay khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁 Nhắn Điệp Viên Quà Tặng để được tư vấn nhé!", "btn_text": "▶ CHẠY QUÀ TẶNG", "schedule": "21:00", "status": "Đang chờ"}, {"row": 46, "channel": "5. Điệp Viên Ăn Vặt", "uid_rows": [], "uids": "", "comment": "Bàn test ẩm thực Điệp Viên Ăn Vặt vừa lên sóng món ăn vặt giòn tan cứu đói đêm khuya 🍜 Chấm (.) để xem kết quả cân tiểu ly thật 100% nhé!", "btn_text": "▶ CHẠY ĂN VẶT", "schedule": "19:30", "status": "Đang chờ"}]};
-        window.DV_CONFIGS = {"Bật Máy": {"icon": "fa-power-off", "short": "Khởi Động", "full_title": "Khởi Động", "subtitle": "Khởi động hệ thống & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600"}, "Điệp Viên Social": {"icon": "fa-bullhorn", "short": "ĐV Social", "full_title": "Điệp Viên Social", "subtitle": "Quét tin tức, làm kịch bản & đăng video", "gradient": "from-amber-500 via-orange-500 to-orange-700", "shadow": "shadow-orange-200/50", "btn_bg": "bg-orange-600 hover:bg-orange-700", "icon_bg": "bg-orange-50 text-orange-600", "merged_box_editable": true, "schedule_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"], "drive_root_url": "https://drive.google.com/drive/folders/1NFZSGwSHLavzt26WjIcsOOMqy23PcmcB", "drive_check_url": "https://drive.google.com/drive/folders/1PiilYfUZRYIQJqKqtRpOiQz6eg-XPmEs", "drive_folders": [{"label": "📂 Folder Kiểm Tra Video & Kịch Bản", "url": "https://drive.google.com/drive/folders/1PiilYfUZRYIQJqKqtRpOiQz6eg-XPmEs"}, {"label": "📁 Kho Lưu Trữ Video Social", "url": "https://drive.google.com/drive/folders/1TbTW8317Xq9jjNljg86FhouxHpwHMbyU"}], "modules": [{"row": 6, "icon": "fa-satellite-dish", "name": "1. Quét Tin Tức Tự Động", "btn_text": "▶ Quét Tin", "allow_input_b": false, "extra_action": null, "desc": "Tự quét Theanh28, Beatvn, Hi Feed... xuất kịch bản xuống ô kết quả ở cuối."}, {"row": 9, "icon": "fa-link", "name": "2. Làm Tin Thụ Động (Ra Lệnh)", "btn_text": "▶ Ra Lệnh Làm Kịch Bản", "allow_input_b": true, "input_b_placeholder": "Dán link video TikTok / Facebook hoặc yêu cầu làm kịch bản...", "extra_action": null, "desc": "Dán link video hoặc yêu cầu để trích xuất kịch bản xuống ô kết quả bên dưới."}]}, "Điệp Viên Tài Liệu": {"icon": "fa-book-open", "short": "ĐV Tài Liệu", "full_title": "Điệp Viên Tài Liệu", "subtitle": "Làm Đề Cương, Bài Tập Lớn & Video Kênh", "gradient": "from-indigo-500 via-indigo-600 to-blue-700", "shadow": "shadow-indigo-200/50", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "merged_box_editable": false, "has_archive_in_result": true, "drive_root_url": "https://drive.google.com/drive/folders/126JMt8-rng_b08y3RV_ZjS25AdAsg6jW", "drive_check_url": "https://drive.google.com/drive/folders/1vC3Nkjm76sGahUCMWRoZSR0I0vQRcqO5", "drive_folders": [{"label": "📂 Folder Kiểm Tra Đề Cương & BTL", "url": "https://drive.google.com/drive/folders/1vC3Nkjm76sGahUCMWRoZSR0I0vQRcqO5"}, {"label": "📁 DS Đề Cương Lưu Trữ", "url": "https://drive.google.com/drive/folders/1mqtgnl3a3KZ_s424fY806_Jl8LAe12SZ"}, {"label": "📁 DS Bài Tập Lớn Lưu Trữ", "url": "https://drive.google.com/drive/folders/19uR8Li56_nzMG8TcQrjr3Pu-hdlVBiPF"}, {"label": "🎬 Lưu Trữ Video Kênh", "url": "https://drive.google.com/drive/folders/128XUz0WhSgN2Q3Z5u0N9byHpUIX1gs5t"}], "modules": [{"row": 6, "icon": "fa-list-check", "name": "1. Làm Đề Cương", "btn_text": "▶ Làm Đề Cương", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link tài liệu + câu lệnh yêu cầu làm Đề Cương...", "extra_action": null, "desc": "Thiết kế Đề Cương chuẩn đại học và trả link Docs xuống ô Kết Quả ở cuối."}, {"row": 7, "icon": "fa-file-word", "name": "2. Làm Bài Tập Lớn", "btn_text": "▶ Làm Bài Tập Lớn", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link đề cương + câu lệnh làm Bài Tập Lớn...", "extra_action": null, "desc": "Xuất Word (.docx) Times New Roman 13pt và trả link Drive xuống ô Kết Quả ở cuối."}, {"row": 8, "icon": "fa-video", "name": "3. Làm Video Kênh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động sản xuất video kênh theo thiết lập sẵn trong Tool."}, {"row": 9, "icon": "fa-cloud-arrow-up", "name": "4. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video kênh vừa sản xuất lên TikTok & Fanpage Điệp Viên Tài Liệu."}]}, "Điệp Viên Tarot": {"icon": "fa-moon", "short": "ĐV Tarot", "full_title": "Điệp Viên Tarot", "subtitle": "Ảnh Cuộn, Video trải bài & Đăng Luôn", "gradient": "from-violet-500 via-violet-600 to-purple-800", "shadow": "shadow-purple-200/50", "btn_bg": "bg-violet-600 hover:bg-violet-700", "icon_bg": "bg-violet-50 text-violet-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/1sFfRhcL2OIll-Qqt7_z3h5sa-_i1Wr0C", "drive_check_url": "https://drive.google.com/drive/folders/1b2VXyk-EY8Prug6PR70vcdrOHndvPBy6", "drive_folders": [{"label": "📂 Folder Kiểm Tra Ảnh Cuộn Tarot", "url": "https://drive.google.com/drive/folders/1b2VXyk-EY8Prug6PR70vcdrOHndvPBy6"}, {"label": "🎬 Folder Kiểm Tra Video Tarot 3 Tụ", "url": "https://drive.google.com/drive/folders/1xw_dDWvRhDUDOqCbxr1PXlOLWZ5w8Ajj"}], "modules": [{"row": 6, "icon": "fa-images", "name": "1. Ảnh Cuộn", "btn_text": "▶ Làm Ảnh Cuộn", "allow_input_b": false, "extra_action": null, "desc": "Tự động tạo bộ Ảnh Cuộn Tarot chữa lành và trả link Drive ở cuối trang."}, {"row": 7, "icon": "fa-wand-sparkles", "name": "2. Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video chọn 3 tụ bài Tarot kèm nhạc piano và trả link Drive ở cuối."}, {"row": 8, "icon": "fa-paper-plane", "name": "3. Đăng Luôn", "btn_text": "▶ Đăng Luôn", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["22:30", "21:30", "22:00", "23:00", "23:30", "00:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng ngay thành phẩm lên TikTok & Fanpage Hành Trình Giấc Mơ."}]}, "Điệp Viên Quà Tặng": {"icon": "fa-gift", "short": "ĐV Quà Tặng", "full_title": "Điệp Viên Quà Tặng", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-fuchsia-500 via-pink-600 to-rose-700", "shadow": "shadow-pink-200/50", "btn_bg": "bg-pink-600 hover:bg-pink-700", "icon_bg": "bg-pink-50 text-pink-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/1s45YaAbPc_P7gN0FT05Ainc6opzvzS6j", "drive_check_url": "https://drive.google.com/drive/folders/1WoNqiyRJ_ZKEEsdCVeJVy-U6nOlVcscA", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Quà Tặng", "url": "https://drive.google.com/drive/folders/1WoNqiyRJ_ZKEEsdCVeJVy-U6nOlVcscA"}, {"label": "📁 Thư Mục Gốc ĐV Quà Tặng", "url": "https://drive.google.com/drive/folders/1s45YaAbPc_P7gN0FT05Ainc6opzvzS6j"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video So Sánh 2 cột Đỏ/Xanh chủ đề quà tặng."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Threads 3 tầng tư vấn tình cảm & tặng quà."}, {"row": 8, "icon": "fa-shapes", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Minh Họa 7 Pose Chibi & hộp quà."}, {"row": 9, "icon": "fa-scissors", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lấy dữ liệu & suộc có sẵn trên máy...", "extra_action": null, "desc": "Lấy dữ liệu và suộc quay có sẵn trên máy dựng thành video hoàn chỉnh."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video đã kiểm tra lên TikTok & Fanpage Tiệm Quà Nhà Bunny."}]}, "Điệp Viên Ăn Vặt": {"icon": "fa-bowl-food", "short": "ĐV Ăn Vặt", "full_title": "Điệp Viên Ăn Vặt", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-emerald-500 via-green-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/13G_tGcNCRKUiVvvYuNeaIiN6z24aixKr", "drive_check_url": "https://drive.google.com/drive/folders/1SwiiRwffzRqxqDM0QUaBmUyz1XqHjVca", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Ăn Vặt", "url": "https://drive.google.com/drive/folders/1SwiiRwffzRqxqDM0QUaBmUyz1XqHjVca"}, {"label": "📁 Thư Mục Gốc ĐV Ăn Vặt", "url": "https://drive.google.com/drive/folders/13G_tGcNCRKUiVvvYuNeaIiN6z24aixKr"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Đặt lên bàn cân so sánh 2 món ăn vặt / 2 quán ăn."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video Threads 3 tầng review ẩm thực & quán ăn."}, {"row": 8, "icon": "fa-utensils", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video minh họa thẻ món ăn, cân tiểu ly & bảng giá."}, {"row": 9, "icon": "fa-camera-retro", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lọc 6 cảnh đồ ăn từ suộc trên máy...", "extra_action": null, "desc": "Lọc 6 cảnh đồ ăn ngon mắt nhất (3.5s/cảnh) từ suộc trên máy + chèn SFX."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["19:30", "11:30", "17:30", "20:30", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video ăn vặt đã kiểm tra lên TikTok & Fanpage."}]}, "Điệp Viên Review": {"icon": "fa-video", "short": "ĐV Review", "full_title": "Điệp Viên Review", "subtitle": "Quét kênh, Tự động tìm phim & Edit video", "gradient": "from-rose-500 via-rose-600 to-pink-800", "shadow": "shadow-rose-200/50", "btn_bg": "bg-rose-600 hover:bg-rose-700", "icon_bg": "bg-rose-50 text-rose-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/18uoupcgZSRHCYf5CJfD8OpS2tV7leca-", "drive_check_url": "https://drive.google.com/drive/folders/1zBJOonPhLfyAhLU7WYu1vUrUNaq-xL_Y", "drive_folders": [{"label": "📺 Folder Kiểm Tra YouTube (16:9 + Thumb)", "url": "https://drive.google.com/drive/folders/1zBJOonPhLfyAhLU7WYu1vUrUNaq-xL_Y"}, {"label": "📱 Folder Kiểm Tra TikTok (9:16 + Thumb)", "url": "https://drive.google.com/drive/folders/1sB752CQslDcYIrr1HzTr3V-nT9bCUhbp"}], "modules": [{"row": 6, "icon": "fa-magnifying-glass-chart", "name": "1. Quét Kênh / Tìm Video", "btn_text": "▶ Quét Kênh", "allow_input_b": false, "extra_action": null, "desc": "Tự động quét các kênh đối thủ và chấm điểm các bộ phim đề xuất mạnh."}, {"row": 7, "icon": "fa-clapperboard", "name": "2. Tự Động Tìm Phim", "btn_text": "▶ Tự Tìm Phim", "allow_input_b": false, "extra_action": null, "desc": "Tự lấy video đề xuất trong Sheet rồi edit và chia tập cho cả YouTube & TikTok."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng các tập phim đã kiểm tra lên YouTube Studio & TikTok Studio."}, {"row": 9, "icon": "fa-link", "name": "4. Edit Video", "btn_text": "▶ Edit Từ Link", "allow_input_b": true, "input_b_placeholder": "Dán link video cần lấy về Edit theo Tool...", "extra_action": null, "desc": "Tải video từ link, tách tập YouTube 16:9 + TikTok 9:16 và trả link Drive ở cuối."}]}, "MetaMax": {"icon": "fa-comments", "short": "MetaMax", "full_title": "MetaMax", "subtitle": "5 kênh Điệp Viên đi Comment dạo theo UID dọc", "gradient": "from-sky-500 via-blue-500 to-indigo-700", "shadow": "shadow-blue-200/50", "btn_bg": "bg-blue-600 hover:bg-blue-700", "icon_bg": "bg-blue-50 text-blue-600"}, "Tool Edit": {"icon": "fa-wand-magic-sparkles", "short": "Tool Edit", "full_title": "Tool Edit", "subtitle": "Video So Sánh • Thread • FB Confession • Minh Họa • Video Thô", "gradient": "from-cyan-600 via-indigo-600 to-rose-600", "shadow": "shadow-indigo-300/40", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "full_width": true, "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/17smQ0bwCarKWBJ1eRLHN8Or9IdbYuXtQ", "drive_check_url": "https://drive.google.com/drive/folders/1TRtPzaTbnzjWz2vMQCtK5wbTF5YwV4Wc", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Tool Edit", "url": "https://drive.google.com/drive/folders/1TRtPzaTbnzjWz2vMQCtK5wbTF5YwV4Wc"}, {"label": "📁 Thư Mục Gốc Tool Edit", "url": "https://drive.google.com/drive/folders/17smQ0bwCarKWBJ1eRLHN8Or9IdbYuXtQ"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Dựng Video So Sánh", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản So Sánh 2 cột Đỏ / Xanh...", "extra_action": null, "desc": "Dựng video so sánh 2 cột Đỏ và Xanh kèm nhân vật Chibi chỉ tay."}, {"row": 7, "icon": "fa-at", "name": "2. Video Thread", "btn_text": "▶ Dựng Video Thread", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng Threads...", "extra_action": null, "desc": "Làm ảnh & dựng video Threads 3 tầng đẩy sang CapCut."}, {"row": 8, "icon": "fa-thumbs-up", "name": "3. Video Facebook Confession", "btn_text": "▶ Dựng FB Confession", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng & bình luận Facebook...", "extra_action": null, "desc": "Làm ảnh & video bài đăng kèm bình luận Facebook đẩy sang CapCut."}, {"row": 9, "icon": "fa-layer-group", "name": "4. Video Minh Họa", "btn_text": "▶ Dựng Video Minh Họa", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản đồ họa Minh Họa...", "extra_action": null, "desc": "Dựng video đồ họa thẻ vật phẩm vector kèm thanh quét Trước/Sau."}, {"row": 10, "icon": "fa-user-Gear", "name": "5. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản & đường dẫn suộc video trên máy...", "extra_action": null, "desc": "Lấy suộc trên máy, cắt khoảng nghỉ thừa & tách nền người nói đè chữ sau lưng."}]}};
+        window.DV_CONFIGS = {"Bật Máy": {"icon": "fa-power-off", "short": "Khởi Động", "full_title": "Khởi Động", "subtitle": "Khởi động hệ thống & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "logo_b64": "data:image/png;base64,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"}, "Điệp Viên Social": {"icon": "fa-bullhorn", "short": "ĐV Social", "full_title": "Điệp Viên Social", "subtitle": "Quét tin tức, làm kịch bản & đăng video", "gradient": "from-amber-500 via-orange-500 to-orange-700", "shadow": "shadow-orange-200/50", "btn_bg": "bg-orange-600 hover:bg-orange-700", "icon_bg": "bg-orange-50 text-orange-600", "merged_box_editable": true, "schedule_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"], "drive_root_url": "https://drive.google.com/drive/folders/1NFZSGwSHLavzt26WjIcsOOMqy23PcmcB", "drive_check_url": "https://drive.google.com/drive/folders/1PiilYfUZRYIQJqKqtRpOiQz6eg-XPmEs", "drive_folders": [{"label": "📂 Folder Kiểm Tra Video & Kịch Bản", "url": "https://drive.google.com/drive/folders/1PiilYfUZRYIQJqKqtRpOiQz6eg-XPmEs"}, {"label": "📁 Kho Lưu Trữ Video Social", "url": "https://drive.google.com/drive/folders/1TbTW8317Xq9jjNljg86FhouxHpwHMbyU"}], "modules": [{"row": 6, "icon": "fa-satellite-dish", "name": "1. Quét Tin Tức Tự Động", "btn_text": "▶ Quét Tin", "allow_input_b": false, "extra_action": null, "desc": "Tự quét Theanh28, Beatvn, Hi Feed... xuất kịch bản xuống ô kết quả ở cuối."}, {"row": 9, "icon": "fa-link", "name": "2. Làm Tin Thụ Động (Ra Lệnh)", "btn_text": "▶ Ra Lệnh Làm Kịch Bản", "allow_input_b": true, "input_b_placeholder": "Dán link video TikTok / Facebook hoặc yêu cầu làm kịch bản...", "extra_action": null, "desc": "Dán link video hoặc yêu cầu để trích xuất kịch bản xuống ô kết quả bên dưới."}], "logo_b64": "data:image/png;base64,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"}, "Điệp Viên Tài Liệu": {"icon": "fa-book-open", "short": "ĐV Tài Liệu", "full_title": "Điệp Viên Tài Liệu", "subtitle": "Làm Đề Cương, Bài Tập Lớn & Video Kênh", "gradient": "from-indigo-500 via-indigo-600 to-blue-700", "shadow": "shadow-indigo-200/50", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "merged_box_editable": false, "has_archive_in_result": true, "drive_root_url": "https://drive.google.com/drive/folders/126JMt8-rng_b08y3RV_ZjS25AdAsg6jW", "drive_check_url": "https://drive.google.com/drive/folders/1vC3Nkjm76sGahUCMWRoZSR0I0vQRcqO5", "drive_folders": [{"label": "📂 Folder Kiểm Tra Đề Cương & BTL", "url": "https://drive.google.com/drive/folders/1vC3Nkjm76sGahUCMWRoZSR0I0vQRcqO5"}, {"label": "📁 DS Đề Cương Lưu Trữ", "url": "https://drive.google.com/drive/folders/1mqtgnl3a3KZ_s424fY806_Jl8LAe12SZ"}, {"label": "📁 DS Bài Tập Lớn Lưu Trữ", "url": "https://drive.google.com/drive/folders/19uR8Li56_nzMG8TcQrjr3Pu-hdlVBiPF"}, {"label": "🎬 Lưu Trữ Video Kênh", "url": "https://drive.google.com/drive/folders/128XUz0WhSgN2Q3Z5u0N9byHpUIX1gs5t"}], "modules": [{"row": 6, "icon": "fa-list-check", "name": "1. Làm Đề Cương", "btn_text": "▶ Làm Đề Cương", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link tài liệu + câu lệnh yêu cầu làm Đề Cương...", "extra_action": null, "desc": "Thiết kế Đề Cương chuẩn đại học và trả link Docs xuống ô Kết Quả ở cuối."}, {"row": 7, "icon": "fa-file-word", "name": "2. Làm Bài Tập Lớn", "btn_text": "▶ Làm Bài Tập Lớn", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link đề cương + câu lệnh làm Bài Tập Lớn...", "extra_action": null, "desc": "Xuất Word (.docx) Times New Roman 13pt và trả link Drive xuống ô Kết Quả ở cuối."}, {"row": 8, "icon": "fa-video", "name": "3. Làm Video Kênh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động sản xuất video kênh theo thiết lập sẵn trong Tool."}, {"row": 9, "icon": "fa-cloud-arrow-up", "name": "4. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video kênh vừa sản xuất lên TikTok & Fanpage Điệp Viên Tài Liệu."}], "logo_b64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAMAAADxPgR5AAABgFBMVEX+/v0HKmUAAAAFJVgAG1IwSGoRNWdIWHDY2NhFSE35mQzFxsfn6OfvpC+0tbcCAgFnaWk6UnJydXrx6tGGiItWZHWmqa45Q1EvOkwYGBZRVFYZMlhseIyNlqXtxHiCgH0oKSo1Njd5hJXw05iWl5daaYPsy4wkPGQDEy/38tnu2Ke1u8Tqu2qbo64ACye9wsrpqkjb3uDpsVJFQjzd4uPqnSkcQnEADUMWIzphbobBwr9BTmT7oRLe4N+BjKGAfnw/QD7WuIKgn59hX11bcY5JXYChoJ/qjwBAPj/g394gLkIgIR4gHx7btn/x4LoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACBcx2DAAAAgHRSTlP//wD/////////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJYlk/0AAAiZSURBVHja1ZsJd6M4EoDFlIRQUGOwuQKmY3vtOLHjXJOju2d2jt2ZvXf//8/ZksBnsMHgZN/W6xgkEb5WSaUqlRXy3RshJ5SSt5fQjJNJCZO8H62cSbZ462dOI8v3lQKLdnJiKd75Fvg+uDVyF6jryTvJJpF8AG+LSFa82r9tZXd7SweQBZEczbOB0kAuSw6W/GOI+ccx+uTUNCgriCEYWLJranUJPK6DFH/VBDbH+6cRqAKdHNFFciSP9Kk2ZgA+CdL83oCH+kRypEIlLNcsHLzlLc1IbaXmwPodzGjJegmspnFo4HEaZVC2QoNdW6fkuA7elfIM2q/dxYPA69kfNmVGyFdaCoS4PvCARi8/nW3JM5FpOc+kYV2dHuB9RsanDTm7IQs0+nKdTkht4j7g7PnH+1lvU3CVgT1+HUC2Bt6cfertLtuw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"}, "Điệp Viên Tarot": {"icon": "fa-moon", "short": "ĐV Tarot", "full_title": "Điệp Viên Tarot", "subtitle": "Ảnh Cuộn, Video trải bài & Đăng Luôn", "gradient": "from-violet-500 via-violet-600 to-purple-800", "shadow": "shadow-purple-200/50", "btn_bg": "bg-violet-600 hover:bg-violet-700", "icon_bg": "bg-violet-50 text-violet-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/1sFfRhcL2OIll-Qqt7_z3h5sa-_i1Wr0C", "drive_check_url": "https://drive.google.com/drive/folders/1b2VXyk-EY8Prug6PR70vcdrOHndvPBy6", "drive_folders": [{"label": "📂 Folder Kiểm Tra Ảnh Cuộn Tarot", "url": "https://drive.google.com/drive/folders/1b2VXyk-EY8Prug6PR70vcdrOHndvPBy6"}, {"label": "🎬 Folder Kiểm Tra Video Tarot 3 Tụ", "url": "https://drive.google.com/drive/folders/1xw_dDWvRhDUDOqCbxr1PXlOLWZ5w8Ajj"}], "modules": [{"row": 6, "icon": "fa-images", "name": "1. Ảnh Cuộn", "btn_text": "▶ Làm Ảnh Cuộn", "allow_input_b": false, "extra_action": null, "desc": "Tự động tạo bộ Ảnh Cuộn Tarot chữa lành và trả link Drive ở cuối trang."}, {"row": 7, "icon": "fa-wand-sparkles", "name": "2. Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video chọn 3 tụ bài Tarot kèm nhạc piano và trả link Drive ở cuối."}, {"row": 8, "icon": "fa-paper-plane", "name": "3. Đăng Luôn", "btn_text": "▶ Đăng Luôn", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["22:30", "21:30", "22:00", "23:00", "23:30", "00:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng ngay thành phẩm lên TikTok & Fanpage Hành Trình Giấc Mơ."}], "logo_b64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAMAAADxPgR5AAABgFBMVEX+/v4DAQNNG3BrIahRIXIAAACWSc4oFDQ2G0jr6OwaCSZGR0ZpNI7Sx9aHQrpFJVg0NzN4OadUVlTj2edwR4pCDmZkK46qqqrJt9GWd6i6pcUWFxZ6VZCliLSulro8IUuHZJsoKCldKoMkCzXd0+F2d3WBPrHY19iGh4bCrcxoaWdiN32Qa6SYmJg9C2JCHltbMna3uLimU+QdEiVAQz7ZyuG0m8Gdga01BleCXJihUNw+QD1FOEyJWKMdIhqgTtyBhX6doJxtVnghJh2Md5hbRmWfUNh7ZYh+gH1eZFtfYGDAv78/PkBnTnM+E2CjT+CgeLW9wLxeMIIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXE2nyAAAAgHRSTlP//////wD//////////////////////////////////////////////////////////////////////////////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANyMLEUAAApoSURBVHjaxZsJf6q6EsAJLxcIgqCgZRErrda2Wmv39vQsd79v377/h3kzCSBoUFo9ffm1tAEPf2YyW6Yc5YeNoRxwSO4uof3pYEPCVL4fTc5UKrzVZw4z8vtJgdl15cAju+cm8PvgVsh1ID+vfKdRJiofwKsQlYKnfNdREJVD8NhTVJqNw4stRHHYT59stlgMilmgLhaRXKs5cF8BwwWlqs/EZKiqVKWsVkTlAAu4VCkQlxFQxnPO6w1rlarsrVAlQh4QVTrwafa7r9QpVQD3EnAgIIjMf6PqWC4iAhtp9OZIPm6mirfCrEbvqU6nShMBmUvqRld5kvCoOqtxxmbAS6JTRzKoc2wrMxmQqkEdsIlGXbKsETAFt6NS4KhGp41W0DX1GuD5ymTWgDJXFKxGwOMaIGNwa+56G8The4HTqy7RDTnPhcBS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"}, "Điệp Viên Quà Tặng": {"icon": "fa-gift", "short": "ĐV Quà Tặng", "full_title": "Điệp Viên Quà Tặng", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-fuchsia-500 via-pink-600 to-rose-700", "shadow": "shadow-pink-200/50", "btn_bg": "bg-pink-600 hover:bg-pink-700", "icon_bg": "bg-pink-50 text-pink-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/1s45YaAbPc_P7gN0FT05Ainc6opzvzS6j", "drive_check_url": "https://drive.google.com/drive/folders/1WoNqiyRJ_ZKEEsdCVeJVy-U6nOlVcscA", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Quà Tặng", "url": "https://drive.google.com/drive/folders/1WoNqiyRJ_ZKEEsdCVeJVy-U6nOlVcscA"}, {"label": "📁 Thư Mục Gốc ĐV Quà Tặng", "url": "https://drive.google.com/drive/folders/1s45YaAbPc_P7gN0FT05Ainc6opzvzS6j"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video So Sánh 2 cột Đỏ/Xanh chủ đề quà tặng."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Threads 3 tầng tư vấn tình cảm & tặng quà."}, {"row": 8, "icon": "fa-shapes", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Minh Họa 7 Pose Chibi & hộp quà."}, {"row": 9, "icon": "fa-scissors", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lấy dữ liệu & suộc có sẵn trên máy...", "extra_action": null, "desc": "Lấy dữ liệu và suộc quay có sẵn trên máy dựng thành video hoàn chỉnh."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video đã kiểm tra lên TikTok & Fanpage Tiệm Quà Nhà Bunny."}], "logo_b64": "data:image/png;base64,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"}, "Điệp Viên Ăn Vặt": {"icon": "fa-bowl-food", "short": "ĐV Ăn Vặt", "full_title": "Điệp Viên Ăn Vặt", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-emerald-500 via-green-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/13G_tGcNCRKUiVvvYuNeaIiN6z24aixKr", "drive_check_url": "https://drive.google.com/drive/folders/1SwiiRwffzRqxqDM0QUaBmUyz1XqHjVca", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Ăn Vặt", "url": "https://drive.google.com/drive/folders/1SwiiRwffzRqxqDM0QUaBmUyz1XqHjVca"}, {"label": "📁 Thư Mục Gốc ĐV Ăn Vặt", "url": "https://drive.google.com/drive/folders/13G_tGcNCRKUiVvvYuNeaIiN6z24aixKr"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Đặt lên bàn cân so sánh 2 món ăn vặt / 2 quán ăn."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video Threads 3 tầng review ẩm thực & quán ăn."}, {"row": 8, "icon": "fa-utensils", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video minh họa thẻ món ăn, cân tiểu ly & bảng giá."}, {"row": 9, "icon": "fa-camera-retro", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lọc 6 cảnh đồ ăn từ suộc trên máy...", "extra_action": null, "desc": "Lọc 6 cảnh đồ ăn ngon mắt nhất (3.5s/cảnh) từ suộc trên máy + chèn SFX."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["19:30", "11:30", "17:30", "20:30", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video ăn vặt đã kiểm tra lên TikTok & Fanpage."}], "logo_b64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAMAAADxPgR5AAABgFBMVEXJbi6hclTZmV789NyaHRfn1aRyalfKkB6hzJaAjmq+lj2AUT/QamNGlln9/v4deEMUgDwAAAAkeUcNdDS8QTTasYjyukUNbDXt6ufNliqxNy0AbBf/JibKRDowh1LWrITFjCRPl2zP49fSSkGrx7Z0qIqFtpH/Nzfb6eSoKyRLiWTI2c8AcB3/GRkzk1VGelnbpDXw2NH+l5dytImZyKrjto+UuqT+iIj/eXn/aGhtiGdmqXr/WFju5dRVpXH3yMfjqzm51sRomXvMOzT/SEiRlnT7p6b6uLeYxZPDihul0ZcciEOq0bbqsj3iyq3l17TVUkZJhF5xmYPStnXXubbLlpPLpFNKfmGxVU7cxK3L3eXUpaPIiHD6xEmuSUMigjq9hRj/CgrcxY+4p4Kwon7rrkKkIh3Xw8LOeHS4aGSovbC8iWrGm0WqmXfQqW+5ZVy+iibIhoI4bk7GdCtlalTOY1mvhFuIqJS4WimbYlHjlj7uxmi0zsDgyZK9eXVwcVsmEp+UAAAAgHRSTlP//////////////////////wD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wpF9LYAAAwVSURBVHja7ZvnY+LGEsC5l/L6wtOCJSQhkEzvohuMMTY28XM7x+Xsc7necyV36fVffzMrCYQBgWPivA+Z5Gyt5NOPmZ2Z3Rnvuf4zJGSGMvx21wiaZ2Yygun6/Wijma4BXv9nZiPW+0YCzedkxmK+cxj4++D6yMtAdp/8TmInum6AN0B09XhT/c2wZhukwldBmkTXlXhJ3t2HRHh+5epEAzjGnqeHB7pgG0d4zs1HzcEKz3F8+EpWtYDjFNRFEO+z3ljg3G6AqCm4/mkP4BxNXllFl4NBD8T5+UDitDeuAAOQlCpJhaeM7tauSnSNNyg5TMzfnhdP+jOIEMC4KaWccclHyBWNagBH/8QvAAyIes8pDR5yOPOKo8qVgoMBx7voW/H2be+FYHMZi9iTq7iNYVPXeAXJMQDF495QoUM8UNEeGfrD3d1m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"}, "Điệp Viên Review": {"icon": "fa-video", "short": "ĐV Review", "full_title": "Điệp Viên Review", "subtitle": "Quét kênh, Tự động tìm phim & Edit video", "gradient": "from-rose-500 via-rose-600 to-pink-800", "shadow": "shadow-rose-200/50", "btn_bg": "bg-rose-600 hover:bg-rose-700", "icon_bg": "bg-rose-50 text-rose-600", "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/18uoupcgZSRHCYf5CJfD8OpS2tV7leca-", "drive_check_url": "https://drive.google.com/drive/folders/1zBJOonPhLfyAhLU7WYu1vUrUNaq-xL_Y", "drive_folders": [{"label": "📺 Folder Kiểm Tra YouTube (16:9 + Thumb)", "url": "https://drive.google.com/drive/folders/1zBJOonPhLfyAhLU7WYu1vUrUNaq-xL_Y"}, {"label": "📱 Folder Kiểm Tra TikTok (9:16 + Thumb)", "url": "https://drive.google.com/drive/folders/1sB752CQslDcYIrr1HzTr3V-nT9bCUhbp"}], "modules": [{"row": 6, "icon": "fa-magnifying-glass-chart", "name": "1. Quét Kênh / Tìm Video", "btn_text": "▶ Quét Kênh", "allow_input_b": false, "extra_action": null, "desc": "Tự động quét các kênh đối thủ và chấm điểm các bộ phim đề xuất mạnh."}, {"row": 7, "icon": "fa-clapperboard", "name": "2. Tự Động Tìm Phim", "btn_text": "▶ Tự Tìm Phim", "allow_input_b": false, "extra_action": null, "desc": "Tự lấy video đề xuất trong Sheet rồi edit và chia tập cho cả YouTube & TikTok."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng các tập phim đã kiểm tra lên YouTube Studio & TikTok Studio."}, {"row": 9, "icon": "fa-link", "name": "4. Edit Video", "btn_text": "▶ Edit Từ Link", "allow_input_b": true, "input_b_placeholder": "Dán link video cần lấy về Edit theo Tool...", "extra_action": null, "desc": "Tải video từ link, tách tập YouTube 16:9 + TikTok 9:16 và trả link Drive ở cuối."}], "logo_b64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAMAAADxPgR5AAABgFBMVEX+/v6kCii5HBwAAAAAAACaABikABqpFTKaByPs6OmsN06VlZWJh4euRlomJydQR0gXGBiop6ixVmiNN0gyNjVrZ2h2d3e1t7dTV1anIjzq1tqTR1aVFi/Jh5SSWGO1ZXSqK0ONZW3Ed4ZnR03Y2djVqLFbY2GPKDzlx81vVFmHeHu4w8HQmKTcs7vIysl3W2GnlpmNUV2yTWHv3uGMfoGxeYSohoxXYF7AbH3eusIaJiSSLUF6g4KxcX23wL/d5OPEN1HhvMScpaPMkJ0gHyA4RkSunqEgHx+hUF9BPT7JS2MzQj/LU2va4d+FMjwWIB7CbYCAgH98N0XARl53LTtAQD8gIB8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADnWk0TAAAAgHRSTlP/////AP////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALrAekcAAAk5SURBVHjaxZsHd6M6FoDRZoQKYDoYsA24xGVc4mSSSaaXN/P27Wvb//9P2SvAjpPggs1kdU6wZHH4fK/KLSjSiydFqrGUPL2E9pfaSglT+nG0cqb0gHd/Tz1l9bxSYNEv1VyKZz4F/hjcPfIxMPte+kFlkyg9A+8BUVrzKj+Fza42WuGA7UYWROlo3qiFSXvdalNMRocQ88sx+uSYIHxbNL5iRDDfp9UV8CgBZxghgFgh1K9i0UD47gARpSN50iUIKCBEszSS8RC2pP1E6UiFhhQVBWO8qrbYfqXmwOoCdtcURNYVPN0nogAep9EAlRTK9+tUOkJA5ksDjEqJo70iVgeaTaMpaXIZj+DufmAljTJFP4PSZxSVl2CvTivwmKkbjmo6Zw2pjbcA8Ww/8TAgA00aal9UVUXi2yTEcS1A0KQBmjTUYp2N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"}, "MetaMax": {"icon": "fa-comments", "short": "MetaMax", "full_title": "MetaMax", "subtitle": "5 kênh Điệp Viên đi Comment dạo theo UID dọc", "gradient": "from-sky-500 via-blue-500 to-indigo-700", "shadow": "shadow-blue-200/50", "btn_bg": "bg-blue-600 hover:bg-blue-700", "icon_bg": "bg-blue-50 text-blue-600", "logo_b64": "data:image/png;base64,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"}, "Tool Edit": {"icon": "fa-wand-magic-sparkles", "short": "Tool Edit", "full_title": "Tool Edit", "subtitle": "Video So Sánh • Thread • FB Confession • Minh Họa • Video Thô", "gradient": "from-cyan-600 via-indigo-600 to-rose-600", "shadow": "shadow-indigo-300/40", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "full_width": true, "merged_box_editable": false, "drive_root_url": "https://drive.google.com/drive/folders/17smQ0bwCarKWBJ1eRLHN8Or9IdbYuXtQ", "drive_check_url": "https://drive.google.com/drive/folders/1TRtPzaTbnzjWz2vMQCtK5wbTF5YwV4Wc", "drive_folders": [{"label": "📂 Folder Kiểm Tra Thành Phẩm Tool Edit", "url": "https://drive.google.com/drive/folders/1TRtPzaTbnzjWz2vMQCtK5wbTF5YwV4Wc"}, {"label": "📁 Thư Mục Gốc Tool Edit", "url": "https://drive.google.com/drive/folders/17smQ0bwCarKWBJ1eRLHN8Or9IdbYuXtQ"}], "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Dựng Video So Sánh", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản So Sánh 2 cột Đỏ / Xanh...", "extra_action": null, "desc": "Dựng video so sánh 2 cột Đỏ và Xanh kèm nhân vật Chibi chỉ tay."}, {"row": 7, "icon": "fa-at", "name": "2. Video Thread", "btn_text": "▶ Dựng Video Thread", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng Threads...", "extra_action": null, "desc": "Làm ảnh & dựng video Threads 3 tầng đẩy sang CapCut."}, {"row": 8, "icon": "fa-thumbs-up", "name": "3. Video Facebook Confession", "btn_text": "▶ Dựng FB Confession", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng & bình luận Facebook...", "extra_action": null, "desc": "Làm ảnh & video bài đăng kèm bình luận Facebook đẩy sang CapCut."}, {"row": 9, "icon": "fa-layer-group", "name": "4. Video Minh Họa", "btn_text": "▶ Dựng Video Minh Họa", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản đồ họa Minh Họa...", "extra_action": null, "desc": "Dựng video đồ họa thẻ vật phẩm vector kèm thanh quét Trước/Sau."}, {"row": 10, "icon": "fa-user-Gear", "name": "5. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản & đường dẫn suộc video trên máy...", "extra_action": null, "desc": "Lấy suộc trên máy, cắt khoảng nghỉ thừa & tách nền người nói đè chữ sau lưng."}], "logo_b64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwCAMAAADxPgR5AAABgFBMVEX+/v4Pdm4aVGAZU14NSVUAAADEWCzTbENRaG0rWmQ1ZnCmOhO3SBtQdHvPZTlPeYKRlpbR1tfs6uaIiYnq18pshouTpqpsdni0uLjMdVC2Vi5JSEjLiWwoU13kx7XSuq1maGhSVlbw5NrVp5C1xsmZKgN3lJkrKSk1NjZbg4uHnaKzTSOmpaXSlHbZ4uMyRkuzaEsXFBNqfYKbNA4AO0ihLAOasrbHyMjaw7XRm4K8YTrispriu6fjzcEHBQWpvcFLXmPNgF3ATh61dFi5e2Pbspw7cX3V3+C6hW57mqA9eIXDUB6ZQyScQBzATiGhnp0jHBsjIB9kYF86P0BBPTyQGwCoX0GjoJ9hXl3hrJC/UB5IQT8AMD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACjI2NJAAAAgHRSTlP//////wD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE5bOwYAAAtbSURBVHja1ZuHe+I4FsC9tg4sxQUbN4rBNj0QmCSkTuq03dmdtu36//933JPkBjgEEiZ3p28mceHTj/f0qkYj/GVlCDscBbMX0H7Y2ShgCt+PVswUFnjZZ3YzkvkKgfF7YccjnnMV+H1wGXIZyJ4L32nkicIL8BaIQsp70kxdI3djdqdrkDFReBZPRUhPbzwfoe6jRP7jifrcR1hEshnzEBIRNtdpNQE+VUDTl0RJROQWrqd9xG6cx0QUnqFQB4mSBBCEVVlCEh2ICI8QhacrFFaQAiVRlBAVj12vXcUfUuCTeAYXiiHF5ArZa0WkwCdrtI8STDZE6WGz4ToVNhDQatasgscYSatDRKfrRdwA2Clrmnax8sW7BQJSoPoI8DGNXtW0cq1c02pXSy90ClxhiiIy1ur0EZ7V1LQyG1qpuaDXaTx/zmJi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"}, "Khởi Động": {"icon": "fa-power-off", "short": "Khởi Động", "full_title": "Khởi Động", "subtitle": "Khởi động hệ thống & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "logo_b64": "data:image/png;base64,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"}};
         const DV_TOOL_ORDER = [
-            "Bật Máy",
+            "Khởi Động",
             "Điệp Viên Social",
             "Điệp Viên Tài Liệu",
             "Điệp Viên Tarot",
@@ -8372,17 +8624,19 @@
             "Tool Edit"
         ];
 
-        // Đặt mặc định tên hệ thống chính là "Quản Lý Lớp"
+        // Đặt mặc định tên hệ thống chính là "TCCM WORK" (Xóa hoàn toàn tên "Quản Lý Lớp" / "Công Việc Hằng Ngày")
         if (typeof DEFAULT_STATE !== "undefined" && DEFAULT_STATE.config) {
-            DEFAULT_STATE.config.appName = "Quản Lý Lớp";
+            DEFAULT_STATE.config.appName = "TCCM WORK";
         }
         try {
-            if (typeof state !== "undefined" && state.config && state.config.appName === "Công Việc Hằng Ngày") {
-                state.config.appName = "Quản Lý Lớp";
+            if (typeof state !== "undefined" && state.config) {
+                state.config.appName = "TCCM WORK";
             }
         } catch (e) {}
+        document.title = "TCCM WORK — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên";
 
         let dvCurrentView = sessionStorage.getItem("tccm_dv_view") || "DASHBOARD";
+        if (dvCurrentView === "Bật Máy") dvCurrentView = "Khởi Động";
         if (dvCurrentView !== "DASHBOARD" && !window.DV_CONFIGS[dvCurrentView]) {
             dvCurrentView = "DASHBOARD";
         }
@@ -8440,11 +8694,17 @@
             dvIsActiveMode = !!isDiepVien;
             const titleEl = document.getElementById("appNameDisplay");
             const subEl = document.getElementById("appSubDisplay") || (titleEl ? titleEl.nextElementSibling : null);
+            const leftLogoBox = document.getElementById("headerLeftLogoBox");
             const leftLogoIcon = document.getElementById("headerLeftLogoIcon");
             const modeSwitchBtn = document.getElementById("headerModeSwitchBtn");
 
             if (isDiepVien) {
-                if (leftLogoIcon) {
+                const activeCfg = (dvCurrentView !== "DASHBOARD" && window.DV_CONFIGS[dvCurrentView])
+                    ? window.DV_CONFIGS[dvCurrentView]
+                    : (window.DV_CONFIGS["Khởi Động"] || {});
+                if (leftLogoBox && activeCfg.logo_b64) {
+                    leftLogoBox.innerHTML = `<img src="${activeCfg.logo_b64}" alt="SPY Logo" class="w-10 h-10 rounded-xl object-contain">`;
+                } else if (leftLogoIcon) {
                     leftLogoIcon.className = "fa-solid fa-user-secret text-2xl text-white";
                 }
                 if (titleEl) titleEl.textContent = "Chế Độ Điệp Viên";
@@ -8452,20 +8712,35 @@
                 if (modeSwitchBtn) {
                     modeSwitchBtn.innerHTML = `<i class="fa-solid fa-calendar-check text-lg text-white"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "selectGameMode('thuquy')");
-                    modeSwitchBtn.setAttribute("title", "Chuyển về Quản Lý Lớp");
+                    modeSwitchBtn.setAttribute("title", "Chuyển về TCCM WORK");
                 }
             } else {
-                if (leftLogoIcon) {
+                if (leftLogoBox) {
+                    leftLogoBox.innerHTML = `<i id="headerLeftLogoIcon" class="fa-solid fa-calendar-check text-2xl text-white"></i>`;
+                } else if (leftLogoIcon) {
                     leftLogoIcon.className = "fa-solid fa-calendar-check text-2xl text-white";
                 }
-                if (titleEl) titleEl.textContent = "Quản Lý Lớp";
-                if (subEl) subEl.textContent = "Hệ thống quản lý lớp & tiện ích sinh viên thông minh";
+                if (titleEl) titleEl.textContent = "TCCM WORK";
+                if (subEl) subEl.textContent = "Hệ thống quản lý công việc & tiện ích sinh viên ĐHHP";
                 if (modeSwitchBtn) {
                     modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-lg text-white"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "openDiepVienMode('DASHBOARD')");
                     modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên");
                 }
             }
+        }
+
+        // Ghi đè updateConfigUI của teamtccm/Work để luôn giữ tên "TCCM WORK"
+        const origUpdateConfigUI = window.updateConfigUI;
+        if (typeof origUpdateConfigUI === "function") {
+            window.updateConfigUI = function() {
+                origUpdateConfigUI();
+                if (!dvIsActiveMode) {
+                    const titleEl = document.getElementById("appNameDisplay");
+                    if (titleEl) titleEl.textContent = "TCCM WORK";
+                }
+                document.title = "TCCM WORK — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên";
+            };
         }
 
         // Ghi đè filterGymCategory để nút lọc bài tập gọn, không bị tràn viền hay cắt bóng
@@ -8662,26 +8937,33 @@
             const audioWrap = document.getElementById("dvToolEditAudioWrapper");
             if (!box) return;
 
+            if (dvIsActiveMode) {
+                syncHeaderForMode(true);
+            }
+
             if (dvCurrentView !== "Tool Edit") {
                 if (audioWrap) audioWrap.classList.add("hidden");
                 dvStopAllAudioPlayers();
             }
 
             // =========================================================================
-            // 1. MÀN HÌNH TỔNG QUAN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (KHÔNG CÒN NÚT <- CÔNG VIỆC BÊN DƯỚI)
+            // 1. MÀN HÌNH TỔNG QUAN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (GẮN ĐỒNG BỘ LOGO SPY.ZIP)
             // =========================================================================
             if (dvCurrentView === "DASHBOARD") {
                 let cardsHtml = "";
                 DV_TOOL_ORDER.forEach(name => {
-                    const cfg = window.DV_CONFIGS[name];
+                    const cfg = window.DV_CONFIGS[name] || (name === "Khởi Động" ? window.DV_CONFIGS["Bật Máy"] : null);
                     if (!cfg) return;
                     const displayTitle = cfg.short || cfg.short_title || name;
                     const displaySub = cfg.subtitle || cfg.desc || "";
+                    const iconInnerHtml = cfg.logo_b64
+                        ? `<img src="${cfg.logo_b64}" alt="${displayTitle}" class="w-10 h-10 rounded-xl object-contain bg-white/95 p-0.5 shadow-sm">`
+                        : `<i class="fa-solid ${cfg.icon}"></i>`;
                     if (cfg.full_width) {
                         cardsHtml += `
                             <button onclick="dvOpenTool('${name}')" class="col-span-2 dash-card bg-gradient-to-r ${cfg.gradient} shadow-xl ${cfg.shadow} flex !flex-row items-center justify-between !p-5 !min-h-0">
                                 <div class="flex items-center gap-4 text-left">
-                                    <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl"><i class="fa-solid ${cfg.icon}"></i></div>
+                                    <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl overflow-hidden flex items-center justify-center">${iconInnerHtml}</div>
                                     <div>
                                         <div class="dash-title text-base flex items-center gap-2 flex-wrap">
                                             <span>${displayTitle}</span>
@@ -8699,7 +8981,7 @@
                         cardsHtml += `
                             <button onclick="dvOpenTool('${name}')" class="dash-card bg-gradient-to-br ${cfg.gradient} shadow-xl ${cfg.shadow}">
                                 <div>
-                                    <div class="dash-icon"><i class="fa-solid ${cfg.icon}"></i></div>
+                                    <div class="dash-icon overflow-hidden flex items-center justify-center">${iconInnerHtml}</div>
                                     <div class="dash-title">${displayTitle}</div>
                                     <div class="dash-desc">${displaySub}</div>
                                 </div>
@@ -8735,10 +9017,10 @@
             }
 
             // =========================================================================
-            // 2. MÀN HÌNH KHỞI ĐỘNG (BẬT MÁY)
+            // 2. MÀN HÌNH KHỞI ĐỘNG (ĐỒNG BỘ TÊN SHEET "KHỞI ĐỘNG" & LOGO CÁC KÊNH)
             // =========================================================================
-            if (dvCurrentView === "Bật Máy") {
-                const cfg = window.DV_CONFIGS["Bật Máy"] || {};
+            if (dvCurrentView === "Khởi Động" || dvCurrentView === "Bật Máy") {
+                const cfg = window.DV_CONFIGS["Khởi Động"] || window.DV_CONFIGS["Bật Máy"] || {};
                 const powerList = window.DV_STATE.power || [
                     { row: 6, code: "wake_pc", btn: "▶ Khởi Động", name: "1. Khởi động máy & mở toàn bộ hệ thống", status: "Đang chờ" },
                     { row: 7, code: "sleep_pc", btn: "▶ Ngủ Ngầm", name: "2. Chế độ ngủ ngầm tiết kiệm điện", status: "Đang chờ" },
@@ -8766,12 +9048,36 @@
                     `;
                 }).join("");
 
-                const healthHtml = healthList.map(th => `
-                    <div class="flex items-center justify-between py-2.5 border-b border-gray-100 last:border-b-0 gap-2">
-                        <span class="text-xs font-bold text-gray-700">${th.name}</span>
-                        ${dvStatusBadgeHtml(th.status)}
-                    </div>
-                `).join("");
+                const healthLogoKeys = [
+                    "Điệp Viên Social",
+                    "Điệp Viên Tài Liệu",
+                    "Điệp Viên Tarot",
+                    "Điệp Viên Quà Tặng",
+                    "Điệp Viên Ăn Vặt",
+                    "Điệp Viên Review",
+                    "MetaMax",
+                    "Tool Edit"
+                ];
+                const healthHtml = healthList.map((th, idx) => {
+                    const tKey = healthLogoKeys[idx] || "";
+                    const tCfg = window.DV_CONFIGS[tKey] || {};
+                    const logoImg = tCfg.logo_b64
+                        ? `<img src="${tCfg.logo_b64}" class="w-7 h-7 rounded-lg object-contain border border-gray-200 shrink-0">`
+                        : "";
+                    return `
+                        <div class="flex items-center justify-between py-2.5 border-b border-gray-100 last:border-b-0 gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                ${logoImg}
+                                <span class="text-xs font-bold text-gray-800 truncate">${th.name}</span>
+                            </div>
+                            ${dvStatusBadgeHtml(th.status)}
+                        </div>
+                    `;
+                }).join("");
+
+                const kdLogoHtml = cfg.logo_b64
+                    ? `<img src="${cfg.logo_b64}" class="w-8 h-8 rounded-xl object-contain border border-gray-200 shrink-0">`
+                    : "";
 
                 box.innerHTML = `
                     <div class="section-header-bar">
@@ -8779,7 +9085,10 @@
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
                         <div class="text-center flex-1 px-2">
-                            <h2 class="view-page-title">Khởi Động</h2>
+                            <div class="flex items-center justify-center gap-2">
+                                ${kdLogoHtml}
+                                <h2 class="view-page-title">Khởi Động</h2>
+                            </div>
                             <p class="view-page-subtitle">${cfg.subtitle || 'Khởi động hệ thống & kiểm tra 9 Tool'}</p>
                         </div>
                         <button onclick="dvTriggerPower('check_all_tools', 8)" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-md hover:bg-emerald-700 cursor-pointer border-0 shrink-0" title="Kiểm tra các Tool">
@@ -8800,11 +9109,19 @@
             }
 
             // =========================================================================
-            // 3. MÀN HÌNH METAMAX (DÁN 1 THỂ TỐI ĐA 10 UID = 10 DÒNG + NÚT BẤM CHUẨN KHÔNG LỖI)
+            // 3. MÀN HÌNH METAMAX (DÁN 1 THỂ TỐI ĐA 10 UID = 10 DÒNG + LOGO 5 KÊNH SPY.ZIP)
             // =========================================================================
             if (dvCurrentView === "MetaMax") {
+                const mmCfg = window.DV_CONFIGS["MetaMax"] || {};
                 const mmRows = window.DV_STATE.metamax_rows || [];
                 const shortTabs = ["Social", "Tài Liệu", "Tarot", "Quà Tặng", "Ăn Vặt"];
+                const mmChannelKeys = [
+                    "Điệp Viên Social",
+                    "Điệp Viên Tài Liệu",
+                    "Điệp Viên Tarot",
+                    "Điệp Viên Quà Tặng",
+                    "Điệp Viên Ăn Vặt"
+                ];
                 const cleanBtns = [
                     "▶ CHẠY SOCIAL",
                     "▶ CHẠY TÀI LIỆU",
@@ -8833,13 +9150,18 @@
                 const tabCount = Math.max(mmRows.length, 5);
                 for (let idx = 0; idx < tabCount; idx++) {
                     const isActive = (idx === dvMetaMaxIdx);
+                    const chCfg = window.DV_CONFIGS[mmChannelKeys[idx]] || {};
+                    const chLogoHtml = chCfg.logo_b64
+                        ? `<img src="${chCfg.logo_b64}" class="w-4 h-4 rounded object-contain bg-white/95 shrink-0">`
+                        : "";
                     const cls = isActive
                         ? (channelTabActiveColors[idx] || "bg-indigo-600 text-white shadow-sm font-black")
                         : "text-gray-600 hover:text-gray-900 font-bold bg-transparent";
                     segTabsHtml += `
                         <button onclick="dvSelectMetaMaxChannel(${idx})"
-                                class="flex-1 py-2.5 px-2 text-xs rounded-xl cursor-pointer border-0 transition ${cls}">
-                            ${shortTabs[idx] || ('Kênh ' + (idx + 1))}
+                                class="min-w-[92px] flex-1 py-2 px-2 text-xs rounded-xl cursor-pointer border-0 transition flex items-center justify-center gap-1.5 ${cls}">
+                            ${chLogoHtml}
+                            <span class="whitespace-nowrap">${shortTabs[idx] || ('Kênh ' + (idx + 1))}</span>
                         </button>
                     `;
                 }
@@ -8863,6 +9185,10 @@
                     status: "Đang chờ"
                 };
                 const r = rObj.row;
+                const activeChCfg = window.DV_CONFIGS[mmChannelKeys[dvMetaMaxIdx]] || {};
+                const activeChLogo = activeChCfg.logo_b64
+                    ? `<img src="${activeChCfg.logo_b64}" class="w-10 h-10 rounded-xl object-contain border border-gray-200 shrink-0">`
+                    : "";
 
                 // Khử hoàn toàn lỗi =HYPERLINK(...) trên nút bấm MetaMax
                 let btnLbl = cleanBtns[dvMetaMaxIdx] || "▶ CHẠY SOCIAL";
@@ -8885,27 +9211,37 @@
                 const schedOpts = ["Không hẹn giờ", "12:00", "18:00", "19:30", "20:00", "21:00", "22:00"]
                     .map(o => `<option value="${o}" ${o === rObj.schedule ? 'selected' : ''}>${o}</option>`).join("");
 
+                const mmHeaderLogo = mmCfg.logo_b64
+                    ? `<img src="${mmCfg.logo_b64}" class="w-8 h-8 rounded-xl object-contain border border-gray-200 shrink-0">`
+                    : "";
+
                 box.innerHTML = `
                     <div class="section-header-bar">
                         <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
                         <div class="text-center flex-1 px-2">
-                            <h2 class="view-page-title">MetaMax</h2>
+                            <div class="flex items-center justify-center gap-2">
+                                ${mmHeaderLogo}
+                                <h2 class="view-page-title">MetaMax</h2>
+                            </div>
                             <p class="view-page-subtitle">Đi Comment dạo & Seeding 5 kênh Điệp Viên</p>
                         </div>
                         <div class="w-11 shrink-0"></div>
                     </div>
 
-                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
+                    <div class="flex flex-wrap gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
                         ${segTabsHtml}
                     </div>
 
                     <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 space-y-4">
                         <div class="flex items-center justify-between gap-2">
-                            <div>
-                                <h3 class="text-base font-black text-gray-900">${rObj.channel}</h3>
-                                <p class="text-xs text-gray-400 font-semibold mt-0.5">Dán 1 thể tối đa 10 mã UID (tương đương 10 dòng)</p>
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                ${activeChLogo}
+                                <div class="min-w-0">
+                                    <h3 class="text-base font-black text-gray-900 truncate">${rObj.channel}</h3>
+                                    <p class="text-xs text-gray-400 font-semibold mt-0.5">Dán 1 thể tối đa 10 mã UID (tương đương 10 dòng)</p>
+                                </div>
                             </div>
                             ${dvStatusBadgeHtml(rObj.status, 'st_MetaMax_' + r)}
                         </div>
@@ -9249,6 +9585,9 @@
             }
 
             const pageTitle = cfg.full_title || cfg.title || cfg.short || dvCurrentView;
+            const channelHeaderLogo = cfg.logo_b64
+                ? `<img src="${cfg.logo_b64}" class="w-8 h-8 rounded-xl object-contain border border-gray-200 shrink-0">`
+                : "";
 
             box.innerHTML = `
                 <div class="section-header-bar">
@@ -9256,7 +9595,10 @@
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
                     <div class="text-center flex-1 px-2 min-w-0">
-                        <h2 class="view-page-title truncate">${pageTitle}</h2>
+                        <div class="flex items-center justify-center gap-2">
+                            ${channelHeaderLogo}
+                            <h2 class="view-page-title truncate">${pageTitle}</h2>
+                        </div>
                         <p class="view-page-subtitle truncate mx-auto">${cfg.subtitle || ''}</p>
                     </div>
                     ${headerRightCtrl}
@@ -9447,7 +9789,7 @@
                 const activeTag = document.activeElement ? document.activeElement.tagName : "";
                 const isTyping = (activeTag === "INPUT" || activeTag === "TEXTAREA" || activeTag === "SELECT");
 
-                if (dvCurrentView === "Bật Máy" && !isTyping) {
+                if ((dvCurrentView === "Khởi Động" || dvCurrentView === "Bật Máy") && !isTyping) {
                     renderDvApp();
                     return;
                 }
@@ -9498,7 +9840,7 @@
 
         // =========================================================================
         // QUẢN LÝ BACKGROUND TOÀN HỆ THỐNG:
-        // - MẶC ĐỊNH TẤT CẢ CHẾ ĐỘ (Quản Lý Lớp, Chế Độ Điệp Viên, Giải Trí Vòng Quay, Cài Đặt...) = MÀU ĐEN TUYỀN (#000000)
+        // - MẶC ĐỊNH TẤT CẢ CHẾ ĐỘ (TCCM WORK, Chế Độ Điệp Viên, Giải Trí Vòng Quay, Cài Đặt...) = MÀU ĐEN TUYỀN (#000000)
         // - CHỈ KHI SANG CHẾ ĐỘ THUYẾT TRÌNH (mitchum / default) MỚI HIỂN THỊ BACKGROUND ĐẠI HỌC HẢI PHÒNG
         // =========================================================================
         window.applySystemBackground = function(screenName) {
