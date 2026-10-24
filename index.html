@@ -6,9 +6,9 @@
     <!-- Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onerror="this.href='vendor/fontawesome/css/all.min.css'">
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" onerror="var s=document.createElement('script');s.src='vendor/tailwind.js';document.head.appendChild(s);"></script>
     <script>
         tailwind.config = {
             corePlugins: {
@@ -23,14 +23,15 @@
     </script>
     <!-- QR Code & Confetti for Thu Quỹ -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" onerror="var s=document.createElement('script');s.src='vendor/confetti.browser.min.js';document.head.appendChild(s);"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
     <!-- Leaflet Map for Google Maps View -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" onerror="this.href='vendor/leaflet.css'" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onerror="var s=document.createElement('script');s.src='vendor/leaflet.js';document.head.appendChild(s);"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCCM WORK — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên</title>
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -1175,11 +1176,16 @@
         /* Category Filter Tabs - Tự bọc, không bị khuất, kích thước to rõ dễ bấm */
         .sb-tabs-wrap {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
             align-items: center;
-            gap: 9px;
-            padding: 4px 0 10px;
+            gap: 8px;
+            padding: 4px 0 8px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
+        .sb-tabs-wrap::-webkit-scrollbar { display: none; }
+        .sb-cat-tab { white-space: nowrap; flex-shrink: 0; }
         .sb-cat-tab {
             font-family: 'Be Vietnam Pro', sans-serif;
             font-size: 12.5px;
@@ -1887,6 +1893,15 @@
                 <div class="mode-badge badge-active" id="badgeThuQuy" style="background:#6366F1;color:#FFF;font-weight:900;">MẶC ĐỊNH</div>
             </div>
 
+            <!-- CHẾ ĐỘ NHIỆM VỤ & GHI CHÚ: GOOGLE CALENDAR & SỔ TAY OFFLINE -->
+            <div class="mode-card" id="modeCardTasksNotes" onclick="openTasksNotesMode('tasks')" style="border:2px solid #10B981;background:rgba(10,35,30,0.92);box-shadow:0 0 25px rgba(16,185,129,0.35);">
+                <div class="mode-info">
+                    <div class="mode-name" style="color:#34D399;text-shadow:0 0 12px #059669;">📅 CHẾ ĐỘ NHIỆM VỤ (GOOGLE CALENDAR) & SỔ TAY GHI CHÚ</div>
+                    <div class="mode-desc" style="color:#A7F3D0;">Đặt lịch trực tiếp lên Google Calendar, xuất lịch .ics & Sổ tay ghi chú tự động lưu Offline 100%</div>
+                </div>
+                <div class="mode-badge badge-hot" style="background:linear-gradient(135deg,#059669,#0284C7);color:#FFF;font-weight:900;">📅 MỞ NGAY</div>
+            </div>
+
             <!-- CHẾ ĐỘ ĐIỆP VIÊN: TRẠM ĐIỀU KHIỂN 9 HỆ THỐNG TOOL & TOOL EDIT -->
             <div class="mode-card" id="modeCardDiepVien" onclick="selectGameMode('diepvien')" style="border:2px solid #F59E0B;background:rgba(35,15,55,0.92);box-shadow:0 0 25px rgba(245,158,11,0.4);">
                 <div class="mode-info">
@@ -1894,6 +1909,15 @@
                     <div class="mode-desc" style="color:#FDE68A;">Hệ thống: Khởi Động, Điệp Viên Social, Tài Liệu, Tarot, Quà Tặng, Ăn Vặt, Review, MetaMax & Tool Edit (Kèm 21 SFX + 119 Nhạc Nền)</div>
                 </div>
                 <div class="mode-badge badge-hot" id="badgeDiepVien" style="background:linear-gradient(135deg,#D97706,#7C3AED);color:#FFF;font-weight:900;box-shadow:0 0 15px rgba(217,119,6,0.6);">🔥 MỞ KHÓA</div>
+            </div>
+
+            <!-- PHẦN MỀM MÁY TÍNH TCCM WORK (CHẠY CẢ KHI KHÔNG CÓ MẠNG) -->
+            <div class="mode-card" id="modeCardDesktopApp" onclick="openDesktopAppWindow()" style="border:2px solid #38BDF8;background:rgba(12,25,48,0.92);box-shadow:0 0 25px rgba(56,189,248,0.35);">
+                <div class="mode-info">
+                    <div class="mode-name" style="color:#38BDF8;text-shadow:0 0 10px #0284C7;">🖥️ PHẦN MỀM MÁY TÍNH TCCM WORK (CHẠY CẢ OFFLINE)</div>
+                    <div class="mode-desc" style="color:#BAE6FD;">Mở ứng dụng TCCM WORK độc lập ngay trên màn hình Desktop máy tính — Dùng đầy đủ tính năng kể cả khi mất mạng</div>
+                </div>
+                <div class="mode-badge" style="background:#0284C7;color:#FFF;font-weight:900;">🖥️ MỞ APP PC</div>
             </div>
 
             <!-- CHẾ ĐỘ 2: THPT CAO BÁ QUÁT (ĐẲNG CẤP THUYẾT TRÌNH & SỰ KIỆN TỰ ĐỘNG) -->
@@ -1954,7 +1978,7 @@
         <div id="appCardWrapper" class="w-full max-w-xl bg-gray-50/95 backdrop-blur-xl h-full max-h-[92vh] flex flex-col relative shadow-2xl overflow-hidden rounded-3xl border border-white/40 transition-all duration-300">
             <!-- HEADER -->
             <header class="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-700 sticky top-0 z-40 px-5 py-4 flex justify-between items-center shadow-lg shadow-indigo-300/30">
-                <div class="flex items-center gap-3 min-w-0 flex-1 pr-2 cursor-pointer" id="headerLeftBrandBox" onclick="handleHeaderBrandClick()">
+                <div class="flex items-center gap-2.5 min-w-0 flex-1 pr-2 cursor-pointer" id="headerLeftBrandBox" onclick="handleHeaderBrandClick()">
                     <div id="headerLeftLogoBox" class="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white shadow-inner overflow-hidden shrink-0">
                         <i id="headerLeftLogoIcon" class="fa-solid fa-calendar-check text-2xl text-white"></i>
                     </div>
@@ -1964,13 +1988,16 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-1.5 shrink-0">
-                    <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Tập Thể Thao (4 Nhóm Cơ GIF)">
+                    <button id="headerTasksNotesBtn" onclick="openTasksNotesMode('tasks')" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chế Độ Nhiệm Vụ (Google Calendar) & Sổ Tay Ghi Chú">
+                        <i class="fa-solid fa-clipboard-check text-base text-white"></i>
+                    </button>
+                    <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chế Độ Tập Luyện (4 Nhóm Cơ GIF)">
                         <i class="fa-solid fa-dumbbell text-base text-white"></i>
                     </button>
-                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên">
+                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên">
                         <i class="fa-solid fa-user-secret text-lg text-white"></i>
                     </button>
-                    <button onclick="promptAdminThenSettings()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt Admin">
+                    <button onclick="promptAdminThenSettings()" class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt & Chọn chế độ">
                         <i class="fa-solid fa-gear text-lg text-white"></i>
                     </button>
                 </div>
@@ -2003,13 +2030,7 @@
                             <div class="dash-title">Ghép Nhóm</div>
                         </div>
                     </button>
-                    <!-- Nhiệm Vụ -->
-                    <button onclick="switchView('viewTasks')" class="dash-card bg-gradient-to-br from-violet-500 via-violet-600 to-purple-800 shadow-xl shadow-purple-200/50">
-                        <div>
-                            <div class="dash-icon"><i class="fa-solid fa-list-check"></i></div>
-                            <div class="dash-title">Nhiệm Vụ</div>
-                        </div>
-                    </button>
+
                     <!-- Thông Báo -->
                     <button onclick="switchView('viewAnnouncements')" class="dash-card bg-gradient-to-br from-amber-500 via-orange-500 to-orange-700 shadow-xl shadow-orange-200/50">
                         <div>
@@ -2052,10 +2073,19 @@
                         <div>
                             <div class="dash-icon"><i class="fa-solid fa-bowl-food"></i></div>
                             <div class="dash-title">Đồ Ăn Quanh Trường</div>
-                            <div class="dash-desc text-white/85 font-bold">Quanh ĐH Hải Phòng</div>
+                            <div class="dash-desc text-white/85 font-bold">Két Hội Thợ Lùn · ĐHHP</div>
                         </div>
                     </button>
-                    <!-- Cài Đặt (Thẻ vuông gọn 1 cột, không để dài) -->
+                    <!-- Phần Mềm Máy Tính (Chạy Cả Offline) -->
+                    <button onclick="openDesktopAppWindow()" class="dash-card bg-gradient-to-br from-teal-500 via-emerald-600 to-cyan-700 shadow-xl shadow-emerald-200/50">
+                        <span class="dash-badge bg-white/25 text-white font-black"><i class="fa-solid fa-bolt text-[9px]"></i> Offline</span>
+                        <div>
+                            <div class="dash-icon"><i class="fa-solid fa-desktop"></i></div>
+                            <div class="dash-title">Phần Mềm PC</div>
+                            <div class="dash-desc text-white/85 font-bold">Dùng cả khi mất mạng</div>
+                        </div>
+                    </button>
+                    <!-- Cài Đặt (Thẻ vuông gọn 1 cột) -->
                     <button onclick="promptAdminThenSettings()" class="dash-card bg-gradient-to-br from-slate-700 via-gray-800 to-gray-900 shadow-xl shadow-gray-400/20">
                         <span class="dash-badge"><i class="fa-solid fa-lock text-[9px]"></i> Admin</span>
                         <div>
@@ -2148,48 +2178,188 @@
                 </div>
             </section>
 
-            <!-- VIEW: NHIỆM VỤ -->
+                        <!-- VIEW: CHẾ ĐỘ NHIỆM VỤ (GOOGLE CALENDAR) & SỔ TAY GHI CHÚ RIÊNG BIỆT -->
             <section id="viewTasks" class="view-section">
-                <!-- Header -->
+                <!-- Header gọn gàng, tối ưu -->
                 <div class="section-header-bar">
-                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
+                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Về TCCM WORK">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="text-center flex-1 px-3">
-                        <h2 class="view-page-title">Nhiệm Vụ Lớp</h2>
-                        <p class="view-page-subtitle" id="taskSubCount">Theo dõi & hoàn thành công việc</p>
+                    <div class="text-center flex-1 px-2 min-w-0">
+                        <h2 class="view-page-title text-lg sm:text-xl truncate">Nhiệm Vụ & Ghi Chú</h2>
+                        <p class="view-page-subtitle truncate" id="taskSubCount">Google Calendar · Sổ tay Offline & Cloud</p>
                     </div>
-                    <button onclick="promptAdminThenCreateTask()" class="w-12 h-12 bg-violet-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-violet-300 hover:bg-violet-700 active:scale-95 transition-all cursor-pointer text-lg" title="Tạo nhiệm vụ mới">
-                        <i class="fa-solid fa-plus"></i>
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <button onclick="window.open('https://calendar.google.com/calendar/r', '_blank')" class="w-10 h-10 rounded-2xl bg-indigo-50 hover:bg-indigo-100 text-indigo-600 flex items-center justify-center border border-indigo-200 transition cursor-pointer" title="Mở Google Calendar">
+                            <i class="fa-regular fa-calendar-days text-sm"></i>
+                        </button>
+                        <button onclick="tnExportAllToICS()" class="w-10 h-10 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 transition cursor-pointer" title="Tải file lịch .ics (Đồng bộ Lịch Máy Tính & Điện Thoại cả khi Offline)">
+                            <i class="fa-solid fa-file-arrow-down text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thanh chuyển đổi 2 phân khu trên 1 hàng duy nhất: [Nhiệm Vụ & Google Calendar] | [Sổ Tay Ghi Chú] -->
+                <div class="flex items-center gap-1.5 p-1.5 bg-gray-200/80 rounded-2xl mb-3.5 overflow-x-auto no-scrollbar flex-nowrap">
+                    <button id="tnTabBtn_tasks" onclick="switchTasksNotesSubTab('tasks')" class="flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Nhiệm Vụ & Google Calendar</span>
+                        <span id="tnBadgeTasksCount" class="text-[10px] px-1.5 py-0.2 rounded-full bg-white/25 font-extrabold">0</span>
+                    </button>
+                    <button id="tnTabBtn_notes" onclick="switchTasksNotesSubTab('notes')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0">
+                        <i class="fa-solid fa-note-sticky"></i>
+                        <span>Sổ Tay Ghi Chú</span>
+                        <span id="tnBadgeNotesCount" class="text-[10px] px-1.5 py-0.2 rounded-full bg-gray-300/80 text-gray-700 font-extrabold">0</span>
                     </button>
                 </div>
 
-                <!-- Stats Summary Widget -->
-                <div class="grid grid-cols-3 gap-3 mb-5">
-                    <div class="bg-gradient-to-br from-violet-50 to-indigo-50 border-2 border-violet-200 rounded-2xl p-4 text-center shadow-sm">
-                        <div class="text-[10px] font-black text-violet-600 uppercase tracking-widest">Tổng số</div>
-                        <div class="text-3xl font-black text-violet-950 mt-1" id="taskStatTotal">0</div>
+                <!-- ============================================================== -->
+                <!-- PHÂN KHU 1: NHIỆM VỤ & GOOGLE CALENDAR                         -->
+                <!-- ============================================================== -->
+                <div id="tnSubView_tasks" class="space-y-3">
+                    <!-- Thống kê 1 hàng siêu gọn + Trạng thái lưu Offline -->
+                    <div class="bg-white px-3.5 py-2.5 rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-between gap-2 overflow-x-auto no-scrollbar flex-nowrap text-xs">
+                        <div class="flex items-center gap-3 whitespace-nowrap shrink-0">
+                            <span class="font-bold text-gray-600">Tổng: <b id="taskStatTotal" class="text-indigo-700 font-black">0</b></span>
+                            <span class="text-gray-300">|</span>
+                            <span class="font-bold text-gray-600">Chưa xong: <b id="taskStatPending" class="text-amber-600 font-black">0</b></span>
+                            <span class="text-gray-300">|</span>
+                            <span class="font-bold text-gray-600">Đã xong: <b id="taskStatCompleted" class="text-emerald-600 font-black">0</b></span>
+                        </div>
+                        <span id="tnOfflineSyncStatus" class="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg whitespace-nowrap shrink-0 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            <span>Đã lưu Offline PC</span>
+                        </span>
                     </div>
-                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-4 text-center shadow-sm">
-                        <div class="text-[10px] font-black text-amber-600 uppercase tracking-widest">Chưa xong</div>
-                        <div class="text-3xl font-black text-amber-950 mt-1" id="taskStatPending">0</div>
+
+                    <!-- Khung Thêm Nhiệm Vụ & Đặt Lịch Google Calendar Tối Giản -->
+                    <div class="bg-white p-3.5 rounded-2xl border border-gray-200/90 shadow-xs space-y-2">
+                        <div class="flex items-center gap-1.5">
+                            <input type="text" id="tnTaskTitleInput"
+                                   onkeydown="if(event.key==='Enter'){event.preventDefault();tnQuickAddTask(false);}"
+                                   placeholder="Nhập nhiệm vụ hoặc lịch hẹn mới (ấn Enter để thêm nhanh)..."
+                                   class="flex-1 min-w-0 bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs font-bold text-gray-800 focus:outline-none">
+                            <button onclick="tnQuickAddTask(false)" class="px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs cursor-pointer border-0 shrink-0 shadow-xs">
+                                + Thêm
+                            </button>
+                            <button onclick="tnQuickAddTask(true)" class="px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs cursor-pointer border-0 whitespace-nowrap shrink-0 flex items-center gap-1 shadow-xs" title="Thêm nhiệm vụ & mở thẳng Google Calendar đã điền sẵn thông tin">
+                                <i class="fa-regular fa-calendar-plus"></i>
+                                <span>+ Đặt Lịch Google Calendar</span>
+                            </button>
+                        </div>
+
+                        <!-- Hàng chọn Thời Gian, Mức Độ & Phân Loại gọn gàng 1 dòng -->
+                        <div class="grid grid-cols-4 gap-1.5 text-[11px]">
+                            <input type="date" id="tnTaskDateInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-1.5 text-[11px] font-bold text-gray-700 focus:outline-none focus:border-indigo-500">
+                            <input type="time" id="tnTaskTimeInput" value="08:00" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-1.5 text-[11px] font-bold text-gray-700 focus:outline-none focus:border-indigo-500">
+                            <select id="tnTaskPriorityInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-1.5 text-[11px] font-bold text-gray-700 focus:outline-none">
+                                <option value="high">🔥 Gấp</option>
+                                <option value="normal" selected>⚡ Thường</option>
+                                <option value="low">🌱 Nhẹ</option>
+                            </select>
+                            <select id="tnTaskCatInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-2 py-1.5 text-[11px] font-bold text-gray-700 focus:outline-none">
+                                <option value="work">💼 Công việc</option>
+                                <option value="study">🎓 Học tập ĐHHP</option>
+                                <option value="spy">🕵️ Điệp Viên</option>
+                                <option value="gym">🏋️ Tập luyện</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl p-4 text-center shadow-sm">
-                        <div class="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Đã xong</div>
-                        <div class="text-3xl font-black text-emerald-950 mt-1" id="taskStatCompleted">0</div>
+
+                    <!-- THANH SÀNG LỌC NHIỆM VỤ: ĐÚNG 1 HÀNG NGANG DUY NHẤT VỪA KHÍT TRONG KHUNG -->
+                    <div class="bg-white p-1.5 rounded-2xl border border-gray-200/80 shadow-xs">
+                        <div class="flex items-center gap-1 overflow-x-auto no-scrollbar flex-nowrap text-[11px]">
+                            <button onclick="filterTasks('all')" data-tf="all" id="btnFilterAll" class="tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-black bg-indigo-600 text-white border-0 cursor-pointer transition flex items-center gap-1">
+                                <span>🌟 Tất cả</span>
+                            </button>
+                            <button onclick="filterTasks('pending')" data-tf="pending" id="btnFilterPending" class="tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>⏳ Chưa xong</span>
+                            </button>
+                            <button onclick="filterTasks('today')" data-tf="today" class="tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>📌 Hôm nay</span>
+                            </button>
+                            <button onclick="filterTasks('high')" data-tf="high" class="tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>🔥 Gấp</span>
+                            </button>
+                            <button onclick="filterTasks('completed')" data-tf="completed" id="btnFilterCompleted" class="tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>✅ Đã xong</span>
+                            </button>
+                        </div>
                     </div>
+
+                    <!-- Danh sách Nhiệm Vụ -->
+                    <div class="space-y-2 pb-6" id="taskListContainer"></div>
                 </div>
 
-                <!-- Modern Segmented Filter Tabs -->
-                <div class="flex gap-2 mb-5 p-2 bg-gray-100/90 rounded-2xl border border-gray-200/60">
-                    <button onclick="filterTasks('all')" class="task-filter-btn flex-1 py-3 text-sm font-extrabold rounded-xl transition-all" id="btnFilterAll">Tất cả</button>
-                    <button onclick="filterTasks('pending')" class="task-filter-btn flex-1 py-3 text-sm font-extrabold rounded-xl transition-all" id="btnFilterPending">Chưa xong</button>
-                    <button onclick="filterTasks('completed')" class="task-filter-btn flex-1 py-3 text-sm font-extrabold rounded-xl transition-all" id="btnFilterCompleted">Đã xong</button>
-                </div>
+                <!-- ============================================================== -->
+                <!-- PHÂN KHU 2: SỔ TAY GHI CHÚ NHANH (OFFLINE & CLOUD)             -->
+                <!-- ============================================================== -->
+                <div id="tnSubView_notes" class="hidden space-y-3">
+                    <!-- THANH SÀNG LỌC GHI CHÚ: ĐÚNG 1 HÀNG NGANG DUY NHẤT VỪA KHÍT TRONG KHUNG -->
+                    <div class="bg-white p-1.5 rounded-2xl border border-gray-200/80 shadow-xs">
+                        <div class="flex items-center gap-1 overflow-x-auto no-scrollbar flex-nowrap text-[11px]">
+                            <button onclick="tnFilterNotes('all')" data-nf="all" class="tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-black bg-indigo-600 text-white border-0 cursor-pointer transition flex items-center gap-1">
+                                <span>🗂️ Tất cả</span>
+                            </button>
+                            <button onclick="tnFilterNotes('pinned')" data-nf="pinned" class="tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>📌 Đã ghim</span>
+                            </button>
+                            <button onclick="tnFilterNotes('work')" data-nf="work" class="tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>💡 Công việc</span>
+                            </button>
+                            <button onclick="tnFilterNotes('study')" data-nf="study" class="tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>🎓 Học tập</span>
+                            </button>
+                            <button onclick="tnFilterNotes('spy')" data-nf="spy" class="tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1">
+                                <span>🕵️ Điệp Viên</span>
+                            </button>
+                        </div>
+                    </div>
 
-                <!-- Task List Container -->
-                <div class="space-y-3 pb-8" id="taskListContainer">
-                    <!-- Rendered by JS -->
+                    <!-- Khung Soạn Thảo Ghi Chú Nhanh (Tự động lưu cứng vào PC & Trình duyệt) -->
+                    <div class="bg-white p-3.5 rounded-2xl border border-gray-200/90 shadow-xs space-y-2.5">
+                        <div class="flex items-center gap-1.5">
+                            <input type="text" id="tnNoteTitleInput" oninput="tnAutoSaveDraftNote()"
+                                   placeholder="Tiêu đề ghi chú..."
+                                   class="flex-1 bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs font-extrabold text-gray-900 focus:outline-none">
+                            <select id="tnNoteTagInput" onchange="tnAutoSaveDraftNote()" class="bg-gray-50 border border-gray-200 rounded-xl px-2.5 py-2 text-[11px] font-bold text-gray-700 focus:outline-none shrink-0">
+                                <option value="work">💡 Công việc</option>
+                                <option value="study">🎓 Học tập ĐHHP</option>
+                                <option value="spy">🕵️ Kịch bản ĐV</option>
+                                <option value="personal">🛒 Cá nhân</option>
+                            </select>
+                            <button type="button" id="tnNotePinBtn" onclick="tnToggleEditorPin()" class="w-9 h-9 rounded-xl bg-gray-100 hover:bg-amber-100 text-gray-500 flex items-center justify-center cursor-pointer border-0 shrink-0 transition" title="Ghim ghi chú lên đầu">
+                                <i class="fa-solid fa-thumbtack text-xs"></i>
+                            </button>
+                        </div>
+
+                        <textarea id="tnNoteContentInput" rows="4" oninput="tnAutoSaveDraftNote()"
+                                  placeholder="Viết ghi chú nhanh, ý tưởng kịch bản, lịch học hoặc danh sách việc cần nhớ (Tự động lưu kể cả khi mất mạng)..."
+                                  class="clean-scroll w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl p-3 text-xs font-medium text-gray-800 leading-relaxed focus:outline-none"></textarea>
+
+                        <div class="flex items-center justify-between gap-2 pt-0.5 flex-wrap">
+                            <span id="tnNoteSaveIndicator" class="text-[10.5px] font-bold text-gray-400">
+                                💾 Tự động lưu Offline & Máy tính
+                            </span>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="tnResetNoteEditor()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-bold cursor-pointer border-0">
+                                    Làm mới
+                                </button>
+                                <button type="button" onclick="tnCopyCurrentNote()" class="px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-bold cursor-pointer border-0">
+                                    📋 Copy
+                                </button>
+                                <button type="button" onclick="tnNoteToGoogleCalendar()" class="px-2.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-[11px] font-extrabold cursor-pointer">
+                                    📅 Đặt Lịch GCal
+                                </button>
+                                <button type="button" onclick="tnSaveNoteItem()" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-black cursor-pointer border-0 shadow-xs">
+                                    💾 Lưu Ghi Chú
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danh sách các Ghi Chú đã lưu -->
+                    <div id="tnNotesListContainer" class="space-y-2 pb-6"></div>
                 </div>
             </section>
 
@@ -2376,21 +2546,21 @@
                         </div>
                     </div>
 
-                    <!-- Bộ chọn Nhánh Khẩu Vị trước khi Mở Két -->
-                    <div class="flex flex-wrap items-center gap-1.5 mb-3">
-                        <button onclick="setDwarfChestFilter('all')" data-dcat="all" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition">
+                    <!-- Bộ chọn Nhánh Khẩu Vị trước khi Mở Két (1 hàng ngang gọn gàng) -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-nowrap pb-1 mb-3">
+                        <button onclick="setDwarfChestFilter('all')" data-dcat="all" class="dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition">
                             🎲 Tất cả món (22)
                         </button>
-                        <button onclick="setDwarfChestFilter('hp_specialty')" data-dcat="hp_specialty" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                        <button onclick="setDwarfChestFilter('hp_specialty')" data-dcat="hp_specialty" class="dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
                             🦀 Đặc sản HP
                         </button>
-                        <button onclick="setDwarfChestFilter('rice_noodle')" data-dcat="rice_noodle" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                        <button onclick="setDwarfChestFilter('rice_noodle')" data-dcat="rice_noodle" class="dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
                             🍚 Cơm & Bún Phở
                         </button>
-                        <button onclick="setDwarfChestFilter('snack_tea')" data-dcat="snack_tea" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                        <button onclick="setDwarfChestFilter('snack_tea')" data-dcat="snack_tea" class="dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
                             🧋 Trà Sữa & Dừa Dầm
                         </button>
-                        <button onclick="setDwarfChestFilter('bread_fastfood')" data-dcat="bread_fastfood" class="dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
+                        <button onclick="setDwarfChestFilter('bread_fastfood')" data-dcat="bread_fastfood" class="dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition">
                             🥖 Bánh Mì & Ăn Vặt
                         </button>
                     </div>
@@ -2456,20 +2626,20 @@
                         </select>
                     </div>
 
-                    <div class="flex flex-wrap items-center gap-1.5 text-xs">
-                        <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0">
+                    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-nowrap pb-1 text-xs">
+                        <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0">
                             🌟 Tất cả (8)
                         </button>
-                        <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                        <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
                             🦀 Đặc Sản HP
                         </button>
-                        <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                        <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
                             🍚 Cơm & Bún
                         </button>
-                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
                             🧋 Trà Sữa & Chè
                         </button>
-                        <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                        <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
                             🥖 Bánh Mì & Ăn Vặt
                         </button>
                     </div>
@@ -2494,23 +2664,23 @@
                     <div class="w-10"></div>
                 </div>
 
-                <!-- TABS LỌC NHÓM CƠ (GỌN GÀNG TRONG KHUNG, KHÔNG TRÀN VIỀN) -->
-                <div class="bg-white p-2.5 rounded-2xl border border-gray-200 shadow-xs mb-4">
-                    <div class="flex flex-wrap items-center justify-center gap-2">
-                        <button onclick="filterGymCategory('all')" data-cat="all" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0">
-                            🌟 Tất cả (4 nhóm)
+                <!-- TABS LỌC NHÓM CƠ (ĐÚNG 1 HÀNG NGANG GỌN GÀNG TRONG KHUNG) -->
+                <div class="bg-white p-2 rounded-2xl border border-gray-200 shadow-xs mb-4">
+                    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-nowrap">
+                        <button onclick="filterGymCategory('all')" data-cat="all" class="gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-black text-[11px] sm:text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0">
+                            🌟 Tất cả
                         </button>
-                        <button onclick="filterGymCategory('nguc')" data-cat="nguc" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('nguc')" data-cat="nguc" class="gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-bold text-[11px] sm:text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             💥 Cơ Ngực
                         </button>
-                        <button onclick="filterGymCategory('vai')" data-cat="vai" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('vai')" data-cat="vai" class="gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-bold text-[11px] sm:text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             ⚡ Cơ Vai
                         </button>
-                        <button onclick="filterGymCategory('tay_sau')" data-cat="tay_sau" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
-                            🦾 Cơ Tay Sau
+                        <button onclick="filterGymCategory('tay_sau')" data-cat="tay_sau" class="gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-bold text-[11px] sm:text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                            🦾 Tay Sau
                         </button>
-                        <button onclick="filterGymCategory('lung')" data-cat="lung" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
-                            🛡️ Cơ Lưng / Xô
+                        <button onclick="filterGymCategory('lung')" data-cat="lung" class="gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-bold text-[11px] sm:text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                            🛡️ Lưng / Xô
                         </button>
                     </div>
                 </div>
@@ -2566,30 +2736,30 @@
                             </div>
                         </div>
 
-                        <!-- Hàng Category & Folder Chips cho SFX (Bao gồm Yêu Thích & 5 Thư mục) -->
-                        <div class="flex flex-wrap items-center gap-1.5 mb-3.5 text-xs">
-                            <button onclick="filterSFXCategory('all')" class="sfx-cat-chip active px-3 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm" data-cat="all">
-                                🌐 Tất cả (21)
+                        <!-- Hàng Category & Folder Chips cho SFX: ĐÚNG 1 HÀNG NGANG VỪA KHÍT TRONG KHUNG -->
+                        <div class="flex items-center gap-1 overflow-x-auto pb-1 mb-3.5 no-scrollbar text-[10.5px] flex-nowrap whitespace-nowrap">
+                            <button onclick="filterSFXCategory('all')" class="sfx-cat-chip active flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm flex items-center gap-1" data-cat="all">
+                                <span>🌐 Tất cả</span>
                             </button>
-                            <button onclick="filterSFXCategory('FAVORITES')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-rose-400 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1.5" data-cat="FAVORITES">
+                            <button onclick="filterSFXCategory('FAVORITES')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-rose-400 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="FAVORITES">
                                 <i class="fa-solid fa-heart text-rose-500"></i>
-                                <span>Yêu Thích</span>
-                                <span id="sfxTopFavBadge" class="text-[10px] px-1.5 py-0.2 rounded-full bg-rose-500/20 text-rose-400 font-bold">0</span>
+                                <span>Thích</span>
+                                <span id="sfxTopFavBadge" class="text-[9px] px-1 py-0.2 rounded-full bg-rose-500/20 text-rose-400 font-bold">0</span>
                             </button>
-                            <button onclick="filterSFXCategory('whoosh')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="whoosh">
-                                💨 01_whoosh (6)
+                            <button onclick="filterSFXCategory('whoosh')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="whoosh">
+                                <span>💨 Whoosh</span>
                             </button>
-                            <button onclick="filterSFXCategory('hit')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="hit">
-                                🎯 02_hit (5)
+                            <button onclick="filterSFXCategory('hit')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="hit">
+                                <span>🎯 Hit</span>
                             </button>
-                            <button onclick="filterSFXCategory('click')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="click">
-                                🖱️ 03_click (5)
+                            <button onclick="filterSFXCategory('click')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="click">
+                                <span>🖱️ Click</span>
                             </button>
-                            <button onclick="filterSFXCategory('riser')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="riser">
-                                📈 04_riser (3)
+                            <button onclick="filterSFXCategory('riser')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="riser">
+                                <span>📈 Riser</span>
                             </button>
-                            <button onclick="filterSFXCategory('meme')" class="sfx-cat-chip px-3 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer" data-cat="meme">
-                                🎭 05_glitch (2)
+                            <button onclick="filterSFXCategory('meme')" class="sfx-cat-chip flex-1 justify-center px-1.5 py-1.5 rounded-xl font-bold bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shrink-0 transition cursor-pointer flex items-center gap-1" data-cat="meme">
+                                <span>🎭 Glitch</span>
                             </button>
                         </div>
 
@@ -2658,7 +2828,7 @@
                         </div>
 
                         <!-- Hàng Category Chips cho Nhạc Nền (Phân loại 7 Thể Loại TikTok Chuẩn) -->
-                        <div class="flex flex-wrap items-center gap-1.5 mb-3.5 text-xs">
+                        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 mb-3.5 no-scrollbar text-xs flex-nowrap whitespace-nowrap">
                             <button onclick="filterSbCategory('ALL')" class="bgm-cat-chip active px-3 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm" data-cat="ALL">
                                 🌐 Tất cả (119)
                             </button>
@@ -7769,9 +7939,9 @@
         document.querySelectorAll(".dwarf-cat-btn").forEach(btn => {
             const c = btn.getAttribute("data-dcat");
             if (c === cat) {
-                btn.className = "dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition";
+                btn.className = "dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-black bg-amber-500 text-slate-950 cursor-pointer border-0 transition";
             } else {
-                btn.className = "dwarf-cat-btn px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition";
+                btn.className = "dwarf-cat-btn whitespace-nowrap shrink-0 px-2.5 py-1 rounded-xl text-[11px] font-bold bg-white/10 text-amber-100 hover:bg-white/20 cursor-pointer border-0 transition";
             }
         });
         const resBox = document.getElementById("dwarfChestResultBox");
@@ -8032,9 +8202,9 @@
         document.querySelectorAll(".food-cat-btn").forEach(btn => {
             const c = btn.getAttribute("data-cat");
             if (c === cat) {
-                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0";
+                btn.className = "food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0";
             } else {
-                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
+                btn.className = "food-cat-btn whitespace-nowrap shrink-0 px-3 py-1.5 rounded-xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
             }
         });
         renderFoodGoogleMap();
@@ -8743,7 +8913,7 @@
             };
         }
 
-        // Ghi đè filterGymCategory để nút lọc bài tập gọn, không bị tràn viền hay cắt bóng
+        // Ghi đè filterGymCategory để nút lọc bài tập nằm gọn 1 hàng duy nhất, không xuống dòng
         window.filterGymCategory = function(cat) {
             if (typeof currentGymCategory !== "undefined") {
                 currentGymCategory = cat;
@@ -8751,9 +8921,9 @@
             document.querySelectorAll(".gym-cat-btn").forEach(btn => {
                 const btnCat = btn.getAttribute("data-cat");
                 if (btnCat === cat) {
-                    btn.className = "gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0";
+                    btn.className = "gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-black text-[11px] sm:text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0";
                 } else {
-                    btn.className = "gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400";
+                    btn.className = "gym-cat-btn whitespace-nowrap shrink-0 flex-1 px-2.5 py-2 rounded-xl font-bold text-[11px] sm:text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400";
                 }
             });
             if (typeof renderGymWorkout === "function") {
@@ -9159,7 +9329,7 @@
                         : "text-gray-600 hover:text-gray-900 font-bold bg-transparent";
                     segTabsHtml += `
                         <button onclick="dvSelectMetaMaxChannel(${idx})"
-                                class="min-w-[92px] flex-1 py-2 px-2 text-xs rounded-xl cursor-pointer border-0 transition flex items-center justify-center gap-1.5 ${cls}">
+                                class="flex-1 py-2 px-1.5 text-[11px] sm:text-xs rounded-xl cursor-pointer border-0 transition flex items-center justify-center gap-1 whitespace-nowrap shrink-0 ${cls}">
                             ${chLogoHtml}
                             <span class="whitespace-nowrap">${shortTabs[idx] || ('Kênh ' + (idx + 1))}</span>
                         </button>
@@ -9230,7 +9400,7 @@
                         <div class="w-11 shrink-0"></div>
                     </div>
 
-                    <div class="flex flex-wrap gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
+                    <div class="flex items-center gap-1 overflow-x-auto no-scrollbar flex-nowrap mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
                         ${segTabsHtml}
                     </div>
 
@@ -9948,6 +10118,705 @@
         });
 
         setInterval(dvPollState, 3500);
+    })();
+    </script>
+
+
+    <!-- HỆ THỐNG NHIỆM VỤ (GOOGLE CALENDAR) + SỔ TAY GHI CHÚ + CHẠY OFFLINE 100% TRÊN MÁY TÍNH -->
+    <script>
+    (function() {
+        const TN_TASKS_KEY = "QL_TASKS";
+        const TN_NOTES_KEY = "TCCM_WORK_NOTES_V1";
+        let tnActiveSubTab = "tasks";
+        let tnTaskFilter = "all";
+        let tnNoteFilter = "all";
+        let tnEditingNoteId = null;
+        let tnEditorPinned = false;
+        let tnDeferredInstallPrompt = null;
+
+        const DEFAULT_NOTES = [
+            {
+                id: "note_dhhp_1",
+                title: "Lịch trình & Mục tiêu TCCM WORK tuần này",
+                content: "- Hoàn thiện slide thuyết trình ĐH Hải Phòng (171 Phan Đăng Lưu).\n- Sản xuất & hẹn giờ đăng video 5 kênh Điệp Viên lúc 20:00.\n- Tập thể hình đủ 4 nhóm cơ: Ngực, Vai, Tay Sau, Lưng Xô.",
+                tag: "work",
+                pinned: true,
+                updatedAt: new Date().toISOString()
+            },
+            {
+                id: "note_spy_2",
+                title: "🕵️ Khung giờ vàng đăng bài 5 kênh Điệp Viên",
+                content: "1. Điệp Viên Social: 12:00 & 20:00\n2. Điệp Viên Tài Liệu: 19:30 & 21:00\n3. Điệp Viên Tarot: 21:30 & 22:30\n4. Điệp Viên Quà Tặng: 18:00 & 20:30\n5. Điệp Viên Ăn Vặt: 11:30 & 19:00",
+                tag: "spy",
+                pinned: false,
+                updatedAt: new Date().toISOString()
+            }
+        ];
+
+        function getTodayIsoDate() {
+            const d = new Date();
+            const yyyy = d.getFullYear();
+            const mm = String(d.getMonth() + 1).padStart(2, "0");
+            const dd = String(d.getDate()).padStart(2, "0");
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        function getOfflineApiUrl() {
+            const h = window.location.hostname || "";
+            if (window.location.port === "8899" || h === "127.0.0.1" || h === "localhost") {
+                return "/api/offline_db";
+            }
+            return "http://127.0.0.1:8899/api/offline_db";
+        }
+
+        function loadNotesLocal() {
+            try {
+                const raw = localStorage.getItem(TN_NOTES_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                }
+            } catch (e) {}
+            localStorage.setItem(TN_NOTES_KEY, JSON.stringify(DEFAULT_NOTES));
+            return [...DEFAULT_NOTES];
+        }
+
+        let tnNotes = loadNotesLocal();
+
+        function ensureTasksInitialized() {
+            if (typeof state !== "undefined" && Array.isArray(state.tasks)) {
+                state.tasks.forEach(t => {
+                    if (!t.priority) t.priority = "normal";
+                    if (!t.category) t.category = "work";
+                    if (!t.time) t.time = "08:00";
+                    if (!t.dueDate && t.deadline) t.dueDate = String(t.deadline).slice(0, 10);
+                    if (!t.dueDate) t.dueDate = getTodayIsoDate();
+                });
+                return state.tasks;
+            }
+            return [];
+        }
+
+        async function syncWithPcOfflineDb(pushToServer = false) {
+            const badge = document.getElementById("tnOfflineSyncStatus");
+            const tasksArr = ensureTasksInitialized();
+            try {
+                if (pushToServer) {
+                    await fetch(getOfflineApiUrl(), {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            tasks: tasksArr,
+                            notes: tnNotes
+                        })
+                    });
+                    if (badge) {
+                        badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Đã đồng bộ Ổ cứng PC</span>`;
+                    }
+                } else {
+                    const res = await fetch(getOfflineApiUrl(), { cache: "no-store" });
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (Array.isArray(data.notes) && data.notes.length > 0 && (!localStorage.getItem(TN_NOTES_KEY))) {
+                            tnNotes = data.notes;
+                            localStorage.setItem(TN_NOTES_KEY, JSON.stringify(tnNotes));
+                        }
+                        if (Array.isArray(data.tasks) && data.tasks.length > 0 && typeof state !== "undefined") {
+                            state.tasks = data.tasks;
+                            localStorage.setItem(TN_TASKS_KEY, JSON.stringify(state.tasks));
+                        }
+                        if (badge) {
+                            badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Đã kết nối Phần mềm PC</span>`;
+                        }
+                    }
+                }
+            } catch (e) {
+                if (badge) {
+                    badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span>Lưu Offline Trình duyệt</span>`;
+                }
+            }
+        }
+
+        function saveAllTasksAndNotes() {
+            const tasksArr = ensureTasksInitialized();
+            try {
+                localStorage.setItem(TN_TASKS_KEY, JSON.stringify(tasksArr));
+                localStorage.setItem(TN_NOTES_KEY, JSON.stringify(tnNotes));
+            } catch (e) {}
+            syncWithPcOfflineDb(true);
+            updateTasksNotesBadges();
+        }
+
+        function updateTasksNotesBadges() {
+            const tasksArr = ensureTasksInitialized();
+            const pendingCnt = tasksArr.filter(t => !t.completed).length;
+            const bTask = document.getElementById("tnBadgeTasksCount");
+            const bNote = document.getElementById("tnBadgeNotesCount");
+            if (bTask) bTask.textContent = String(tasksArr.length);
+            if (bNote) bNote.textContent = String(tnNotes.length);
+
+            const stTotal = document.getElementById("taskStatTotal");
+            const stPend = document.getElementById("taskStatPending");
+            const stComp = document.getElementById("taskStatCompleted");
+            if (stTotal) stTotal.textContent = String(tasksArr.length);
+            if (stPend) stPend.textContent = String(pendingCnt);
+            if (stComp) stComp.textContent = String(tasksArr.length - pendingCnt);
+        }
+
+        // Mở Chế Độ Nhiệm Vụ & Ghi Chú trực tiếp từ Header hoặc Cài Đặt
+        window.openTasksNotesMode = function(initialTab) {
+            if (typeof dvStopAllAudioPlayers === "function") dvStopAllAudioPlayers();
+            if (typeof showScreen === "function") showScreen("thuquy");
+            if (typeof switchView === "function") switchView("viewTasks");
+            if (initialTab) switchTasksNotesSubTab(initialTab);
+            else renderTaskList();
+        };
+
+        window.switchTasksNotesSubTab = function(tab) {
+            tnActiveSubTab = (tab === "notes") ? "notes" : "tasks";
+            const pTasks = document.getElementById("tnSubView_tasks");
+            const pNotes = document.getElementById("tnSubView_notes");
+            const bTasks = document.getElementById("tnTabBtn_tasks");
+            const bNotes = document.getElementById("tnTabBtn_notes");
+
+            if (tnActiveSubTab === "tasks") {
+                if (pTasks) pTasks.classList.remove("hidden");
+                if (pNotes) pNotes.classList.add("hidden");
+                if (bTasks) bTasks.className = "flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0";
+                if (bNotes) bNotes.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0";
+                renderTaskList();
+            } else {
+                if (pTasks) pTasks.classList.add("hidden");
+                if (pNotes) pNotes.classList.remove("hidden");
+                if (bNotes) bNotes.className = "flex-1 py-2.5 px-3 rounded-xl font-black text-xs transition bg-indigo-600 text-white shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0";
+                if (bTasks) bTasks.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition bg-transparent text-gray-600 hover:text-gray-900 flex items-center justify-center gap-1.5 cursor-pointer border-0 whitespace-nowrap shrink-0";
+                tnRenderNotesList();
+            }
+        };
+
+        // Tạo URL Google Calendar điền sẵn Tiêu đề, Ngày Giờ và Chi tiết
+        function buildGoogleCalendarUrl(title, dateStr, timeStr, detailsStr) {
+            const cleanDate = (dateStr || getTodayIsoDate()).replace(/-/g, "");
+            const cleanTime = (timeStr || "08:00").replace(":", "");
+            const startHour = parseInt(cleanTime.slice(0, 2) || "8", 10);
+            const startMin = cleanTime.slice(2, 4) || "00";
+            const endHour = String(Math.min(startHour + 1, 23)).padStart(2, "0");
+            const startIso = `${cleanDate}T${String(startHour).padStart(2, "0")}${startMin}00`;
+            const endIso = `${cleanDate}T${endHour}${startMin}00`;
+
+            const params = new URLSearchParams({
+                action: "TEMPLATE",
+                text: `[TCCM WORK] ${title}`,
+                dates: `${startIso}/${endIso}`,
+                details: `${detailsStr || "Nhiệm vụ từ hệ thống TCCM WORK"}\n- Trường Đại học Hải Phòng (171 Phan Đăng Lưu, Kiến An)`,
+                location: "Đại học Hải Phòng, 171 Phan Đăng Lưu, Kiến An, Hải Phòng"
+            });
+            return `https://calendar.google.com/calendar/render?${params.toString()}`;
+        }
+
+        window.tnOpenTaskInGoogleCalendar = function(taskId) {
+            const tasksArr = ensureTasksInitialized();
+            const t = tasksArr.find(x => String(x.id) === String(taskId));
+            if (!t) return;
+            const url = buildGoogleCalendarUrl(t.title, t.dueDate || t.deadline, t.time || "08:00", t.description || t.assignee || "");
+            window.open(url, "_blank");
+            if (typeof showToast === "function") showToast("📅 Đã mở Google Calendar kèm sẵn thông tin nhiệm vụ!", "success");
+        };
+
+        window.tnQuickAddTask = function(openGCalImmediately) {
+            const titleEl = document.getElementById("tnTaskTitleInput");
+            const dateEl = document.getElementById("tnTaskDateInput");
+            const timeEl = document.getElementById("tnTaskTimeInput");
+            const prioEl = document.getElementById("tnTaskPriorityInput");
+            const catEl = document.getElementById("tnTaskCatInput");
+
+            const title = titleEl ? titleEl.value.trim() : "";
+            if (!title) {
+                if (typeof showToast === "function") showToast("Vui lòng nhập tên nhiệm vụ!", "warning");
+                if (titleEl) titleEl.focus();
+                return;
+            }
+            const dueDate = (dateEl && dateEl.value) ? dateEl.value : getTodayIsoDate();
+            const timeVal = (timeEl && timeEl.value) ? timeEl.value : "08:00";
+            const prioVal = (prioEl && prioEl.value) ? prioEl.value : "normal";
+            const catVal = (catEl && catEl.value) ? catEl.value : "work";
+
+            const newTask = {
+                id: "task_" + Date.now(),
+                title: title,
+                dueDate: dueDate,
+                deadline: dueDate,
+                time: timeVal,
+                priority: prioVal,
+                category: catVal,
+                completed: false,
+                createdAt: new Date().toISOString()
+            };
+
+            const tasksArr = ensureTasksInitialized();
+            tasksArr.unshift(newTask);
+            if (titleEl) titleEl.value = "";
+            saveAllTasksAndNotes();
+            renderTaskList();
+
+            if (openGCalImmediately) {
+                const url = buildGoogleCalendarUrl(title, dueDate, timeVal, `Phân loại: ${catVal.toUpperCase()} | Mức độ: ${prioVal.toUpperCase()}`);
+                window.open(url, "_blank");
+                if (typeof showToast === "function") showToast("📅 Đã thêm nhiệm vụ & mở Google Calendar đặt lịch!", "success");
+            } else {
+                if (typeof showToast === "function") showToast("✅ Đã thêm nhiệm vụ mới!", "success");
+            }
+        };
+
+        window.filterTasks = function(filterKey) {
+            tnTaskFilter = filterKey || "all";
+            if (typeof state !== "undefined") state.taskFilter = tnTaskFilter;
+            document.querySelectorAll(".tn-task-filter-btn").forEach(btn => {
+                const f = btn.getAttribute("data-tf");
+                if (f === tnTaskFilter) {
+                    btn.className = "tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-black bg-indigo-600 text-white border-0 cursor-pointer transition flex items-center gap-1";
+                } else {
+                    btn.className = "tn-task-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1";
+                }
+            });
+            renderTaskList();
+        };
+
+        window.tnToggleTaskDone = function(taskId) {
+            const tasksArr = ensureTasksInitialized();
+            const t = tasksArr.find(x => String(x.id) === String(taskId));
+            if (!t) return;
+            t.completed = !t.completed;
+            saveAllTasksAndNotes();
+            renderTaskList();
+            if (t.completed && typeof confetti === "function") {
+                confetti({ particleCount: 25, spread: 50, origin: { y: 0.7 } });
+            }
+        };
+
+        window.tnDeleteTask = function(taskId) {
+            if (typeof state === "undefined" || !Array.isArray(state.tasks)) return;
+            state.tasks = state.tasks.filter(x => String(x.id) !== String(taskId));
+            saveAllTasksAndNotes();
+            renderTaskList();
+            if (typeof showToast === "function") showToast("🗑️ Đã xóa nhiệm vụ", "info");
+        };
+
+        window.renderTaskList = function() {
+            const container = document.getElementById("taskListContainer");
+            const dateInput = document.getElementById("tnTaskDateInput");
+            if (dateInput && !dateInput.value) dateInput.value = getTodayIsoDate();
+            updateTasksNotesBadges();
+            if (!container) return;
+
+            const tasksArr = ensureTasksInitialized();
+            const todayStr = getTodayIsoDate();
+
+            const filtered = tasksArr.filter(t => {
+                if (tnTaskFilter === "pending") return !t.completed;
+                if (tnTaskFilter === "completed") return !!t.completed;
+                if (tnTaskFilter === "today") return (t.dueDate || t.deadline || "").slice(0, 10) === todayStr;
+                if (tnTaskFilter === "high") return t.priority === "high";
+                if (["work", "study", "spy", "gym"].includes(tnTaskFilter)) return t.category === tnTaskFilter;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl p-6 text-center border border-gray-200/80">
+                        <div class="text-2xl mb-1.5">📅</div>
+                        <div class="text-xs font-extrabold text-gray-700">Chưa có nhiệm vụ nào trong mục này</div>
+                        <div class="text-[11px] text-gray-400 mt-0.5">Hãy nhập nhiệm vụ ở khung phía trên hoặc đặt lịch Google Calendar</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const prioBadges = {
+                high: `<span class="text-[10px] font-black px-2 py-0.5 rounded-md bg-rose-50 text-rose-600 border border-rose-200">🔥 Gấp</span>`,
+                normal: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 border border-indigo-200">⚡ Thường</span>`,
+                low: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-600 border border-emerald-200">🌱 Nhẹ</span>`
+            };
+            const catBadges = {
+                work: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-gray-100 text-gray-700">💼 Công việc</span>`,
+                study: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">🎓 Học tập</span>`,
+                spy: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700">🕵️ Điệp Viên</span>`,
+                gym: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-cyan-50 text-cyan-700">🏋️ Tập luyện</span>`
+            };
+
+            container.innerHTML = filtered.map(t => {
+                const dStr = (t.dueDate || t.deadline || todayStr).slice(0, 10);
+                const tmStr = t.time || "08:00";
+                const pBadge = prioBadges[t.priority] || prioBadges.normal;
+                const cBadge = catBadges[t.category] || catBadges.work;
+                return `
+                    <div class="bg-white p-3 rounded-2xl border ${t.completed ? 'border-emerald-200 bg-emerald-50/20 opacity-75' : 'border-gray-200/90'} shadow-xs flex items-center justify-between gap-2.5 transition">
+                        <div class="flex items-start gap-2.5 min-w-0 flex-1">
+                            <button onclick="tnToggleTaskDone('${t.id}')"
+                                    class="w-6 h-6 mt-0.5 rounded-lg flex items-center justify-center cursor-pointer border-2 transition shrink-0 ${t.completed ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-white border-gray-300 hover:border-indigo-500 text-transparent'}">
+                                <i class="fa-solid fa-check text-[10px]"></i>
+                            </button>
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-extrabold ${t.completed ? 'line-through text-gray-400' : 'text-gray-900'} leading-snug break-words">${t.title}</div>
+                                <div class="flex items-center gap-1.5 mt-1.5 overflow-x-auto no-scrollbar flex-nowrap">
+                                    <span class="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md whitespace-nowrap shrink-0">
+                                        🕒 ${tmStr} · ${dStr}
+                                    </span>
+                                    ${pBadge}
+                                    ${cBadge}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button onclick="tnOpenTaskInGoogleCalendar('${t.id}')"
+                                    class="px-2.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-[10.5px] font-extrabold cursor-pointer flex items-center gap-1"
+                                    title="Đặt lịch hẹn lên Google Calendar">
+                                <i class="fa-regular fa-calendar-check"></i>
+                                <span class="hidden sm:inline">GCal</span>
+                            </button>
+                            <button onclick="tnDeleteTask('${t.id}')"
+                                    class="w-7 h-7 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center cursor-pointer border-0"
+                                    title="Xóa nhiệm vụ">
+                                <i class="fa-regular fa-trash-can text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        };
+
+        // Xuất toàn bộ Nhiệm Vụ ra file lịch chuẩn .ics (dùng được cho cả Google Calendar, Apple Calendar & Outlook PC khi Offline)
+        window.tnExportAllToICS = function() {
+            const tasksArr = ensureTasksInitialized();
+            if (tasksArr.length === 0) {
+                if (typeof showToast === "function") showToast("Chưa có nhiệm vụ để xuất lịch!", "warning");
+                return;
+            }
+            const lines = [
+                "BEGIN:VCALENDAR",
+                "VERSION:2.0",
+                "PRODID:-//TCCM WORK//Google Calendar & Offline Sync//VI",
+                "CALSCALE:GREGORIAN",
+                "METHOD:PUBLISH"
+            ];
+            tasksArr.forEach(t => {
+                const cleanDate = (t.dueDate || t.deadline || getTodayIsoDate()).slice(0, 10).replace(/-/g, "");
+                const cleanTime = (t.time || "08:00").replace(":", "");
+                const startH = String(parseInt(cleanTime.slice(0, 2) || "8", 10)).padStart(2, "0");
+                const startM = cleanTime.slice(2, 4) || "00";
+                const endH = String(Math.min(parseInt(startH, 10) + 1, 23)).padStart(2, "0");
+                lines.push("BEGIN:VEVENT");
+                lines.push(`UID:${t.id}@tccmwork.local`);
+                lines.push(`DTSTART:${cleanDate}T${startH}${startM}00`);
+                lines.push(`DTEND:${cleanDate}T${endH}${startM}00`);
+                lines.push(`SUMMARY:[TCCM WORK] ${t.title}`);
+                lines.push(`DESCRIPTION:Phân loại: ${t.category || 'work'} - Trạng thái: ${t.completed ? 'Đã xong' : 'Chưa xong'}`);
+                lines.push("LOCATION:Đại học Hải Phòng - 171 Phan Đăng Lưu, Kiến An");
+                lines.push("END:VEVENT");
+            });
+            lines.push("END:VCALENDAR");
+            const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Lich_Nhiem_Vu_TCCM_WORK.ics";
+            a.click();
+            if (typeof showToast === "function") showToast("📥 Đã tải file lịch .ics (Mở trực tiếp trên Lịch Máy Tính / Google Calendar)!", "success");
+        };
+
+        // =====================================================================
+        // SỔ TAY GHI CHÚ (OFFLINE-FIRST + CHUYỂN THÀNH LỊCH GOOGLE CALENDAR)
+        // =====================================================================
+        window.tnFilterNotes = function(filterKey) {
+            tnNoteFilter = filterKey || "all";
+            document.querySelectorAll(".tn-note-filter-btn").forEach(btn => {
+                const f = btn.getAttribute("data-nf");
+                if (f === tnNoteFilter) {
+                    btn.className = "tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-black bg-indigo-600 text-white border-0 cursor-pointer transition flex items-center gap-1";
+                } else {
+                    btn.className = "tn-note-filter-btn flex-1 justify-center whitespace-nowrap shrink-0 px-2 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 cursor-pointer transition flex items-center gap-1";
+                }
+            });
+            tnRenderNotesList();
+        };
+
+        window.tnToggleEditorPin = function() {
+            tnEditorPinned = !tnEditorPinned;
+            const btn = document.getElementById("tnNotePinBtn");
+            if (btn) {
+                btn.className = tnEditorPinned
+                    ? "w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center cursor-pointer border-0 shrink-0 transition shadow-xs"
+                    : "w-9 h-9 rounded-xl bg-gray-100 hover:bg-amber-100 text-gray-500 flex items-center justify-center cursor-pointer border-0 shrink-0 transition";
+            }
+        };
+
+        window.tnAutoSaveDraftNote = function() {
+            const titleEl = document.getElementById("tnNoteTitleInput");
+            const contentEl = document.getElementById("tnNoteContentInput");
+            const tagEl = document.getElementById("tnNoteTagInput");
+            const ind = document.getElementById("tnNoteSaveIndicator");
+            if (!titleEl || !contentEl) return;
+
+            if (tnEditingNoteId) {
+                const existing = tnNotes.find(n => n.id === tnEditingNoteId);
+                if (existing) {
+                    existing.title = titleEl.value.trim() || "Ghi chú không tiêu đề";
+                    existing.content = contentEl.value;
+                    existing.tag = tagEl ? tagEl.value : "work";
+                    existing.pinned = tnEditorPinned;
+                    existing.updatedAt = new Date().toISOString();
+                    saveAllTasksAndNotes();
+                    tnRenderNotesList();
+                }
+            }
+            if (ind) {
+                ind.textContent = "💾 Đã tự động lưu lúc " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+            }
+        };
+
+        window.tnSaveNoteItem = function() {
+            const titleEl = document.getElementById("tnNoteTitleInput");
+            const contentEl = document.getElementById("tnNoteContentInput");
+            const tagEl = document.getElementById("tnNoteTagInput");
+            const title = titleEl ? titleEl.value.trim() : "";
+            const content = contentEl ? contentEl.value.trim() : "";
+            const tag = tagEl ? tagEl.value : "work";
+
+            if (!title && !content) {
+                if (typeof showToast === "function") showToast("Hãy nhập nội dung ghi chú!", "warning");
+                return;
+            }
+
+            if (tnEditingNoteId) {
+                const existing = tnNotes.find(n => n.id === tnEditingNoteId);
+                if (existing) {
+                    existing.title = title || content.slice(0, 45);
+                    existing.content = content;
+                    existing.tag = tag;
+                    existing.pinned = tnEditorPinned;
+                    existing.updatedAt = new Date().toISOString();
+                }
+            } else {
+                tnNotes.unshift({
+                    id: "note_" + Date.now(),
+                    title: title || content.slice(0, 45),
+                    content: content,
+                    tag: tag,
+                    pinned: tnEditorPinned,
+                    updatedAt: new Date().toISOString()
+                });
+            }
+            tnResetNoteEditor();
+            saveAllTasksAndNotes();
+            tnRenderNotesList();
+            if (typeof showToast === "function") showToast("💾 Đã lưu ghi chú vào bộ nhớ Offline & PC!", "success");
+        };
+
+        window.tnResetNoteEditor = function() {
+            tnEditingNoteId = null;
+            tnEditorPinned = false;
+            const titleEl = document.getElementById("tnNoteTitleInput");
+            const contentEl = document.getElementById("tnNoteContentInput");
+            if (titleEl) titleEl.value = "";
+            if (contentEl) contentEl.value = "";
+            const btn = document.getElementById("tnNotePinBtn");
+            if (btn) btn.className = "w-9 h-9 rounded-xl bg-gray-100 hover:bg-amber-100 text-gray-500 flex items-center justify-center cursor-pointer border-0 shrink-0 transition";
+        };
+
+        window.tnEditNote = function(noteId) {
+            const n = tnNotes.find(x => x.id === noteId);
+            if (!n) return;
+            tnEditingNoteId = n.id;
+            tnEditorPinned = !!n.pinned;
+            const titleEl = document.getElementById("tnNoteTitleInput");
+            const contentEl = document.getElementById("tnNoteContentInput");
+            const tagEl = document.getElementById("tnNoteTagInput");
+            if (titleEl) titleEl.value = n.title || "";
+            if (contentEl) {
+                contentEl.value = n.content || "";
+                contentEl.focus();
+            }
+            if (tagEl && n.tag) tagEl.value = n.tag;
+            const btn = document.getElementById("tnNotePinBtn");
+            if (btn) {
+                btn.className = tnEditorPinned
+                    ? "w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center cursor-pointer border-0 shrink-0 transition shadow-xs"
+                    : "w-9 h-9 rounded-xl bg-gray-100 hover:bg-amber-100 text-gray-500 flex items-center justify-center cursor-pointer border-0 shrink-0 transition";
+            }
+        };
+
+        window.tnToggleNotePinById = function(noteId) {
+            const n = tnNotes.find(x => x.id === noteId);
+            if (!n) return;
+            n.pinned = !n.pinned;
+            saveAllTasksAndNotes();
+            tnRenderNotesList();
+        };
+
+        window.tnDeleteNoteById = function(noteId) {
+            tnNotes = tnNotes.filter(x => x.id !== noteId);
+            if (tnEditingNoteId === noteId) tnResetNoteEditor();
+            saveAllTasksAndNotes();
+            tnRenderNotesList();
+            if (typeof showToast === "function") showToast("🗑️ Đã xóa ghi chú", "info");
+        };
+
+        window.tnCopyCurrentNote = function() {
+            const titleEl = document.getElementById("tnNoteTitleInput");
+            const contentEl = document.getElementById("tnNoteContentInput");
+            const txt = [titleEl ? titleEl.value : "", contentEl ? contentEl.value : ""].filter(Boolean).join("\n\n");
+            if (!txt) return;
+            navigator.clipboard.writeText(txt);
+            if (typeof showToast === "function") showToast("📋 Đã copy nội dung ghi chú!", "success");
+        };
+
+        window.tnCopyNoteById = function(noteId) {
+            const n = tnNotes.find(x => x.id === noteId);
+            if (!n) return;
+            navigator.clipboard.writeText(`${n.title}\n\n${n.content}`);
+            if (typeof showToast === "function") showToast("📋 Đã copy ghi chú!", "success");
+        };
+
+        window.tnNoteToGoogleCalendar = function(noteId) {
+            let title = "";
+            let content = "";
+            if (noteId) {
+                const n = tnNotes.find(x => x.id === noteId);
+                if (n) { title = n.title; content = n.content; }
+            } else {
+                const titleEl = document.getElementById("tnNoteTitleInput");
+                const contentEl = document.getElementById("tnNoteContentInput");
+                title = titleEl ? titleEl.value.trim() : "";
+                content = contentEl ? contentEl.value.trim() : "";
+            }
+            if (!title && !content) {
+                if (typeof showToast === "function") showToast("Hãy nhập nội dung ghi chú trước khi đặt lịch!", "warning");
+                return;
+            }
+            const url = buildGoogleCalendarUrl(title || content.slice(0, 40), getTodayIsoDate(), "09:00", content);
+            window.open(url, "_blank");
+            if (typeof showToast === "function") showToast("📅 Đã chuyển ghi chú sang lịch Google Calendar!", "success");
+        };
+
+        window.tnRenderNotesList = function() {
+            const container = document.getElementById("tnNotesListContainer");
+            updateTasksNotesBadges();
+            if (!container) return;
+
+            const filtered = tnNotes
+                .filter(n => {
+                    if (tnNoteFilter === "pinned") return !!n.pinned;
+                    if (["work", "study", "spy", "personal"].includes(tnNoteFilter)) return n.tag === tnNoteFilter;
+                    return true;
+                })
+                .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl p-6 text-center border border-gray-200/80">
+                        <div class="text-2xl mb-1.5">📝</div>
+                        <div class="text-xs font-extrabold text-gray-700">Chưa có ghi chú nào trong mục này</div>
+                    </div>
+                `;
+                return;
+            }
+
+            const tagLabels = {
+                work: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700">💡 Công việc</span>`,
+                study: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">🎓 Học tập ĐHHP</span>`,
+                spy: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700">🕵️ Kịch bản ĐV</span>`,
+                personal: `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700">🛒 Cá nhân</span>`
+            };
+
+            container.innerHTML = filtered.map(n => {
+                const tBadge = tagLabels[n.tag] || tagLabels.work;
+                const dText = n.updatedAt ? new Date(n.updatedAt).toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }) : "";
+                return `
+                    <div class="bg-white p-3.5 rounded-2xl border ${n.pinned ? 'border-amber-300 bg-amber-50/10' : 'border-gray-200/90'} shadow-xs space-y-2 transition">
+                        <div class="flex items-start justify-between gap-2">
+                            <div onclick="tnEditNote('${n.id}')" class="min-w-0 flex-1 cursor-pointer">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    ${n.pinned ? '<span class="text-[10px] font-black text-amber-600">📌</span>' : ''}
+                                    <h4 class="text-xs font-black text-gray-900 truncate">${n.title}</h4>
+                                </div>
+                                <p class="text-[11.5px] text-gray-600 font-medium mt-1 whitespace-pre-line line-clamp-3 leading-relaxed">${n.content}</p>
+                            </div>
+                            <div class="flex items-center gap-1 shrink-0">
+                                <button onclick="tnToggleNotePinById('${n.id}')" class="w-7 h-7 rounded-lg ${n.pinned ? 'bg-amber-500 text-white' : 'bg-gray-100 text-gray-500'} flex items-center justify-center cursor-pointer border-0" title="Ghim">
+                                    <i class="fa-solid fa-thumbtack text-[10px]"></i>
+                                </button>
+                                <button onclick="tnCopyNoteById('${n.id}')" class="w-7 h-7 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center cursor-pointer border-0" title="Copy">
+                                    <i class="fa-regular fa-copy text-[10px]"></i>
+                                </button>
+                                <button onclick="tnNoteToGoogleCalendar('${n.id}')" class="w-7 h-7 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-600 flex items-center justify-center cursor-pointer border-0" title="Đặt lịch Google Calendar">
+                                    <i class="fa-regular fa-calendar-plus text-[10px]"></i>
+                                </button>
+                                <button onclick="tnDeleteNoteById('${n.id}')" class="w-7 h-7 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center cursor-pointer border-0" title="Xóa">
+                                    <i class="fa-regular fa-trash-can text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-1.5 border-t border-gray-100 text-[10px] text-gray-400 font-semibold">
+                            <div>${tBadge}</div>
+                            <span>Cập nhật: ${dText}</span>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        };
+
+        // =====================================================================
+        // PHẦN MỀM MÁY TÍNH (DESKTOP APP) & KẾT NỐI OFFLINE 100%
+        // =====================================================================
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            tnDeferredInstallPrompt = e;
+        });
+
+        window.openDesktopAppWindow = async function() {
+            if (tnDeferredInstallPrompt) {
+                tnDeferredInstallPrompt.prompt();
+                return;
+            }
+            try {
+                const apiBase = (window.location.port === "8899" || window.location.hostname === "127.0.0.1")
+                    ? ""
+                    : "http://127.0.0.1:8899";
+                const res = await fetch(`${apiBase}/api/open_desktop_app`, { method: "POST" });
+                if (res.ok) {
+                    if (typeof showToast === "function") showToast("🖥️ Đã mở Phần mềm TCCM WORK trực tiếp trên Máy Tính!", "success");
+                    return;
+                }
+            } catch (e) {}
+            if (typeof showToast === "function") {
+                showToast("💡 Đã tạo biểu tượng 'TCCM WORK' ngoài Màn hình Desktop máy tính của bạn!", "info");
+            }
+        };
+
+        // Hỗ trợ lăn chuột ngang mượt mà trên mọi thanh sàng lọc 1 hàng (PC & Mobile)
+        function enableSingleRowWheelScroll() {
+            document.addEventListener("wheel", function(e) {
+                const bar = e.target.closest(".overflow-x-auto.flex-nowrap");
+                if (bar && bar.scrollWidth > bar.clientWidth && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                    bar.scrollLeft += e.deltaY;
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        }
+
+        // Đăng ký Service Worker để hoạt động 100% kể cả khi mất mạng
+        if ("serviceWorker" in navigator && (window.location.protocol === "http:" || window.location.protocol === "https:")) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("sw.js").catch(() => {});
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            enableSingleRowWheelScroll();
+            syncWithPcOfflineDb(false).then(() => {
+                updateTasksNotesBadges();
+                renderTaskList();
+            });
+        });
     })();
     </script>
 
