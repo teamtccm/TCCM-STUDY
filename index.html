@@ -30,7 +30,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công Việc Hằng Ngày — Hệ Thống Quản Lý Thông Minh & Thể Thao</title>
+    <title>Quản Lý Lớp — Hệ Thống Quản Lý & Trạm Điều Khiển Điệp Viên</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Be+Vietnam+Pro:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
@@ -1618,7 +1618,7 @@
     <div id="persistentGameBackBtn" class="fixed top-4 left-4 z-[9999] hidden">
         <button onclick="selectGameMode('thuquy', false)" class="px-4 py-2.5 rounded-2xl bg-white/95 hover:bg-white text-gray-900 font-black text-xs shadow-2xl backdrop-blur-md border border-white/80 flex items-center gap-2 transition-all active:scale-95 cursor-pointer hover:shadow-indigo-300/50">
             <i class="fa-solid fa-arrow-left text-sm text-indigo-600"></i>
-            <span>Về Công Việc Hằng Ngày</span>
+            <span>Về Quản Lý Lớp</span>
         </button>
     </div>
 
@@ -1878,11 +1878,11 @@
         <div class="setting-sub">LỰA CHỌN KHÔNG GIAN TRẢI NGHIỆM ĐỘC QUYỀN TRÊN TCCM.ONLINE</div>
 
         <div class="mode-list">
-            <!-- CHẾ ĐỘ 1: CÔNG VIỆC HẰNG NGÀY & THU QUỸ (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
+            <!-- CHẾ ĐỘ 1: QUẢN LÝ LỚP & THU QUỸ (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
             <div class="mode-card" id="modeCardThuQuy" onclick="selectGameMode('thuquy')" style="border:2px solid #6366F1;background:rgba(20,20,50,0.9);box-shadow:0 0 25px rgba(99,102,241,0.4);">
                 <div class="mode-info">
-                    <div class="mode-name" style="color:#818CF8;text-shadow:0 0 12px #6366F1;">💼 CHẾ ĐỘ CÔNG VIỆC HẰNG NGÀY & THU QUỸ (CHÍNH)</div>
-                    <div class="mode-desc" style="color:#C7D2FE;">Hệ thống: Quản lý công việc, Thu quỹ, Thể thao thể hình 4 nhóm cơ, Đồ ăn & Điểm danh</div>
+                    <div class="mode-name" style="color:#818CF8;text-shadow:0 0 12px #6366F1;">🏫 CHẾ ĐỘ QUẢN LÝ LỚP & THU QUỸ (CHÍNH)</div>
+                    <div class="mode-desc" style="color:#C7D2FE;">Hệ thống: Quản lý lớp, Thu quỹ, Thể thao thể hình 4 nhóm cơ, Đồ ăn ĐH Hải Phòng & Điểm danh</div>
                 </div>
                 <div class="mode-badge badge-active" id="badgeThuQuy" style="background:#6366F1;color:#FFF;font-weight:900;">MẶC ĐỊNH</div>
             </div>
@@ -1891,7 +1891,7 @@
             <div class="mode-card" id="modeCardDiepVien" onclick="selectGameMode('diepvien')" style="border:2px solid #F59E0B;background:rgba(35,15,55,0.92);box-shadow:0 0 25px rgba(245,158,11,0.4);">
                 <div class="mode-info">
                     <div class="mode-name" style="color:#FBBF24;text-shadow:0 0 12px #D97706;">🕵️ CHẾ ĐỘ ĐIỆP VIÊN · TRẠM ĐIỀU KHIỂN 9 TOOL</div>
-                    <div class="mode-desc" style="color:#FDE68A;">Hệ thống: Bật Máy, Điệp Viên Social, Tài Liệu, Tarot, Quà Tặng, Ăn Vặt, Review, MetaMax & Tool Edit (Kèm 21 SFX + 119 Nhạc Nền)</div>
+                    <div class="mode-desc" style="color:#FDE68A;">Hệ thống: Khởi Động, Điệp Viên Social, Tài Liệu, Tarot, Quà Tặng, Ăn Vặt, Review, MetaMax & Tool Edit (Kèm 21 SFX + 119 Nhạc Nền)</div>
                 </div>
                 <div class="mode-badge badge-hot" id="badgeDiepVien" style="background:linear-gradient(135deg,#D97706,#7C3AED);color:#FFF;font-weight:900;box-shadow:0 0 15px rgba(217,119,6,0.6);">🔥 MỞ KHÓA</div>
             </div>
@@ -1954,20 +1954,20 @@
         <div id="appCardWrapper" class="w-full max-w-xl bg-gray-50/95 backdrop-blur-xl h-full max-h-[92vh] flex flex-col relative shadow-2xl overflow-hidden rounded-3xl border border-white/40 transition-all duration-300">
             <!-- HEADER -->
             <header class="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-700 sticky top-0 z-40 px-5 py-4 flex justify-between items-center shadow-lg shadow-indigo-300/30">
-                <div class="flex items-center gap-3.5">
+                <div class="flex items-center gap-3.5 cursor-pointer" id="headerLeftBrandBox" onclick="handleHeaderBrandClick()">
                     <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white shadow-inner">
-                        <i class="fa-solid fa-calendar-check text-2xl"></i>
+                        <i id="headerLeftLogoIcon" class="fa-solid fa-calendar-check text-2xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-black text-white tracking-tight leading-tight" id="appNameDisplay">Công Việc Hằng Ngày</h1>
-                        <p class="text-[11px] text-white/70 font-semibold">Quản lý công việc & rèn luyện thể thao thông minh</p>
+                        <h1 class="text-xl font-black text-white tracking-tight leading-tight" id="appNameDisplay">Quản Lý Lớp</h1>
+                        <p class="text-[11px] text-white/75 font-semibold" id="appSubDisplay">Hệ thống quản lý lớp & tiện ích sinh viên thông minh</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Tập Thể Thao (4 Nhóm Cơ GIF)">
                         <i class="fa-solid fa-dumbbell text-base text-emerald-300"></i>
                     </button>
-                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)">
+                    <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên">
                         <i class="fa-solid fa-user-secret text-lg text-amber-300"></i>
                     </button>
                     <button onclick="promptAdminThenSettings()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt Admin">
@@ -4215,7 +4215,7 @@
                     <span>QUAY VẬN MAY</span>
                 </button>
                 <button onclick="selectGameMode('thuquy', false)" class="py-2.5 px-5 rounded-2xl bg-black/60 hover:bg-black/80 backdrop-blur-md text-white font-bold text-xs border border-white/20 flex items-center justify-center cursor-pointer transition-all active:scale-95">
-                    <span>QUAY LẠI TRANG CHỦ</span>
+                    <span>QUAY LẠI QUẢN LÝ LỚP</span>
                 </button>
             </div>
         </div>
@@ -5200,7 +5200,7 @@
                     } else if(typeof switchView === 'function') {
                         switchView(v || 'viewDashboard');
                     }
-                    if(showNotification) showNotify('💼 Đã kích hoạt Chế độ Công Việc Hằng Ngày & Thu Quỹ!');
+                    if(showNotification) showNotify('🏫 Đã kích hoạt Chế độ Quản Lý Lớp!');
                 });
             } else if(mode === 'mitchum' || mode === 'default'){
                 activeGameMode = 'mitchum';
@@ -8263,6 +8263,46 @@
 
     <!-- HỆ THỐNG ĐIỀU KHIỂN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (TÍCH HỢP TRỰC TIẾP TRÊN TEAMTCCM/WORK) -->
     <style>
+        /* ĐỒNG BỘ FONT TIẾNG VIỆT TOÀN HỆ THỐNG — KHÔNG LỖI DẤU TRÊN MỌI Ô NHẬP & NÚT BẤM */
+        body, button, input, textarea, select, option, code, pre, .font-sans, .font-mono,
+        #thuquyScreen, #thuquyScreen input, #thuquyScreen select, #thuquyScreen textarea, #thuquyScreen button,
+        .blink-text, .slide-num-tag {
+            font-family: 'Be Vietnam Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        }
+        .view-page-title {
+            font-size: 24px !important;
+            line-height: 1.35 !important;
+            padding-top: 2px !important;
+        }
+        .dash-card .dash-title {
+            line-height: 1.3 !important;
+        }
+        .section-header-bar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 12px !important;
+            margin-bottom: 18px !important;
+            position: relative !important;
+        }
+        .section-header-bar .back-btn {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            padding: 0 !important;
+            letter-spacing: 0 !important;
+            border-radius: 14px !important;
+            background: #fff !important;
+            border: 1.5px solid #e5e7eb !important;
+            color: #374151 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
         textarea.clean-scroll {
             resize: none;
             scrollbar-width: thin;
@@ -8278,8 +8318,8 @@
     </style>
     <script>
     (function(){
-        window.DV_STATE = {"power": [{"row": 6, "code": "wake_pc", "btn": "▶ Khởi Động", "name": "1. Khởi động máy thoát chế độ ngủ", "status": "Đang chờ"}, {"row": 7, "code": "sleep_pc", "btn": "▶ Ngủ Ngầm", "name": "2. Chế độ ngủ chạy ngầm", "status": "Đang chờ"}, {"row": 8, "code": "check_all_tools", "btn": "▶ Kiểm Tra", "name": "3. Kiểm tra các Tool", "status": "Đang chờ"}, {"row": 9, "code": "shutdown_pc", "btn": "▶ Tắt Nguồn", "name": "4. Tắt nguồn máy", "status": "Đang chờ"}], "tool_health": [{"name": "1. Điệp Viên Social", "status": "Hoạt động ổn"}, {"name": "2. Điệp Viên Tài Liệu", "status": "Hoạt động ổn"}, {"name": "3. Điệp Viên Tarot", "status": "Hoạt động ổn"}, {"name": "4. Điệp Viên Quà Tặng", "status": "Hoạt động ổn"}, {"name": "5. Điệp Viên Ăn Vặt", "status": "Hoạt động ổn"}, {"name": "6. Điệp Viên Review", "status": "Hoạt động ổn"}, {"name": "7. MetaMax", "status": "Hoạt động ổn"}, {"name": "8. Tool Edit", "status": "Hoạt động ổn"}, {"name": "9. Tài khoản TikTok", "status": "Hoạt động ổn"}, {"name": "10. Tài khoản Facebook", "status": "Hoạt động ổn"}], "tools": {"Điệp Viên Social": {"merged_c": "🔗 Link gốc: https://www.facebook.com/theanh28\n🎬 Kịch bản: [Hook] Cư dân mạng đang bàn tán xôn xao trên Theanh28 và Beatvn về sự việc mới nhất hôm nay... [4 Nhịp Điệp Viên Social]\n📝 Caption: Góc giải mã nhanh câu chuyện đang gây bão MXH hôm nay 🔥\n#️⃣ Hashtag: #diepviensocial #theanh28 #beatvn #hifeed #tinmoi", "rows": [{"row": 6, "module": "1. Quét Tin Tức Làm Kịch Bản", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Làm Tin Thụ Động", "col_b": "https://www.tiktok.com/@theanh28entertainment/video/735000000", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Tài Liệu": {"merged_c": "📄 Link Docs Đề Cương (Drive): https://docs.google.com/document/d/1DeCuong_DiepVienTaiLieu/edit\n📘 Link Docs Bài Tập Lớn (Drive): https://docs.google.com/document/d/1BTL_HoanChinh_DiepVienTaiLieu/edit\n🎬 Link Drive Video Kênh: https://drive.google.com/drive/folders/1VideoKenh_DiepVienTaiLieu\n📌 Sau khi hoàn thành, hệ thống tự động đẩy lên Google Drive và gửi Link vào ô lớn này để bạn bấm kiểm tra!", "rows": [{"row": 6, "module": "1. Làm Đề Cương", "col_b": "", "col_e": "Danh sách Đề Cương Lưu Trữ", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Bài Tập Lớn", "col_b": "", "col_e": "Danh sách Bài Tập Lớn Lưu Trữ", "status": "Đang chờ"}, {"row": 8, "module": "3. Làm Video Kênh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tarot": {"merged_c": "🖼️ Link Drive Ảnh Cuộn Tarot: https://drive.google.com/drive/folders/1AnhCuon_DiepVienTarot\n🎬 Link Drive Video Tarot 3 Tụ: https://drive.google.com/drive/folders/1Video_DiepVienTarot\n📝 Caption: Thông điệp vũ trụ gửi đến người đang thức khuya đêm nay 🔮 Chọn tụ bài thu hút ánh nhìn đầu tiên của bạn nhé!\n#️⃣ Hashtag: #hanhtrinhgiacmo #diepvientarot #tarotchualanh #thongdiepvutru", "rows": [{"row": 6, "module": "1. Ảnh Cuộn", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Luôn", "col_b": "", "col_e": "22:30", "status": "Đang chờ"}]}, "Điệp Viên Quà Tặng": {"merged_c": "☁️ Link Drive Thành Phẩm Quà Tặng: https://drive.google.com/drive/folders/1ThanhPham_DiepVienQuaTang\n🎬 Kịch bản & Bản dựng: Đã xuất MP4 + đẩy dự án sang CapCut Desktop.\n📝 Caption: Bí mật món quà tinh tế khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁\n#️⃣ Hashtag: #diepvienquatang #quatangnguoiyeu #tamsutinhyeu", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Ăn Vặt": {"merged_c": "☁️ Link Drive Thành Phẩm Ăn Vặt: https://drive.google.com/drive/folders/1ThanhPham_DiepVienAnVat\n🎬 Kịch bản & Bản dựng: Đã lọc 6 cảnh đồ ăn 3.5s ngon mắt nhất + chèn SFX giòn tan & đẩy CapCut.\n📝 Caption: Đặt lên bàn cân tiểu ly kiểm chứng món ăn vặt cứu đói đêm khuya siêu cuốn 🍜\n#️⃣ Hashtag: #diepvienanvat #reviewdoan #anvatdemkhuya #foodreview", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "19:30", "status": "Đang chờ"}]}, "Điệp Viên Review": {"merged_c": "📁 Link Drive Folder YouTube (Full Tập + Thumbnail 16:9): https://drive.google.com/drive/folders/1YouTube_DiepVienReview\n📱 Link Drive Folder TikTok (Full Tập + Thumbnail 9:16 1 Cảnh Rõ Mặt): https://drive.google.com/drive/folders/1TikTok_DiepVienReview\n📊 Sheet Đề Xuất & Chỉ Số Kênh: Đã cập nhật bộ phim đề xuất mới nhất + đẩy dự án 6 Track sang CapCut Desktop.\n📌 Bấm vào Link Drive phía trên để kiểm tra toàn bộ các tập phim và Thumbnail trước khi bấm Đăng Video Lên!", "rows": [{"row": 6, "module": "1. Quét Kênh / Tìm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Tự Động Tìm Phim", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}, {"row": 9, "module": "4. Edit Video", "col_b": "https://www.youtube.com/watch?v=NR8-IsZ-3hw", "col_e": "", "status": "Đang chờ"}]}, "Tool Edit": {"merged_c": "☁️ Link Drive Thành Phẩm Tool Edit: https://drive.google.com/drive/folders/1ThanhPham_ToolEditPro\n🎞️ Dự Án CapCut Desktop: Đã tự động đẩy đủ các Track (Chữ, Nhân vật, B-Roll, SFX) vào CapCut.\n📌 Sau khi hoàn thành bất kỳ Module nào, thành phẩm MP4 được tải lên Google Drive và gắn Link tại ô lớn này để bạn kiểm tra!", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Facebook Confession", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Dựng Video Thô", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}}, "metamax_rows": [{"row": 6, "channel": "1. Điệp Viên Social", "uid_rows": ["625641016419655", "942466779989085", "", ""], "uids": "625641016419655\n942466779989085", "comment": "Góc giải mã sự thật và cập nhật tin nóng nhanh nhất trong ngày tại Điệp Viên Social 🔥 Các bác nghĩ sao về vụ này?", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=6\", \"▶ CHẠY SOCIAL\")", "schedule": "20:00", "status": "Đang chờ"}, {"row": 10, "channel": "2. Điệp Viên Tài Liệu", "uid_rows": ["625641016419655", "942466779989085", "1090801699184805", "1236988990381267"], "uids": "625641016419655\n942466779989085\n1090801699184805\n1236988990381267", "comment": "Mình vừa tổng hợp xong bộ đề cương BTL & mẹo bấm máy Casio đề HSA/TSA siêu nhanh, bạn nào cần chấm (.) mình gửi tặng nhé! 📚", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=10\", \"▶ CHẠY TÀI LIỆU\")", "schedule": "20:30", "status": "Đang chờ"}, {"row": 14, "channel": "3. Điệp Viên Tarot", "uid_rows": ["2155724418713742", "680891559282341", "1378797169413934", "369219035949156"], "uids": "2155724418713742\n680891559282341\n1378797169413934\n369219035949156", "comment": "Hữu duyên gửi thông điệp chữa lành đêm nay từ Điệp Viên Tarot 🔮 Bạn nào đang trằn trọc cần giải mã tình cảm/công việc thì chấm (.) nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=14\", \"▶ CHẠY TAROT\")", "schedule": "22:30", "status": "Đang chờ"}, {"row": 18, "channel": "4. Điệp Viên Quà Tặng", "uid_rows": ["", "", "", ""], "uids": "", "comment": "Gợi ý set quà tinh tế kèm thiệp viết tay khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁 Nhắn Điệp Viên Quà Tặng để được tư vấn nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=18\", \"▶ CHẠY QUÀ TẶNG\")", "schedule": "21:00", "status": "Đang chờ"}, {"row": 22, "channel": "5. Điệp Viên Ăn Vặt", "uid_rows": ["", "", "", ""], "uids": "", "comment": "Bàn test ẩm thực Điệp Viên Ăn Vặt vừa lên sóng món ăn vặt giòn tan cứu đói đêm khuya 🍜 Chấm (.) để xem kết quả cân tiểu ly thật 100% nhé!", "btn_text": "=HYPERLINK(\"https://flash-passed-casual-fisheries.trycloudflare.com/run?action=exec_row&sheet=MetaMax&row=22\", \"▶ CHẠY ĂN VẶT\")", "schedule": "19:30", "status": "Đang chờ"}]};
-        window.DV_CONFIGS = {"Bật Máy": {"icon": "fa-power-off", "short": "Bật Máy", "full_title": "Bật Máy", "subtitle": "Điều khiển nguồn máy & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600"}, "Điệp Viên Social": {"icon": "fa-bullhorn", "short": "ĐV Social", "full_title": "Điệp Viên Social", "subtitle": "Quét tin tức, làm kịch bản & đăng video", "gradient": "from-amber-500 via-orange-500 to-orange-700", "shadow": "shadow-orange-200/50", "btn_bg": "bg-orange-600 hover:bg-orange-700", "icon_bg": "bg-orange-50 text-orange-600", "merged_box_editable": true, "modules": [{"row": 6, "icon": "fa-satellite-dish", "name": "1. Quét Tin Tức Làm Kịch Bản", "btn_text": "▶ Quét Tin", "allow_input_b": false, "extra_action": null, "desc": "Tự quét Theanh28, Beatvn, Hi Feed... xuất kịch bản xuống ô kết quả ở cuối."}, {"row": 7, "icon": "fa-film", "name": "2. Làm Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Lấy kịch bản đã kiểm tra ở ô cuối để ghép giọng AI và dựng video."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video vừa làm kèm Caption & #Hashtag lên TikTok và Facebook."}, {"row": 9, "icon": "fa-link", "name": "4. Làm Tin Thụ Động", "btn_text": "▶ Trích Xuất Link", "allow_input_b": true, "input_b_placeholder": "Dán link video TikTok / Facebook cần trích xuất kịch bản...", "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"], "extra_btn_text": "⏰ Hẹn Giờ Đăng", "desc": "Dán link video để ra kịch bản ở ô cuối -> Sửa ưng ý xong bấm Hẹn Giờ Đăng."}]}, "Điệp Viên Tài Liệu": {"icon": "fa-book-open", "short": "ĐV Tài Liệu", "full_title": "Điệp Viên Tài Liệu", "subtitle": "Làm Đề Cương, Bài Tập Lớn & Video Kênh", "gradient": "from-indigo-500 via-indigo-600 to-blue-700", "shadow": "shadow-indigo-200/50", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "merged_box_editable": false, "has_archive_in_result": true, "modules": [{"row": 6, "icon": "fa-list-check", "name": "1. Làm Đề Cương", "btn_text": "▶ Làm Đề Cương", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link tài liệu + câu lệnh yêu cầu làm Đề Cương...", "extra_action": null, "desc": "Thiết kế Đề Cương chuẩn đại học và trả link Docs xuống ô Kết Quả ở cuối."}, {"row": 7, "icon": "fa-file-word", "name": "2. Làm Bài Tập Lớn", "btn_text": "▶ Làm Bài Tập Lớn", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link đề cương + câu lệnh làm Bài Tập Lớn...", "extra_action": null, "desc": "Xuất Word (.docx) Times New Roman 13pt và trả link Drive xuống ô Kết Quả ở cuối."}, {"row": 8, "icon": "fa-video", "name": "3. Làm Video Kênh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động sản xuất video kênh theo thiết lập sẵn trong Tool."}, {"row": 9, "icon": "fa-cloud-arrow-up", "name": "4. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video kênh vừa sản xuất lên TikTok & Fanpage Điệp Viên Tài Liệu."}]}, "Điệp Viên Tarot": {"icon": "fa-moon", "short": "ĐV Tarot", "full_title": "Điệp Viên Tarot", "subtitle": "Ảnh Cuộn, Video trải bài & Đăng Luôn", "gradient": "from-violet-500 via-violet-600 to-purple-800", "shadow": "shadow-purple-200/50", "btn_bg": "bg-violet-600 hover:bg-violet-700", "icon_bg": "bg-violet-50 text-violet-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-images", "name": "1. Ảnh Cuộn", "btn_text": "▶ Làm Ảnh Cuộn", "allow_input_b": false, "extra_action": null, "desc": "Tự động tạo bộ Ảnh Cuộn Tarot chữa lành và trả link Drive ở cuối trang."}, {"row": 7, "icon": "fa-wand-sparkles", "name": "2. Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video chọn 3 tụ bài Tarot kèm nhạc piano và trả link Drive ở cuối."}, {"row": 8, "icon": "fa-paper-plane", "name": "3. Đăng Luôn", "btn_text": "▶ Đăng Luôn", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["22:30", "21:30", "22:00", "23:00", "23:30", "00:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng ngay thành phẩm lên TikTok & Fanpage Hành Trình Giấc Mơ."}]}, "Điệp Viên Quà Tặng": {"icon": "fa-gift", "short": "ĐV Quà Tặng", "full_title": "Điệp Viên Quà Tặng", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-fuchsia-500 via-pink-600 to-rose-700", "shadow": "shadow-pink-200/50", "btn_bg": "bg-pink-600 hover:bg-pink-700", "icon_bg": "bg-pink-50 text-pink-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video So Sánh 2 cột Đỏ/Xanh chủ đề quà tặng."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Threads 3 tầng tư vấn tình cảm & tặng quà."}, {"row": 8, "icon": "fa-shapes", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Minh Họa 7 Pose Chibi & hộp quà."}, {"row": 9, "icon": "fa-scissors", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lấy dữ liệu & suộc có sẵn trên máy...", "extra_action": null, "desc": "Lấy dữ liệu và suộc quay có sẵn trên máy dựng thành video hoàn chỉnh."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video đã kiểm tra lên TikTok & Fanpage Tiệm Quà Nhà Bunny."}]}, "Điệp Viên Ăn Vặt": {"icon": "fa-bowl-food", "short": "ĐV Ăn Vặt", "full_title": "Điệp Viên Ăn Vặt", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-amber-500 via-orange-500 to-rose-600", "shadow": "shadow-orange-300/40", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Đặt lên bàn cân so sánh 2 món ăn vặt / 2 quán ăn."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video Threads 3 tầng review ẩm thực & quán ăn."}, {"row": 8, "icon": "fa-utensils", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video minh họa thẻ món ăn, cân tiểu ly & bảng giá."}, {"row": 9, "icon": "fa-camera-retro", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lọc 6 cảnh đồ ăn từ suộc trên máy...", "extra_action": null, "desc": "Lọc 6 cảnh đồ ăn ngon mắt nhất (3.5s/cảnh) từ suộc trên máy + chèn SFX."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["19:30", "11:30", "17:30", "20:30", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video ăn vặt đã kiểm tra lên TikTok & Fanpage."}]}, "Điệp Viên Review": {"icon": "fa-video", "short": "ĐV Review", "full_title": "Điệp Viên Review", "subtitle": "Quét kênh, Tự động tìm phim & Edit video", "gradient": "from-rose-500 via-rose-600 to-pink-800", "shadow": "shadow-rose-200/50", "btn_bg": "bg-rose-600 hover:bg-rose-700", "icon_bg": "bg-rose-50 text-rose-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-magnifying-glass-chart", "name": "1. Quét Kênh / Tìm Video", "btn_text": "▶ Quét Kênh", "allow_input_b": false, "extra_action": null, "desc": "Tự động quét các kênh đối thủ và chấm điểm các bộ phim đề xuất mạnh."}, {"row": 7, "icon": "fa-clapperboard", "name": "2. Tự Động Tìm Phim", "btn_text": "▶ Tự Tìm Phim", "allow_input_b": false, "extra_action": null, "desc": "Tự lấy video đề xuất trong Sheet rồi edit và chia tập cho cả YouTube & TikTok."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng các tập phim đã kiểm tra lên YouTube Studio & TikTok Studio."}, {"row": 9, "icon": "fa-link", "name": "4. Edit Video", "btn_text": "▶ Edit Từ Link", "allow_input_b": true, "input_b_placeholder": "Dán link video cần lấy về Edit theo Tool...", "extra_action": null, "desc": "Tải video từ link, tách tập YouTube 16:9 + TikTok 9:16 và trả link Drive ở cuối."}]}, "MetaMax": {"icon": "fa-comments", "short": "MetaMax", "full_title": "MetaMax", "subtitle": "5 kênh Điệp Viên đi Comment dạo theo UID dọc", "gradient": "from-sky-500 via-blue-500 to-indigo-700", "shadow": "shadow-blue-200/50", "btn_bg": "bg-blue-600 hover:bg-blue-700", "icon_bg": "bg-blue-50 text-blue-600"}, "Tool Edit": {"icon": "fa-wand-magic-sparkles", "short": "Tool Edit", "full_title": "Tool Edit", "subtitle": "Video So Sánh • Thread • FB Confession • Minh Họa • Video Thô", "gradient": "from-cyan-600 via-indigo-600 to-rose-600", "shadow": "shadow-indigo-300/40", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "full_width": true, "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Dựng Video So Sánh", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản So Sánh 2 cột Đỏ / Xanh...", "extra_action": null, "desc": "Dựng video so sánh 2 cột Đỏ và Xanh kèm nhân vật Chibi chỉ tay."}, {"row": 7, "icon": "fa-at", "name": "2. Video Thread", "btn_text": "▶ Dựng Video Thread", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng Threads...", "extra_action": null, "desc": "Làm ảnh & dựng video Threads 3 tầng đẩy sang CapCut."}, {"row": 8, "icon": "fa-thumbs-up", "name": "3. Video Facebook Confession", "btn_text": "▶ Dựng FB Confession", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng & bình luận Facebook...", "extra_action": null, "desc": "Làm ảnh & video bài đăng kèm bình luận Facebook đẩy sang CapCut."}, {"row": 9, "icon": "fa-layer-group", "name": "4. Video Minh Họa", "btn_text": "▶ Dựng Video Minh Họa", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản đồ họa Minh Họa...", "extra_action": null, "desc": "Dựng video đồ họa thẻ vật phẩm vector kèm thanh quét Trước/Sau."}, {"row": 10, "icon": "fa-user-Gear", "name": "5. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản & đường dẫn suộc video trên máy...", "extra_action": null, "desc": "Lấy suộc trên máy, cắt khoảng nghỉ thừa & tách nền người nói đè chữ sau lưng."}]}};
+        window.DV_STATE = {"power": [{"row": 6, "code": "wake_pc", "btn": "▶ Khởi Động", "name": "1. Khởi động máy thoát chế độ ngủ", "status": "Đang chờ"}, {"row": 7, "code": "sleep_pc", "btn": "▶ Ngủ Ngầm", "name": "2. Chế độ ngủ chạy ngầm", "status": "Đang chờ"}, {"row": 8, "code": "check_all_tools", "btn": "▶ Kiểm Tra", "name": "3. Kiểm tra các Tool", "status": "Đang chờ"}, {"row": 9, "code": "shutdown_pc", "btn": "▶ Tắt Nguồn", "name": "4. Tắt nguồn máy", "status": "Đang chờ"}], "tool_health": [{"name": "1. Điệp Viên Social", "status": "Hoạt động ổn"}, {"name": "2. Điệp Viên Tài Liệu", "status": "Hoạt động ổn"}, {"name": "3. Điệp Viên Tarot", "status": "Hoạt động ổn"}, {"name": "4. Điệp Viên Quà Tặng", "status": "Hoạt động ổn"}, {"name": "5. Điệp Viên Ăn Vặt", "status": "Hoạt động ổn"}, {"name": "6. Điệp Viên Review", "status": "Hoạt động ổn"}, {"name": "7. MetaMax", "status": "Hoạt động ổn"}, {"name": "8. Tool Edit", "status": "Hoạt động ổn"}, {"name": "9. Tài khoản TikTok", "status": "Hoạt động ổn"}, {"name": "10. Tài khoản Facebook", "status": "Hoạt động ổn"}], "tools": {"Điệp Viên Social": {"merged_c": "🔗 Link gốc: https://www.facebook.com/theanh28\n🎬 Kịch bản: [Hook] Cư dân mạng đang bàn tán xôn xao trên Theanh28 và Beatvn về sự việc mới nhất hôm nay... [4 Nhịp Điệp Viên Social]\n📝 Caption: Góc giải mã nhanh câu chuyện đang gây bão MXH hôm nay 🔥\n#️⃣ Hashtag: #diepviensocial #theanh28 #beatvn #hifeed #tinmoi", "rows": [{"row": 6, "module": "1. Quét Tin Tức Làm Kịch Bản", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Làm Tin Thụ Động", "col_b": "https://www.tiktok.com/@theanh28entertainment/video/735000000", "col_e": "20:00", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tài Liệu": {"merged_c": "📄 Link Docs Đề Cương (Drive): https://docs.google.com/document/d/1DeCuong_DiepVienTaiLieu/edit\n📘 Link Docs Bài Tập Lớn (Drive): https://docs.google.com/document/d/1BTL_HoanChinh_DiepVienTaiLieu/edit\n🎬 Link Drive Video Kênh: https://drive.google.com/drive/folders/1VideoKenh_DiepVienTaiLieu\n📌 Sau khi hoàn thành, hệ thống tự động đẩy lên Google Drive và gửi Link vào ô lớn này để bạn bấm kiểm tra!", "rows": [{"row": 6, "module": "1. Làm Đề Cương", "col_b": "", "col_e": "Danh sách Đề Cương Lưu Trữ", "status": "Đang chờ"}, {"row": 7, "module": "2. Làm Bài Tập Lớn", "col_b": "", "col_e": "Danh sách Bài Tập Lớn Lưu Trữ", "status": "Đang chờ"}, {"row": 8, "module": "3. Làm Video Kênh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Đăng Video Lên", "col_b": "", "col_e": "", "status": "Đang chờ"}]}, "Điệp Viên Tarot": {"merged_c": "🖼️ Link Drive Ảnh Cuộn Tarot: https://drive.google.com/drive/folders/1AnhCuon_DiepVienTarot\n🎬 Link Drive Video Tarot 3 Tụ: https://drive.google.com/drive/folders/1Video_DiepVienTarot\n📝 Caption: Thông điệp vũ trụ gửi đến người đang thức khuya đêm nay 🔮 Chọn tụ bài thu hút ánh nhìn đầu tiên của bạn nhé!\n#️⃣ Hashtag: #hanhtrinhgiacmo #diepvientarot #tarotchualanh #thongdiepvutru", "rows": [{"row": 6, "module": "1. Ảnh Cuộn", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Luôn", "col_b": "", "col_e": "22:30", "status": "Đang chờ"}]}, "Điệp Viên Quà Tặng": {"merged_c": "☁️ Link Drive Thành Phẩm Quà Tặng: https://drive.google.com/drive/folders/1ThanhPham_DiepVienQuaTang\n🎬 Kịch bản & Bản dựng: Đã xuất MP4 + đẩy dự án sang CapCut Desktop.\n📝 Caption: Bí mật món quà tinh tế khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁\n#️⃣ Hashtag: #diepvienquatang #quatangnguoiyeu #tamsutinhyeu", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}, "Điệp Viên Ăn Vặt": {"merged_c": "☁️ Link Drive Thành Phẩm Ăn Vặt: https://drive.google.com/drive/folders/1ThanhPham_DiepVienAnVat\n🎬 Kịch bản & Bản dựng: Đã lọc 6 cảnh đồ ăn 3.5s ngon mắt nhất + chèn SFX giòn tan & đẩy CapCut.\n📝 Caption: Đặt lên bàn cân tiểu ly kiểm chứng món ăn vặt cứu đói đêm khuya siêu cuốn 🍜\n#️⃣ Hashtag: #diepvienanvat #reviewdoan #anvatdemkhuya #foodreview", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Dựng Video Thô", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Đăng Video Lên", "col_b": "", "col_e": "19:30", "status": "Đang chờ"}]}, "Điệp Viên Review": {"merged_c": "📁 Link Drive Folder YouTube (Full Tập + Thumbnail 16:9): https://drive.google.com/drive/folders/1YouTube_DiepVienReview\n📱 Link Drive Folder TikTok (Full Tập + Thumbnail 9:16 1 Cảnh Rõ Mặt): https://drive.google.com/drive/folders/1TikTok_DiepVienReview\n📊 Sheet Đề Xuất & Chỉ Số Kênh: Đã cập nhật bộ phim đề xuất mới nhất + đẩy dự án 6 Track sang CapCut Desktop.\n📌 Bấm vào Link Drive phía trên để kiểm tra toàn bộ các tập phim và Thumbnail trước khi bấm Đăng Video Lên!", "rows": [{"row": 6, "module": "1. Quét Kênh / Tìm Video", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Tự Động Tìm Phim", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Đăng Video Lên", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}, {"row": 9, "module": "4. Edit Video", "col_b": "https://www.youtube.com/watch?v=NR8-IsZ-3hw", "col_e": "", "status": "Đang chờ"}]}, "Tool Edit": {"merged_c": "☁️ Link Drive Thành Phẩm Tool Edit: https://drive.google.com/drive/folders/1ThanhPham_ToolEditPro\n🎞️ Dự Án CapCut Desktop: Đã tự động đẩy đủ các Track (Chữ, Nhân vật, B-Roll, SFX) vào CapCut.\n📌 Sau khi hoàn thành bất kỳ Module nào, thành phẩm MP4 được tải lên Google Drive và gắn Link tại ô lớn này để bạn kiểm tra!", "rows": [{"row": 6, "module": "1. Video So Sánh", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 7, "module": "2. Video Thread", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 8, "module": "3. Video Facebook Confession", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 9, "module": "4. Video Minh Họa", "col_b": "", "col_e": "", "status": "Đang chờ"}, {"row": 10, "module": "5. Dựng Video Thô", "col_b": "", "col_e": "20:00", "status": "Đang chờ"}]}}, "metamax_rows": [{"row": 6, "channel": "1. Điệp Viên Social", "uid_rows": ["625641016419655", "942466779989085"], "uids": "625641016419655\n942466779989085", "comment": "Góc giải mã sự thật và cập nhật tin nóng nhanh nhất trong ngày tại Điệp Viên Social 🔥 Các bác nghĩ sao về vụ này?", "btn_text": "▶ CHẠY SOCIAL", "schedule": "20:00", "status": "Đang chờ"}, {"row": 10, "channel": "2. Điệp Viên Tài Liệu", "uid_rows": ["625641016419655", "942466779989085", "1090801699184805", "1236988990381267"], "uids": "625641016419655\n942466779989085\n1090801699184805\n1236988990381267", "comment": "Mình vừa tổng hợp xong bộ đề cương BTL & mẹo bấm máy Casio đề HSA/TSA siêu nhanh, bạn nào cần chấm (.) mình gửi tặng nhé! 📚", "btn_text": "▶ CHẠY TÀI LIỆU", "schedule": "20:30", "status": "Đang chờ"}, {"row": 14, "channel": "3. Điệp Viên Tarot", "uid_rows": ["2155724418713742", "680891559282341", "1378797169413934", "369219035949156"], "uids": "2155724418713742\n680891559282341\n1378797169413934\n369219035949156", "comment": "Hữu duyên gửi thông điệp chữa lành đêm nay từ Điệp Viên Tarot 🔮 Bạn nào đang trằn trọc cần giải mã tình cảm/công việc thì chấm (.) nhé!", "btn_text": "▶ CHẠY TAROT", "schedule": "22:30", "status": "Đang chờ"}, {"row": 18, "channel": "4. Điệp Viên Quà Tặng", "uid_rows": [], "uids": "", "comment": "Gợi ý set quà tinh tế kèm thiệp viết tay khiến người thương cảm động ngay từ ánh nhìn đầu tiên 🎁 Nhắn Điệp Viên Quà Tặng để được tư vấn nhé!", "btn_text": "▶ CHẠY QUÀ TẶNG", "schedule": "21:00", "status": "Đang chờ"}, {"row": 22, "channel": "5. Điệp Viên Ăn Vặt", "uid_rows": [], "uids": "", "comment": "Bàn test ẩm thực Điệp Viên Ăn Vặt vừa lên sóng món ăn vặt giòn tan cứu đói đêm khuya 🍜 Chấm (.) để xem kết quả cân tiểu ly thật 100% nhé!", "btn_text": "▶ CHẠY ĂN VẶT", "schedule": "19:30", "status": "Đang chờ"}]};
+        window.DV_CONFIGS = {"Bật Máy": {"icon": "fa-power-off", "short": "Khởi Động", "full_title": "Khởi Động", "subtitle": "Khởi động hệ thống & kiểm tra 9 Tool", "gradient": "from-emerald-500 via-emerald-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600"}, "Điệp Viên Social": {"icon": "fa-bullhorn", "short": "ĐV Social", "full_title": "Điệp Viên Social", "subtitle": "Quét tin tức, làm kịch bản & đăng video", "gradient": "from-amber-500 via-orange-500 to-orange-700", "shadow": "shadow-orange-200/50", "btn_bg": "bg-orange-600 hover:bg-orange-700", "icon_bg": "bg-orange-50 text-orange-600", "merged_box_editable": true, "schedule_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"], "modules": [{"row": 6, "icon": "fa-satellite-dish", "name": "1. Quét Tin Tức Tự Động", "btn_text": "▶ Quét Tin", "allow_input_b": false, "extra_action": null, "desc": "Tự quét Theanh28, Beatvn, Hi Feed... xuất kịch bản xuống ô kết quả ở cuối."}, {"row": 9, "icon": "fa-link", "name": "2. Làm Tin Thụ Động (Ra Lệnh)", "btn_text": "▶ Ra Lệnh Làm Kịch Bản", "allow_input_b": true, "input_b_placeholder": "Dán link video TikTok / Facebook hoặc yêu cầu làm kịch bản...", "extra_action": null, "desc": "Dán link video hoặc yêu cầu để trích xuất kịch bản xuống ô kết quả bên dưới."}]}, "Điệp Viên Tài Liệu": {"icon": "fa-book-open", "short": "ĐV Tài Liệu", "full_title": "Điệp Viên Tài Liệu", "subtitle": "Làm Đề Cương, Bài Tập Lớn & Video Kênh", "gradient": "from-indigo-500 via-indigo-600 to-blue-700", "shadow": "shadow-indigo-200/50", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "merged_box_editable": false, "has_archive_in_result": true, "modules": [{"row": 6, "icon": "fa-list-check", "name": "1. Làm Đề Cương", "btn_text": "▶ Làm Đề Cương", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link tài liệu + câu lệnh yêu cầu làm Đề Cương...", "extra_action": null, "desc": "Thiết kế Đề Cương chuẩn đại học và trả link Docs xuống ô Kết Quả ở cuối."}, {"row": 7, "icon": "fa-file-word", "name": "2. Làm Bài Tập Lớn", "btn_text": "▶ Làm Bài Tập Lớn", "allow_input_b": true, "input_b_placeholder": "Bắt buộc: Dán đường link đề cương + câu lệnh làm Bài Tập Lớn...", "extra_action": null, "desc": "Xuất Word (.docx) Times New Roman 13pt và trả link Drive xuống ô Kết Quả ở cuối."}, {"row": 8, "icon": "fa-video", "name": "3. Làm Video Kênh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động sản xuất video kênh theo thiết lập sẵn trong Tool."}, {"row": 9, "icon": "fa-cloud-arrow-up", "name": "4. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": null, "desc": "Đăng video kênh vừa sản xuất lên TikTok & Fanpage Điệp Viên Tài Liệu."}]}, "Điệp Viên Tarot": {"icon": "fa-moon", "short": "ĐV Tarot", "full_title": "Điệp Viên Tarot", "subtitle": "Ảnh Cuộn, Video trải bài & Đăng Luôn", "gradient": "from-violet-500 via-violet-600 to-purple-800", "shadow": "shadow-purple-200/50", "btn_bg": "bg-violet-600 hover:bg-violet-700", "icon_bg": "bg-violet-50 text-violet-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-images", "name": "1. Ảnh Cuộn", "btn_text": "▶ Làm Ảnh Cuộn", "allow_input_b": false, "extra_action": null, "desc": "Tự động tạo bộ Ảnh Cuộn Tarot chữa lành và trả link Drive ở cuối trang."}, {"row": 7, "icon": "fa-wand-sparkles", "name": "2. Video", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video chọn 3 tụ bài Tarot kèm nhạc piano và trả link Drive ở cuối."}, {"row": 8, "icon": "fa-paper-plane", "name": "3. Đăng Luôn", "btn_text": "▶ Đăng Luôn", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["22:30", "21:30", "22:00", "23:00", "23:30", "00:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng ngay thành phẩm lên TikTok & Fanpage Hành Trình Giấc Mơ."}]}, "Điệp Viên Quà Tặng": {"icon": "fa-gift", "short": "ĐV Quà Tặng", "full_title": "Điệp Viên Quà Tặng", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-fuchsia-500 via-pink-600 to-rose-700", "shadow": "shadow-pink-200/50", "btn_bg": "bg-pink-600 hover:bg-pink-700", "icon_bg": "bg-pink-50 text-pink-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video So Sánh 2 cột Đỏ/Xanh chủ đề quà tặng."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Threads 3 tầng tư vấn tình cảm & tặng quà."}, {"row": 8, "icon": "fa-shapes", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Tự động dựng Video Minh Họa 7 Pose Chibi & hộp quà."}, {"row": 9, "icon": "fa-scissors", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lấy dữ liệu & suộc có sẵn trên máy...", "extra_action": null, "desc": "Lấy dữ liệu và suộc quay có sẵn trên máy dựng thành video hoàn chỉnh."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video đã kiểm tra lên TikTok & Fanpage Tiệm Quà Nhà Bunny."}]}, "Điệp Viên Ăn Vặt": {"icon": "fa-bowl-food", "short": "ĐV Ăn Vặt", "full_title": "Điệp Viên Ăn Vặt", "subtitle": "So Sánh, Thread, Minh Họa & Dựng Video Thô", "gradient": "from-emerald-500 via-green-600 to-teal-700", "shadow": "shadow-emerald-200/50", "btn_bg": "bg-emerald-600 hover:bg-emerald-700", "icon_bg": "bg-emerald-50 text-emerald-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Đặt lên bàn cân so sánh 2 món ăn vặt / 2 quán ăn."}, {"row": 7, "icon": "fa-comments", "name": "2. Video Thread", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video Threads 3 tầng review ẩm thực & quán ăn."}, {"row": 8, "icon": "fa-utensils", "name": "3. Video Minh Họa", "btn_text": "▶ Làm Video", "allow_input_b": false, "extra_action": null, "desc": "Dựng video minh họa thẻ món ăn, cân tiểu ly & bảng giá."}, {"row": 9, "icon": "fa-camera-retro", "name": "4. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản yêu cầu lọc 6 cảnh đồ ăn từ suộc trên máy...", "extra_action": null, "desc": "Lọc 6 cảnh đồ ăn ngon mắt nhất (3.5s/cảnh) từ suộc trên máy + chèn SFX."}, {"row": 10, "icon": "fa-cloud-arrow-up", "name": "5. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["19:30", "11:30", "17:30", "20:30", "21:30"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng video ăn vặt đã kiểm tra lên TikTok & Fanpage."}]}, "Điệp Viên Review": {"icon": "fa-video", "short": "ĐV Review", "full_title": "Điệp Viên Review", "subtitle": "Quét kênh, Tự động tìm phim & Edit video", "gradient": "from-rose-500 via-rose-600 to-pink-800", "shadow": "shadow-rose-200/50", "btn_bg": "bg-rose-600 hover:bg-rose-700", "icon_bg": "bg-rose-50 text-rose-600", "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-magnifying-glass-chart", "name": "1. Quét Kênh / Tìm Video", "btn_text": "▶ Quét Kênh", "allow_input_b": false, "extra_action": null, "desc": "Tự động quét các kênh đối thủ và chấm điểm các bộ phim đề xuất mạnh."}, {"row": 7, "icon": "fa-clapperboard", "name": "2. Tự Động Tìm Phim", "btn_text": "▶ Tự Tìm Phim", "allow_input_b": false, "extra_action": null, "desc": "Tự lấy video đề xuất trong Sheet rồi edit và chia tập cho cả YouTube & TikTok."}, {"row": 8, "icon": "fa-cloud-arrow-up", "name": "3. Đăng Video Lên", "btn_text": "▶ Đăng Video", "allow_input_b": false, "extra_action": "schedule", "extra_options": ["20:00", "12:00", "18:00", "19:30", "21:00"], "extra_btn_text": "⏰ Hẹn Giờ", "desc": "Đăng các tập phim đã kiểm tra lên YouTube Studio & TikTok Studio."}, {"row": 9, "icon": "fa-link", "name": "4. Edit Video", "btn_text": "▶ Edit Từ Link", "allow_input_b": true, "input_b_placeholder": "Dán link video cần lấy về Edit theo Tool...", "extra_action": null, "desc": "Tải video từ link, tách tập YouTube 16:9 + TikTok 9:16 và trả link Drive ở cuối."}]}, "MetaMax": {"icon": "fa-comments", "short": "MetaMax", "full_title": "MetaMax", "subtitle": "5 kênh Điệp Viên đi Comment dạo theo UID dọc", "gradient": "from-sky-500 via-blue-500 to-indigo-700", "shadow": "shadow-blue-200/50", "btn_bg": "bg-blue-600 hover:bg-blue-700", "icon_bg": "bg-blue-50 text-blue-600"}, "Tool Edit": {"icon": "fa-wand-magic-sparkles", "short": "Tool Edit", "full_title": "Tool Edit", "subtitle": "Video So Sánh • Thread • FB Confession • Minh Họa • Video Thô", "gradient": "from-cyan-600 via-indigo-600 to-rose-600", "shadow": "shadow-indigo-300/40", "btn_bg": "bg-indigo-600 hover:bg-indigo-700", "icon_bg": "bg-indigo-50 text-indigo-600", "full_width": true, "merged_box_editable": false, "modules": [{"row": 6, "icon": "fa-scale-balanced", "name": "1. Video So Sánh", "btn_text": "▶ Dựng Video So Sánh", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản So Sánh 2 cột Đỏ / Xanh...", "extra_action": null, "desc": "Dựng video so sánh 2 cột Đỏ và Xanh kèm nhân vật Chibi chỉ tay."}, {"row": 7, "icon": "fa-at", "name": "2. Video Thread", "btn_text": "▶ Dựng Video Thread", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng Threads...", "extra_action": null, "desc": "Làm ảnh & dựng video Threads 3 tầng đẩy sang CapCut."}, {"row": 8, "icon": "fa-thumbs-up", "name": "3. Video Facebook Confession", "btn_text": "▶ Dựng FB Confession", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản bài đăng & bình luận Facebook...", "extra_action": null, "desc": "Làm ảnh & video bài đăng kèm bình luận Facebook đẩy sang CapCut."}, {"row": 9, "icon": "fa-layer-group", "name": "4. Video Minh Họa", "btn_text": "▶ Dựng Video Minh Họa", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản đồ họa Minh Họa...", "extra_action": null, "desc": "Dựng video đồ họa thẻ vật phẩm vector kèm thanh quét Trước/Sau."}, {"row": 10, "icon": "fa-user-Gear", "name": "5. Dựng Video Thô", "btn_text": "▶ Dựng Video Thô", "allow_input_b": true, "input_b_placeholder": "Dán Prompt kịch bản & đường dẫn suộc video trên máy...", "extra_action": null, "desc": "Lấy suộc trên máy, cắt khoảng nghỉ thừa & tách nền người nói đè chữ sau lưng."}]}};
         const DV_TOOL_ORDER = [
             "Bật Máy",
             "Điệp Viên Social",
@@ -8292,12 +8332,23 @@
             "Tool Edit"
         ];
 
+        // Đặt mặc định tên hệ thống chính là "Quản Lý Lớp"
+        if (typeof DEFAULT_STATE !== "undefined" && DEFAULT_STATE.config) {
+            DEFAULT_STATE.config.appName = "Quản Lý Lớp";
+        }
+        try {
+            if (typeof state !== "undefined" && state.config && state.config.appName === "Công Việc Hằng Ngày") {
+                state.config.appName = "Quản Lý Lớp";
+            }
+        } catch (e) {}
+
         let dvCurrentView = sessionStorage.getItem("tccm_dv_view") || "DASHBOARD";
         if (dvCurrentView !== "DASHBOARD" && !window.DV_CONFIGS[dvCurrentView]) {
             dvCurrentView = "DASHBOARD";
         }
         let dvMetaMaxIdx = parseInt(sessionStorage.getItem("tccm_dv_mm_idx") || "0", 10);
         let dvEditSubTab = sessionStorage.getItem("tccm_dv_edit_tab") || "modules"; // 'modules' | 'sfx' | 'bgm'
+        let dvIsActiveMode = false;
 
         function getDvApiBase() {
             const saved = localStorage.getItem("DV_API_BASE");
@@ -8313,6 +8364,16 @@
             if (typeof showNotify === "function") {
                 showNotify(msg);
             }
+        }
+
+        function dvStopAllAudioPlayers() {
+            if (window.stopSoundboardAudio) window.stopSoundboardAudio();
+            if (window.stopEditorSound) window.stopEditorSound();
+            if (window.closeSoundboardPlayer) window.closeSoundboardPlayer();
+            const npBar = document.getElementById("sbNowPlayingBar");
+            if (npBar) npBar.classList.add("hidden");
+            const btmBar = document.getElementById("sbBottomStyleBar");
+            if (btmBar) { btmBar.classList.add("hidden"); btmBar.style.display = "none"; }
         }
 
         function dvStatusBadgeHtml(st, idAttr = "") {
@@ -8336,30 +8397,48 @@
         }
 
         function syncHeaderForMode(isDiepVien) {
+            dvIsActiveMode = !!isDiepVien;
             const titleEl = document.getElementById("appNameDisplay");
-            const subEl = titleEl ? titleEl.nextElementSibling : null;
+            const subEl = document.getElementById("appSubDisplay") || (titleEl ? titleEl.nextElementSibling : null);
+            const leftLogoIcon = document.getElementById("headerLeftLogoIcon");
             const modeSwitchBtn = document.getElementById("headerModeSwitchBtn");
+
             if (isDiepVien) {
+                if (leftLogoIcon) {
+                    leftLogoIcon.className = "fa-solid fa-user-secret text-2xl text-amber-300";
+                }
                 if (titleEl) titleEl.textContent = "Chế Độ Điệp Viên";
                 if (subEl) subEl.textContent = "Quản lý & điều khiển 9 hệ thống Tool thông minh";
                 if (modeSwitchBtn) {
-                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-briefcase text-base text-cyan-300"></i>`;
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-calendar-check text-lg text-cyan-300"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "selectGameMode('thuquy')");
-                    modeSwitchBtn.setAttribute("title", "Quay về Công Việc Hằng Ngày");
+                    modeSwitchBtn.setAttribute("title", "Chuyển về Quản Lý Lớp");
                 }
             } else {
-                if (titleEl) titleEl.textContent = "Công Việc Hằng Ngày";
-                if (subEl) subEl.textContent = "Quản lý công việc & rèn luyện thể thao thông minh";
+                if (leftLogoIcon) {
+                    leftLogoIcon.className = "fa-solid fa-calendar-check text-2xl text-white";
+                }
+                if (titleEl) titleEl.textContent = "Quản Lý Lớp";
+                if (subEl) subEl.textContent = "Hệ thống quản lý lớp & tiện ích sinh viên thông minh";
                 if (modeSwitchBtn) {
                     modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-lg text-amber-300"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "openDiepVienMode('DASHBOARD')");
-                    modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên (9 Tool & Audio)");
+                    modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên");
                 }
             }
         }
 
+        window.handleHeaderBrandClick = function() {
+            if (dvIsActiveMode) {
+                window.dvOpenDashboard();
+            } else if (typeof switchView === "function") {
+                switchView("viewDashboard");
+            }
+        };
+
         // Nút Tập Luyện góc trên Header
         window.openWorkoutDirect = function() {
+            dvStopAllAudioPlayers();
             if (typeof showScreen === "function") {
                 showScreen("thuquy");
             }
@@ -8386,6 +8465,7 @@
         };
 
         window.dvOpenDashboard = function() {
+            dvStopAllAudioPlayers();
             dvCurrentView = "DASHBOARD";
             sessionStorage.setItem("tccm_dv_view", "DASHBOARD");
             renderDvApp();
@@ -8394,6 +8474,7 @@
         };
 
         window.dvOpenTool = function(name) {
+            dvStopAllAudioPlayers();
             dvCurrentView = name;
             sessionStorage.setItem("tccm_dv_view", name);
             if (name === "Tool Edit") {
@@ -8418,6 +8499,32 @@
             dvNotify("📋 Đã copy kịch bản & caption!");
         };
 
+        // Xử lý ô nhập 10 UID (10 dòng) của MetaMax: dán 1 thể tối đa 10 UID
+        window.handleMetaMaxUidBoxInput = function(el, rowIdx) {
+            if (!el) return;
+            const raw = el.value || "";
+            const rawLines = raw.replace(/[,;]+/g, "\n").split(/\r?\n/);
+            if (rawLines.length > 10) {
+                const trimmed = rawLines.map(s => s.trim()).filter(Boolean).slice(0, 10);
+                el.value = trimmed.join("\n");
+                dvNotify("⚡ Đã tự động giữ tối đa 10 UID (10 dòng)!");
+            }
+            const validCount = el.value.split(/\r?\n/).map(s => s.trim()).filter(Boolean).length;
+            const badge = document.getElementById("mm_uid_cnt_" + rowIdx);
+            if (badge) {
+                badge.textContent = `Đã nhập: ${Math.min(validCount, 10)} / 10 UID`;
+            }
+        };
+
+        window.clearMetaMaxUidBox = function(rowIdx) {
+            const el = document.getElementById("mm_uid_box_" + rowIdx);
+            if (el) {
+                el.value = "";
+                handleMetaMaxUidBoxInput(el, rowIdx);
+                el.focus();
+            }
+        };
+
         // Điều khiển 3 sub-tab bên trong Tool Edit: 'modules' (5 Module Video) | 'sfx' (21 Sound Effect) | 'bgm' (119 Nhạc Nền)
         window.switchToolEditSubTab = function(tab) {
             dvEditSubTab = tab;
@@ -8431,8 +8538,7 @@
             const bgmSliderTrack = document.getElementById("sbBottomSliderTrack");
             const sfxSliderTrack = document.getElementById("sfxBottomSliderTrack");
 
-            if (window.stopSoundboardAudio) window.stopSoundboardAudio();
-            if (window.stopEditorSound) window.stopEditorSound();
+            dvStopAllAudioPlayers();
 
             ["modules", "sfx", "bgm"].forEach(k => {
                 const btn = document.getElementById("dvEditTabBtn_" + k);
@@ -8481,29 +8587,31 @@
         window.renderDvApp = function() {
             const box = document.getElementById("dvAppMount");
             const audioWrap = document.getElementById("dvToolEditAudioWrapper");
-            const bottomBar = document.getElementById("sbBottomStyleBar");
             if (!box) return;
 
             if (dvCurrentView !== "Tool Edit") {
                 if (audioWrap) audioWrap.classList.add("hidden");
-                if (bottomBar) { bottomBar.classList.add("hidden"); bottomBar.style.display = "none"; }
-                if (window.stopSoundboardAudio) window.stopSoundboardAudio();
-                if (window.stopEditorSound) window.stopEditorSound();
+                dvStopAllAudioPlayers();
             }
 
-            // 1. MÀN HÌNH TỔNG QUAN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN
+            // =========================================================================
+            // 1. MÀN HÌNH TỔNG QUAN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (KHÔNG CÒN NÚT <- CÔNG VIỆC BÊN DƯỚI)
+            // =========================================================================
             if (dvCurrentView === "DASHBOARD") {
                 let cardsHtml = "";
                 DV_TOOL_ORDER.forEach(name => {
                     const cfg = window.DV_CONFIGS[name];
+                    if (!cfg) return;
+                    const displayTitle = cfg.short || cfg.short_title || name;
+                    const displaySub = cfg.subtitle || cfg.desc || "";
                     if (cfg.full_width) {
                         cardsHtml += `
                             <button onclick="dvOpenTool('${name}')" class="col-span-2 dash-card bg-gradient-to-r ${cfg.gradient} shadow-xl ${cfg.shadow} flex !flex-row items-center justify-between !p-5 !min-h-0">
                                 <div class="flex items-center gap-4 text-left">
                                     <div class="dash-icon !mb-0 !w-12 !h-12 !rounded-xl"><i class="fa-solid ${cfg.icon}"></i></div>
                                     <div>
-                                        <div class="dash-title text-base flex items-center gap-2">
-                                            ${cfg.short_title}
+                                        <div class="dash-title text-base flex items-center gap-2 flex-wrap">
+                                            <span>${displayTitle}</span>
                                             <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-400 text-gray-950 uppercase tracking-wide">5 Module + SFX & BGM</span>
                                         </div>
                                         <div class="dash-desc text-white/85">So Sánh • Thread • FB Confession • Minh Họa • 21 SFX • 119 Nhạc Nền</div>
@@ -8519,8 +8627,8 @@
                             <button onclick="dvOpenTool('${name}')" class="dash-card bg-gradient-to-br ${cfg.gradient} shadow-xl ${cfg.shadow}">
                                 <div>
                                     <div class="dash-icon"><i class="fa-solid ${cfg.icon}"></i></div>
-                                    <div class="dash-title">${cfg.short_title}</div>
-                                    <div class="dash-desc">${cfg.desc}</div>
+                                    <div class="dash-title">${displayTitle}</div>
+                                    <div class="dash-desc">${displaySub}</div>
                                 </div>
                             </button>
                         `;
@@ -8534,14 +8642,10 @@
                             <p class="text-xs sm:text-sm text-gray-400 font-semibold mt-0.5">Chọn công cụ bạn cần điều khiển</p>
                         </div>
                         <div class="flex items-center gap-2 shrink-0">
-                            <a href="https://docs.google.com/spreadsheets/d/1y98ba519904321000000/edit" target="_blank"
-                               class="w-10 h-10 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 transition cursor-pointer" title="Mở Google Sheet">
+                            <a href="https://docs.google.com/spreadsheets/d/1sCDWO5cIrRx5h4WDIIDWrN3mLpmlaQzW/edit" target="_blank"
+                               class="w-10 h-10 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center border border-emerald-200 transition cursor-pointer no-underline" title="Mở Google Sheet 9 Sheet">
                                 <i class="fa-solid fa-table text-sm"></i>
                             </a>
-                            <button onclick="selectGameMode('thuquy')" class="px-3.5 py-2 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold text-xs flex items-center gap-1.5 transition cursor-pointer border-0">
-                                <i class="fa-solid fa-arrow-left text-[11px]"></i>
-                                <span>Công Việc</span>
-                            </button>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -8551,268 +8655,467 @@
                 return;
             }
 
-            // 2. MÀN HÌNH BẬT MÁY
+            // =========================================================================
+            // 2. MÀN HÌNH KHỞI ĐỘNG (BẬT MÁY)
+            // =========================================================================
             if (dvCurrentView === "Bật Máy") {
-                const cfg = window.DV_CONFIGS["Bật Máy"];
-                const rows = window.DV_STATE.bat_may || [];
-                const rowsHtml = rows.map(r => {
-                    let actionBtn = "";
-                    if (r.row === 3 || r.row === 4) {
-                        const isStop = (r.row === 3);
-                        const btnCls = isStop
-                            ? "bg-rose-600 hover:bg-rose-700 shadow-rose-200"
-                            : "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-200";
-                        actionBtn = `
-                            <button onclick="dvRunBatMay(${r.row}, '${r.action_type}')"
-                                    class="w-full mt-3 py-3 rounded-2xl ${btnCls} text-white font-extrabold text-xs shadow-md active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer border-0">
-                                <i class="fa-solid ${isStop ? 'fa-power-off' : 'fa-rotate'}"></i>
-                                <span>${r.btn}</span>
-                            </button>
-                        `;
-                    }
+                const cfg = window.DV_CONFIGS["Bật Máy"] || {};
+                const powerList = window.DV_STATE.power || [
+                    { row: 6, code: "wake_pc", btn: "▶ Khởi Động", name: "1. Khởi động máy & mở toàn bộ hệ thống", status: "Đang chờ" },
+                    { row: 7, code: "sleep_pc", btn: "▶ Ngủ Ngầm", name: "2. Chế độ ngủ ngầm tiết kiệm điện", status: "Đang chờ" },
+                    { row: 8, code: "check_all_tools", btn: "▶ Kiểm Tra", name: "3. Kiểm tra kết nối 9 Tool & Cookie", status: "Đang chờ" },
+                    { row: 9, code: "shutdown_pc", btn: "▶ Tắt Nguồn", name: "4. Tắt nguồn máy tính từ xa", status: "Đang chờ" }
+                ];
+                const healthList = window.DV_STATE.tool_health || [];
+
+                const powerHtml = powerList.map(p => {
+                    const isDanger = (p.code === "shutdown_pc" || p.row === 9);
+                    const btnColor = isDanger
+                        ? "bg-rose-600 hover:bg-rose-700"
+                        : "bg-emerald-600 hover:bg-emerald-700";
                     return `
-                        <div class="bg-white p-4 rounded-3xl shadow-sm border border-gray-100">
-                            <div class="flex items-start justify-between gap-2">
-                                <div class="font-extrabold text-gray-900 text-sm">${r.name}</div>
-                                ${dvStatusBadgeHtml(r.status, "st_BatMay_" + r.row)}
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="text-sm font-black text-gray-800">${p.name}</div>
+                                <div class="mt-1">${dvStatusBadgeHtml(p.status, 'bm_st_' + p.row)}</div>
                             </div>
-                            <p class="text-xs text-gray-500 font-medium mt-1.5 leading-relaxed">${r.note || ''}</p>
-                            ${actionBtn}
+                            <button onclick="dvTriggerPower('${p.code}', ${p.row})"
+                                    class="px-4 py-2.5 rounded-xl ${btnColor} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
+                                ${p.btn || '▶ Khởi Động'}
+                            </button>
                         </div>
                     `;
                 }).join("");
+
+                const healthHtml = healthList.map(th => `
+                    <div class="flex items-center justify-between py-2.5 border-b border-gray-100 last:border-b-0 gap-2">
+                        <span class="text-xs font-bold text-gray-700">${th.name}</span>
+                        ${dvStatusBadgeHtml(th.status)}
+                    </div>
+                `).join("");
 
                 box.innerHTML = `
                     <div class="section-header-bar">
                         <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
-                        <div class="text-center flex-1 px-3">
-                            <h2 class="view-page-title">${cfg.title}</h2>
-                            <p class="view-page-subtitle">${cfg.subtitle}</p>
+                        <div class="text-center flex-1 px-2">
+                            <h2 class="view-page-title">Khởi Động</h2>
+                            <p class="view-page-subtitle">${cfg.subtitle || 'Khởi động hệ thống & kiểm tra 9 Tool'}</p>
                         </div>
-                        <button onclick="dvRunBatMay(4, 'check_health')" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200 hover:bg-emerald-700 active:scale-95 transition cursor-pointer border-0" title="Làm mới">
+                        <button onclick="dvTriggerPower('check_all_tools', 8)" class="w-11 h-11 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-md hover:bg-emerald-700 cursor-pointer border-0 shrink-0" title="Kiểm tra các Tool">
                             <i class="fa-solid fa-rotate text-sm"></i>
                         </button>
                     </div>
-                    <div class="space-y-3">
-                        ${rowsHtml}
+
+                    <div class="space-y-2.5 mb-5">
+                        ${powerHtml}
+                    </div>
+
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100">
+                        <h3 class="text-xs font-black text-gray-500 uppercase tracking-wider mb-2">Trạng Thái Hoạt Động Các Tool</h3>
+                        ${healthHtml || '<div class="text-xs text-gray-400 font-semibold py-2">Đang đồng bộ trạng thái 9 Tool...</div>'}
                     </div>
                 `;
                 return;
             }
 
-            // 3. MÀN HÌNH METAMAX
+            // =========================================================================
+            // 3. MÀN HÌNH METAMAX (DÁN 1 THỂ TỐI ĐA 10 UID = 10 DÒNG + NÚT BẤM CHUẨN KHÔNG LỖI)
+            // =========================================================================
             if (dvCurrentView === "MetaMax") {
-                const cfg = window.DV_CONFIGS["MetaMax"];
-                const rows = window.DV_STATE.metamax_rows || [];
-                if (dvMetaMaxIdx >= rows.length) dvMetaMaxIdx = 0;
-                const activeRow = rows[dvMetaMaxIdx] || { row: 4, channel: "Tân Học Sản Xuất", uid: "", comment: "", schedule: "", status: "Đang chờ" };
+                const mmRows = window.DV_STATE.metamax_rows || [];
+                const shortTabs = ["Social", "Tài Liệu", "Tarot", "Quà Tặng", "Ăn Vặt"];
+                const cleanBtns = [
+                    "▶ CHẠY SOCIAL",
+                    "▶ CHẠY TÀI LIỆU",
+                    "▶ CHẠY TAROT",
+                    "▶ CHẠY QUÀ TẶNG",
+                    "▶ CHẠY ĂN VẶT"
+                ];
+                const channelBtnColors = [
+                    "bg-orange-600 hover:bg-orange-700 shadow-orange-200/70",
+                    "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200/70",
+                    "bg-violet-600 hover:bg-violet-700 shadow-violet-200/70",
+                    "bg-pink-600 hover:bg-pink-700 shadow-pink-200/70",
+                    "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-200/70"
+                ];
+                const channelTabActiveColors = [
+                    "bg-orange-600 text-white shadow-sm font-black",
+                    "bg-indigo-600 text-white shadow-sm font-black",
+                    "bg-violet-600 text-white shadow-sm font-black",
+                    "bg-pink-600 text-white shadow-sm font-black",
+                    "bg-emerald-600 text-white shadow-sm font-black"
+                ];
 
-                const pillsHtml = rows.map((r, idx) => {
-                    const isAct = (idx === dvMetaMaxIdx);
-                    const cls = isAct
-                        ? "bg-indigo-600 text-white shadow-md shadow-indigo-200 font-extrabold"
-                        : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 font-bold";
-                    return `
+                if (dvMetaMaxIdx >= mmRows.length && mmRows.length > 0) dvMetaMaxIdx = 0;
+
+                let segTabsHtml = "";
+                const tabCount = Math.max(mmRows.length, 5);
+                for (let idx = 0; idx < tabCount; idx++) {
+                    const isActive = (idx === dvMetaMaxIdx);
+                    const cls = isActive
+                        ? (channelTabActiveColors[idx] || "bg-indigo-600 text-white shadow-sm font-black")
+                        : "text-gray-600 hover:text-gray-900 font-bold bg-transparent";
+                    segTabsHtml += `
                         <button onclick="dvSelectMetaMaxChannel(${idx})"
-                                class="px-3.5 py-2 rounded-2xl text-xs transition cursor-pointer shrink-0 ${cls}">
-                            ${idx + 1}. ${r.channel}
+                                class="flex-1 py-2.5 px-2 text-xs rounded-xl cursor-pointer border-0 transition ${cls}">
+                            ${shortTabs[idx] || ('Kênh ' + (idx + 1))}
                         </button>
                     `;
-                }).join("");
+                }
 
-                const uidLines = (activeRow.uid || "").split(/\r?\n/);
-                while (uidLines.length < 4) uidLines.push("");
-                const uidInputsHtml = [0, 1, 2, 3].map(i => `
-                    <div class="flex items-center gap-2.5">
-                        <span class="w-14 text-[11px] font-extrabold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-xl py-2 text-center shrink-0">UID ${i + 1}</span>
-                        <input id="mm_uid_${activeRow.row}_${i}" type="text"
-                               value="${(uidLines[i] || '').replace(/"/g, '&quot;')}"
-                               placeholder="Dán UID Facebook dòng ${i + 1}..."
-                               class="w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl px-3.5 py-2 text-xs font-mono font-semibold text-gray-800 focus:outline-none transition">
-                    </div>
-                `).join("");
+                const defaultChannelNames = [
+                    "1. Điệp Viên Social",
+                    "2. Điệp Viên Tài Liệu",
+                    "3. Điệp Viên Tarot",
+                    "4. Điệp Viên Quà Tặng",
+                    "5. Điệp Viên Ăn Vặt"
+                ];
+                const defaultRowNums = [6, 10, 14, 18, 22];
+                const rObj = mmRows[dvMetaMaxIdx] || {
+                    row: defaultRowNums[dvMetaMaxIdx] || 6,
+                    channel: defaultChannelNames[dvMetaMaxIdx] || "1. Điệp Viên Social",
+                    uid_rows: [],
+                    uids: "",
+                    comment: "",
+                    btn_text: cleanBtns[dvMetaMaxIdx] || "▶ CHẠY SOCIAL",
+                    schedule: "Không hẹn giờ",
+                    status: "Đang chờ"
+                };
+                const r = rObj.row;
+
+                // Khử hoàn toàn lỗi =HYPERLINK(...) trên nút bấm MetaMax
+                let btnLbl = cleanBtns[dvMetaMaxIdx] || "▶ CHẠY SOCIAL";
+                if (rObj.btn_text && !rObj.btn_text.toUpperCase().includes("=HYPERLINK") && !rObj.btn_text.toUpperCase().includes("BÓC FILE")) {
+                    btnLbl = rObj.btn_text;
+                }
+                const btnColorCls = channelBtnColors[dvMetaMaxIdx] || "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200/70";
+
+                const rawUidList = (rObj.uid_rows && rObj.uid_rows.length)
+                    ? rObj.uid_rows
+                    : (rObj.uids || "").split(/\r?\n/);
+                const cleanedUidList = rawUidList.map(x => String(x || "").trim()).filter(Boolean).slice(0, 10);
+                const uidTextValue = cleanedUidList.join("\n");
+
+                let lineNumbersGutter = "";
+                for (let ln = 1; ln <= 10; ln++) {
+                    lineNumbersGutter += `<div class="h-6 leading-6 text-[11px] font-extrabold text-gray-400 text-right pr-2.5 select-none">Dòng ${ln}</div>`;
+                }
+
+                const schedOpts = ["Không hẹn giờ", "12:00", "18:00", "19:30", "20:00", "21:00", "22:00"]
+                    .map(o => `<option value="${o}" ${o === rObj.schedule ? 'selected' : ''}>${o}</option>`).join("");
 
                 box.innerHTML = `
                     <div class="section-header-bar">
                         <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                             <i class="fa-solid fa-chevron-left text-sm"></i>
                         </button>
-                        <div class="text-center flex-1 px-3">
-                            <h2 class="view-page-title">${cfg.title}</h2>
-                            <p class="view-page-subtitle">${cfg.subtitle}</p>
+                        <div class="text-center flex-1 px-2">
+                            <h2 class="view-page-title">MetaMax</h2>
+                            <p class="view-page-subtitle">Đi Comment dạo & Seeding 5 kênh Điệp Viên</p>
                         </div>
-                        <div class="w-11"></div>
+                        <div class="w-11 shrink-0"></div>
                     </div>
 
-                    <div class="mb-4">
-                        <div class="text-[11px] font-extrabold text-gray-400 uppercase tracking-wider mb-2">Chọn kênh chiến dịch (${rows.length} kênh)</div>
-                        <div class="flex gap-2 overflow-x-auto pb-1.5" style="scrollbar-width:none;">
-                            ${pillsHtml}
-                        </div>
+                    <div class="flex gap-1.5 mb-5 p-1.5 bg-gray-200/80 rounded-2xl">
+                        ${segTabsHtml}
                     </div>
 
                     <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 space-y-4">
-                        <div class="flex items-center justify-between gap-2 pb-3 border-b border-gray-100">
+                        <div class="flex items-center justify-between gap-2">
                             <div>
-                                <div class="text-[11px] font-extrabold text-indigo-600 uppercase tracking-wider">Kênh đang chọn</div>
-                                <h3 class="text-lg font-black text-gray-900 mt-0.5">${activeRow.channel}</h3>
+                                <h3 class="text-base font-black text-gray-900">${rObj.channel}</h3>
+                                <p class="text-xs text-gray-400 font-semibold mt-0.5">Dán 1 thể tối đa 10 mã UID (tương đương 10 dòng)</p>
                             </div>
-                            ${dvStatusBadgeHtml(activeRow.status, "st_MetaMax_" + activeRow.row)}
+                            ${dvStatusBadgeHtml(rObj.status, 'st_MetaMax_' + r)}
                         </div>
 
                         <div>
-                            <label class="block text-xs font-extrabold text-gray-700 mb-2">
-                                <i class="fa-solid fa-id-badge text-indigo-500 mr-1"></i> Danh sách UID (Xếp dọc từng dòng 1 UID)
-                            </label>
-                            <div class="space-y-2">
-                                ${uidInputsHtml}
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span id="mm_uid_cnt_${r}" class="text-[11px] font-extrabold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-100">
+                                    Đã nhập: ${cleanedUidList.length} / 10 UID
+                                </span>
+                                <button type="button" onclick="clearMetaMaxUidBox(${r})"
+                                        class="text-[11px] font-bold text-rose-500 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-2.5 py-0.5 rounded-lg transition cursor-pointer border-0">
+                                    <i class="fa-solid fa-eraser mr-1"></i>Xóa trắng
+                                </button>
+                            </div>
+                            <div class="flex bg-gray-50 border border-gray-200 focus-within:border-indigo-500 focus-within:bg-white rounded-2xl overflow-hidden p-2.5 transition">
+                                <div class="border-r border-gray-200 shrink-0">
+                                    ${lineNumbersGutter}
+                                </div>
+                                <textarea id="mm_uid_box_${r}" rows="10"
+                                          oninput="handleMetaMaxUidBoxInput(this, ${r})"
+                                          placeholder="Dán 1 thể tối đa 10 UID Group tại đây (mỗi dòng 1 mã UID)..."
+                                          style="line-height: 24px; height: 240px;"
+                                          class="clean-scroll flex-1 bg-transparent border-0 pl-3 pr-1 py-0 text-xs font-bold text-gray-800 focus:outline-none">${uidTextValue}</textarea>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">
-                                <i class="fa-solid fa-comment-dots text-indigo-500 mr-1"></i> Nội dung Comment Seeding & Link ảnh/video
-                            </label>
-                            <textarea id="mm_cmt_${activeRow.row}" rows="3"
-                                      placeholder="Nhập nội dung bình luận seeding..."
-                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3.5 text-xs font-semibold text-gray-800 focus:outline-none transition">${activeRow.comment || ''}</textarea>
+                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">Nội dung Comment sẵn</label>
+                            <textarea id="mm_cmt_${r}" rows="3"
+                                      class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white"
+                                      placeholder="Nhập nội dung comment...">${rObj.comment || ''}</textarea>
                         </div>
 
-                        <div>
-                            <label class="block text-xs font-extrabold text-gray-700 mb-1.5">
-                                <i class="fa-solid fa-clock text-indigo-500 mr-1"></i> Khung giờ & Lịch chạy
-                            </label>
-                            <input id="mm_sched_${activeRow.row}" type="text"
-                                   value="${(activeRow.schedule || '').replace(/"/g, '&quot;')}"
-                                   placeholder="VD: 11:30 | 19:30 | Đăng Kèm Seeding"
-                                   class="w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl px-3.5 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none transition">
-                        </div>
+                        <button onclick="dvRunMetaMaxRow(${r}, 'exec_row')"
+                                class="w-full py-3.5 rounded-2xl ${btnColorCls} text-white text-sm font-black shadow-md cursor-pointer border-0 flex items-center justify-center gap-2">
+                            <span>${btnLbl}</span>
+                        </button>
 
-                        <div class="grid grid-cols-2 gap-2.5 pt-1">
-                            <button onclick="dvRunMetaMaxRow(${activeRow.row}, 'save_only')"
-                                    class="py-3 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold text-xs transition active:scale-[0.99] flex items-center justify-center gap-1.5 cursor-pointer border-0">
-                                <i class="fa-solid fa-floppy-disk"></i>
-                                <span>Lưu Dữ Liệu</span>
+                        <div class="flex items-center gap-2 pt-1">
+                            <button onclick="dvRunMetaMaxRow(${r}, 'save_only')"
+                                    class="py-2.5 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-extrabold cursor-pointer border-0">
+                                💾 Lưu
                             </button>
-                            <button onclick="dvRunMetaMaxRow(${activeRow.row}, 'metamax_channel')"
-                                    class="py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow-md shadow-indigo-200 transition active:scale-[0.99] flex items-center justify-center gap-1.5 cursor-pointer border-0">
-                                <i class="fa-solid fa-play text-[10px]"></i>
-                                <span>Chạy Kênh Này</span>
+                            <select id="mm_sched_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
+                                ${schedOpts}
+                            </select>
+                            <button onclick="dvRunMetaMaxRow(${r}, 'schedule_row')"
+                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0">
+                                ⏰ Hẹn Giờ
                             </button>
                         </div>
                     </div>
-
-                    <button onclick="dvRunMetaMaxRow(11, 'metamax_all')"
-                            class="w-full mt-4 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-black text-xs shadow-lg shadow-indigo-200 transition active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer border-0">
-                        <i class="fa-solid fa-bolt"></i>
-                        <span>CHẠY TẤT CẢ 7 KÊNH METAMAX</span>
-                    </button>
                 `;
                 return;
             }
 
+            // =========================================================================
             // 4. MÀN HÌNH 6 KÊNH ĐIỆP VIÊN + TOOL EDIT (KÈM SUB-TAB 21 SFX & 119 NHẠC NỀN)
-            const cfg = window.DV_CONFIGS[dvCurrentView];
+            // =========================================================================
+            const cfg = window.DV_CONFIGS[dvCurrentView] || {};
             const toolState = (window.DV_STATE.tools && window.DV_STATE.tools[dvCurrentView]) || { merged_c: "", rows: [] };
             const stateRows = toolState.rows || [];
-            const mergedC = toolState.merged_c || "";
+            const mergedVal = toolState.merged_c || "";
+            const urls = dvExtractUrls(mergedVal);
 
-            const modulesHtml = (cfg.modules || []).map((m, idx) => {
-                const stRow = stateRows.find(r => r.row === m.row) || { col_b: "", col_e: "", status: "Đang chờ", note: "" };
-                let inputsHtml = "";
+            let modulesHtml = "";
+            (cfg.modules || []).forEach(m => {
+                const r = m.row;
+                const rowState = stateRows.find(x => x.row === r) || { col_b: "", col_e: "", status: "Đang chờ" };
+                const btnText = m.btn_text || m.btn || "▶ Thực Hiện";
+                const allowInputB = !!(m.allow_input_b || m.has_b);
 
-                if (m.has_b) {
-                    const rowsCnt = (dvCurrentView === "Điệp Viên Social" && m.row === 3) ? 4 : 2;
-                    inputsHtml += `
-                        <div class="mt-3">
-                            <textarea id="inp_b_${m.row}" rows="${rowsCnt}"
-                                      placeholder="${m.b_placeholder}"
-                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3 text-xs font-semibold text-gray-800 focus:outline-none transition">${stRow.col_b || ''}</textarea>
-                        </div>
-                    `;
-                }
-
-                if (m.has_e) {
-                    const isUidBox = (dvCurrentView === "Điệp Viên Social" && m.row === 6);
-                    const eRows = isUidBox ? 4 : 2;
-                    const monoCls = isUidBox ? "font-mono" : "";
-                    inputsHtml += `
-                        <div class="mt-2.5">
-                            ${isUidBox ? '<div class="text-[11px] font-extrabold text-indigo-600 mb-1"><i class="fa-solid fa-list-ol mr-1"></i>Dán danh sách UID (Mỗi dòng 1 UID theo hàng dọc):</div>' : ''}
-                            <textarea id="inp_e_${m.row}" rows="${eRows}"
-                                      placeholder="${m.e_placeholder}"
-                                      class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3 text-xs font-semibold text-gray-800 ${monoCls} focus:outline-none transition">${stRow.col_e || ''}</textarea>
-                        </div>
-                    `;
-                }
-
-                return `
-                    <div class="bg-white p-4 rounded-3xl shadow-sm border border-gray-100">
-                        <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2.5">
-                                <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs font-black shrink-0">
-                                    <i class="fa-solid ${m.icon || 'fa-Sliders'}"></i>
-                                </span>
-                                <h3 class="font-extrabold text-gray-900 text-sm">${idx + 1}. ${m.name}</h3>
+                // Nếu module KHÔNG cần nhập Link/Prompt & KHÔNG có hẹn giờ phụ -> Hiển thị thẻ ngang 1 chạm cực gọn!
+                if (!allowInputB && !m.extra_action) {
+                    modulesHtml += `
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0 flex-1">
+                                <div class="w-10 h-10 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
+                                    <i class="fa-solid ${m.icon || 'fa-play'} text-sm"></i>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2 flex-wrap">
+                                        <span class="text-sm font-black text-gray-900">${m.name}</span>
+                                        ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
+                                    </div>
+                                    <p class="text-[11.5px] text-gray-400 font-medium mt-0.5 truncate">${m.desc || ''}</p>
+                                </div>
                             </div>
-                            ${dvStatusBadgeHtml(stRow.status, "st_row_" + m.row)}
+                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
+                                    class="px-4 py-2.5 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0 shrink-0">
+                                ${btnText}
+                            </button>
                         </div>
-                        <p class="text-xs text-gray-500 font-medium mt-1.5 leading-relaxed">${m.desc}</p>
-                        ${inputsHtml}
-                        <button onclick="dvRunToolRow('${dvCurrentView}', ${m.row}, '${m.action_type}')"
-                                class="w-full mt-3 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs shadow-md shadow-indigo-200/70 active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer border-0">
-                            <i class="fa-solid fa-play text-[10px]"></i>
-                            <span>${m.btn}</span>
+                    `;
+                    return;
+                }
+
+                // Nếu module CÓ ô nhập Link/Prompt hoặc Hẹn Giờ -> Hiển thị thẻ đầy đủ gọn gàng
+                let inputHtml = "";
+                if (allowInputB) {
+                    inputHtml = `
+                        <textarea id="inp_b_${r}" rows="2"
+                                  placeholder="${m.input_b_placeholder || m.b_placeholder || ''}"
+                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-xs font-medium text-gray-800 focus:outline-none focus:border-indigo-500 focus:bg-white">${rowState.col_b || ''}</textarea>
+                    `;
+                }
+
+                let extraHtml = "";
+                if (m.extra_action === "schedule" || m.extra_action === "archive") {
+                    const opts = (m.extra_options || []).map(o =>
+                        `<option value="${o}" ${o === rowState.col_e ? 'selected' : ''}>${o}</option>`
+                    ).join("");
+                    const actCode = m.extra_action === "schedule" ? "schedule_row" : "archive_doc_row";
+                    extraHtml = `
+                        <div class="flex items-center gap-2">
+                            <select id="inp_e_${r}" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
+                                ${opts}
+                            </select>
+                            <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, '${actCode}')"
+                                    class="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                ${m.extra_btn_text}
+                            </button>
+                        </div>
+                    `;
+                }
+
+                modulesHtml += `
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-2.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-9 h-9 rounded-xl ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center shrink-0">
+                                    <i class="fa-solid ${m.icon || 'fa-play'} text-xs"></i>
+                                </div>
+                                <span class="text-sm font-black text-gray-900">${m.name}</span>
+                            </div>
+                            ${dvStatusBadgeHtml(rowState.status, 'st_row_' + r)}
+                        </div>
+                        <p class="text-[11.5px] text-gray-400 font-medium leading-relaxed">${m.desc || ''}</p>
+                        ${inputHtml}
+                        <button onclick="dvRunToolRow('${dvCurrentView}', ${r}, 'exec_row')"
+                                class="w-full py-3 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold shadow-sm cursor-pointer border-0">
+                            ${btnText}
                         </button>
+                        ${extraHtml}
                     </div>
                 `;
-            }).join("");
+            });
 
-            const urls = dvExtractUrls(mergedC);
-            let linksQuickHtml = "";
-            if (urls.length > 0) {
-                const btns = urls.map((u, i) => `
-                    <a href="${u}" target="_blank"
-                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-extrabold transition">
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        <span>Mở Link Sản Phẩm #${i + 1}</span>
-                    </a>
-                `).join("");
-                linksQuickHtml = `<div class="flex flex-wrap gap-2 mt-2.5">${btns}</div>`;
-            }
+            // =========================================================================
+            // KHUNG KẾT QUẢ Ở CUỐI CÙNG:
+            // - Điệp Viên Social: GỘP CHUNG Kiểm Tra Kịch Bản + Nút Hoàn Thiện Làm Video + Hẹn Giờ Đăng!
+            // - Các Tool khác: Hiển thị Link Thành Phẩm Google Drive
+            // =========================================================================
+            let bottomResultHtml = "";
+            if (cfg.merged_box_editable) {
+                const srcUrlBtn = urls.length > 0
+                    ? `<a href="${urls[0]}" target="_blank" class="px-3 py-1.5 rounded-xl bg-orange-50 text-orange-700 border border-orange-200 text-[11px] font-extrabold no-underline">🔗 Mở Video Gốc</a>`
+                    : "";
+                const row7State = stateRows.find(x => x.row === 7) || { status: "Đang chờ" };
+                const row8State = stateRows.find(x => x.row === 8) || { col_e: "20:00", status: "Đang chờ" };
+                const schedList = cfg.schedule_options || ["20:00", "12:00", "18:00", "19:30", "21:00", "21:30", "22:30"];
+                const schedOptsHtml = schedList.map(o =>
+                    `<option value="${o}" ${o === row8State.col_e ? 'selected' : ''}>⏰ Hẹn giờ: ${o}</option>`
+                ).join("");
 
-            const resultBoxHtml = `
-                <div class="bg-white p-4 rounded-3xl shadow-sm border border-indigo-100 mt-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-circle-check"></i>
-                            </span>
-                            <span class="text-xs font-black text-gray-800 uppercase tracking-wide">${cfg.c_label || 'KẾT QUẢ KỊCH BẢN & LINK SẢN PHẨM'}</span>
+                bottomResultHtml = `
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-orange-200/80 mt-5 space-y-3.5">
+                        <div class="flex items-center justify-between gap-2 flex-wrap">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </span>
+                                <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Kịch Bản & Hoàn Thiện Video</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                ${srcUrlBtn}
+                                <button onclick="dvCopyMergedBox()"
+                                        class="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-extrabold cursor-pointer border-0">
+                                    📋 Copy
+                                </button>
+                                <button onclick="dvSaveMergedBox('${dvCurrentView}')"
+                                        class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-extrabold cursor-pointer border-0">
+                                    💾 Lưu Kịch Bản
+                                </button>
+                            </div>
                         </div>
-                        <button onclick="dvCopyMergedBox()" class="px-2.5 py-1 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 text-[11px] font-bold transition cursor-pointer border-0">
-                            <i class="fa-regular fa-copy mr-1"></i>Copy
-                        </button>
+
+                        <textarea id="dv_merged_c_box" rows="6"
+                                  placeholder="Kịch bản làm ra (kèm Link video gốc, Caption & #Hashtag) sẽ hiển thị tại đây để bạn kiểm tra và chỉnh sửa trước khi bấm Hoàn Thiện..."
+                                  class="clean-scroll w-full bg-gray-50 border border-gray-200 rounded-2xl p-3.5 text-xs font-medium text-gray-800 leading-relaxed focus:outline-none focus:border-orange-500 focus:bg-white">${mergedVal}</textarea>
+
+                        <!-- GỘP NÚT HOÀN THIỆN LÀM VIDEO & HẸN GIỜ ĐĂNG TRỰC TIẾP TẠI KHUNG KẾT QUẢ -->
+                        <div class="pt-3 border-t border-orange-100 space-y-2.5">
+                            <div class="flex items-center justify-between text-[11px] font-bold text-gray-500 px-0.5">
+                                <div class="flex items-center gap-1.5">
+                                    <span>Dựng Video:</span>
+                                    ${dvStatusBadgeHtml(row7State.status, 'st_row_7')}
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span>Đăng Kênh:</span>
+                                    ${dvStatusBadgeHtml(row8State.status, 'st_row_8')}
+                                </div>
+                            </div>
+
+                            <button onclick="dvCompleteSocialVideo(false)"
+                                    class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white text-xs sm:text-sm font-black shadow-md shadow-orange-200/70 cursor-pointer border-0 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-clapperboard"></i>
+                                <span>Hoàn Thiện & Làm Video Ngay</span>
+                            </button>
+
+                            <div class="flex items-center gap-2">
+                                <select id="inp_e_8" class="flex-1 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-700">
+                                    ${schedOptsHtml}
+                                </select>
+                                <button onclick="dvCompleteSocialVideo(true)"
+                                        class="py-2.5 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                    ⏰ Hẹn Giờ Đăng
+                                </button>
+                                <button onclick="dvRunToolRow('Điệp Viên Social', 8, 'exec_row')"
+                                        class="py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                    🚀 Đăng Ngay
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <textarea id="dv_merged_c_box" rows="5"
-                              placeholder="Kịch bản hoàn chỉnh, Caption, Hashtag hoặc Link Google Drive thành phẩm sẽ hiển thị tại đây..."
-                              class="w-full clean-scroll bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-2xl p-3.5 text-xs font-semibold text-gray-800 leading-relaxed focus:outline-none transition">${mergedC}</textarea>
-                    ${linksQuickHtml}
-                </div>
-            `;
+                `;
+            } else {
+                let linkButtonsHtml = "";
+                if (urls.length > 0) {
+                    urls.forEach((u, idx) => {
+                        let lbl = `🔗 Mở Link Thành Phẩm #${idx + 1}`;
+                        if (u.includes("docs.google.com/document")) {
+                            lbl = idx === 0 ? "📄 Mở Docs Đề Cương" : "📄 Mở Docs Bài Tập Lớn";
+                        } else if (u.includes("drive.google.com")) {
+                            lbl = "📂 Mở Google Drive Kiểm Tra";
+                        }
+                        linkButtonsHtml += `
+                            <a href="${u}" target="_blank"
+                               class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl ${cfg.btn_bg || 'bg-indigo-600 hover:bg-indigo-700'} text-white text-xs font-extrabold no-underline shadow-sm">
+                                ${lbl}
+                            </a>
+                        `;
+                    });
+                } else {
+                    linkButtonsHtml = `<span class="text-xs font-semibold text-gray-400">Chưa có link mới — Hãy bấm chạy chức năng bên trên</span>`;
+                }
+
+                let archiveSectionHtml = "";
+                if (cfg.has_archive_in_result) {
+                    archiveSectionHtml = `
+                        <div class="pt-3 mt-3 border-t border-gray-100 flex items-center gap-2 flex-wrap">
+                            <select id="inp_e_6" class="flex-1 min-w-[180px] bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-xs font-bold text-gray-700">
+                                <option value="Danh sách Đề Cương Lưu Trữ">Danh sách Đề Cương Lưu Trữ</option>
+                                <option value="Danh sách Bài Tập Lớn Lưu Trữ">Danh sách Bài Tập Lớn Lưu Trữ</option>
+                            </select>
+                            <button onclick="dvRunToolRow('${dvCurrentView}', 6, 'archive_doc_row')"
+                                    class="py-2 px-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold cursor-pointer border-0 shrink-0">
+                                📁 Đặt Vào Thư Mục & Điền DS
+                            </button>
+                        </div>
+                    `;
+                }
+
+                bottomResultHtml = `
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-indigo-100 mt-5 overflow-hidden">
+                        <div class="flex items-center gap-2 mb-2.5">
+                            <span class="w-7 h-7 rounded-lg ${cfg.icon_bg || 'bg-indigo-50 text-indigo-600'} flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-brands fa-google-drive"></i>
+                            </span>
+                            <span class="text-xs font-black text-gray-900 uppercase tracking-wide">Kết Quả Link Thành Phẩm Google Drive</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            ${linkButtonsHtml}
+                        </div>
+                        ${archiveSectionHtml}
+                    </div>
+                `;
+            }
 
             // Nếu là TOOL EDIT: Hiển thị thanh chuyển 3 Sub-Tab: [Dựng Video (5)] | [Sound Effect (21)] | [Nhạc Nền (119)]
             let toolEditSubTabsBar = "";
-            let headerRightCtrl = `<div class="w-11"></div>`;
+            let headerRightCtrl = `<div class="w-11 shrink-0"></div>`;
             if (dvCurrentView === "Tool Edit") {
                 headerRightCtrl = `
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-center gap-1.5 shrink-0">
                         <button onclick="toggleEditorAppWidth()" id="btnExpandEditor" class="w-10 h-10 rounded-2xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-600 flex items-center justify-center transition cursor-pointer border border-cyan-500/30" title="Mở rộng khung nhìn">
                             <i id="iconExpandEditor" class="fa-solid fa-up-right-and-down-left-from-center text-xs"></i>
                         </button>
-                        <button onclick="if(window.stopSoundboardAudio) stopSoundboardAudio(); if(window.stopEditorSound) stopEditorSound();" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer border border-rose-500/25" title="Dừng âm thanh">
+                        <button onclick="dvStopAllAudioPlayers()" class="w-10 h-10 rounded-2xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 flex items-center justify-center transition cursor-pointer border border-rose-500/25" title="Dừng âm thanh">
                             <i class="fa-solid fa-stop text-xs"></i>
                         </button>
                     </div>
@@ -8838,14 +9141,16 @@
                 `;
             }
 
+            const pageTitle = cfg.full_title || cfg.title || cfg.short || dvCurrentView;
+
             box.innerHTML = `
                 <div class="section-header-bar">
                     <button onclick="dvOpenDashboard()" class="back-btn" title="Quay lại">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="text-center flex-1 px-2">
-                        <h2 class="view-page-title">${cfg.title}</h2>
-                        <p class="view-page-subtitle truncate max-w-[240px] mx-auto">${cfg.subtitle}</p>
+                    <div class="text-center flex-1 px-2 min-w-0">
+                        <h2 class="view-page-title truncate">${pageTitle}</h2>
+                        <p class="view-page-subtitle truncate max-w-[260px] mx-auto">${cfg.subtitle || ''}</p>
                     </div>
                     ${headerRightCtrl}
                 </div>
@@ -8853,10 +9158,10 @@
                 ${toolEditSubTabsBar}
 
                 <div id="dvToolEditModulesBox">
-                    <div class="space-y-3.5">
+                    <div class="space-y-3">
                         ${modulesHtml}
                     </div>
-                    ${resultBoxHtml}
+                    ${bottomResultHtml}
                 </div>
             `;
 
@@ -8866,20 +9171,92 @@
         };
 
         // KẾT NỐI API THỰC THI LỆNH TỪ TRẠM ĐIỀU KHIỂN TỔNG
-        window.dvRunBatMay = async function(rowIdx, actionType) {
-            if (rowIdx === 3 && !confirm("Bạn chắc chắn muốn TẮT MÁY TÍNH từ xa?")) return;
-            const stEl = document.getElementById(`st_BatMay_${rowIdx}`);
-            if (stEl) stEl.textContent = "Đang tiến hành thực hiện";
-            dvNotify("🚀 Đang gửi lệnh điều khiển nguồn máy...");
+        window.dvTriggerPower = async function(actionCode, rowIdx = 6) {
+            if (actionCode === "shutdown_pc" && !confirm("Bạn chắc chắn muốn TẮT NGUỒN MÁY TÍNH từ xa?")) return;
+            const badge = document.getElementById(`bm_st_${rowIdx}`);
+            if (badge) badge.textContent = "Đang tiến hành thực hiện";
+            dvNotify("🚀 Đang gửi lệnh Khởi Động & Nguồn máy...");
+            try {
+                await fetch(`${getDvApiBase()}/run?action=${actionCode}&row=${rowIdx}`);
+                dvNotify("✅ Đã gửi lệnh thành công!");
+                setTimeout(dvPollState, 1200);
+            } catch (e) {
+                dvNotify("❌ Lỗi kết nối Daemon: " + e);
+            }
+        };
+
+        window.dvSaveMergedBox = async function(sheetName) {
+            const box = document.getElementById("dv_merged_c_box");
+            if (!box) return;
+            dvNotify("💾 Đang lưu kịch bản...");
             try {
                 await fetch(`${getDvApiBase()}/api/mobile_exec`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({ sheet: "Bật Máy", row: rowIdx, action_type: actionType })
+                    body: JSON.stringify({
+                        sheet: sheetName,
+                        row: 6,
+                        action_type: "save_merged_box",
+                        merged_c: box.value,
+                        save_only: true
+                    })
                 });
-                setTimeout(dvPollState, 1200);
+                if (window.DV_STATE.tools && window.DV_STATE.tools[sheetName]) {
+                    window.DV_STATE.tools[sheetName].merged_c = box.value;
+                }
+                dvNotify("✅ Đã lưu kịch bản!");
             } catch (e) {
-                dvNotify("❌ Lỗi kết nối Daemon: " + e);
+                dvNotify("❌ Lỗi lưu kịch bản: " + e);
+            }
+        };
+
+        // Nút Hoàn Thiện & Làm Video (+ Hẹn Giờ Đăng) trong khung Kết Quả của Điệp Viên Social
+        window.dvCompleteSocialVideo = async function(withSchedule) {
+            const mergedBox = document.getElementById("dv_merged_c_box");
+            const schedEl = document.getElementById("inp_e_8");
+            const mergedVal = mergedBox ? mergedBox.value : "";
+            const schedVal = schedEl ? schedEl.value : "20:00";
+
+            const st7 = document.getElementById("st_row_7");
+            const st8 = document.getElementById("st_row_8");
+            if (st7) st7.textContent = "Đang tiến hành thực hiện";
+            if (withSchedule && st8) st8.textContent = `Đã hẹn giờ (${schedVal})`;
+
+            dvNotify(withSchedule
+                ? `⏰ Đã lưu kịch bản, dựng video & hẹn giờ đăng lúc ${schedVal}!`
+                : "🎬 Đã lưu kịch bản & bắt đầu dựng video Điệp Viên Social!");
+
+            try {
+                // Bước 1: Lưu kịch bản đã duyệt & kích hoạt Làm Video (row 7)
+                await fetch(`${getDvApiBase()}/api/mobile_exec`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        sheet: "Điệp Viên Social",
+                        row: 7,
+                        action_type: "exec_row",
+                        merged_c: mergedVal,
+                        save_only: false
+                    })
+                });
+                // Bước 2: Nếu bấm Hẹn Giờ Đăng thì đặt lịch hẹn ở row 8 luôn
+                if (withSchedule) {
+                    await fetch(`${getDvApiBase()}/api/mobile_exec`, {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                            sheet: "Điệp Viên Social",
+                            row: 8,
+                            action_type: "schedule_row",
+                            merged_c: mergedVal,
+                            opt2: schedVal,
+                            save_only: false
+                        })
+                    });
+                }
+                setTimeout(dvPollState, 1400);
+            } catch (e) {
+                dvNotify("❌ Lỗi kết nối: " + e);
             }
         };
 
@@ -8916,10 +9293,10 @@
         };
 
         window.dvRunMetaMaxRow = async function(rowIdx, actionType) {
-            const uidLines = [];
-            for (let i = 0; i < 4; i++) {
-                const el = document.getElementById(`mm_uid_${rowIdx}_${i}`);
-                if (el && el.value.trim()) uidLines.push(el.value.trim());
+            const uidBox = document.getElementById(`mm_uid_box_${rowIdx}`);
+            let uidLines = [];
+            if (uidBox) {
+                uidLines = uidBox.value.replace(/[,;]+/g, "\n").split(/\r?\n/).map(s => s.trim()).filter(Boolean).slice(0, 10);
             }
             const uidCombined = uidLines.join("\n");
             const cmtEl = document.getElementById(`mm_cmt_${rowIdx}`);
@@ -8928,7 +9305,7 @@
 
             const stEl = document.getElementById(`st_MetaMax_${rowIdx}`);
             if (stEl && !saveOnly) stEl.textContent = "Đang tiến hành thực hiện";
-            dvNotify(saveOnly ? "💾 Đã lưu UID & Comment!" : "🚀 Đang chạy MetaMax...");
+            dvNotify(saveOnly ? `💾 Đã lưu ${uidLines.length} UID & Comment!` : `🚀 Đang chạy MetaMax (${uidLines.length} UID)...`);
 
             try {
                 await fetch(`${getDvApiBase()}/api/mobile_exec`, {
@@ -9007,8 +9384,7 @@
                     dvPollState();
                 } else {
                     syncHeaderForMode(false);
-                    const bottomBar = document.getElementById("sbBottomStyleBar");
-                    if (bottomBar) { bottomBar.classList.add("hidden"); bottomBar.style.display = "none"; }
+                    dvStopAllAudioPlayers();
                 }
             };
         }
