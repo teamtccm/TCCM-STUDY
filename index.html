@@ -1953,7 +1953,7 @@
     <!-- MÀN THU QUỸ: SẢNH CÔNG VIỆC HẰNG NGÀY & THU QUỸ (CHẾ ĐỘ CHÍNH MẶC ĐỊNH) -->
     <div class="screen" id="thuquyScreen" style="background:#000000; display:flex; align-items:center; justify-content:center; padding:12px; z-index:10;">
         <div id="appCardWrapper" class="w-full max-w-xl bg-gray-50/95 backdrop-blur-xl h-full max-h-[92vh] flex flex-col relative shadow-2xl overflow-hidden rounded-3xl border border-white/40 transition-all duration-300">
-            <!-- HEADER STUDY ĐƠN GIẢN -->
+            <!-- HEADER STUDY ĐƠN GIẢN KÈM NÚT NOTE GÓC TRÊN PHẢI -->
             <header class="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-700 sticky top-0 z-40 px-5 py-3.5 flex justify-between items-center shadow-lg shadow-indigo-300/30">
                 <div class="flex items-center gap-3.5 cursor-pointer" onclick="openStudyMode()" title="STUDY">
                     <div class="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white shadow-inner">
@@ -1964,6 +1964,10 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
+                    <button id="headerTasksNotesBtn" onclick="openTasksNotesMode()" class="h-10 px-3.5 rounded-2xl bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center gap-1.5 text-white font-extrabold text-xs transition-all cursor-pointer border border-white/20 shadow-xs" title="Note Cá Nhân & Lịch teamtccm@gmail.com">
+                        <i class="fa-solid fa-note-sticky text-sm text-amber-300"></i>
+                        <span>Note</span>
+                    </button>
                     <button onclick="promptAdminThenSettings()" class="w-10 h-10 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt">
                         <i class="fa-solid fa-gear text-base"></i>
                     </button>
@@ -1992,13 +1996,13 @@
                             <div class="dash-title">Ghép Nhóm</div>
                         </div>
                     </button>
-                    <!-- Note Cá Nhân & Google Lịch -->
+                    <!-- Note Cá Nhân & Google Lịch (teamtccm@gmail.com) -->
                     <button onclick="openTasksNotesMode()" class="dash-card bg-gradient-to-br from-violet-500 via-violet-600 to-purple-800 shadow-xl shadow-purple-200/50">
-                        <span class="dash-badge"><i class="fa-regular fa-calendar-check text-[9px]"></i> Lịch</span>
+                        <span class="dash-badge"><i class="fa-regular fa-calendar-check text-[9px]"></i> teamtccm</span>
                         <div>
                             <div class="dash-icon"><i class="fa-solid fa-note-sticky"></i></div>
                             <div class="dash-title">Note Cá Nhân</div>
-                            <div class="dash-desc text-white/80 font-bold">Lưu trữ & Google Lịch</div>
+                            <div class="dash-desc text-white/85 font-bold">Note sang lịch teamtccm</div>
                         </div>
                     </button>
                     <!-- Thông Báo -->
@@ -2139,7 +2143,7 @@
                 </div>
             </section>
 
-                        <!-- VIEW: NOTE CÁ NHÂN BASIC (LƯU TRỮ & LIÊN KẾT GOOGLE LỊCH) -->
+                        <!-- VIEW: NOTE CÁ NHÂN BASIC (LƯU TRỮ & NOTE SANG LỊCH EMAIL TEAMTCCM@GMAIL.COM) -->
             <section id="viewTasks" class="view-section">
                 <!-- Header gọn gàng, tối giản -->
                 <div class="section-header-bar">
@@ -2148,23 +2152,28 @@
                     </button>
                     <div class="text-center flex-1 px-2 min-w-0">
                         <h2 class="view-page-title text-lg sm:text-xl truncate">Note Cá Nhân</h2>
-                        <p class="view-page-subtitle truncate" id="taskSubCount">Lưu trữ ghi chú & Hẹn giờ Google Lịch (teamtccm@gmail.com)</p>
+                        <p class="view-page-subtitle truncate" id="taskSubCount">Kết nối Google Lịch: teamtccm@gmail.com</p>
                     </div>
                     <button onclick="window.open('https://calendar.google.com/calendar/r?authuser=teamtccm@gmail.com&cid=teamtccm@gmail.com', '_blank')" class="w-10 h-10 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 flex items-center justify-center border border-blue-200 transition cursor-pointer shrink-0" title="Mở Google Lịch (teamtccm@gmail.com)">
                         <i class="fa-regular fa-calendar-days text-sm"></i>
                     </button>
                 </div>
 
-                <!-- KHUNG VIẾT NOTE CÁ NHÂN BASIC + HẸN GIỜ GOOGLE LỊCH -->
+                <!-- KHUNG VIẾT NOTE CÁ NHÂN BASIC + NOTE SANG LỊCH EMAIL TEAMTCCM@GMAIL.COM -->
                 <div class="bg-white p-4 rounded-3xl border border-gray-200/90 shadow-sm space-y-2.5 mb-4">
-                    <div class="flex items-center justify-between gap-2">
+                    <div class="flex items-center justify-between gap-2 flex-wrap">
                         <span class="text-xs font-black text-gray-800 flex items-center gap-1.5">
                             <i class="fa-solid fa-pen-to-square text-indigo-600"></i>
                             <span id="tnEditorFormTitle">Viết Note Cá Nhân Mới</span>
                         </span>
-                        <span id="tnNoteSaveIndicator" class="text-[10.5px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
-                            💾 Lưu tự động Offline & PC
-                        </span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[10.5px] font-extrabold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-lg border border-blue-200">
+                                📧 Lịch: teamtccm@gmail.com
+                            </span>
+                            <span id="tnNoteSaveIndicator" class="text-[10.5px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
+                                💾 Tự lưu Offline
+                            </span>
+                        </div>
                     </div>
 
                     <input type="text" id="tnNoteTitleInput" oninput="tnAutoSaveDraftNote()"
@@ -2172,10 +2181,10 @@
                            class="w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl px-3 py-2 text-xs font-extrabold text-gray-900 focus:outline-none">
 
                     <textarea id="tnNoteContentInput" rows="3" oninput="tnAutoSaveDraftNote()"
-                              placeholder="Nhập nội dung Note cá nhân cần lưu trữ..."
+                              placeholder="Nhập nội dung Note cá nhân cần lưu trữ & đẩy sang lịch teamtccm@gmail.com..."
                               class="clean-scroll w-full bg-gray-50 focus:bg-white border border-gray-200 focus:border-indigo-500 rounded-xl p-3 text-xs font-medium text-gray-800 leading-relaxed focus:outline-none"></textarea>
 
-                    <!-- Dòng chọn Ngày & Giờ để Note vào Google Lịch hoặc Hẹn giờ -->
+                    <!-- Dòng chọn Ngày & Giờ để Note vào Google Lịch teamtccm@gmail.com -->
                     <div class="grid grid-cols-2 gap-2 pt-0.5">
                         <div class="flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-xl px-2.5 py-1.5">
                             <i class="fa-regular fa-calendar text-indigo-600 text-xs shrink-0"></i>
@@ -2187,7 +2196,7 @@
                         </div>
                     </div>
 
-                    <!-- 2 Nút bấm chính cực kỳ đơn giản: Lưu Note | Note & Hẹn Giờ Google Lịch -->
+                    <!-- 2 Nút bấm chính cực kỳ đơn giản: Lưu Note | Note Sang Lịch (teamtccm@gmail.com) -->
                     <div class="grid grid-cols-2 gap-2 pt-1">
                         <button type="button" onclick="tnSaveNoteItem(false)"
                                 class="py-2.5 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black cursor-pointer border-0 shadow-sm flex items-center justify-center gap-1.5 transition">
@@ -2196,9 +2205,9 @@
                         </button>
                         <button type="button" onclick="tnSaveNoteItem(true)"
                                 class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-xs font-black cursor-pointer border-0 shadow-sm flex items-center justify-center gap-1.5 transition"
-                                title="Lưu Note và mở thẳng Google Lịch để ghi vào lịch / hẹn giờ báo nhắc">
+                                title="Lưu Note và mở thẳng Google Lịch của teamtccm@gmail.com">
                             <i class="fa-regular fa-calendar-check"></i>
-                            <span>Note & Hẹn Giờ Google Lịch</span>
+                            <span>Note Sang Lịch (teamtccm)</span>
                         </button>
                     </div>
                 </div>
@@ -2347,7 +2356,7 @@
                             </div>
                             <div>
                                 <div class="text-sm font-black">Tool Tự Động Vào Google Meet</div>
-                                <div class="text-[11px] text-emerald-100 font-medium">Tài khoản: <b>tanbanhda@gmail.com</b> · Tự động tắt Mic & Camera khi vào lớp</div>
+                                <div class="text-[11px] text-emerald-100 font-medium">Tài khoản: <b>teamtccm@gmail.com</b> · Tự động tắt Mic & Camera khi vào lớp</div>
                             </div>
                         </div>
                     </div>
@@ -8082,15 +8091,24 @@
             }
         };
 
-        window.syncHeaderForMode = function() {
+        window.syncHeaderForMode = function(activeMode) {
             const titleEl = document.getElementById("appNameDisplay");
             if (titleEl) titleEl.textContent = "STUDY";
+            const noteBtn = document.getElementById("headerTasksNotesBtn");
+            if (noteBtn) {
+                const isNotes = activeMode === "notes" || (document.getElementById("viewTasks") && document.getElementById("viewTasks").classList.contains("active"));
+                if (isNotes) {
+                    noteBtn.className = "h-10 px-3.5 rounded-2xl bg-white text-indigo-700 font-black text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer border-0";
+                } else {
+                    noteBtn.className = "h-10 px-3.5 rounded-2xl bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center gap-1.5 text-white font-extrabold text-xs transition-all cursor-pointer border border-white/20 shadow-xs";
+                }
+            }
         };
 
         window.openStudyMode = function() {
             if (typeof showScreen === "function") showScreen("thuquy");
             if (typeof switchView === "function") switchView("viewDashboard");
-            window.syncHeaderForMode();
+            window.syncHeaderForMode("study");
             const mc = document.getElementById("mainContainer");
             if (mc) mc.scrollTop = 0;
         };
@@ -8123,7 +8141,17 @@
                     viewId = "viewDashboard";
                 }
                 origSwitchView(viewId);
-                window.syncHeaderForMode();
+                window.syncHeaderForMode(viewId === "viewTasks" ? "notes" : "study");
+                if (viewId === "viewOnlineClass") {
+                    setTimeout(() => {
+                        const listEl = document.getElementById("onlineClassList");
+                        if (listEl) {
+                            listEl.innerHTML = listEl.innerHTML
+                                .replace(/tanbanhda@gmail\.com/g, "teamtccm@gmail.com")
+                                .replace(/Tài khoản Tân/g, "Tài khoản teamtccm");
+                        }
+                    }, 30);
+                }
             };
         }
 
@@ -8143,6 +8171,18 @@
             };
         }
 
+        // Gỡ bỏ Service Worker cũ để trình duyệt luôn tải bản STUDY mới nhất
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then(regs => {
+                regs.forEach(r => r.unregister().catch(() => {}));
+            }).catch(() => {});
+        }
+        if ("caches" in window) {
+            caches.keys().then(keys => {
+                keys.forEach(k => caches.delete(k).catch(() => {}));
+            }).catch(() => {});
+        }
+
         window.applySystemBackground("thuquy");
         document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
@@ -8154,17 +8194,15 @@
     </script>
 
 
-    <!-- HỆ THỐNG NOTE CÁ NHÂN BASIC (LIÊN KẾT GOOGLE LỊCH) + CHẠY OFFLINE 100% TRÊN MÁY TÍNH -->
+    <!-- HỆ THỐNG NOTE CÁ NHÂN BASIC (LIÊN KẾT GOOGLE LỊCH TEAMTCCM@GMAIL.COM) -->
     <script>
     (function() {
         const TN_NOTES_KEY = "TCCM_WORK_STUDY_NOTES_V1";
         let tnEditingNoteId = null;
-        let tnEditorPinned = false;
-        let tnDeferredInstallPrompt = null;
 
         const DEFAULT_NOTES = [
             {
-                id: "note_spy_1",
+                id: "note_study_1",
                 title: "Lịch học & Hạn nộp Bài Tập Lớn (ĐH Hải Phòng)",
                 content: "1. Môn Thương Mại Điện Tử: Nộp báo cáo nhóm & Slide thuyết trình\n2. Môn Marketing Số: Hoàn thiện đề tài chiến lược truyền thông\n3. Họp nhóm ôn tập cuối kỳ tại Thư viện ĐH Hải Phòng",
                 date: "",
@@ -8173,7 +8211,7 @@
                 updatedAt: new Date().toISOString()
             },
             {
-                id: "note_dhhp_2",
+                id: "note_study_2",
                 title: "Ghi chú cá nhân & Lịch trình học tập tuần này",
                 content: "- Điểm danh đầy đủ các buổi học trên lớp & Lớp học Online.\n- Chuẩn bị bộ slide thuyết trình nhóm tại giảng đường ĐH Hải Phòng.\n- Hoàn thành đóng quỹ lớp học kỳ này.",
                 date: "",
@@ -8223,16 +8261,7 @@
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ notes: tnNotes })
                     });
-                    if (ind) ind.textContent = "💾 Đã lưu vào Ổ cứng PC";
-                } else {
-                    const res = await fetch(getOfflineApiUrl(), { cache: "no-store" });
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (Array.isArray(data.notes) && data.notes.length > 0 && !localStorage.getItem(TN_NOTES_KEY)) {
-                            tnNotes = data.notes;
-                            localStorage.setItem(TN_NOTES_KEY, JSON.stringify(tnNotes));
-                        }
-                    }
+                    if (ind) ind.textContent = "💾 Đã lưu PC";
                 }
             } catch (e) {
                 if (ind) ind.textContent = "💾 Đã lưu Offline";
@@ -8248,21 +8277,16 @@
             if (bNote) bNote.textContent = String(tnNotes.length);
         }
 
-        // Mở chế độ Note Cá Nhân trực tiếp từ Header hoặc Cài Đặt
         window.openTasksNotesMode = function() {
-            if (typeof dvStopAllAudioPlayers === "function") dvStopAllAudioPlayers();
             if (typeof showScreen === "function") showScreen("thuquy");
-            if (typeof window.syncHeaderForMode === "function") {
-                window.syncHeaderForMode(false, "Note Cá Nhân · Liên kết Google Lịch", "notes");
-            }
             if (typeof switchView === "function") switchView("viewTasks");
             const dateInput = document.getElementById("tnNoteDateInput");
             if (dateInput && !dateInput.value) dateInput.value = getTodayIsoDate();
             tnRenderNotesList();
         };
 
-        // Tạo URL Google Lịch (Google Calendar của teamtccm@gmail.com) điền sẵn nội dung Note & Giờ hẹn
-        function buildGoogleCalendarUrl(title, dateStr, timeStr, detailsStr) {
+        // Tạo URL Google Lịch kết nối trực tiếp email teamtccm@gmail.com
+        window.buildGoogleCalendarUrl = function(title, dateStr, timeStr, detailsStr) {
             const cleanDate = (dateStr || getTodayIsoDate()).replace(/-/g, "");
             const cleanTime = (timeStr || "20:00").replace(":", "");
             const startHour = parseInt(cleanTime.slice(0, 2) || "20", 10);
@@ -8276,12 +8300,13 @@
                 action: "TEMPLATE",
                 text: `[STUDY] ${title}`,
                 dates: `${startIso}/${endIso}`,
-                details: detailsStr || "Note cá nhân từ STUDY",
+                details: detailsStr || "Note cá nhân từ STUDY (Lịch: teamtccm@gmail.com)",
                 src: calAccount,
+                add: calAccount,
                 authuser: calAccount
             });
             return `https://calendar.google.com/calendar/render?${params.toString()}`;
-        }
+        };
 
         window.tnAutoSaveDraftNote = function() {
             const titleEl = document.getElementById("tnNoteTitleInput");
@@ -8353,9 +8378,9 @@
             tnRenderNotesList();
 
             if (openGoogleCalendarAfter) {
-                const gcalUrl = buildGoogleCalendarUrl(finalTitle, dateVal, timeVal, content);
+                const gcalUrl = window.buildGoogleCalendarUrl(finalTitle, dateVal, timeVal, content);
                 window.open(gcalUrl, "_blank");
-                if (typeof showToast === "function") showToast("📅 Đã lưu Note & mở Google Lịch để hẹn giờ!", "success");
+                if (typeof showToast === "function") showToast("📅 Đã lưu Note & mở Google Lịch (teamtccm@gmail.com)!", "success");
             } else {
                 if (typeof showToast === "function") showToast("💾 Đã lưu Note cá nhân!", "success");
             }
@@ -8363,7 +8388,6 @@
 
         window.tnResetNoteEditor = function() {
             tnEditingNoteId = null;
-            tnEditorPinned = false;
             const titleEl = document.getElementById("tnNoteTitleInput");
             const contentEl = document.getElementById("tnNoteContentInput");
             const dateEl = document.getElementById("tnNoteDateInput");
@@ -8421,9 +8445,9 @@
         window.tnNoteToGoogleCalendar = function(noteId) {
             const n = tnNotes.find(x => x.id === noteId);
             if (!n) return;
-            const url = buildGoogleCalendarUrl(n.title || "Note cá nhân", n.date || getTodayIsoDate(), n.time || "20:00", n.content || "");
+            const url = window.buildGoogleCalendarUrl(n.title || "Note cá nhân", n.date || getTodayIsoDate(), n.time || "20:00", n.content || "");
             window.open(url, "_blank");
-            if (typeof showToast === "function") showToast("📅 Đã mở Google Lịch để lưu & hẹn giờ!", "success");
+            if (typeof showToast === "function") showToast("📅 Đã mở Google Lịch (teamtccm@gmail.com)!", "success");
         };
 
         window.tnRenderNotesList = function() {
@@ -8439,7 +8463,7 @@
                     <div class="bg-white rounded-2xl p-6 text-center border border-gray-200/80">
                         <div class="text-2xl mb-1">📝</div>
                         <div class="text-xs font-extrabold text-gray-700">Chưa có Note cá nhân nào</div>
-                        <div class="text-[11px] text-gray-400 mt-0.5">Hãy viết Note ở khung bên trên để lưu trữ hoặc hẹn giờ Google Lịch</div>
+                        <div class="text-[11px] text-gray-400 mt-0.5">Hãy viết Note ở khung bên trên để lưu trữ hoặc hẹn giờ Google Lịch (teamtccm@gmail.com)</div>
                     </div>
                 `;
                 return;
@@ -8459,9 +8483,9 @@
                                 ${n.content ? `<p class="text-[11.5px] text-gray-600 font-medium mt-1 whitespace-pre-line leading-relaxed">${n.content}</p>` : ''}
                             </div>
                             <div class="flex items-center gap-1 shrink-0">
-                                <button onclick="tnNoteToGoogleCalendar('${n.id}')" class="px-2.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-[10.5px] font-black flex items-center gap-1 cursor-pointer" title="Note vào Google Lịch / Hẹn giờ">
+                                <button onclick="tnNoteToGoogleCalendar('${n.id}')" class="px-2.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-[10.5px] font-black flex items-center gap-1 cursor-pointer" title="Note vào Google Lịch (teamtccm@gmail.com)">
                                     <i class="fa-regular fa-calendar-plus"></i>
-                                    <span>Hẹn Lịch</span>
+                                    <span>Hẹn Lịch teamtccm</span>
                                 </button>
                                 <button onclick="tnToggleNotePinById('${n.id}')" class="w-7 h-7 rounded-xl ${n.pinned ? 'bg-amber-500 text-white' : 'bg-gray-100 text-gray-500'} flex items-center justify-center cursor-pointer border-0" title="Ghim lên đầu">
                                     <i class="fa-solid fa-thumbtack text-[10px]"></i>
@@ -8475,7 +8499,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-between pt-1.5 border-t border-gray-100 text-[10.5px] text-gray-400 font-bold">
-                            <span>🕒 Giờ hẹn lịch: ${schedTime} · ${schedDate}</span>
+                            <span>🕒 Giờ hẹn lịch (teamtccm): ${schedTime} · ${schedDate}</span>
                             <span class="text-indigo-500 cursor-pointer" onclick="tnEditNote('${n.id}')">✏️ Chạm để sửa</span>
                         </div>
                     </div>
@@ -8485,68 +8509,10 @@
 
         window.renderTaskList = window.tnRenderNotesList;
 
-        // =====================================================================
-        // PHẦN MỀM MÁY TÍNH (DESKTOP APP) & KẾT NỐI OFFLINE 100%
-        // =====================================================================
-        window.addEventListener("beforeinstallprompt", (e) => {
-            e.preventDefault();
-            tnDeferredInstallPrompt = e;
-        });
-
-        window.openDesktopAppWindow = async function() {
-            if (tnDeferredInstallPrompt) {
-                tnDeferredInstallPrompt.prompt();
-                return;
-            }
-            try {
-                const apiBase = (window.location.port === "8899" || window.location.hostname === "127.0.0.1")
-                    ? ""
-                    : "http://127.0.0.1:8899";
-                const res = await fetch(`${apiBase}/api/open_desktop_app`, { method: "POST" });
-                if (res.ok) {
-                    if (typeof showToast === "function") showToast("🖥️ Đã mở Phần mềm TCCM WORK trực tiếp trên Máy Tính!", "success");
-                    return;
-                }
-            } catch (e) {}
-            if (typeof showToast === "function") {
-                showToast("💡 Đã tạo biểu tượng 'TCCM WORK' ngoài Màn hình Desktop máy tính của bạn!", "info");
-            }
-        };
-
-        function enableSingleRowWheelScroll() {
-            document.addEventListener("wheel", function(e) {
-                const bar = e.target.closest(".overflow-x-auto.flex-nowrap");
-                if (bar && bar.scrollWidth > bar.clientWidth && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                    bar.scrollLeft += e.deltaY;
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        }
-
-        if ("caches" in window) {
-            caches.keys().then(keys => {
-                keys.forEach(k => {
-                    if (k !== "tccm-work-offline-v12") {
-                        caches.delete(k).catch(() => {});
-                    }
-                });
-            }).catch(() => {});
-        }
-        if ("serviceWorker" in navigator && (window.location.protocol === "http:" || window.location.protocol === "https:")) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("sw.js?v=12").then(reg => {
-                    try { reg.update(); } catch (e) {}
-                }).catch(() => {});
-            });
-        }
-
         document.addEventListener("DOMContentLoaded", () => {
-            enableSingleRowWheelScroll();
             const dateInput = document.getElementById("tnNoteDateInput");
             if (dateInput && !dateInput.value) dateInput.value = getTodayIsoDate();
-            syncWithPcOfflineDb(false).then(() => {
-                tnRenderNotesList();
-            });
+            tnRenderNotesList();
         });
     })();
     </script>
