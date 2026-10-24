@@ -1965,13 +1965,13 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <button id="headerWorkoutBtn" onclick="openWorkoutDirect()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Tập Thể Thao (4 Nhóm Cơ GIF)">
-                        <i class="fa-solid fa-dumbbell text-base text-emerald-300"></i>
+                        <i class="fa-solid fa-dumbbell text-base text-white"></i>
                     </button>
                     <button id="headerModeSwitchBtn" onclick="openDiepVienMode('DASHBOARD')" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Chuyển sang Chế Độ Điệp Viên">
-                        <i class="fa-solid fa-user-secret text-lg text-amber-300"></i>
+                        <i class="fa-solid fa-user-secret text-lg text-white"></i>
                     </button>
                     <button onclick="promptAdminThenSettings()" class="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-sm flex items-center justify-center text-white transition-all cursor-pointer border border-white/10" title="Cài đặt Admin">
-                        <i class="fa-solid fa-gear text-lg"></i>
+                        <i class="fa-solid fa-gear text-lg text-white"></i>
                     </button>
                 </div>
             </header>
@@ -2294,14 +2294,15 @@
 
             <!-- VIEW: LỚP HỌC ONLINE -->
             <section id="viewOnlineClass" class="view-section">
-                <div class="section-header-bar" style="position:relative;">
-                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại" style="position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:2;">
+                <div class="section-header-bar">
+                    <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="flex-1 text-center">
+                    <div class="flex-1 text-center px-2">
                         <h2 class="view-page-title">Lớp Học Online Hôm Nay</h2>
                         <p class="view-page-subtitle">Tham gia buổi học qua Google Meet</p>
                     </div>
+                    <div class="w-11 shrink-0"></div>
                 </div>
 
                 <!-- Thông tin ngày -->
@@ -2350,7 +2351,7 @@
                     <button onclick="switchView('viewDashboard')" class="back-btn" title="Quay lại">
                         <i class="fa-solid fa-chevron-left text-sm"></i>
                     </button>
-                    <div class="text-center flex-1 px-12">
+                    <div class="text-center flex-1 px-2">
                         <h2 class="view-page-title text-lg sm:text-xl">Đồ Ăn ĐH Hải Phòng</h2>
                         <p class="view-page-subtitle">171 Phan Đăng Lưu · Kiến An</p>
                     </div>
@@ -2409,22 +2410,24 @@
                                class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-2xl text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs">
                     </div>
 
-                    <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs">
-                        <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-orange-300/40">
-                            🌟 Tất cả (8)
-                        </button>
-                        <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🦀 Đặc Sản Hải Phòng
-                        </button>
-                        <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🍚 Cơm & Bún Phở
-                        </button>
-                        <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🧋 Trà Sữa & Dừa Dầm
-                        </button>
-                        <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
-                            🥖 Bánh Mì & Ăn Vặt
-                        </button>
+                    <div class="bg-white p-2 rounded-2xl border border-gray-200 shadow-xs">
+                        <div class="flex flex-wrap items-center justify-center gap-1.5 text-xs">
+                            <button onclick="setFoodCategory('all')" data-cat="all" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0">
+                                🌟 Tất cả (8)
+                            </button>
+                            <button onclick="setFoodCategory('hp_specialty')" data-cat="hp_specialty" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                                🦀 Đặc Sản Hải Phòng
+                            </button>
+                            <button onclick="setFoodCategory('rice_noodle')" data-cat="rice_noodle" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                                🍚 Cơm & Bún Phở
+                            </button>
+                            <button onclick="setFoodCategory('snack_tea')" data-cat="snack_tea" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                                🧋 Trà Sữa & Dừa Dầm
+                            </button>
+                            <button onclick="setFoodCategory('bread_fastfood')" data-cat="bread_fastfood" class="food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400">
+                                🥖 Bánh Mì & Ăn Vặt
+                            </button>
+                        </div>
                     </div>
 
                     <div class="flex justify-between items-center px-1 text-[11px] font-bold text-gray-500">
@@ -2458,22 +2461,22 @@
                     <div class="w-10"></div>
                 </div>
 
-                <!-- TABS LỌC NHÓM CƠ -->
-                <div class="sticky top-0 z-20 bg-gray-50/95 backdrop-blur-md -mx-5 px-5 py-2 mb-4 border-b border-gray-200/60">
-                    <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-                        <button onclick="filterGymCategory('all')" data-cat="all" class="gym-cat-btn whitespace-nowrap px-4 py-2 rounded-2xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-300/40 scale-105">
+                <!-- TABS LỌC NHÓM CƠ (GỌN GÀNG TRONG KHUNG, KHÔNG TRÀN VIỀN) -->
+                <div class="bg-white p-2.5 rounded-2xl border border-gray-200 shadow-xs mb-4">
+                    <div class="flex flex-wrap items-center justify-center gap-2">
+                        <button onclick="filterGymCategory('all')" data-cat="all" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0">
                             🌟 Tất cả (4 nhóm)
                         </button>
-                        <button onclick="filterGymCategory('nguc')" data-cat="nguc" class="gym-cat-btn whitespace-nowrap px-4 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('nguc')" data-cat="nguc" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             💥 Cơ Ngực
                         </button>
-                        <button onclick="filterGymCategory('vai')" data-cat="vai" class="gym-cat-btn whitespace-nowrap px-4 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('vai')" data-cat="vai" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             ⚡ Cơ Vai
                         </button>
-                        <button onclick="filterGymCategory('tay_sau')" data-cat="tay_sau" class="gym-cat-btn whitespace-nowrap px-4 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('tay_sau')" data-cat="tay_sau" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             🦾 Cơ Tay Sau
                         </button>
-                        <button onclick="filterGymCategory('lung')" data-cat="lung" class="gym-cat-btn whitespace-nowrap px-4 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
+                        <button onclick="filterGymCategory('lung')" data-cat="lung" class="gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400">
                             🛡️ Cơ Lưng / Xô
                         </button>
                     </div>
@@ -2531,7 +2534,7 @@
                         </div>
 
                         <!-- Hàng Category & Folder Chips cho SFX (Bao gồm Yêu Thích & 5 Thư mục) -->
-                        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 mb-3.5 no-scrollbar text-xs">
+                        <div class="flex flex-wrap items-center gap-1.5 mb-3.5 text-xs">
                             <button onclick="filterSFXCategory('all')" class="sfx-cat-chip active px-3 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm" data-cat="all">
                                 🌐 Tất cả (21)
                             </button>
@@ -2622,7 +2625,7 @@
                         </div>
 
                         <!-- Hàng Category Chips cho Nhạc Nền (Phân loại 7 Thể Loại TikTok Chuẩn) -->
-                        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 mb-3.5 no-scrollbar text-xs">
+                        <div class="flex flex-wrap items-center gap-1.5 mb-3.5 text-xs">
                             <button onclick="filterSbCategory('ALL')" class="bgm-cat-chip active px-3 py-1.5 rounded-xl font-bold bg-cyan-500 text-white border border-cyan-400 shrink-0 transition cursor-pointer shadow-sm" data-cat="ALL">
                                 🌐 Tất cả (119)
                             </button>
@@ -7801,9 +7804,9 @@
         document.querySelectorAll(".food-cat-btn").forEach(btn => {
             const c = btn.getAttribute("data-cat");
             if (c === cat) {
-                btn.className = "food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-orange-300/40";
+                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm border-0";
             } else {
-                btn.className = "food-cat-btn whitespace-nowrap px-3.5 py-2 rounded-2xl font-bold text-xs bg-white text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
+                btn.className = "food-cat-btn whitespace-nowrap px-3 py-1.5 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-amber-400";
             }
         });
         renderFoodGoogleMap();
@@ -8263,6 +8266,24 @@
 
     <!-- HỆ THỐNG ĐIỀU KHIỂN 9 TOOL CHẾ ĐỘ ĐIỆP VIÊN (TÍCH HỢP TRỰC TIẾP TRÊN TEAMTCCM/WORK) -->
     <style>
+        /* KHỬ HOÀN TOÀN VIỀN OUTSET MẶC ĐỊNH CỦA TRÌNH DUYỆT DO PREFLIGHT: FALSE */
+        :where(#thuquyScreen *, #thuquyScreen ::before, #thuquyScreen ::after, #sbBottomStyleBar *, #sbFloatingPlayer *) {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb;
+        }
+        :where(#thuquyScreen button, #sbBottomStyleBar button, #sbFloatingPlayer button) {
+            background-color: transparent;
+            background-image: none;
+        }
+
+        /* TOÀN BỘ ICON TRÊN HEADER MÀU TRẮNG ĐỒNG BỘ 100% */
+        #thuquyScreen header button i,
+        #headerLeftLogoIcon {
+            color: #ffffff !important;
+        }
+
         /* ĐỒNG BỘ FONT TIẾNG VIỆT TOÀN HỆ THỐNG — KHÔNG LỖI DẤU TRÊN MỌI Ô NHẬP & NÚT BẤM */
         body, button, input, textarea, select, option, code, pre, .font-sans, .font-mono,
         #thuquyScreen, #thuquyScreen input, #thuquyScreen select, #thuquyScreen textarea, #thuquyScreen button,
@@ -8302,6 +8323,25 @@
             align-items: center !important;
             justify-content: center !important;
             flex-shrink: 0 !important;
+        }
+        /* KHỬ LỖI HỘP GLOW BỊ CẮT VUÔNG & ẨN THANH TRƯỢT DƯ THỪA Ở ĐÁY SOUNDBOARD (VÌ ĐÃ CÓ BỘ LỌC BỌC GỌN Ở TRÊN) */
+        .sb-cat-tab,
+        .sb-cat-tab:hover,
+        .sb-cat-tab.active,
+        .sb-cat-tab[data-cat].active {
+            box-shadow: none !important;
+            transform: none !important;
+        }
+        #sbBottomStyleBar {
+            display: none !important;
+        }
+        #appCardWrapper > #sbFloatingPlayer {
+            position: absolute !important;
+            bottom: 14px !important;
+            left: 20px !important;
+            right: 20px !important;
+            max-width: none !important;
+            z-index: 40 !important;
         }
         textarea.clean-scroll {
             resize: none;
@@ -8405,12 +8445,12 @@
 
             if (isDiepVien) {
                 if (leftLogoIcon) {
-                    leftLogoIcon.className = "fa-solid fa-user-secret text-2xl text-amber-300";
+                    leftLogoIcon.className = "fa-solid fa-user-secret text-2xl text-white";
                 }
                 if (titleEl) titleEl.textContent = "Chế Độ Điệp Viên";
                 if (subEl) subEl.textContent = "Quản lý & điều khiển 9 hệ thống Tool thông minh";
                 if (modeSwitchBtn) {
-                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-calendar-check text-lg text-cyan-300"></i>`;
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-calendar-check text-lg text-white"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "selectGameMode('thuquy')");
                     modeSwitchBtn.setAttribute("title", "Chuyển về Quản Lý Lớp");
                 }
@@ -8421,12 +8461,45 @@
                 if (titleEl) titleEl.textContent = "Quản Lý Lớp";
                 if (subEl) subEl.textContent = "Hệ thống quản lý lớp & tiện ích sinh viên thông minh";
                 if (modeSwitchBtn) {
-                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-lg text-amber-300"></i>`;
+                    modeSwitchBtn.innerHTML = `<i class="fa-solid fa-user-secret text-lg text-white"></i>`;
                     modeSwitchBtn.setAttribute("onclick", "openDiepVienMode('DASHBOARD')");
                     modeSwitchBtn.setAttribute("title", "Chuyển sang Chế Độ Điệp Viên");
                 }
             }
         }
+
+        // Ghi đè filterGymCategory để nút lọc bài tập gọn, không bị tràn viền hay cắt bóng
+        window.filterGymCategory = function(cat) {
+            if (typeof currentGymCategory !== "undefined") {
+                currentGymCategory = cat;
+            }
+            document.querySelectorAll(".gym-cat-btn").forEach(btn => {
+                const btnCat = btn.getAttribute("data-cat");
+                if (btnCat === cat) {
+                    btn.className = "gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-black text-xs transition-all cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm border-0";
+                } else {
+                    btn.className = "gym-cat-btn whitespace-nowrap px-3.5 py-2 rounded-xl font-bold text-xs bg-gray-50 text-gray-700 border border-gray-200 transition-all cursor-pointer hover:border-indigo-400";
+                }
+            });
+            if (typeof renderGymWorkout === "function") {
+                renderGymWorkout();
+            }
+        };
+
+        // Đưa #sbBottomStyleBar và #sbFloatingPlayer vào bên trong #appCardWrapper để căn vừa khít 100% khung thẻ, không bao giờ lấn ra ngoài
+        function mountSoundboardBarsInsideCard() {
+            const card = document.getElementById("appCardWrapper");
+            const btmBar = document.getElementById("sbBottomStyleBar");
+            const fltPlayer = document.getElementById("sbFloatingPlayer");
+            if (card && btmBar && btmBar.parentElement !== card) {
+                card.appendChild(btmBar);
+            }
+            if (card && fltPlayer && fltPlayer.parentElement !== card) {
+                card.appendChild(fltPlayer);
+            }
+        }
+        mountSoundboardBarsInsideCard();
+        document.addEventListener("DOMContentLoaded", mountSoundboardBarsInsideCard);
 
         window.handleHeaderBrandClick = function() {
             if (dvIsActiveMode) {
@@ -9184,7 +9257,7 @@
                     </button>
                     <div class="text-center flex-1 px-2 min-w-0">
                         <h2 class="view-page-title truncate">${pageTitle}</h2>
-                        <p class="view-page-subtitle truncate max-w-[260px] mx-auto">${cfg.subtitle || ''}</p>
+                        <p class="view-page-subtitle truncate mx-auto">${cfg.subtitle || ''}</p>
                     </div>
                     ${headerRightCtrl}
                 </div>
