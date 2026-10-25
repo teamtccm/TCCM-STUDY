@@ -38,13 +38,13 @@
         </dict>
     </array>
     <key>PayloadDescription</key>
-    <string>Hồ sơ cài đặt vĩnh viễn App TCCM WORK lên màn hình chính iPhone / iPad. Mở toàn màn hình độc lập như ứng dụng gốc và tự động đồng bộ mọi bản cập nhật mới từ máy tính chủ.</string>
+    <string>Hồ sơ cài đặt vĩnh viễn ứng dụng TCCM WORK lên màn hình chính iPhone / iPad. Mở toàn màn hình độc lập như ứng dụng gốc và tự động đồng bộ mọi bản cập nhật mới từ máy tính chủ.</string>
     <key>PayloadDisplayName</key>
-    <string>TCCM WORK (App Điều Khiển Từ Xa Vĩnh Viễn)</string>
+    <string>TCCM WORK (Ứng Dụng Điều Khiển Từ Xa Vĩnh Viễn)</string>
     <key>PayloadIdentifier</key>
     <string>com.teamtccm.work.profile.global.permanent</string>
     <key>PayloadOrganization</key>
-    <string>TCCM WORK Center</string>
+    <string>TCCM WORK</string>
     <key>PayloadRemovalDisallowed</key>
     <false/>
     <key>PayloadType</key>

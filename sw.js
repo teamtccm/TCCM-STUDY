@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tccm-work-pwa-v102';
+const CACHE_NAME = 'tccm-work-pwa-v103';
 self.addEventListener('install', event => { self.skipWaiting(); });
 self.addEventListener('activate', event => {
     event.waitUntil(
