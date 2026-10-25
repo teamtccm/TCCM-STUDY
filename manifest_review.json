@@ -1,12 +1,12 @@
 {
   "name": "Điệp Viên Review",
   "short_name": "ĐV Review",
-  "description": "Ứng dụng Điệp Viên Review độc lập — Điều khiển Antigravity & Sản xuất Video Review Phim",
+  "description": "Ứng dụng Điệp Viên Review độc lập",
   "start_url": "./review.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#090d16",
-  "theme_color": "#b91c1c",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
   "icons": [
     {
       "src": "diep_vien_review_app_icon.png",
